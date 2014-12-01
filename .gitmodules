@@ -61,3 +61,6 @@
 [submodule ".vim/bundle/vim-licenses"]
 	path = .vim/bundle/vim-licenses
 	url = https://github.com/antoyo/vim-licenses.git
+[submodule ".vim/bundle/vim-argwrap"]
+	path = .vim/bundle/vim-argwrap
+	url = https://github.com/FooSoft/vim-argwrap.git
