@@ -5,6 +5,7 @@ let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_MultipleCompileFormats='pdf, aux'
 let g:licenses_authors_name = 'Alex Yatskov <alex@foosoft.net>'
 let g:table_mode_corner='|'
+let g:syntastic_python_checkers=['pyflakes']
 let mapleader=','
 
 call pathogen#infect()
