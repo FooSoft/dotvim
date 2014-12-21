@@ -53,11 +53,10 @@ set wildmenu
 set wrapmargin=1
 
 nnoremap <silent> <C-h> :bnext<CR>
-nnoremap <silent> <C-l> :bprev<CR>
-nnoremap <silent> <Leader>h :noh<CR>
+nnoremap <silent> <C-l> :bprevious<CR>
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 nnoremap <silent> <Leader>w gqip
-nnoremap <silent> <leader>g :call argwrap#toggle()<CR>
-nnoremap <silent> <leader>s :source %<CR>
+nnoremap <silent> <leader>wa :call argwrap#toggle()<CR>
 nnoremap Q <Nop>
 
 vmap <Enter> <Plug>(EasyAlign)
