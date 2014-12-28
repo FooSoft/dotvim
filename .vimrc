@@ -1,19 +1,19 @@
 set runtimepath+=~/.vim
+
 runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect()
+call pathogen#helptags()
 
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_MultipleCompileFormats='pdf, aux'
 let g:licenses_authors_name = 'Alex Yatskov <alex@foosoft.net>'
 let g:table_mode_corner='|'
 let g:syntastic_python_checkers=['pyflakes']
-let mapleader=','
-
-call pathogen#infect()
-call pathogen#helptags()
+let g:mapleader=','
 
 colorscheme wombat256
 filetype indent plugin on
-syntax on
+syntax enable
 
 augroup general
     autocmd!
@@ -52,16 +52,6 @@ set tabstop=4
 set wildmenu
 set wrapmargin=1
 
-nnoremap <silent> <C-h> :bnext<CR>
-nnoremap <silent> <C-l> :bprevious<CR>
-nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
-nnoremap <silent> <Leader>w gqip
-nnoremap <silent> <leader>wa :call argwrap#toggle()<CR>
-nnoremap Q <Nop>
-
-vmap <Enter> <Plug>(EasyAlign)
-nmap <Leader>a <Plug>(EasyAlign)
-
 if has('gui_running')
     set columns=150
     set cursorline
@@ -77,3 +67,13 @@ endif
 if $SHELL=~'bin/fish'
     set shell=/bin/sh
 endif
+
+nnoremap <silent> <C-h> :bnext<CR>
+nnoremap <silent> <C-l> :bprevious<CR>
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
+nnoremap <silent> <Leader>w gqip
+nnoremap <silent> <leader>wa :call argwrap#toggle()<CR>
+nnoremap Q <Nop>
+
+vmap <Enter> <Plug>(EasyAlign)
+nmap <Leader>a <Plug>(EasyAlign)
