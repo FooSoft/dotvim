@@ -64,3 +64,6 @@
 [submodule ".vim/bundle/vim-argwrap"]
 	path = .vim/bundle/vim-argwrap
 	url = https://github.com/FooSoft/vim-argwrap.git
+[submodule ".vim/bundle/vim-markdown"]
+	path = .vim/bundle/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown.git
