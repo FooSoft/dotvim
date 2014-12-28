@@ -71,8 +71,7 @@ endif
 nnoremap <silent> <C-h> :bnext<CR>
 nnoremap <silent> <C-l> :bprevious<CR>
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
-nnoremap <silent> <Leader>w gqip
-nnoremap <silent> <leader>wa :call argwrap#toggle()<CR>
+nnoremap <silent> <leader>w :call argwrap#toggle()<CR>
 nnoremap Q <Nop>
 
 vmap <Enter> <Plug>(EasyAlign)
