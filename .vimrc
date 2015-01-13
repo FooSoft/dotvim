@@ -72,7 +72,7 @@ nnoremap <silent> <C-h> :bnext<CR>
 nnoremap <silent> <C-l> :bprevious<CR>
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 nnoremap <silent> <leader>w :call argwrap#toggle()<CR>
-inoremap <silent> // <Esc>
+inoremap <silent> ;; <Esc>
 nnoremap Q <Nop>
 
 vmap <Enter> <Plug>(EasyAlign)
