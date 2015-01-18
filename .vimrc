@@ -80,17 +80,9 @@ nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 inoremap <silent> '' <Esc>
 nnoremap Q <Nop>
 
-" CamelCaseMotion
-map <silent> w <Plug>CamelCaseMotion_w
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> e <Plug>CamelCaseMotion_e
-sunmap w
-sunmap b
-sunmap e
-
 " vim-easy-align
 vmap <Enter> <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
 
 " vim-arg-wrap
-nnoremap <silent> <leader>w :call argwrap#toggle()<CR>
+nnoremap <silent> <leader>a :call argwrap#toggle()<CR>
