@@ -1,12 +1,18 @@
 set runtimepath+=~/.vim
 
+" vim-pathogen
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
+" vim-latex
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_MultipleCompileFormats='pdf, aux'
+
+" vim-licenses
 let g:licenses_authors_name = 'Alex Yatskov <alex@foosoft.net>'
+
+" vim-table-mode
 let g:table_mode_corner='|'
 let g:syntastic_python_checkers=['pyflakes']
 let g:mapleader=','
@@ -71,9 +77,20 @@ endif
 nnoremap <silent> <C-h> :bnext<CR>
 nnoremap <silent> <C-l> :bprevious<CR>
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
-nnoremap <silent> <leader>w :call argwrap#toggle()<CR>
 inoremap <silent> '' <Esc>
 nnoremap Q <Nop>
 
+" CamelCaseMotion
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+sunmap w
+sunmap b
+sunmap e
+
+" vim-easy-align
 vmap <Enter> <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
+
+" vim-arg-wrap
+nnoremap <silent> <leader>w :call argwrap#toggle()<CR>
