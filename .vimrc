@@ -10,7 +10,7 @@ let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_MultipleCompileFormats='pdf, aux'
 
 " vim-licenses
-let g:licenses_authors_name = 'Alex Yatskov <alex@foosoft.net>'
+let g:licenses_authors_name='Alex Yatskov <alex@foosoft.net>'
 
 " vim-table-mode
 let g:table_mode_corner='|'
