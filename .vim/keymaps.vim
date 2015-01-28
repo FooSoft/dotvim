@@ -10,4 +10,4 @@ nnoremap <silent> Q          <Nop>
 nnoremap <silent> <leader>a :call argwrap#toggle()<CR>
 
 " vim-easy-align
-vmap <Enter> <Plug>(EasyAlign)
+vmap <CR> <Plug>(EasyAlign)
