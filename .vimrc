@@ -17,6 +17,9 @@ let g:table_mode_corner='|'
 let g:syntastic_python_checkers=['pyflakes']
 let g:mapleader=','
 
+" vim-argwrap
+let g:argwrap_padded_braces='{'
+
 colorscheme wombat256
 filetype indent plugin on
 syntax enable
@@ -77,7 +80,6 @@ endif
 nnoremap <silent> <C-h> :bnext<CR>
 nnoremap <silent> <C-l> :bprevious<CR>
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
-inoremap <silent> '' <Esc>
 nnoremap Q <Nop>
 
 " vim-easy-align
