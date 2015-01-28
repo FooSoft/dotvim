@@ -1,9 +1,6 @@
 set runtimepath+=~/.vim
 
-" vim-pathogen
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-call pathogen#helptags()
+runtime plugins.vim
 
 " vim-latex
 let g:Tex_DefaultTargetFormat='pdf'
