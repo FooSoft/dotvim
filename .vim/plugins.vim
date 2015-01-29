@@ -32,6 +32,9 @@ call plug#end()
 " syntastic
 let g:syntastic_python_checkers = ['pyflakes']
 
+" vim-airline
+let g:airline#extensions#tabline#enabled = 1
+
 " vim-argwrap
 let g:argwrap_padded_braces = '{'
 
