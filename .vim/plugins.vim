@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'https://github.com/FooSoft/vim-argwrap.git'
 Plug 'https://github.com/Lokaltog/vim-easymotion.git'
+Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'https://github.com/antoyo/vim-licenses.git'
 Plug 'https://github.com/bkad/CamelCaseMotion'
 Plug 'https://github.com/bling/vim-airline.git'
