@@ -1,6 +1,5 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'git://git.code.sf.net/p/vim-latex/vim-latex'
 Plug 'https://github.com/FooSoft/vim-argwrap.git'
 Plug 'https://github.com/Lokaltog/vim-easymotion.git'
 Plug 'https://github.com/antoyo/vim-licenses.git'
@@ -24,6 +23,7 @@ Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/tpope/vim-repeat'
 Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/tpope/vim-unimpaired.git'
+Plug 'https://github.com/vim-latex/vim-latex.git'
 
 call plug#end()
 
