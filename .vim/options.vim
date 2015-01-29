@@ -40,6 +40,7 @@ set wrapmargin=1
 if has('gui_running')
     set columns=150
     set cursorline
+    set guifont=Terminus\ 12
     set guioptions-=L
     set guioptions-=R
     set guioptions-=T
