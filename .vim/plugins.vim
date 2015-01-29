@@ -21,6 +21,7 @@ Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/tpope/vim-eunuch.git'
 Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/tpope/vim-repeat'
+Plug 'https://github.com/tpope/vim-speeddating.git'
 Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/tpope/vim-unimpaired.git'
 Plug 'https://github.com/vim-latex/vim-latex.git'
@@ -28,17 +29,17 @@ Plug 'https://github.com/vim-latex/vim-latex.git'
 call plug#end()
 
 " syntastic
-let g:syntastic_python_checkers  = ['pyflakes']
+let g:syntastic_python_checkers = ['pyflakes']
 
 " vim-argwrap
-let g:argwrap_padded_braces      = '{'
+let g:argwrap_padded_braces = '{'
 
 " vim-latex
 let g:Tex_DefaultTargetFormat    = 'pdf'
 let g:Tex_MultipleCompileFormats = 'pdf, aux'
 
 " vim-licenses
-let g:licenses_authors_name      = 'Alex Yatskov <alex@foosoft.net>'
+let g:licenses_authors_name = 'Alex Yatskov <alex@foosoft.net>'
 
 " vim-table-mode
-let g:table_mode_corner          = '|'
+let g:table_mode_corner = '|'
