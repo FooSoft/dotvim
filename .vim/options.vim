@@ -27,7 +27,6 @@ set nofoldenable
 set noswapfile
 set nowrap
 set number
-set path=$VIMPATH
 set scrolloff=5
 set shiftwidth=4
 set shortmess+=I
