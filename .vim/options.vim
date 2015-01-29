@@ -1,5 +1,5 @@
 filetype indent plugin on
-colorscheme wombat256
+colorscheme molokai
 syntax enable
 
 set nocompatible
