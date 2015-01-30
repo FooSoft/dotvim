@@ -25,6 +25,7 @@ set scrolloff=5
 set shiftwidth=4
 set shortmess+=I
 set smartcase
+set smartcase
 set smarttab
 set tabstop=4
 set wildmenu
