@@ -9,9 +9,7 @@ set backspace=indent,eol,start
 set encoding=utf-8
 set expandtab
 set fileformats=unix,dos,mac
-set hidden
 set hlsearch
-set ignorecase
 set incsearch
 set laststatus=2
 set linebreak
@@ -45,6 +43,6 @@ if has('gui_running')
     set lines=50
 endif
 
-if $SHELL =~ 'bin/fish'
+if &shell =~ 'bin/fish'
     set shell=/bin/sh
 endif
