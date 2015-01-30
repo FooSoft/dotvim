@@ -9,7 +9,9 @@ set backspace=indent,eol,start
 set encoding=utf-8
 set expandtab
 set fileformats=unix,dos,mac
+set hidden
 set hlsearch
+set ignorecase
 set incsearch
 set laststatus=2
 set linebreak
