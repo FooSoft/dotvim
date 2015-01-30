@@ -38,6 +38,10 @@ let g:airline#extensions#tabline#enabled = 1
 " vim-argwrap
 let g:argwrap_padded_braces = '{'
 
+" vim-betterwhitespace
+let g:better_whitespace_enabled = 0
+let g:strip_whitespace_on_save  = 1
+
 " vim-latex
 let g:Tex_DefaultTargetFormat    = 'pdf'
 let g:Tex_MultipleCompileFormats = 'pdf, aux'
