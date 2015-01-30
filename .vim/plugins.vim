@@ -29,6 +29,9 @@ Plug 'https://github.com/vim-latex/vim-latex.git'
 
 call plug#end()
 
+" ctrlp.vim
+let g:ctrlp_cmd = 'CtrlPMixed'
+
 " syntastic
 let g:syntastic_python_checkers = ['pyflakes']
 
