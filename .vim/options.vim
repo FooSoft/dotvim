@@ -2,8 +2,6 @@ filetype indent plugin on
 colorscheme molokai
 syntax enable
 
-set nocompatible
-
 set autochdir
 set autoread
 set autowrite
@@ -11,9 +9,6 @@ set backspace=indent,eol,start
 set encoding=utf-8
 set expandtab
 set fileformats=unix,dos,mac
-set formatoptions-=c
-set formatoptions-=o
-set formatoptions-=r
 set hidden
 set hlsearch
 set ignorecase
@@ -23,6 +18,7 @@ set linebreak
 set mouse=nvi
 set mousemodel=popup
 set nobackup
+set nocompatible
 set nofoldenable
 set noswapfile
 set nowrap
