@@ -1,11 +1,12 @@
 let mapleader = ','
 
 " core
-nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
+nnoremap <silent> <Esc><Esc> :nohlsearch<Cr>
+nnoremap <silent> <Bs>       :bd<Cr>
 nnoremap <silent> Q          <Nop>
 
 " vim-argwrap
-nnoremap <silent> <leader>a :ArgWrap<CR>
+nnoremap <silent> <leader>a :ArgWrap<Cr>
 
 " vim-easy-align
-vmap <CR> <Plug>(EasyAlign)
+vmap <Cr> <Plug>(EasyAlign)
