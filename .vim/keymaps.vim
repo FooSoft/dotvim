@@ -6,7 +6,7 @@ nnoremap <silent> <Bs>       :bd<Cr>
 nnoremap <silent> Q          <Nop>
 
 " nerdtree
-nnoremap <silent> <leader>t :NERDTree<Cr>
+nnoremap <silent> <leader>t :NERDTreeToggle<Cr>
 
 " vim-argwrap
 nnoremap <silent> <leader>a :ArgWrap<Cr>
