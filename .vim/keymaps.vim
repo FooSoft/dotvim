@@ -4,6 +4,9 @@ let mapleader = ','
 nnoremap <silent> <Esc><Esc> :nohlsearch<Cr>
 nnoremap <silent> <Bs>       :bd<Cr>
 nnoremap <silent> Q          <Nop>
+nnoremap <silent> ;          :
+nnoremap <silent> j          gj
+nnoremap <silent> k          gk
 
 " nerdtree
 nnoremap <silent> <leader>t :NERDTreeToggle<Cr>
