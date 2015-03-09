@@ -3,7 +3,7 @@ let mapleader = ','
 " core
 nnoremap <silent> <Bs>       :bd<Cr>
 nnoremap <silent> <Esc><Esc> :nohlsearch<Cr>
-nnoremap <silent> <leader>n  :set relativenumber!
+nnoremap <silent> <leader>n  :set relativenumber!<Cr>
 nnoremap <silent> Q          <Nop>
 nnoremap <silent> j          gj
 nnoremap <silent> k          gk
