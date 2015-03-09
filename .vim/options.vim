@@ -1,3 +1,5 @@
+set nocompatible
+
 filetype indent plugin on
 colorscheme molokai
 syntax enable
@@ -18,11 +20,11 @@ set linebreak
 set mouse=nvi
 set mousemodel=popup
 set nobackup
-set nocompatible
 set nofoldenable
 set noswapfile
 set nowrap
 set number
+set relativenumber
 set scrolloff=5
 set shiftwidth=4
 set shortmess+=I

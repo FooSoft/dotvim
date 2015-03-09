@@ -39,10 +39,6 @@ let g:syntastic_python_checkers = ['pyflakes']
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
 
-" vim-betterwhitespace
-let g:better_whitespace_enabled = 0
-let g:strip_whitespace_on_save  = 1
-
 " vim-latex
 let g:Tex_DefaultTargetFormat    = 'pdf'
 let g:Tex_MultipleCompileFormats = 'pdf, aux'
