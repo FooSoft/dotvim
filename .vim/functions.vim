@@ -1,3 +1,5 @@
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 function! s:unalign() range
     for l:line in range(a:firstline, a:lastline)
         let l:text = getline(l:line)
