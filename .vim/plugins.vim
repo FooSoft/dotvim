@@ -29,7 +29,7 @@ Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/tpope/vim-unimpaired.git'
 Plug 'https://github.com/vim-latex/vim-latex.git'
 
-if has('linux')
+if has('unix')
     Plug 'https://github.com/Valloric/YouCompleteMe.git', { 'do': './install.sh --clang-completer' }
     Plug 'https://github.com/marijnh/tern_for_vim', { 'do': 'npm install' }
 endif
