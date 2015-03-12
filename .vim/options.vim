@@ -8,6 +8,7 @@ set autochdir
 set autoread
 set autowrite
 set backspace=indent,eol,start
+set completeopt-=preview
 set encoding=utf-8
 set expandtab
 set fileformats=unix,dos,mac
