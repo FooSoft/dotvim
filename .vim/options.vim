@@ -38,7 +38,6 @@ set wrapmargin=1
 if has('gui_running')
     set columns=150
     set cursorline
-    set guifont=Terminus\ 12
     set guioptions-=L
     set guioptions-=R
     set guioptions-=T
@@ -46,6 +45,10 @@ if has('gui_running')
     set guioptions-=m
     set guioptions-=r
     set lines=50
+
+    if has('unix')
+        set guifont=Terminus\ 12
+    endif
 endif
 
 if &shell =~ 'bin/fish'
