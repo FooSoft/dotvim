@@ -13,6 +13,7 @@ set encoding=utf-8
 set expandtab
 set fileformats=unix,dos,mac
 set hidden
+set history=1000
 set hlsearch
 set ignorecase
 set incsearch
@@ -24,6 +25,7 @@ set nobackup
 set nofoldenable
 set noswapfile
 set nowrap
+set nrformats-=octal
 set number
 set relativenumber
 set scrolloff=5
