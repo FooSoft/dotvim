@@ -43,6 +43,7 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 
 " syntastic
 let g:syntastic_python_checkers = ['pyflakes']
+let g:syntastic_always_populate_loc_list = 1
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
