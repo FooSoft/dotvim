@@ -30,6 +30,7 @@ Plug 'https://github.com/tpope/vim-repeat'
 Plug 'https://github.com/tpope/vim-speeddating.git'
 Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/tpope/vim-unimpaired.git'
+Plug 'https://github.com/tyru/open-browser.vim.git'
 Plug 'https://github.com/vim-latex/vim-latex.git'
 
 if has('unix')
@@ -51,11 +52,11 @@ let g:syntastic_always_populate_loc_list = 1
 let g:airline#extensions#tabline#enabled = 1
 
 " vim-latex
-let g:Tex_DefaultTargetFormat    = 'pdf'
+let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_MultipleCompileFormats = 'pdf, aux'
 
 " vim-licenses
-let g:licenses_authors_name           = 'Alex Yatskov <alex@foosoft.net>'
+let g:licenses_authors_name = 'Alex Yatskov <alex@foosoft.net>'
 let g:licenses_copyright_holders_name = g:licenses_authors_name
 
 " vim-table-mode
