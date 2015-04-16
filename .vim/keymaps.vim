@@ -17,6 +17,7 @@ nnoremap <silent> <leader>a :ArgWrap<Cr>
 
 " vim-easy-align
 vmap <Cr> <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " open-browser.vim
 nmap <leader>o <Plug>(openbrowser-smart-search)
