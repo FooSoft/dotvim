@@ -35,7 +35,7 @@ Plug 'https://github.com/vim-latex/vim-latex.git'
 
 if has('unix')
     Plug 'https://github.com/Valloric/YouCompleteMe.git', { 'do': './install.sh' }
-    Plug 'https://github.com/marijnh/tern_for_vim', { 'do': 'npm install' }
+    Plug 'https://github.com/marijnh/tern_for_vim', { 'do': 'npm update' }
     Plug 'https://github.com/scrooloose/syntastic.git', { 'do': 'sudo npm -g install jshint; sudo pip install pyflakes' }
 endif
 
