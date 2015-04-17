@@ -12,6 +12,7 @@ set completeopt-=preview
 set encoding=utf-8
 set expandtab
 set fileformats=unix,dos,mac
+set gdefault
 set hidden
 set history=1000
 set hlsearch
@@ -35,6 +36,7 @@ set smartcase
 set smartcase
 set smarttab
 set tabstop=4
+set ttyfast
 set wildmenu
 set wrapmargin=1
 
