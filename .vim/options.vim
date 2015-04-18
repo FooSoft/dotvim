@@ -7,6 +7,7 @@ syntax enable
 set autochdir
 set autoread
 set autowrite
+set background=dark
 set backspace=indent,eol,start
 set completeopt-=preview
 set cursorline
