@@ -1,4 +1,6 @@
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+augroup vimrc
+    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+augroup END
 
 function! s:unalign() range
     for l:line in range(a:firstline, a:lastline)
