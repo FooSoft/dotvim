@@ -10,7 +10,6 @@ set autowrite
 set background=dark
 set backspace=indent,eol,start
 set completeopt-=preview
-set cursorline
 set encoding=utf-8
 set expandtab
 set fileformats=unix,dos,mac
@@ -38,7 +37,6 @@ set shortmess+=I
 set smartcase
 set smartcase
 set smarttab
-set t_Co=246
 set tabstop=4
 set ttyfast
 set wildmenu
@@ -46,6 +44,7 @@ set wrapmargin=1
 
 if has('gui_running')
     set columns=150
+    set cursorline
     set guioptions-=L
     set guioptions-=R
     set guioptions-=T
