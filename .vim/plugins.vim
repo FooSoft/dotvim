@@ -61,3 +61,6 @@ let g:licenses_copyright_holders_name = g:licenses_authors_name
 
 " vim-table-mode
 let g:table_mode_corner = '|'
+
+" YouCompleteMe
+let g:ycm_confirm_extra_conf = 0
