@@ -8,6 +8,7 @@ nnoremap <silent> Q <Nop>
 nnoremap <silent> j gj
 nnoremap <silent> k gk
 noremap <silent> ; :
+inoremap <C-`> <C-Space>
 
 " nerdtree
 nnoremap <silent> <leader>t :NERDTreeToggle<Cr>
