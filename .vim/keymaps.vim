@@ -19,6 +19,9 @@ nnoremap <silent> <leader>a :ArgWrap<Cr>
 vmap <Cr> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
+" vim-fswitch
+noremap <silent> <leader>f :FSHere<Cr>
+
 " open-browser.vim
 nmap <leader>o <Plug>(openbrowser-smart-search)
 vmap <leader>o <Plug>(openbrowser-smart-search)
