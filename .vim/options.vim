@@ -41,6 +41,7 @@ set smarttab
 set t_Co=256
 set tabstop=4
 set ttyfast
+set wildignore+=*/tmp/*
 set wildmenu
 set wrapmargin=1
 
