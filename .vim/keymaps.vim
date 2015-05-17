@@ -8,6 +8,10 @@ nnoremap <silent> Q <Nop>
 nnoremap <silent> j gj
 nnoremap <silent> k gk
 noremap <silent> ; :
+noremap <up> <C-W>+
+noremap <down> <C-W>-
+noremap <left> 3<C-W><
+noremap <right> 3<C-W>>
 
 " vim-argwrap
 nnoremap <silent> <leader>a :ArgWrap<Cr>
