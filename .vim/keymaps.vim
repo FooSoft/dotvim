@@ -7,7 +7,6 @@ nnoremap <silent> <leader>n :set relativenumber!<Cr>
 nnoremap <silent> Q <Nop>
 nnoremap <silent> j gj
 nnoremap <silent> k gk
-noremap <silent> ; :
 
 " vim-argwrap
 nnoremap <silent> <leader>a :ArgWrap<Cr>
@@ -17,7 +16,7 @@ vmap <Cr> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " vim-fswitch
-noremap <silent> <leader>f :FSHere<Cr>
+noremap <silent> <leader>fs :FSHere<Cr>
 
 " open-browser.vim
 nmap <leader>o <Plug>(openbrowser-smart-search)
