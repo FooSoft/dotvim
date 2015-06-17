@@ -53,6 +53,9 @@ let g:syntastic_always_populate_loc_list = 1
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
 
+" vim-go
+let g:go_fmt_command = 'goimports'
+
 " vim-latex
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_MultipleCompileFormats = 'pdf, aux'
