@@ -13,7 +13,6 @@ set completeopt-=preview
 set cursorline
 set encoding=utf-8
 set expandtab
-set fileencodings=iso-2022-jp,euc-jp,cp932,utf8,default,latin1
 set fileformats=unix,dos,mac
 set gdefault
 set hidden
