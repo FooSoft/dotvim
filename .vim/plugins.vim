@@ -56,10 +56,6 @@ let g:airline#extensions#tabline#enabled = 1
 " vim-go
 let g:go_fmt_command = 'goimports'
 
-" vim-latex
-let g:Tex_DefaultTargetFormat = 'pdf'
-let g:Tex_MultipleCompileFormats = 'pdf, aux'
-
 " vim-licenses
 let g:licenses_authors_name = 'Alex Yatskov <alex@foosoft.net>'
 let g:licenses_copyright_holders_name = g:licenses_authors_name
