@@ -33,6 +33,7 @@ Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/tpope/vim-unimpaired.git'
 Plug 'https://github.com/tpope/vim-vinegar.git'
 Plug 'https://github.com/tyru/open-browser.vim.git'
+Plug 'https://github.com/vasconcelloslf/vim-interestingwords.git'
 Plug 'https://github.com/vim-latex/vim-latex.git'
 
 if has('unix')
