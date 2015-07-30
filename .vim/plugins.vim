@@ -65,4 +65,5 @@ let g:licenses_copyright_holders_name = g:licenses_authors_name
 let g:table_mode_corner = '|'
 
 " YouCompleteMe
+let g:ycm_check_if_ycm_core_present = 0
 let g:ycm_confirm_extra_conf = 0
