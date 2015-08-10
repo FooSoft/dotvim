@@ -54,6 +54,9 @@ let g:syntastic_always_populate_loc_list = 1
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
 
+" vim-gitgutter
+let g:gitgutter_max_signs = 10000
+
 " vim-go
 let g:go_fmt_command = 'goimports'
 
