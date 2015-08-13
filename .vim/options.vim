@@ -14,7 +14,6 @@ set cursorline
 set encoding=utf-8
 set expandtab
 set fileformats=unix,dos,mac
-set gdefault
 set hidden
 set history=1000
 set hlsearch
