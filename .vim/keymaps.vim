@@ -15,6 +15,12 @@ nnoremap <silent> <leader>a :ArgWrap<Cr>
 vmap <Cr> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
+" vim-go
+auto FileType go nmap <leader>b <Plug>(go-build)
+auto FileType go nmap <leader>c <Plug>(go-coverage)
+auto FileType go nmap <leader>r <Plug>(go-run)
+auto FileType go nmap <leader>t <Plug>(go-test)
+
 " vim-fswitch
 noremap <silent> <leader>fs :FSHere<Cr>
 

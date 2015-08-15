@@ -48,11 +48,15 @@ call plug#end()
 let g:ctrlp_cmd = 'CtrlPMixed'
 
 " syntastic
-let g:syntastic_python_checkers = ['pyflakes']
+auto FileType go let b:syntastic_mode = "passive"
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_python_checkers = ['pyflakes']
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
+
+" vim-argwrap
+auto FileType go let b:argwrap_wrap_closing_brace = 0
 
 " vim-gitgutter
 let g:gitgutter_max_signs = 10000
