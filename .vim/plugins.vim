@@ -50,7 +50,7 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 let g:airline#extensions#tabline#enabled = 1
 
 " vim-argwrap
-auto FileType go let b:argwrap_wrap_closing_brace = 0
+autocmd FileType go let b:argwrap_tail_comma = 1
 
 " vim-gitgutter
 let g:gitgutter_max_signs = 10000
