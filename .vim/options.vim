@@ -54,10 +54,6 @@ if has('gui_running')
     set guioptions-=l
     set guioptions-=m
     set guioptions-=r
-
-    if has('unix')
-        set guifont=Terminus\ 12
-    endif
 endif
 
 if &shell =~ 'bin/fish'
