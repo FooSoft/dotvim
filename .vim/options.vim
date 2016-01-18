@@ -42,7 +42,6 @@ set tabstop=4
 set ttyfast
 set wildignore+=*/tmp/*
 set wildmenu
-set wrapmargin=1
 
 if has('gui_running')
     set columns=150
