@@ -9,6 +9,7 @@ nnoremap <silent> j gj
 nnoremap <silent> k gk
 nnoremap <silent> <kPlus> <C-W>+
 nnoremap <silent> <kMinus> <C-W>-
+inoremap <silent> <C-c> <Esc>
 
 " vim-argwrap
 nnoremap <silent> <leader>a :ArgWrap<Cr>
