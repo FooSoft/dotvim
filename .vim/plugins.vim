@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
+Plug 'https://github.com/Chun-Yang/vim-action-ag.git'
 Plug 'https://github.com/FooSoft/vim-argwrap.git'
 Plug 'https://github.com/Lokaltog/vim-easymotion.git'
 Plug 'https://github.com/airblade/vim-gitgutter.git'
@@ -8,11 +9,11 @@ Plug 'https://github.com/b4winckler/vim-angry.git'
 Plug 'https://github.com/bkad/CamelCaseMotion'
 Plug 'https://github.com/cespare/vim-toml.git'
 Plug 'https://github.com/christoomey/vim-sort-motion.git'
+Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
 Plug 'https://github.com/derekwyatt/vim-fswitch.git'
 Plug 'https://github.com/dhruvasagar/vim-table-mode.git'
 Plug 'https://github.com/fatih/vim-go.git'
 Plug 'https://github.com/junegunn/vim-easy-align.git'
-Plug 'https://github.com/kien/ctrlp.vim.git'
 Plug 'https://github.com/mattn/emmet-vim.git'
 Plug 'https://github.com/michaeljsmith/vim-indent-object.git'
 Plug 'https://github.com/nathanaelkane/vim-indent-guides.git'
@@ -20,6 +21,7 @@ Plug 'https://github.com/ntpeters/vim-better-whitespace.git'
 Plug 'https://github.com/othree/html5.vim.git'
 Plug 'https://github.com/pangloss/vim-javascript.git'
 Plug 'https://github.com/plasticboy/vim-markdown.git'
+Plug 'https://github.com/rking/ag.vim.git'
 Plug 'https://github.com/rust-lang/rust.vim'
 Plug 'https://github.com/tomasr/molokai.git'
 Plug 'https://github.com/tpope/vim-abolish.git'
@@ -46,8 +48,12 @@ endif
 
 call plug#end()
 
+" ag.vim
+let g:ag_working_path_mode="r"
+
 " ctrlp.vim
 let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_working_path_mode = 'ra'
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
