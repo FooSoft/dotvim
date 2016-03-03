@@ -7,6 +7,8 @@ nnoremap <silent> <leader>n :set relativenumber!<Cr>
 nnoremap <silent> Q <Nop>
 nnoremap <silent> j gj
 nnoremap <silent> k gk
+nnoremap <silent> <kPlus> <C-W>+
+nnoremap <silent> <kMinus> <C-W>-
 
 " vim-argwrap
 nnoremap <silent> <leader>a :ArgWrap<Cr>
