@@ -13,6 +13,9 @@ nnoremap <silent> <kMinus> <C-W>-
 " vim-argwrap
 nnoremap <silent> <leader>a :ArgWrap<Cr>
 
+" vim-bufonly
+nnoremap <silent> <S-Bs> :BufOnly<Cr>
+
 " vim-easy-align
 vmap <Cr> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
