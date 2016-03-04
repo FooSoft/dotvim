@@ -8,7 +8,6 @@ nnoremap <Leader><Leader> :b#<Cr>
 nnoremap <Leader>w :w<Cr>
 nnoremap <Leader>x :x<Cr>
 nnoremap <silent> <Esc><Esc> :nohlsearch<Cr>
-nnoremap <silent> <Leader>n :set relativenumber!<Cr>
 nnoremap Q <Nop>
 nnoremap j gj
 nnoremap k gk
