@@ -1,4 +1,4 @@
-let mapleader = ','
+let mapleader = "\<Space>"
 
 " core
 nnoremap <Bs> :bd!<Cr>
