@@ -1,15 +1,17 @@
 let mapleader = ','
 
 " core
-nnoremap <silent> <Bs> :bd<Cr>
+nnoremap <Bs> :bd!<Cr>
+nnoremap <kMinus> <C-W>-
+nnoremap <kPlus> <C-W>+
+nnoremap <leader><leader> :b#<Cr>
+nnoremap <leader>w :w<Cr>
 nnoremap <silent> <Esc><Esc> :nohlsearch<Cr>
 nnoremap <silent> <leader>n :set relativenumber!<Cr>
-nnoremap <silent> Q <Nop>
-nnoremap <silent> j gj
-nnoremap <silent> k gk
-nnoremap <silent> <kPlus> <C-W>+
-nnoremap <silent> <kMinus> <C-W>-
-inoremap <silent> <C-c> <Esc>
+nnoremap Q <Nop>
+nnoremap j gj
+nnoremap k gk
+noremap <C-c> <Esc>
 
 " vim-argwrap
 nnoremap <silent> <leader>a :ArgWrap<Cr>
@@ -18,8 +20,8 @@ nnoremap <silent> <leader>a :ArgWrap<Cr>
 nnoremap <silent> <S-Bs> :BufOnly<Cr>
 
 " vim-easy-align
-vmap <Cr> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+vmap <Cr> <Plug>(EasyAlign)
 
 " vim-go
 auto FileType go nmap <leader>b <Plug>(go-build)
