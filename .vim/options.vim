@@ -10,7 +10,6 @@ set autowrite
 set background=dark
 set backspace=indent,eol,start
 set completeopt-=preview
-set cursorline
 set encoding=utf-8
 set expandtab
 set fileformats=unix,dos,mac
@@ -29,7 +28,6 @@ set noswapfile
 set nowrap
 set nrformats-=octal
 set number
-set relativenumber
 set scrolloff=5
 set shiftround
 set shiftwidth=4
