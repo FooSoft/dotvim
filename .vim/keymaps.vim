@@ -34,10 +34,10 @@ nnoremap j gj
 nnoremap k gk
 
 " vim-argwrap
-nnoremap <silent> <Leader>a :ArgWrap<Cr>
+nnoremap <silent><Leader>a :ArgWrap<Cr>
 
 " vim-bufonly
-nnoremap <silent> <S-Bs> :BufOnly<Cr>
+nnoremap <silent><S-Bs> :BufOnly<Cr>
 
 " vim-easy-align
 nmap ga <Plug>(EasyAlign)
