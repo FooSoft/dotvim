@@ -1,17 +1,13 @@
 let mapleader = "\<Space>"
 
 " core
-nnoremap <Leader>w :w<Cr>
-nnoremap <Leader>x :x<Cr>
-nnoremap <Bs> :bd!<Cr>
-nnoremap <Leader><Leader> :b#<Cr>
-
-nnoremap <silent> <Esc><Esc> :nohlsearch<Cr>
+nnoremap <silent><Leader>w :w<Cr>
+nnoremap <silent><Leader>x :x<Cr>
+nnoremap <silent><Bs> :bd!<Cr>
+nnoremap <silent><Leader><Leader> :b#<Cr>
+nnoremap <silent><Esc><Esc> :nohlsearch<Cr>
 nnoremap Q <Nop>
 noremap <C-c> <Esc>
-
-nnoremap j gj
-nnoremap k gk
 
 vnoremap <Leader>y "+y
 vnoremap <Leader>d "+d
@@ -24,12 +20,18 @@ nnoremap <Leader>P "+P
 nnoremap <Leader>yy "+yy
 nnoremap <Leader>d "+dd
 
-nnoremap <kMinus> <C-W>-
-nnoremap <kPlus> <C-W>+
+nnoremap <A-k> <C-W>-
+nnoremap <A-j> <C-W>+
+nnoremap <A-h> <C-W><
+nnoremap <A-l> <C-W>>
+
 noremap <C-j> <C-W>j
 noremap <C-k> <C-W>k
 noremap <C-h> <C-W>h
 noremap <C-l> <C-W>l
+
+nnoremap j gj
+nnoremap k gk
 
 " vim-argwrap
 nnoremap <silent> <Leader>a :ArgWrap<Cr>
