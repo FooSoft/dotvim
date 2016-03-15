@@ -53,6 +53,9 @@ auto FileType go nmap <Leader>t <Plug>(go-test)
 " vim-fswitch
 noremap <silent> <Leader>fs :FSHere<Cr>
 
+" vim-latex
+nnoremap <C-i> <Plug>IMAP_JumpForward
+
 " open-browser.vim
 nmap <Leader>o <Plug>(openbrowser-smart-search)
 vmap <Leader>o <Plug>(openbrowser-smart-search)
