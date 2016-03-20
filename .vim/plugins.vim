@@ -44,7 +44,7 @@ Plug 'https://github.com/vim-latex/vim-latex.git'
 if has('unix')
     Plug 'https://github.com/Valloric/YouCompleteMe.git', { 'do': './install.sh --clang-completer' }
     Plug 'https://github.com/marijnh/tern_for_vim', { 'do': 'sudo npm install -g tern; npm install' }
-    Plug 'https://github.com/scrooloose/syntastic.git', { 'do': 'sudo npm -g install jshint; sudo pip install --upgrade pyflakes' }
+    Plug 'https://github.com/scrooloose/syntastic.git', { 'do': 'sudo npm -g install eslint; sudo pip install --upgrade pyflakes' }
 endif
 
 call plug#end()
@@ -59,6 +59,7 @@ let g:ctrlp_working_path_mode = 'ra'
 " syntastic
 auto FileType go let b:syntastic_mode = "passive"
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_python_checkers = ['pyflakes']
 
 " vim-airline
