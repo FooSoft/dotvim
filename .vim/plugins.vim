@@ -52,6 +52,9 @@ call plug#end()
 " ag.vim
 let g:ag_working_path_mode="r"
 
+" CamelCaseMotion
+call camelcasemotion#CreateMotionMappings('<leader>')
+
 " ctrlp.vim
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = 'ra'
