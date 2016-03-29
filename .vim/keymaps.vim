@@ -8,6 +8,7 @@ nnoremap <silent><C-Bs> <C-W>q
 nnoremap <silent><Leader><Leader> :b#<Cr>
 nnoremap <silent><Esc><Esc> :nohlsearch<Cr>
 nnoremap Q <Nop>
+nnoremap Y y$
 noremap <C-c> <Esc>
 
 vnoremap <Leader>y "+y
