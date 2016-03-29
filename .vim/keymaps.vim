@@ -3,7 +3,7 @@ let mapleader = "\<Space>"
 " core
 nnoremap <silent><Leader>w :w<Cr>
 nnoremap <silent><Leader>x :x<Cr>
-nnoremap <silent><Bs> :bd!<Cr>
+nnoremap <silent><Bs> :bp\|bd! #<Cr>
 nnoremap <silent><C-Bs> <C-W>q
 nnoremap <silent><Leader><Leader> :b#<Cr>
 nnoremap <silent><Esc><Esc> :nohlsearch<Cr>
