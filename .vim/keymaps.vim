@@ -3,9 +3,6 @@ let mapleader = "\<Space>"
 " core
 nnoremap <silent><Leader>w :w<Cr>
 nnoremap <silent><Leader>x :x<Cr>
-nnoremap <silent><Bs> :bd!<Cr>
-nnoremap <silent><A-Bs> :bp\|bd! #<Cr>
-nnoremap <silent><C-Bs> <C-W>q
 nnoremap <silent><Leader><Leader> :b#<Cr>
 nnoremap <silent><Esc><Esc> :nohlsearch<Cr>
 nnoremap Q <Nop>
@@ -40,6 +37,9 @@ nnoremap k gk
 
 " vim-argwrap
 nnoremap <silent><Leader>a :ArgWrap<Cr>
+
+" vim-bbye
+nnoremap <silent><Bs> :Bdelete<Cr>
 
 " vim-bufonly
 nnoremap <silent><S-Bs> :BufOnly<Cr>
