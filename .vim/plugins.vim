@@ -1,6 +1,5 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'https://github.com/Chun-Yang/vim-action-ag.git'
 Plug 'https://github.com/FooSoft/vim-argwrap.git'
 Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'https://github.com/antoyo/vim-licenses.git'
@@ -22,11 +21,9 @@ Plug 'https://github.com/othree/html5.vim.git'
 Plug 'https://github.com/pangloss/vim-javascript.git'
 Plug 'https://github.com/plasticboy/vim-markdown.git'
 Plug 'https://github.com/rking/ag.vim.git'
-Plug 'https://github.com/rust-lang/rust.vim'
 Plug 'https://github.com/schickling/vim-bufonly.git'
 Plug 'https://github.com/tomasr/molokai.git'
 Plug 'https://github.com/tpope/vim-abolish.git'
-Plug 'https://github.com/tpope/vim-bundler.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/tpope/vim-eunuch.git'
 Plug 'https://github.com/tpope/vim-fugitive.git'
