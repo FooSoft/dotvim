@@ -27,7 +27,6 @@ Plug 'https://github.com/tpope/vim-abolish.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/tpope/vim-eunuch.git'
 Plug 'https://github.com/tpope/vim-fugitive.git'
-Plug 'https://github.com/tpope/vim-rails.git'
 Plug 'https://github.com/tpope/vim-repeat'
 Plug 'https://github.com/tpope/vim-speeddating.git'
 Plug 'https://github.com/tpope/vim-surround'
@@ -78,10 +77,6 @@ let g:go_fmt_command = 'goimports'
 " vim-licenses
 let g:licenses_authors_name = 'Alex Yatskov <alex@foosoft.net>'
 let g:licenses_copyright_holders_name = g:licenses_authors_name
-
-" vim-rails
-let g:rubycomplete_buffer_loading = 1
-let g:rubycomplete_classes_in_global = 1
 
 " vim-table-mode
 let g:table_mode_corner = '|'
