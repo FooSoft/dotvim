@@ -51,6 +51,10 @@ if has('gui_running')
     set guioptions-=l
     set guioptions-=m
     set guioptions-=r
+
+    if has('win32')
+        set guifont=Lucida_Console:h10
+    endif
 endif
 
 if &shell =~ 'bin/fish'
