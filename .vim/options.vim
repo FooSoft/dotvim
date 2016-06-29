@@ -35,7 +35,6 @@ set shortmess+=I
 set smartcase
 set smartcase
 set smarttab
-set t_Co=256
 set tabstop=4
 set ttyfast
 set wildignore+=*/tmp/*
@@ -51,6 +50,14 @@ if has('gui_running')
     set guioptions-=l
     set guioptions-=m
     set guioptions-=r
+
+    if has('win32')
+        set guifont=Lucida_Console:h10
+    endif
+endif
+
+if has('unix')
+    set t_Co=256
 endif
 
 if &shell =~ 'bin/fish'
