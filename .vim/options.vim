@@ -1,5 +1,12 @@
 set nocompatible
 
+if &shell =~ 'bin/fish'
+    set shell=/bin/sh
+endif
+
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
+
 filetype indent plugin on
 colorscheme molokai
 syntax enable
@@ -51,8 +58,4 @@ if has('gui_running')
     set guioptions-=l
     set guioptions-=m
     set guioptions-=r
-endif
-
-if &shell =~ 'bin/fish'
-    set shell=/bin/sh
 endif
