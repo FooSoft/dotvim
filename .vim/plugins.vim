@@ -1,3 +1,7 @@
+" vim-pathogen
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
+
 " ag.vim
 let g:ag_working_path_mode="r"
 
