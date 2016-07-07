@@ -4,6 +4,7 @@ filetype indent plugin on
 colorscheme molokai
 syntax enable
 
+set autochdir
 set autoread
 set autowrite
 set background=dark

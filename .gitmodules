@@ -82,6 +82,9 @@
 [submodule ".vim/bundle/vim-unimpaired"]
 	path = .vim/bundle/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
+[submodule ".vim/bundle/vim-vinegar"]
+	path = .vim/bundle/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar.git
 [submodule ".vim/bundle/vim-interestingwords"]
 	path = .vim/bundle/vim-interestingwords
 	url = https://github.com/vasconcelloslf/vim-interestingwords.git
@@ -106,6 +109,3 @@
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule ".vim/bundle/dirvish.vim"]
-	path = .vim/bundle/dirvish.vim
-	url = https://github.com/justinmk/vim-dirvish.git
