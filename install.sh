@@ -3,7 +3,7 @@
 # YouCompleteMe
 pushd .vim/bundle/YouCompleteMe
 git submodule update --init --recursive
-./install.py
+./install.py --clang-completer --system-libclang
 popd
 
 # tern_for_vim
