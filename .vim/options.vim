@@ -26,6 +26,7 @@ set nobackup
 set nofoldenable
 set noswapfile
 set nowrap
+set nowritebackup
 set nrformats-=octal
 set number
 set scrolloff=5
