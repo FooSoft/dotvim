@@ -35,6 +35,9 @@ nnoremap <C-o> :only<Cr>
 nnoremap j gj
 nnoremap k gk
 
+" perforce checkout
+nnoremap <silent><Leader>e :!p4 edit %<Cr>
+
 " vim-argwrap
 nnoremap <silent><Leader>a :ArgWrap<Cr>
 
