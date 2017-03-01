@@ -36,7 +36,7 @@ nnoremap j gj
 nnoremap k gk
 
 " perforce checkout
-nnoremap <silent><Leader>e :!p4 edit %<Cr>
+nnoremap <silent><Leader>e :silent !p4 edit % <bar> set noro<Cr>
 
 " vim-argwrap
 nnoremap <silent><Leader>a :ArgWrap<Cr>
