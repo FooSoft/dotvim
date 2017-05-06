@@ -53,7 +53,9 @@ if has('gui_running')
     set guioptions-=r
 
     if has('win32')
-        set guifont=Lucida_Console:h10
+        set guifont=Lucida_Console:h12
+    else
+        set guifont=Monospace\ 12
     endif
 endif
 
