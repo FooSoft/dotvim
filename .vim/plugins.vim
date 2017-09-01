@@ -6,12 +6,6 @@ execute pathogen#infect()
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = 'ra'
 
-" syntastic
-auto FileType go let b:syntastic_mode = "passive"
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_python_checkers = ['pyflakes']
-
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
 
