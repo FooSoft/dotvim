@@ -2,10 +2,6 @@
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
-" ctrlp.vim
-let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_working_path_mode = 'ra'
-
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
 

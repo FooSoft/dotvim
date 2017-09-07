@@ -19,9 +19,6 @@
 [submodule ".vim/bundle/vim-sort-motion"]
 	path = .vim/bundle/vim-sort-motion
 	url = https://github.com/christoomey/vim-sort-motion.git
-[submodule ".vim/bundle/ctrlp.vim"]
-	path = .vim/bundle/ctrlp.vim
-	url = https://github.com/ctrlpvim/ctrlp.vim.git
 [submodule ".vim/bundle/vim-fswitch"]
 	path = .vim/bundle/vim-fswitch
 	url = https://github.com/derekwyatt/vim-fswitch.git
@@ -115,3 +112,6 @@
 [submodule ".vim/bundle/ack.vim"]
 	path = .vim/bundle/ack.vim
 	url = https://github.com/mileszs/ack.vim.git
+[submodule ".vim/bundle/ctrlp.vim"]
+	path = .vim/bundle/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim
