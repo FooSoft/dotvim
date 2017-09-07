@@ -22,6 +22,9 @@ let g:go_fmt_command = 'goimports'
 let g:licenses_authors_name = 'Alex Yatskov <alex@foosoft.net>'
 let g:licenses_copyright_holders_name = g:licenses_authors_name
 
+" vim-rooter
+let g:rooter_silent_chdir = 1
+
 " YouCompleteMe
 let g:ycm_check_if_ycm_core_present = 0
 let g:ycm_confirm_extra_conf = 0
