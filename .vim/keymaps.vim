@@ -36,7 +36,7 @@ nnoremap j gj
 nnoremap k gk
 
 " ctrlp.vim
-nnoremap <silent><C-k> :CtrlPMRU<Cr>
+nnoremap <silent><C-m> :CtrlPMRU<Cr>
 
 " perforce checkout
 nnoremap <silent><Leader>e :silent !p4 edit % <bar> set noro<Cr>
