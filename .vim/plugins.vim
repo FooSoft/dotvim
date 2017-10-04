@@ -14,6 +14,10 @@ let g:gitgutter_max_signs = 10000
 " vim-go
 let g:go_fmt_command = 'goimports'
 
+" vim-interestinwords
+let g:interestingWordsGUIColors = ['#8CCBEA', '#A4E57E', '#FFDB72', '#FF7272', '#FFB3FF', '#9999FF']
+let g:interestingWordsTermColors = ['154', '121', '211', '137', '214', '222']
+
 " vim-licenses
 let g:licenses_authors_name = 'Alex Yatskov <alex@foosoft.net>'
 let g:licenses_copyright_holders_name = g:licenses_authors_name
