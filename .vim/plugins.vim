@@ -2,6 +2,10 @@
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
+" ale
+let g:ale_lint_on_text_changed = "never"
+let g:ale_lint_on_enter = "never"
+
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
 
