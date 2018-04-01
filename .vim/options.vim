@@ -41,8 +41,8 @@ set wildignore+=*/tmp/*
 set wildmenu
 
 if has('gui_running')
-    set columns=150
-    set lines=50
+    set columns=128
+    set lines=32
 
     set guioptions-=L
     set guioptions-=R
