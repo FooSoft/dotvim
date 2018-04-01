@@ -13,9 +13,6 @@ let g:airline#extensions#tabline#enabled = 1
 " vim-argwrap
 autocmd FileType go let b:argwrap_tail_comma = 1
 
-" vim-gitgutter
-let g:gitgutter_max_signs = 10000
-
 " vim-go
 let g:go_fmt_command = 'goimports'
 
