@@ -5,7 +5,6 @@ execute pathogen#infect()
 " ale
 let g:ale_lint_on_text_changed = "never"
 let g:ale_lint_on_enter = "never"
-let g:ale_linters = {'go': ['gofmt', 'go vet', 'go build', 'gosimple', 'staticcheck']}
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
