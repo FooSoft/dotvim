@@ -8,6 +8,7 @@ nnoremap Y y$
 nnoremap <silent><Leader>m :make<Cr>
 noremap <C-c> <Esc>
 nnoremap <Leader>w :w<Cr>
+nnoremap <Leader>x :x<Cr>
 
 vnoremap <Leader>y "+y
 vnoremap <Leader>d "+d
