@@ -14,7 +14,7 @@ autocmd FileType go let b:argwrap_tail_comma = 1
 
 " vim-go
 let g:go_fmt_command = 'goimports'
-let g:go_gocode_propose_source = 0
+" let g:go_gocode_propose_source = 0
 
 " vim-interestinwords
 let g:interestingWordsGUIColors = ['#8CCBEA', '#A4E57E', '#FFDB72', '#FF7272', '#FFB3FF', '#9999FF']
