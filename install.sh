@@ -14,4 +14,4 @@ popd
 
 # syntastic
 sudo npm -g install eslint
-sudo pip install pyflakes --upgrade
+pip install --user pyflakes --upgrade
