@@ -1,7 +1,7 @@
 set nocompatible
 
 filetype indent plugin on
-colorscheme molokai
+colorscheme falcon
 syntax enable
 
 set autoread
