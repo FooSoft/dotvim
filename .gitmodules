@@ -46,9 +46,6 @@
 [submodule ".vim/bundle/vim-bufonly"]
 	path = .vim/bundle/vim-bufonly
 	url = https://github.com/schickling/vim-bufonly.git
-[submodule ".vim/bundle/molokai"]
-	path = .vim/bundle/molokai
-	url = https://github.com/tomasr/molokai.git
 [submodule ".vim/bundle/vim-abolish"]
 	path = .vim/bundle/vim-abolish
 	url = https://github.com/tpope/vim-abolish.git
