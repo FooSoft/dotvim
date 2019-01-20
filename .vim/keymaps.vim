@@ -56,6 +56,10 @@ auto FileType go nmap <Leader>b <Plug>(go-build)
 auto FileType go nmap <Leader>c <Plug>(go-coverage)
 auto FileType go nmap <Leader>r <Plug>(go-run)
 auto FileType go nmap <Leader>t <Plug>(go-test)
+auto FileType go nmap <Leader><F5> :GoDebugStart<Cr>
+auto FileType go nmap <Leader><F9> :GoDebugBreakpoint<Cr>
+auto FileType go nmap <S-F11> :GoDebugStepOut<Cr>
+auto FileType go nmap <S-F5> :GoDebugStop<Cr>
 
 " vim-fswitch
 noremap <silent> <Leader>fs :FSHere<Cr>

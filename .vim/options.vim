@@ -19,7 +19,6 @@ set ignorecase
 set incsearch
 set laststatus=2
 set linebreak
-set mouse=
 set mousemodel=popup
 set nobackup
 set nofoldenable
