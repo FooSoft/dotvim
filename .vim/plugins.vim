@@ -5,6 +5,7 @@ execute pathogen#infect()
 " ale
 let g:ale_lint_on_text_changed = "never"
 let g:ale_lint_on_enter = "never"
+let g:ale_linters = {'go': ['gofmt', 'go vet', 'go build']}
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
@@ -14,7 +15,6 @@ autocmd FileType go let b:argwrap_tail_comma = 1
 
 " vim-go
 let g:go_fmt_command = 'goimports'
-" let g:go_gocode_propose_source = 0
 
 " vim-interestinwords
 let g:interestingWordsGUIColors = ['#8CCBEA', '#A4E57E', '#FFDB72', '#FF7272', '#FFB3FF', '#9999FF']
