@@ -1,3 +1,5 @@
+auto BufRead,BufNewFile *.gohtml setfiletype html
+
 function! s:unalign() range
     for l:line in range(a:firstline, a:lastline)
         let l:text = getline(l:line)
