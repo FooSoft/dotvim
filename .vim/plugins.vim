@@ -7,6 +7,9 @@ let g:ale_lint_on_text_changed = "never"
 let g:ale_lint_on_enter = "never"
 let g:ale_linters = {'go': ['gofmt', 'go vet', 'go build']}
 
+" fzf
+let $FZF_DEFAULT_COMMAND='find .'
+
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
 
