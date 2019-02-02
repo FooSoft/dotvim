@@ -36,8 +36,8 @@ nnoremap j gj
 nnoremap k gk
 
 " fzf
-nnoremap <C-p> :FZF<Cr>
-nnoremap <C-h> :FZF ~<Cr>
+nnoremap <silent><C-p> :FZF<Cr>
+nnoremap <silent><C-h> :FZF ~<Cr>
 
 " perforce checkout
 nnoremap <silent><Leader>e :silent !p4 edit % <bar> set noro<Cr>
