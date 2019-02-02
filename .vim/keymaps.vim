@@ -37,7 +37,7 @@ nnoremap k gk
 
 " fzf
 nnoremap <C-p> :FZF<Cr>
-nnoremap <C-o> :FZF ~/projects<Cr>
+nnoremap <C-h> :FZF ~<Cr>
 
 " perforce checkout
 nnoremap <silent><Leader>e :silent !p4 edit % <bar> set noro<Cr>
