@@ -11,7 +11,7 @@ let g:ale_lint_on_enter = 'never'
 let g:ale_linters = {'go': ['gofmt', 'go vet', 'go build']}
 
 " fzf
-let $FZF_DEFAULT_COMMAND='find -L .'
+let $FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -g "" 2> /dev/null'
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
