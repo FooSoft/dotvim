@@ -2,9 +2,6 @@
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
-" ack
-let g:ackprg = 'ag --vimgrep'
-
 " ale
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 'never'

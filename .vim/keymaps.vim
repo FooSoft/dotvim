@@ -36,8 +36,10 @@ nnoremap j gj
 nnoremap k gk
 
 " fzf
-nnoremap <silent><C-p> :FZF<Cr>
-nnoremap <silent><C-h> :FZF ~<Cr>
+nnoremap <silent><Leader>fr :GFiles<Cr>
+nnoremap <silent><Leader>fg :Files ~<Cr>
+nnoremap <silent><Leader>fh :History<Cr>
+nnoremap <silent><Leader>fc :BCommits<Cr>
 
 " perforce checkout
 nnoremap <silent><Leader>e :silent !p4 edit % <bar> set noro<Cr>
