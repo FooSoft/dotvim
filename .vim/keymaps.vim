@@ -36,8 +36,8 @@ nnoremap j gj
 nnoremap k gk
 
 " fzf
-nnoremap <silent><Leader>fr :GFiles<Cr>
-nnoremap <silent><Leader>fg :Files ~<Cr>
+nnoremap <silent><Leader>fg :GFiles<Cr>
+nnoremap <silent><Leader>ff :Files ~<Cr>
 nnoremap <silent><Leader>fh :History<Cr>
 nnoremap <silent><Leader>fc :BCommits<Cr>
 
