@@ -4,12 +4,9 @@ def FlagsForFile(filename, **kwargs):
         '-Wextra',
         '-Werror'
         '-pedantic',
+        '-std=c++11'
         '-I',
         '.',
-        '-isystem',
-        '/usr/include',
-        '-xc++',
-        '-std=c++11'
     ]
 
     return {
