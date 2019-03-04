@@ -33,3 +33,4 @@ let g:rooter_silent_chdir = 1
 " YouCompleteMe
 let g:ycm_check_if_ycm_core_present = 0
 let g:ycm_confirm_extra_conf = 0
+let g:ycm_global_ycm_extra_conf = $HOME.'/.vim/ycm.py'
