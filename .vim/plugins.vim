@@ -1,6 +1,10 @@
 " vim-pathogen
 runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
+if has('unix')
+    execute pathogen#infect('bundle/{}', 'bundle_extra/{}')
+else
+    execute pathogen#infect('bundle/{}')
+endif
 
 " ale
 let g:ale_lint_on_text_changed = 'never'

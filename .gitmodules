@@ -86,16 +86,16 @@
 	path = .vim/bundle/vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
 [submodule ".vim/bundle/YouCompleteMe"]
-	path = .vim/bundle/YouCompleteMe
+	path = .vim/bundle_extra/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
 [submodule ".vim/bundle/tern_for_vim"]
-	path = .vim/bundle/tern_for_vim
+	path = .vim/bundle_extra/tern_for_vim
 	url = https://github.com/marijnh/tern_for_vim
 [submodule ".vim/bundle/vim-jdaddy"]
 	path = .vim/bundle/vim-jdaddy
 	url = https://github.com/tpope/vim-jdaddy.git
 [submodule ".vim/bundle/ale"]
-	path = .vim/bundle/ale
+	path = .vim/bundle_extra/ale
 	url = https://github.com/w0rp/ale.git
 [submodule ".vim/bundle/vim-rooter"]
 	path = .vim/bundle/vim-rooter
@@ -107,8 +107,8 @@
 	path = .vim/bundle/vim-signify
 	url = https://github.com/mhinz/vim-signify.git
 [submodule ".vim/bundle/fzf"]
-	path = .vim/bundle/fzf
+	path = .vim/bundle_extra/fzf
 	url = https://github.com/junegunn/fzf
 [submodule ".vim/bundle/fzf.vim"]
-	path = .vim/bundle/fzf.vim
+	path = .vim/bundle_extra/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
