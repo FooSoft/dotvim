@@ -12,6 +12,6 @@ sudo npm install -g tern
 npm install
 popd
 
-# syntastic
+# ale
 sudo npm -g install eslint
 pip install --user pyflakes --upgrade
