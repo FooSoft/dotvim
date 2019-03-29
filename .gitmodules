@@ -103,9 +103,6 @@
 [submodule ".vim/bundle/vim-dirvish"]
 	path = .vim/bundle/vim-dirvish
 	url = https://github.com/justinmk/vim-dirvish.git
-[submodule ".vim/bundle/vimtex"]
-	path = .vim/bundle/vimtex
-	url = https://github.com/lervag/vimtex.git
 [submodule ".vim/bundle/vim-signify"]
 	path = .vim/bundle/vim-signify
 	url = https://github.com/mhinz/vim-signify.git
