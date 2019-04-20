@@ -10,7 +10,7 @@ set autowrite
 set background=dark
 set backspace=indent,eol,start
 set complete-=i
-set completeopt=longest,menuone
+set completeopt=longest,menuone,noinsert
 set encoding=utf-8
 set expandtab
 set fileformats=unix,dos,mac

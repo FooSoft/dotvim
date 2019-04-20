@@ -11,6 +11,10 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 'never'
 let g:ale_linters = {'go': ['gofmt', 'go vet', 'go build']}
 
+" deoplete.nvim
+let g:deoplete#enable_at_startup = 1
+inoremap <expr><TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
+
 " fzf
 let $FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -g "" 2> /dev/null'
 
@@ -33,8 +37,3 @@ let g:licenses_copyright_holders_name = g:licenses_authors_name
 
 " vim-rooter
 let g:rooter_silent_chdir = 1
-
-" YouCompleteMe
-let g:ycm_check_if_ycm_core_present = 0
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_global_ycm_extra_conf = $HOME.'/.vim/ycm.py'
