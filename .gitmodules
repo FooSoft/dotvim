@@ -89,7 +89,7 @@
 	path = .vim/bundle/vim-jdaddy
 	url = https://github.com/tpope/vim-jdaddy.git
 [submodule ".vim/bundle/ale"]
-	path = .vim/bundle_extra/ale
+	path = .vim/bundle/ale
 	url = https://github.com/w0rp/ale.git
 [submodule ".vim/bundle/vim-rooter"]
 	path = .vim/bundle/vim-rooter
@@ -101,23 +101,26 @@
 	path = .vim/bundle/vim-signify
 	url = https://github.com/mhinz/vim-signify.git
 [submodule ".vim/bundle/fzf"]
-	path = .vim/bundle_extra/fzf
+	path = .vim/bundle/fzf
 	url = https://github.com/junegunn/fzf
 [submodule ".vim/bundle/fzf.vim"]
-	path = .vim/bundle_extra/fzf.vim
+	path = .vim/bundle/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
 [submodule ".vim/bundle_extra/deoplete.nvim"]
-	path = .vim/bundle_extra/deoplete.nvim
+	path = .vim/bundle/deoplete.nvim
 	url = https://github.com/Shougo/deoplete.nvim.git
 [submodule ".vim/bundle_extra/nvim-yarp"]
-	path = .vim/bundle_extra/nvim-yarp
+	path = .vim/bundle/nvim-yarp
 	url = https://github.com/roxma/nvim-yarp.git
 [submodule ".vim/bundle_extra/vim-hug-neovim-rpc"]
-	path = .vim/bundle_extra/vim-hug-neovim-rpc
+	path = .vim/bundle/vim-hug-neovim-rpc
 	url = https://github.com/roxma/vim-hug-neovim-rpc
 [submodule ".vim/bundle_extra/deoplete-go"]
-	path = .vim/bundle_extra/deoplete-go
+	path = .vim/bundle/deoplete-go
 	url = https://github.com/deoplete-plugins/deoplete-go.git
 [submodule ".vim/bundle_extra/deoplete-clangx"]
-	path = .vim/bundle_extra/deoplete-clangx
+	path = .vim/bundle/deoplete-clangx
 	url = https://github.com/Shougo/deoplete-clangx.git
+[submodule ".vim/bundle/deoplete-jedi"]
+	path = .vim/bundle/deoplete-jedi
+	url = https://github.com/deoplete-plugins/deoplete-jedi.git
