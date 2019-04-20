@@ -8,7 +8,7 @@ let g:ale_lint_on_enter = 'never'
 let g:ale_linters = {'go': ['gofmt', 'go vet', 'go build']}
 
 " deoplete.nvim
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = has('python3')
 inoremap <expr><TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
 
 " fzf
