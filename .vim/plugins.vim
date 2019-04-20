@@ -8,8 +8,13 @@ let g:ale_lint_on_enter = 'never'
 let g:ale_linters = {'go': ['gofmt', 'go vet', 'go build']}
 
 " deoplete.nvim
-let g:deoplete#enable_at_startup = has('python3')
-inoremap <expr><TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
+if has('python3')
+    let g:deoplete#enable_at_startup = 1
+    inoremap <expr><TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
+    if len($PYTHON3_HOST_PROG) > 0
+        let g:python3_host_prog=$PYTHON3_HOST_PROG
+    endif
+endif
 
 " fzf
 let $FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -g "" 2> /dev/null'
