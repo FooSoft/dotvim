@@ -14,6 +14,7 @@ set completeopt=longest,menuone,noinsert
 set encoding=utf-8
 set expandtab
 set fileformats=unix,dos,mac
+set guicursor=n:blinkon0
 set hidden
 set history=1000
 set hlsearch
