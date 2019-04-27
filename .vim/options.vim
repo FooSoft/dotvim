@@ -1,7 +1,7 @@
 set nocompatible
 
 filetype indent plugin on
-colorscheme molokai
+colorscheme zenburn
 syntax enable
 
 set autoindent
@@ -54,11 +54,7 @@ if has('gui_running')
     set guioptions-=m
     set guioptions-=r
 
-    if has('win32')
-        set guifont=Lucida_Console:h12
-    else
-        set guifont=Monospace\ 12
-    endif
+    set guifont=Terminus\ 12
 endif
 
 if has('unix')
