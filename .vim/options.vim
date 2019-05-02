@@ -1,7 +1,7 @@
 set nocompatible
 
 filetype indent plugin on
-colorscheme zenburn
+colorscheme base16-default-dark
 syntax enable
 
 set autoindent
