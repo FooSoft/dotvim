@@ -35,6 +35,7 @@ set scrolloff=5
 set shiftround
 set shiftwidth=4
 set shortmess+=I
+set sidescroll=1
 set smarttab
 set tabstop=4
 set ttimeout
