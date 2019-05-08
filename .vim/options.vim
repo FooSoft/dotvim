@@ -63,6 +63,7 @@ if has('gui_running')
 endif
 
 if has('unix')
+    set termguicolors
     set t_Co=256
 endif
 
