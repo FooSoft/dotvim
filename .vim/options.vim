@@ -56,9 +56,9 @@ if has('gui_running')
     set guioptions-=r
 
     if has('unix')
-        set guifont=Terminus\ 12
+        set guifont=Source\ Code\ Pro\ Regular\ 10
     else
-        set guifont=Terminus:h12
+        set guifont=Source\ Code\ Pro\ Regular:h10
     endif
 endif
 
