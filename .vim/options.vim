@@ -18,7 +18,6 @@ set guicursor=n:blinkon0
 set hidden
 set history=1000
 set hlsearch
-set ignorecase
 set incsearch
 set laststatus=2
 set linebreak
@@ -36,6 +35,7 @@ set shiftround
 set shiftwidth=4
 set shortmess+=I
 set sidescroll=1
+set smartcase
 set smarttab
 set tabstop=4
 set ttimeout
