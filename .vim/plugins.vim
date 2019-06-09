@@ -42,13 +42,15 @@ autocmd FileType go let b:argwrap_tail_comma = 1
 " vim-go
 let g:go_fmt_command = 'goimports'
 
+" vim-header
+let g:header_auto_add_header = 0
+let g:header_field_author = 'Alex Yatskov'
+let g:header_field_author_email = 'alex@foosoft.net'
+let g:header_field_filename = 0
+
 " vim-interestinwords
 let g:interestingWordsGUIColors = ['#8CCBEA', '#A4E57E', '#FFDB72', '#FF7272', '#FFB3FF', '#9999FF']
 let g:interestingWordsTermColors = ['154', '121', '211', '137', '214', '222']
-
-" vim-licenses
-let g:licenses_authors_name = 'Alex Yatskov <alex@foosoft.net>'
-let g:licenses_copyright_holders_name = g:licenses_authors_name
 
 " vim-rooter
 let g:rooter_silent_chdir = 1

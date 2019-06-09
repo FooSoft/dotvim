@@ -4,9 +4,6 @@
 [submodule ".vim/bundle/vim-argwrap"]
 	path = .vim/bundle/vim-argwrap
 	url = https://github.com/FooSoft/vim-argwrap.git
-[submodule ".vim/bundle/vim-licenses"]
-	path = .vim/bundle/vim-licenses
-	url = https://github.com/antoyo/vim-licenses.git
 [submodule ".vim/bundle/vim-toml"]
 	path = .vim/bundle/vim-toml
 	url = https://github.com/cespare/vim-toml.git
@@ -124,3 +121,6 @@
 [submodule ".vim/bundle/targets.vim"]
 	path = .vim/bundle/targets.vim
 	url = https://github.com/wellle/targets.vim
+[submodule ".vim/bundle/vim-header"]
+	path = .vim/bundle/vim-header
+	url = https://github.com/alpertuna/vim-header.git
