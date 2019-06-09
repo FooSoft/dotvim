@@ -117,7 +117,7 @@
 	url = https://github.com/deoplete-plugins/deoplete-jedi.git
 [submodule ".vim/bundle/base16-vim"]
 	path = .vim/bundle/base16-vim
-	url = https://github.com/danielwe/base16-vim
+	url = https://github.com/chriskempson/base16-vim.git
 [submodule ".vim/bundle/tcomment_vim"]
 	path = .vim/bundle/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim
