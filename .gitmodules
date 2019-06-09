@@ -7,9 +7,6 @@
 [submodule ".vim/bundle/vim-licenses"]
 	path = .vim/bundle/vim-licenses
 	url = https://github.com/antoyo/vim-licenses.git
-[submodule ".vim/bundle/vim-angry"]
-	path = .vim/bundle/vim-angry
-	url = https://github.com/b4winckler/vim-angry.git
 [submodule ".vim/bundle/vim-toml"]
 	path = .vim/bundle/vim-toml
 	url = https://github.com/cespare/vim-toml.git
