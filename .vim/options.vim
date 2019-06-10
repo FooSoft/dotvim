@@ -18,6 +18,7 @@ set guicursor=n:blinkon0
 set hidden
 set history=1000
 set hlsearch
+set ignorecase
 set incsearch
 set laststatus=2
 set linebreak
@@ -58,7 +59,7 @@ if has('gui_running')
     if has('unix')
         set guifont=Source\ Code\ Pro\ Regular\ 12
     else
-        set guifont=Source\ Code\ Pro\ Regular:h12
+        set guifont=Terminus:h12
     endif
 endif
 
