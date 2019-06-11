@@ -41,9 +41,6 @@ nnoremap <silent><Leader>ff :Files ~<Cr>
 nnoremap <silent><Leader>fh :History<Cr>
 nnoremap <silent><Leader>fc :BCommits<Cr>
 
-" perforce checkout
-nnoremap <silent><Leader>e :silent !p4 edit % <bar> set noro<Cr>
-
 " vim-argwrap
 nnoremap <silent><Leader>a :ArgWrap<Cr>
 
@@ -68,4 +65,4 @@ auto FileType go nmap <S-F11> :GoDebugStepOut<Cr>
 auto FileType go nmap <S-F5> :GoDebugStop<Cr>
 
 " vim-fswitch
-noremap <silent> <Leader>fs :FSHere<Cr>
+auto FileType cpp noremap <silent> <Leader>fs :FSHere<Cr>
