@@ -22,9 +22,11 @@ set ignorecase
 set incsearch
 set laststatus=2
 set linebreak
+set modelines=0
 set mousemodel=popup
 set nobackup
 set nofoldenable
+set nomodeline
 set noswapfile
 set nowrap
 set nowritebackup
