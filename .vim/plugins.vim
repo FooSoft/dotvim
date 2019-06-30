@@ -41,6 +41,7 @@ autocmd FileType go let b:argwrap_tail_comma = 1
 
 " vim-go
 let g:go_fmt_command = 'goimports'
+let g:go_null_module_warning = 0
 
 " vim-header
 let g:header_auto_add_header = 0
