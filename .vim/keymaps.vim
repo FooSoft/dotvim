@@ -40,6 +40,7 @@ nnoremap <silent><Leader>fg :GFiles<Cr>
 nnoremap <silent><Leader>ff :Files ~<Cr>
 nnoremap <silent><Leader>fh :History<Cr>
 nnoremap <silent><Leader>fc :BCommits<Cr>
+nnoremap <silent><Leader>fb :Buffers<Cr>
 
 " vim-argwrap
 nnoremap <silent><Leader>a :ArgWrap<Cr>
