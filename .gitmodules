@@ -127,3 +127,6 @@
 [submodule ".vim/bundle/deoplete-ternjs"]
 	path = .vim/bundle/deoplete-ternjs
 	url = https://github.com/carlitux/deoplete-ternjs
+[submodule ".vim/bundle/neco-vim"]
+	path = .vim/bundle/neco-vim
+	url = https://github.com/Shougo/neco-vim.git
