@@ -15,7 +15,7 @@ function! s:guid()
         pythonx import uuid
         let l:guid = pyxeval('str(uuid.uuid4())')
     elseif has('windows')
-        let l:guid = system('powershell.exe -command "[guid]::NewGuid().ToString()"')
+        let l:guid = system('powershell.exe -command "[guid]::NewGuid().ToString()"')[:-2]
     endif
     if exists('l:guid')
         execute 'normal! a' . l:guid . "\<Esc>"
