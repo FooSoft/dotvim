@@ -35,6 +35,9 @@ nnoremap <C-l> <C-W>l
 nnoremap j gj
 nnoremap k gk
 
+" functions
+nnoremap <Leader>g :Guid<Cr>
+
 " fzf
 nnoremap <silent><Leader>fg :GFiles<Cr>
 nnoremap <silent><Leader>ff :Files ~<Cr>
