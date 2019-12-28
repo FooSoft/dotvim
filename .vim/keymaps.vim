@@ -4,8 +4,8 @@ let mapleader = "\<Space>"
 nnoremap <silent><Leader><Leader> :b#<Cr>
 nnoremap <silent><C-c><C-c> :nohlsearch<Cr>
 nnoremap <silent><Leader>m :make<Cr>
-nnoremap <Leader>w :w<Cr>
-nnoremap <Leader>x :x<Cr>
+nnoremap <silent><Leader>w :w<Cr>
+nnoremap <silent><Leader>x :x<Cr>
 inoremap <C-c> <Esc>
 nnoremap Q <Nop>
 
