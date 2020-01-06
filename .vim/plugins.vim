@@ -55,3 +55,6 @@ let g:interestingWordsTermColors = ['154', '121', '211', '137', '214', '222']
 
 " vim-rooter
 let g:rooter_silent_chdir = 1
+
+" vim-markdown
+let g:vim_markdown_folding_disabled = 1
