@@ -36,6 +36,9 @@ nnoremap <C-l> <C-W>l
 nnoremap j gj
 nnoremap k gk
 
+inoremap <expr><TAB> pumvisible() ? '<C-y>' : '<TAB>'
+inoremap <expr><CR> pumvisible() ? '<C-e><CR>' : '<CR>'
+
 " functions
 nnoremap <Leader>g :Guid<Cr>
 
