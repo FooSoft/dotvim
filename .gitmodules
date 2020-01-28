@@ -130,3 +130,6 @@
 [submodule ".vim/bundle/neco-vim"]
 	path = .vim/bundle/neco-vim
 	url = https://github.com/Shougo/neco-vim.git
+[submodule ".vim/bundle/ListToggle"]
+	path = .vim/bundle/ListToggle
+	url = https://github.com/Valloric/ListToggle.git
