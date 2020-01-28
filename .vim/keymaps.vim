@@ -53,7 +53,7 @@ nnoremap <silent><Leader>fb :Buffers<Cr>
 nnoremap <silent><Leader>a :ArgWrap<Cr>
 
 " vim-bbye
-nnoremap <silent><Bs> :Bdelete<Cr>
+nnoremap <silent><Bs> :Bwipeout<Cr>
 
 " vim-bufonly
 nnoremap <silent><S-Bs> :BufOnly<Cr>
