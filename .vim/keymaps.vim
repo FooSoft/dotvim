@@ -40,7 +40,7 @@ inoremap <expr><TAB> pumvisible() ? '<C-y>' : '<TAB>'
 inoremap <expr><CR> pumvisible() ? '<C-e><CR>' : '<CR>'
 
 " functions
-nnoremap <Leader>g :Guid<Cr>
+nnoremap <Leader>ig :Guid<Cr>
 
 " fzf
 nnoremap <silent><Leader>fg :GFiles<Cr>
