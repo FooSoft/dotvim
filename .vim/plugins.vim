@@ -2,11 +2,6 @@
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect('bundle/{}')
 
-" ale
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 'never'
-let g:ale_linters = {'go': ['gofmt', 'go vet', 'go build']}
-
 " deoplete.nvim
 if has('python3')
     let g:deoplete#enable_at_startup = 1
