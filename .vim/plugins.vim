@@ -15,22 +15,29 @@ if has('python3')
     endif
 endif
 
+" LanguageClient-neovim
+let g:LanguageClient_serverCommands = {
+  \ 'go': ['gopls'],
+  \ 'python': ['pyls'],
+  \ }
+
 " fzf
 let $FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -g "" 2> /dev/null'
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
+let g:fzf_colors =  {
   \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'fg':      ['fg', 'Normal'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'header':  ['fg', 'Comment'],
+  \ 'hl':      ['fg', 'Comment'],
   \ 'hl+':     ['fg', 'Statement'],
   \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
   \ 'marker':  ['fg', 'Keyword'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'prompt':  ['fg', 'Conditional'],
   \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
+  \ }
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1

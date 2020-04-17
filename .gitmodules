@@ -103,15 +103,6 @@
 [submodule ".vim/bundle_extra/vim-hug-neovim-rpc"]
 	path = .vim/bundle/vim-hug-neovim-rpc
 	url = https://github.com/roxma/vim-hug-neovim-rpc
-[submodule ".vim/bundle_extra/deoplete-go"]
-	path = .vim/bundle/deoplete-go
-	url = https://github.com/deoplete-plugins/deoplete-go.git
-[submodule ".vim/bundle_extra/deoplete-clangx"]
-	path = .vim/bundle/deoplete-clangx
-	url = https://github.com/Shougo/deoplete-clangx.git
-[submodule ".vim/bundle/deoplete-jedi"]
-	path = .vim/bundle/deoplete-jedi
-	url = https://github.com/deoplete-plugins/deoplete-jedi.git
 [submodule ".vim/bundle/base16-vim"]
 	path = .vim/bundle/base16-vim
 	url = https://github.com/chriskempson/base16-vim.git
@@ -124,12 +115,9 @@
 [submodule ".vim/bundle/vim-angry"]
 	path = .vim/bundle/vim-angry
 	url = https://github.com/b4winckler/vim-angry.git
-[submodule ".vim/bundle/deoplete-ternjs"]
-	path = .vim/bundle/deoplete-ternjs
-	url = https://github.com/carlitux/deoplete-ternjs
-[submodule ".vim/bundle/neco-vim"]
-	path = .vim/bundle/neco-vim
-	url = https://github.com/Shougo/neco-vim.git
 [submodule ".vim/bundle/ListToggle"]
 	path = .vim/bundle/ListToggle
 	url = https://github.com/Valloric/ListToggle.git
+[submodule ".vim/bundle/LanguageClient-neovim"]
+	path = .vim/bundle/LanguageClient-neovim
+	url = https://github.com/autozimu/LanguageClient-neovim.git
