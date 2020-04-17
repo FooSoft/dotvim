@@ -12,6 +12,8 @@ endif
 
 " LanguageClient-neovim
 let g:LanguageClient_serverCommands = {
+  \ 'c': ['ccls'],
+  \ 'cpp': ['ccls'],
   \ 'go': ['gopls'],
   \ 'python': ['pyls'],
   \ }
