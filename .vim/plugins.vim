@@ -43,6 +43,7 @@ let g:fzf_colors =  {
     \ }
 
 " vim-airline
+let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 
 " vim-argwrap
