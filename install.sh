@@ -5,7 +5,3 @@ if [ -x "$(command -v pip3)" ]; then
     pip3 install --user pynvim
     pip3 install --user python-language-server
 fi
-
-pushd ./.vim/bundle/LanguageClient-neovim
-./install.sh
-popd
