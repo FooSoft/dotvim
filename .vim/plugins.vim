@@ -4,15 +4,9 @@ execute pathogen#infect('bundle/{}')
 
 " ale
 let g:ale_linters_explicit = 1
-let g:ale_linters = {
-    \ 'c': ['ccls'],
-    \ 'cpp': ['ccls'],
-    \ 'go': ['gopls'],
-    \ 'python': ['pyls'],
-    \ }
 let g:ale_cpp_ccls_init_options = {
-    \   'cacheDirectory': '/tmp/ccls',
-    \   'cacheFormat': 'binary',
+    \ 'cacheDirectory': '/tmp/ccls',
+    \ 'cacheFormat': 'binary',
     \ }
 
 " deoplete.nvim
@@ -26,19 +20,19 @@ endif
 
 " fzf
 let $FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -g "" 2> /dev/null'
-let g:fzf_colors =  {
-    \ 'bg':      ['bg', 'Normal'],
-    \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-    \ 'border':  ['fg', 'Ignore'],
-    \ 'fg':      ['fg', 'Normal'],
-    \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-    \ 'header':  ['fg', 'Comment'],
-    \ 'hl':      ['fg', 'Comment'],
-    \ 'hl+':     ['fg', 'Statement'],
-    \ 'info':    ['fg', 'PreProc'],
-    \ 'marker':  ['fg', 'Keyword'],
+let g:fzf_colors = {
+    \ 'bg': ['bg', 'Normal'],
+    \ 'bg+': ['bg', 'CursorLine', 'CursorColumn'],
+    \ 'border': ['fg', 'Ignore'],
+    \ 'fg': ['fg', 'Normal'],
+    \ 'fg+': ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+    \ 'header': ['fg', 'Comment'],
+    \ 'hl': ['fg', 'Comment'],
+    \ 'hl+': ['fg', 'Statement'],
+    \ 'info': ['fg', 'PreProc'],
+    \ 'marker': ['fg', 'Keyword'],
     \ 'pointer': ['fg', 'Exception'],
-    \ 'prompt':  ['fg', 'Conditional'],
+    \ 'prompt': ['fg', 'Conditional'],
     \ 'spinner': ['fg', 'Label'],
     \ }
 
@@ -46,9 +40,6 @@ let g:fzf_colors =  {
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_symbols_ascii = 1
-
-" vim-argwrap
-autocmd FileType go let b:argwrap_tail_comma = 1
 
 " vim-go
 let g:go_fmt_command = 'goimports'
