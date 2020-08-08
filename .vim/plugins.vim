@@ -61,3 +61,6 @@ let g:rooter_silent_chdir = 1
 
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
+
+" rust.vim
+let g:rustfmt_autosave = 1
