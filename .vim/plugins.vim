@@ -1,7 +1,3 @@
-" vim-pathogen
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect('bundle/{}')
-
 " ale
 let g:ale_linters_explicit = 1
 let g:ale_cpp_ccls_init_options = {
@@ -15,7 +11,6 @@ if has('python3')
     if len($PYTHON3_HOST_PROG) > 0
         let g:python3_host_prog=$PYTHON3_HOST_PROG
     endif
-    call deoplete#custom#option('sources', {'_': ['ale']})
 endif
 
 " fzf
