@@ -1,7 +1,7 @@
 set nocompatible
 
 filetype indent plugin on
-colorscheme base16-default-dark
+colorscheme solarized8
 syntax enable
 
 set autoindent
@@ -66,7 +66,7 @@ endif
 
 if has('unix')
     set termguicolors
-    set t_Co=256
+    set t_Co=16
 endif
 
 if &shell =~ 'bin/fish'
