@@ -1,4 +1,6 @@
 set nocompatible
+set termguicolors
+set t_Co=16
 
 filetype indent plugin on
 colorscheme solarized8
@@ -62,11 +64,6 @@ if has('gui_running')
     else
         set guifont=Lucida_Console:h10
     endif
-endif
-
-if has('unix')
-    set termguicolors
-    set t_Co=16
 endif
 
 if &shell =~ 'bin/fish'
