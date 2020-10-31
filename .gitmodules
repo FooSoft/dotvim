@@ -1,6 +1,3 @@
-[submodule ".vim/bundle/vim-pathogen"]
-	path = .vim/pack/plugins/start/vim-pathogen
-	url = https://github.com/tpope/vim-pathogen.git
 [submodule ".vim/bundle/vim-argwrap"]
 	path = .vim/pack/plugins/start/vim-argwrap
 	url = https://github.com/FooSoft/vim-argwrap.git
@@ -118,3 +115,6 @@
 [submodule ".vim/bundle/vim-solarized8"]
 	path = .vim/pack/plugins/start/vim-solarized8
 	url = https://github.com/lifepillar/vim-solarized8.git
+[submodule ".vim/pack/plugins/start/vim-fugitive"]
+	path = .vim/pack/plugins/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
