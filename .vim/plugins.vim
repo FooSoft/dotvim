@@ -39,6 +39,9 @@ let g:airline_symbols_ascii = 1
 " vim-dirvish
 let g:dirvish_mode = ':sort ,^.*[\/],'
 
+" vim-easy-align
+let g:easy_align_ignore_groups = []
+
 " vim-go
 let g:go_fmt_command = 'goimports'
 let g:go_null_module_warning = 0
