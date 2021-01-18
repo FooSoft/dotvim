@@ -1,4 +1,4 @@
 runtime plugins.vim
 runtime options.vim
 runtime keymaps.vim
-runtime functions.vim
+runtime util.vim
