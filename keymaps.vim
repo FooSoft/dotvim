@@ -36,11 +36,16 @@ nnoremap <C-l> <C-W>l
 nnoremap j gj
 nnoremap k gk
 
-inoremap <expr><TAB> pumvisible() ? '<C-y>' : '<TAB>'
-inoremap <expr><CR> pumvisible() ? '<C-e><CR>' : '<CR>'
+inoremap <Expr><Tab> pumvisible() ? '<C-y>' : '<Tab>'
+inoremap <Expr><Cr> pumvisible() ? '<C-e><Cr>' : '<Cr>'
 
 " functions
 nnoremap <Leader>ig :Guid<Cr>
+
+" ale
+nnoremap gd :ALEGoToDefinition<Cr>
+nnoremap gD :ALEGoToTypeDefinition<Cr>
+nnoremap gr :ALEFindReferences<Cr>
 
 " fzf
 nnoremap <silent><Leader>fg :GFiles<Cr>
@@ -74,4 +79,4 @@ auto FileType go nmap <S-F11> :GoDebugStepOut<Cr>
 auto FileType go nmap <S-F5> :GoDebugStop<Cr>
 
 " vim-fswitch
-auto FileType cpp noremap <silent> <Leader>fs :FSHere<Cr>
+auto FileType cpp noremap gfs :FSHere<Cr>
