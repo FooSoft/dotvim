@@ -1,32 +1,32 @@
 let mapleader = "\<Space>"
 
 " core
-nnoremap <silent><Leader><Leader> :b#<Cr>
-nnoremap <silent><C-c><C-c> :nohlsearch<Cr>
-nnoremap <silent><Leader>m :make<Cr>
-nnoremap <silent><Leader>w :w<Cr>
-nnoremap <silent><Leader>x :x<Cr>
-inoremap <C-c> <Esc>
-nnoremap Q <Nop>
+nnoremap <silent><leader><leader> :b#<cr>
+nnoremap <silent><c-c><c-c> :nohlsearch<cr>
+nnoremap <silent><leader>m :make<cr>
+nnoremap <silent><leader>w :w<cr>
+nnoremap <silent><leader>x :x<cr>
+inoremap <C-c> <esc>
+nnoremap Q <nop>
 
 nnoremap Y y$
-nnoremap <Leader>Y "+y$
-vnoremap <Leader>y "+y
-vnoremap <Leader>d "+d
-vnoremap <Leader>p "+p
-vnoremap <Leader>P "+P
-nnoremap <Leader>y "+y
-nnoremap <Leader>d "+d
-nnoremap <Leader>p "+p
-nnoremap <Leader>P "+P
-nnoremap <Leader>yy "+yy
-nnoremap <Leader>d "+dd
+nnoremap <leader>Y "+y$
+vnoremap <leader>y "+y
+vnoremap <leader>d "+d
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
+nnoremap <leader>y "+y
+nnoremap <leader>d "+d
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+nnoremap <leader>yy "+yy
+nnoremap <leader>d "+dd
 
-nnoremap <A-k> <C-W>-
-nnoremap <A-j> <C-W>+
-nnoremap <A-h> <C-W><
-nnoremap <A-l> <C-W>>
-nnoremap <A-=> <C-W><C-=>
+nnoremap <a-k> <c-w>-
+nnoremap <a-j> <c-w>+
+nnoremap <a-h> <c-w><
+nnoremap <a-l> <c-w>>
+nnoremap <a-=> <c-w><c-=>
 
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
@@ -36,47 +36,34 @@ nnoremap <C-l> <C-W>l
 nnoremap j gj
 nnoremap k gk
 
-inoremap <Expr><Tab> pumvisible() ? '<C-y>' : '<Tab>'
-inoremap <Expr><Cr> pumvisible() ? '<C-e><Cr>' : '<Cr>'
+inoremap <expr><tab> pumvisible() ? '<C-y>' : '<tab>'
+inoremap <expr><cr> pumvisible() ? '<C-e><cr>' : '<cr>'
 
-" functions
-nnoremap <Leader>ig :Guid<Cr>
+" util
+nnoremap <leader>ig :Guid<cr>
 
 " ale
-nnoremap gd :ALEGoToDefinition<Cr>
-nnoremap gD :ALEGoToTypeDefinition<Cr>
-nnoremap gr :ALEFindReferences<Cr>
+nnoremap gd :ALEGoToDefinition<cr>
+nnoremap gD :ALEGoToTypeDefinition<cr>
+nnoremap gr :ALEFindReferences<cr>
 
 " fzf
-nnoremap <silent><Leader>fg :GFiles<Cr>
-nnoremap <silent><Leader>ff :Files ~<Cr>
-nnoremap <silent><Leader>fh :History<Cr>
-nnoremap <silent><Leader>fc :BCommits<Cr>
-nnoremap <silent><Leader>fb :Buffers<Cr>
-nnoremap <silent><Leader>fl :Lines<Cr>
+nnoremap <silent><leader>fg :GFiles<cr>
+nnoremap <silent><leader>ff :Files ~<cr>
+nnoremap <silent><leader>fh :History<cr>
+nnoremap <silent><leader>fc :BCommits<cr>
+nnoremap <silent><leader>fb :Buffers<cr>
+nnoremap <silent><leader>fl :Lines<cr>
 
 " vim-argwrap
-nnoremap <silent><Leader>a :ArgWrap<Cr>
+nnoremap <silent><leader>a :ArgWrap<cr>
 
 " vim-bbye
-nnoremap <silent><Bs> :Bwipeout<Cr>
+nnoremap <silent><bs> :Bwipeout<cr>
 
 " vim-bufonly
-nnoremap <silent><S-Bs> :BufOnly<Cr>
+nnoremap <silent><s-bs> :BufOnly<cr>
 
 " vim-easy-align
-nmap ga <Plug>(EasyAlign)
-vmap <Cr> <Plug>(EasyAlign)
-
-" vim-go
-auto FileType go nmap <Leader>b <Plug>(go-build)
-auto FileType go nmap <Leader>c <Plug>(go-coverage)
-auto FileType go nmap <Leader>r <Plug>(go-run)
-auto FileType go nmap <Leader>t <Plug>(go-test)
-auto FileType go nmap <Leader><F5> :GoDebugStart<Cr>
-auto FileType go nmap <Leader><F9> :GoDebugBreakpoint<Cr>
-auto FileType go nmap <S-F11> :GoDebugStepOut<Cr>
-auto FileType go nmap <S-F5> :GoDebugStop<Cr>
-
-" vim-fswitch
-auto FileType cpp noremap gfs :FSHere<Cr>
+nmap ga <plug>(EasyAlign)
+vmap <cr> <plug>(EasyAlign)
