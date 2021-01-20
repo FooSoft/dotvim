@@ -15,7 +15,9 @@ endif
 
 " fzf
 let $FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -g "" 2> /dev/null'
-let g:fzf_preview_window = ''
+if has('dos')
+    let g:fzf_preview_window = ''
+endif
 let g:fzf_colors = {
     \ 'bg': ['bg', 'Normal'],
     \ 'bg+': ['bg', 'CursorLine', 'CursorColumn'],
