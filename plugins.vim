@@ -15,7 +15,7 @@ endif
 
 " fzf
 let $FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -g "" 2> /dev/null'
-if has('dos')
+if has('windows')
     let g:fzf_preview_window = ''
 endif
 let g:fzf_colors = {
