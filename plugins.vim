@@ -1,17 +1,10 @@
 " ale
+let g:ale_completion_enabled = 1
 let g:ale_linters_explicit = 1
 let g:ale_cpp_ccls_init_options = {
     \ 'cacheDirectory': '/tmp/ccls',
     \ 'cacheFormat': 'binary',
     \ }
-
-" deoplete.nvim
-if has('python3')
-    let g:deoplete#enable_at_startup = 1
-    if len($PYTHON3_HOST_PROG) > 0
-        let g:python3_host_prog=$PYTHON3_HOST_PROG
-    endif
-endif
 
 " fzf
 let $FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -g "" 2> /dev/null'

@@ -39,11 +39,10 @@ nnoremap <C-l> <C-W>l
 nnoremap j gj
 nnoremap k gk
 
-inoremap <expr><tab> pumvisible() ? '<C-y>' : '<tab>'
-inoremap <expr><cr> pumvisible() ? '<C-e><cr>' : '<cr>'
-
 " util
 nnoremap <leader>ig :Guid<cr>
+inoremap <expr><tab> pumvisible() ? '<C-y>' : '<tab>'
+inoremap <expr><cr> pumvisible() ? '<C-e><cr>' : '<cr>'
 
 " ale
 nnoremap gd :ALEGoToDefinition<cr>

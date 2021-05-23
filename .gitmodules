@@ -67,15 +67,6 @@
 [submodule ".vim/bundle/fzf.vim"]
 	path = pack/plugins/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
-[submodule ".vim/bundle_extra/deoplete.nvim"]
-	path = pack/plugins/start/deoplete.nvim
-	url = https://github.com/Shougo/deoplete.nvim.git
-[submodule ".vim/bundle_extra/nvim-yarp"]
-	path = pack/plugins/start/nvim-yarp
-	url = https://github.com/roxma/nvim-yarp.git
-[submodule ".vim/bundle_extra/vim-hug-neovim-rpc"]
-	path = pack/plugins/start/vim-hug-neovim-rpc
-	url = https://github.com/roxma/vim-hug-neovim-rpc
 [submodule ".vim/bundle/tcomment_vim"]
 	path = pack/plugins/start/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim
