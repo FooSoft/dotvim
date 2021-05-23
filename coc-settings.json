@@ -1,0 +1,17 @@
+{
+    "languageserver": {
+        "go": {
+            "command": "gopls",
+            "filetypes": ["go"],
+            "rootPatterns": ["go.mod"],
+            "trace.server": "verbose"
+        },
+        "python": {
+            "command": "pyls",
+            "filetypes": ["python"],
+            "rootPatterns": [],
+            "trace.server": "verbose"
+        }
+    },
+    "suggest.noselect": false
+}

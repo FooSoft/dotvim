@@ -1,8 +1,5 @@
 setlocal noexpandtab
 
-" ale
-let b:ale_linters = ['gopls']
-
 " vim-argwrap
 let b:argwrap_tail_comma = 1
 

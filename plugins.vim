@@ -1,11 +1,3 @@
-" ale
-let g:ale_completion_enabled = 1
-let g:ale_linters_explicit = 1
-let g:ale_cpp_ccls_init_options = {
-    \ 'cacheDirectory': '/tmp/ccls',
-    \ 'cacheFormat': 'binary',
-    \ }
-
 " fzf
 let $FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -g "" 2> /dev/null'
 if has('windows')

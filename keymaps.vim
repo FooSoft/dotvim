@@ -41,13 +41,26 @@ nnoremap k gk
 
 " util
 nnoremap <leader>ig :Guid<cr>
+
+" coc.vim
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
+
 inoremap <expr><tab> pumvisible() ? '<C-y>' : '<tab>'
 inoremap <expr><cr> pumvisible() ? '<C-e><cr>' : '<cr>'
-
-" ale
-nnoremap gd :ALEGoToDefinition<cr>
-nnoremap gD :ALEGoToTypeDefinition<cr>
-nnoremap gr :ALEFindReferences<cr>
 
 " fzf
 nnoremap <silent><leader>fg :GFiles<cr>
