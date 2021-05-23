@@ -56,15 +56,9 @@ let g:header_field_author = 'Alex Yatskov'
 let g:header_field_author_email = 'alex@foosoft.net'
 let g:header_field_filename = 0
 
-" vim-interestinwords
-let g:interestingWordsGUIColors = ['#8CCBEA', '#A4E57E', '#FFDB72', '#FF7272', '#FFB3FF', '#9999FF']
+" vim-interestingwords
+let g:interestingWordsGUIColors = ['#8ccbea', '#a4e57e', '#ffdb72', '#ff7272', '#ffb3ff', '#9999ff']
 let g:interestingWordsTermColors = ['154', '121', '211', '137', '214', '222']
-
-" vim-rooter
-let g:rooter_silent_chdir = 1
 
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
-
-" rust.vim
-let g:rustfmt_autosave = 1

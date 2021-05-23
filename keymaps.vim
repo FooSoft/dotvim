@@ -22,6 +22,9 @@ nnoremap <leader>P "+P
 nnoremap <leader>yy "+yy
 nnoremap <leader>d "+dd
 
+nnoremap <silent><bs> :bd<cr>
+nnoremap <silent><s-bs> :bd!<cr>
+
 nnoremap <a-k> <c-w>-
 nnoremap <a-j> <c-w>+
 nnoremap <a-h> <c-w><
@@ -57,12 +60,6 @@ nnoremap <silent><leader>fl :Lines<cr>
 
 " vim-argwrap
 nnoremap <silent><leader>a :ArgWrap<cr>
-
-" vim-bbye
-nnoremap <silent><bs> :Bwipeout<cr>
-
-" vim-bufonly
-nnoremap <silent><s-bs> :BufOnly<cr>
 
 " vim-easy-align
 nmap ga <plug>(EasyAlign)

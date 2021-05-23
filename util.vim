@@ -18,7 +18,7 @@ function! s:guid()
         let l:guid = system('powershell.exe -command "[guid]::NewGuid().ToString()"')[:-2]
     endif
     if exists('l:guid')
-        execute 'normal! a' . l:guid . "\<Esc>"
+        execute 'normal! i' . l:guid . "\<Esc>"
     else
         echoerr 'No GUID provider available'
     endif
