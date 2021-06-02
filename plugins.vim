@@ -1,21 +1,25 @@
+" coc.nvim
+highlight CocErrorSign ctermfg=Red guifg=#dc322f
+highlight CocWarningSign ctermfg=Yellow guifg=#b58900
+
 " fzf
 let $FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -g "" 2> /dev/null'
 if has('windows')
     let g:fzf_preview_window = ''
 endif
 let g:fzf_colors = {
-    \ 'bg': ['bg', 'Normal'],
-    \ 'bg+': ['bg', 'CursorLine', 'CursorColumn'],
-    \ 'border': ['fg', 'Ignore'],
-    \ 'fg': ['fg', 'Normal'],
-    \ 'fg+': ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-    \ 'header': ['fg', 'Comment'],
-    \ 'hl': ['fg', 'Comment'],
-    \ 'hl+': ['fg', 'Statement'],
-    \ 'info': ['fg', 'PreProc'],
-    \ 'marker': ['fg', 'Keyword'],
+    \ 'bg':      ['bg', 'Normal'],
+    \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+    \ 'border':  ['fg', 'Ignore'],
+    \ 'fg':      ['fg', 'Normal'],
+    \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+    \ 'header':  ['fg', 'Comment'],
+    \ 'hl':      ['fg', 'Comment'],
+    \ 'hl+':     ['fg', 'Statement'],
+    \ 'info':    ['fg', 'PreProc'],
+    \ 'marker':  ['fg', 'Keyword'],
     \ 'pointer': ['fg', 'Exception'],
-    \ 'prompt': ['fg', 'Conditional'],
+    \ 'prompt':  ['fg', 'Conditional'],
     \ 'spinner': ['fg', 'Label'],
     \ }
 
