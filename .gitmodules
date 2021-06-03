@@ -50,10 +50,10 @@
 	path = pack/plugins/start/vim-signify
 	url = https://github.com/mhinz/vim-signify.git
 [submodule ".vim/bundle/fzf"]
-	path = pack/plugins/start/fzf
+	path = pack/plugins/opt/fzf
 	url = https://github.com/junegunn/fzf
 [submodule ".vim/bundle/fzf.vim"]
-	path = pack/plugins/start/fzf.vim
+	path = pack/plugins/opt/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
 [submodule ".vim/bundle/tcomment_vim"]
 	path = pack/plugins/start/tcomment_vim
@@ -71,7 +71,7 @@
 	path = pack/plugins/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule "pack/plugins/start/coc.nvim"]
-	path = pack/plugins/start/coc.nvim
+	path = pack/plugins/opt/coc.nvim
 	url = https://github.com/neoclide/coc.nvim
 [submodule "pack/plugins/start/vim-rooter"]
 	path = pack/plugins/start/vim-rooter
