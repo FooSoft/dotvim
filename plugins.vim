@@ -69,6 +69,9 @@ let g:airline_symbols_ascii = 1
 " vim-argwrap
 nnoremap <silent><leader>a :ArgWrap<cr>
 
+" vim-better-whitespace
+highlight ExtraWhitespace ctermbg=DarkMagenta guibg=#6c71c4
+
 " vim-dirvish
 let g:dirvish_mode = ':sort ,^.*[\/],'
 
