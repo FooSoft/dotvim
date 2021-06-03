@@ -43,6 +43,7 @@ set ruler
 set scrolloff=5
 set shiftround
 set shiftwidth=4
+set shortmess+=I
 set showcmd
 set sidescroll=1
 set smartcase

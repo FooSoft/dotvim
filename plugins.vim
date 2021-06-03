@@ -1,6 +1,7 @@
 " coc.nvim
 highlight CocErrorSign ctermfg=Red guifg=#dc322f
 highlight CocWarningSign ctermfg=Yellow guifg=#b58900
+highlight CocInfoHighlight ctermfg=Blue guifg=#268bd2
 
 " fzf
 let $FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -g "" 2> /dev/null'
