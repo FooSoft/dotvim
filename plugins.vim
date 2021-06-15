@@ -26,6 +26,7 @@ if executable('node')
 
     inoremap <expr><tab> pumvisible() ? '<C-y>' : '<tab>'
     inoremap <expr><cr> pumvisible() ? '<C-e><cr>' : '<cr>'
+    inoremap <expr><esc> pumvisible() ? '<C-e>' : '<esc>'
 endif
 
 " fzf
