@@ -23,7 +23,7 @@ nnoremap <leader>yy "+yy
 nnoremap <leader>d "+dd
 
 nnoremap <silent><bs> :bd<cr>
-nnoremap <silent><s-bs> :bd!<cr>
+nnoremap <silent><s-bs> :%bd <bar> e# <bar> bd#<cr>
 
 nnoremap <a-k> <c-w>-
 nnoremap <a-j> <c-w>+
