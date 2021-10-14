@@ -70,12 +70,24 @@
 [submodule ".vim/pack/plugins/start/vim-fugitive"]
 	path = pack/plugins/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "pack/plugins/start/coc.nvim"]
-	path = pack/plugins/opt/coc.nvim
-	url = https://github.com/neoclide/coc.nvim
 [submodule "pack/plugins/start/vim-rooter"]
 	path = pack/plugins/start/vim-rooter
 	url = https://github.com/airblade/vim-rooter.git
 [submodule "pack/plugins/start/vim-polyglot"]
 	path = pack/plugins/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
+[submodule "pack/plugins/opt/cmp-nvim-lsp"]
+	path = pack/plugins/opt/cmp-nvim-lsp
+	url = https://github.com/hrsh7th/cmp-nvim-lsp.git
+[submodule "pack/plugins/opt/nvim-lspconfig"]
+	path = pack/plugins/opt/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig.git
+[submodule "pack/plugins/opt/nvim-cmp"]
+	path = pack/plugins/opt/nvim-cmp
+	url = https://github.com/hrsh7th/nvim-cmp.git
+[submodule "pack/plugins/opt/cmp-vsnip"]
+	path = pack/plugins/opt/cmp-vsnip
+	url = https://github.com/hrsh7th/cmp-vsnip
+[submodule "pack/plugins/opt/vim-vsnip"]
+	path = pack/plugins/opt/vim-vsnip
+	url = https://github.com/hrsh7th/vim-vsnip
