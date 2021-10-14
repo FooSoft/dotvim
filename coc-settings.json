@@ -1,6 +1,0 @@
-{
-    "clangd.disableDiagnostics": true,
-    "powershell.integratedConsole.showOnStartup": false,
-    "suggest.noselect": false,
-    "suggest.snippetsSupport": false
-}
