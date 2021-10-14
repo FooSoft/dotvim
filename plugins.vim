@@ -44,7 +44,7 @@ lua << EOF
     -- Use a loop to conveniently call 'setup' on multiple servers and
     -- map buffer local keybindings when the language server attaches
     local nvim_lsp = require('lspconfig')
-    for _, lsp in ipairs({'jedi_language_server', 'gopls', 'clangd'}) do
+    for _, lsp in ipairs({'jedi_language_server', 'gopls', 'clangd', 'tsserver'}) do
         nvim_lsp[lsp].setup({
             on_attach = on_attach,
             capabilities = capabilities
