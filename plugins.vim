@@ -1,8 +1,10 @@
 " cmp-nvim-lsp, nvim-cmp, nvim-lspconfig
 if has('nvim')
     packadd cmp-nvim-lsp
+    packadd cmp-vsnip
     packadd nvim-cmp
     packadd nvim-lspconfig
+    packadd vim-vsnip
 
 lua << EOF
     -- Use an on_attach function to only map the following keys
@@ -63,6 +65,12 @@ lua << EOF
         },
         sources = {
             {name = 'nvim_lsp'},
+            {name = 'vsnip'},
+        },
+        snippet = {
+            expand = function(args)
+                vim.fn["vsnip#anonymous"](args.body)
+            end,
         },
     }
 
