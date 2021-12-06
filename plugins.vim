@@ -145,3 +145,6 @@ let g:header_field_filename = 0
 " vim-interestingwords
 let g:interestingWordsGUIColors = ['#8ccbea', '#a4e57e', '#ffdb72', '#ff7272', '#ffb3ff', '#9999ff']
 let g:interestingWordsTermColors = ['154', '121', '211', '137', '214', '222']
+
+" vim-polyglot
+let g:rustfmt_autosave = 1
