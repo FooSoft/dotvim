@@ -133,6 +133,9 @@ vmap <cr> <plug>(EasyAlign)
 
 " vim-go
 let g:go_fmt_command = 'goimports'
+let g:go_diagnostics_enabled = 0
+let g:go_imports_autosave = 0
+let g:go_metalinter_enabled = []
 let g:go_null_module_warning = 0
 let g:go_version_warning = 0
 
