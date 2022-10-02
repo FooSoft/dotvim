@@ -5,6 +5,7 @@ if has('nvim')
     packadd nvim-cmp
     packadd nvim-lspconfig
     packadd vim-vsnip
+    packadd hflip.nvim
 
 lua << EOF
     -- Use an on_attach function to only map the following keys
@@ -101,6 +102,9 @@ lua << EOF
     vim.o.completeopt = 'menuone,noselect'
 EOF
 endif
+
+" hflip.nvim
+command! HFlipReload lua require'plenary.reload'.reload_module('hflip', false)
 
 " fzf
 if executable('fzf')

@@ -4,9 +4,6 @@
 [submodule ".vim/bundle/vim-sort-motion"]
 	path = pack/plugins/start/vim-sort-motion
 	url = https://github.com/christoomey/vim-sort-motion.git
-[submodule ".vim/bundle/vim-fswitch"]
-	path = pack/plugins/start/vim-fswitch
-	url = https://github.com/derekwyatt/vim-fswitch.git
 [submodule ".vim/bundle/vim-go"]
 	path = pack/plugins/start/vim-go
 	url = https://github.com/fatih/vim-go.git
@@ -91,3 +88,9 @@
 [submodule "pack/plugins/start/suda.vim"]
 	path = pack/plugins/start/suda.vim
 	url = https://github.com/lambdalisue/suda.vim.git
+[submodule "pack/plugins/start/plenary.nvim"]
+	path = pack/plugins/start/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim.git
+[submodule "pack/plugins/opt/hflip.nvim"]
+	path = pack/plugins/opt/hflip.nvim
+	url = https://github.com/FooSoft/hflip.nvim.git
