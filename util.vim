@@ -25,3 +25,26 @@ function! s:guid()
 endfunction
 
 command! Guid call s:guid()
+
+if has('nvim')
+lua << EOF
+
+function _G.put(...)
+    local objects = {}
+    for i = 1, select('#', ...) do
+        local v = select(i, ...)
+        table.insert(objects, vim.inspect(v))
+    end
+
+    print(table.concat(objects, '\n'))
+    return ...
+end
+
+function _G.list_packages()
+    for key, value in pairs(package.loaded) do
+        print(key)
+    end
+end
+
+EOF
+endif
