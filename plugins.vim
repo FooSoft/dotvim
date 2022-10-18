@@ -165,12 +165,6 @@ let g:go_metalinter_enabled = []
 let g:go_null_module_warning = 0
 let g:go_version_warning = 0
 
-" vim-header
-let g:header_auto_add_header = 0
-let g:header_field_author = 'Alex Yatskov'
-let g:header_field_author_email = 'alex@foosoft.net'
-let g:header_field_filename = 0
-
 " vim-interestingwords
 let g:interestingWordsGUIColors = ['#8ccbea', '#a4e57e', '#ffdb72', '#ff7272', '#ffb3ff', '#9999ff']
 let g:interestingWordsTermColors = ['154', '121', '211', '137', '214', '222']
