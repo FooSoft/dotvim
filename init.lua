@@ -167,7 +167,7 @@ vim.g['airline#extensions#tabline#enabled'] = 1
 vim.g['airline_symbols_ascii'] = 1
 
 -- vim-argwrap
-vim.keymap.set('n', '<leader>a', '<cmd>ArgWrap<cr>')
+vim.keymap.set('n', '<leader>a', vim.cmd.ArgWrap)
 
 -- vim-better-whitespace
 vim.api.nvim_set_hl(0, 'ExtraWhitespace', { bg = '#6c71c4' })
@@ -195,4 +195,4 @@ vim.g.interestingWordsTermColors = { '154', '121', '211', '137', '214', '222' }
 vim.g.rustfmt_autosave = 1
 
 -- hflip.nvim
-vim.keymap.set('n', 'gfs', '<cmd>HFlip<cr>')
+vim.keymap.set('n', 'gfs', vim.cmd.HFlip)
