@@ -1,30 +1,8 @@
--- telescope.nvim
-local telescope = require('telescope')
-if telescope then
-    local telescope_builtin = require('telescope.builtin')
-    if telescope_builtin then
-        vim.keymap.set('n', '<space>fb', telescope_builtin.buffers, {})
-        vim.keymap.set('n', '<space>fg', telescope_builtin.git_files, {})
-        vim.keymap.set('n', '<space>fh', telescope_builtin.oldfiles, {})
-        vim.keymap.set('n', '<space>fr', telescope_builtin.reloader, {})
-        vim.keymap.set('n', '<space>fs', telescope_builtin.spell_suggest, {})
-    end
-
-    local telescope_actions = require('telescope.actions')
-    telescope.setup {
-        defaults = {
-            mappings = {
-                i = {
-                    ['<c-j>'] = telescope_actions.move_selection_next,
-                    ['<c-k>'] = telescope_actions.move_selection_previous,
-                    ['<esc>'] = telescope_actions.close,
-                },
-            },
-        }
-    }
-
-    telescope.load_extension('fzf')
-end
+-- fzf.vim
+vim.keymap.set('n', '<leader>fg', vim.cmd.GFiles)
+vim.keymap.set('n', '<leader>fh', vim.cmd.History)
+vim.keymap.set('n', '<leader>fb', vim.cmd.Buffers)
+vim.keymap.set('n', '<leader>fl', vim.cmd.Lines)
 
 -- hflip.nvim
 vim.keymap.set('n', 'gfs', vim.cmd.HFlip)
