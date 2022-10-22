@@ -43,12 +43,6 @@
 [submodule ".vim/bundle/vim-signify"]
 	path = pack/plugins/start/vim-signify
 	url = https://github.com/mhinz/vim-signify.git
-[submodule ".vim/bundle/fzf"]
-	path = pack/plugins/opt/fzf
-	url = https://github.com/junegunn/fzf
-[submodule ".vim/bundle/fzf.vim"]
-	path = pack/plugins/opt/fzf.vim
-	url = https://github.com/junegunn/fzf.vim.git
 [submodule ".vim/bundle/tcomment_vim"]
 	path = pack/plugins/start/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim
@@ -65,19 +59,19 @@
 	path = pack/plugins/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
 [submodule "pack/plugins/opt/cmp-nvim-lsp"]
-	path = pack/plugins/opt/cmp-nvim-lsp
+	path = pack/plugins/start/cmp-nvim-lsp
 	url = https://github.com/hrsh7th/cmp-nvim-lsp.git
 [submodule "pack/plugins/opt/nvim-lspconfig"]
-	path = pack/plugins/opt/nvim-lspconfig
+	path = pack/plugins/start/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig.git
 [submodule "pack/plugins/opt/nvim-cmp"]
-	path = pack/plugins/opt/nvim-cmp
+	path = pack/plugins/start/nvim-cmp
 	url = https://github.com/hrsh7th/nvim-cmp.git
 [submodule "pack/plugins/opt/cmp-vsnip"]
-	path = pack/plugins/opt/cmp-vsnip
+	path = pack/plugins/start/cmp-vsnip
 	url = https://github.com/hrsh7th/cmp-vsnip
 [submodule "pack/plugins/opt/vim-vsnip"]
-	path = pack/plugins/opt/vim-vsnip
+	path = pack/plugins/start/vim-vsnip
 	url = https://github.com/hrsh7th/vim-vsnip
 [submodule "pack/plugins/start/suda.vim"]
 	path = pack/plugins/start/suda.vim
@@ -86,5 +80,11 @@
 	path = pack/plugins/start/plenary.nvim
 	url = https://github.com/nvim-lua/plenary.nvim.git
 [submodule "pack/plugins/opt/hflip.nvim"]
-	path = pack/plugins/opt/hflip.nvim
+	path = pack/plugins/start/hflip.nvim
 	url = https://github.com/FooSoft/hflip.nvim.git
+[submodule "pack/plugins/opt/telescope.nvim"]
+	path = pack/plugins/start/telescope.nvim
+	url = https://github.com/nvim-telescope/telescope.nvim.git
+[submodule "pack/plugins/opt/telescope-fzf-native.nvim"]
+	path = pack/plugins/start/telescope-fzf-native.nvim
+	url = https://github.com/nvim-telescope/telescope-fzf-native.nvim.git
