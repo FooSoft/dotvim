@@ -91,3 +91,6 @@
 [submodule "pack/plugins/start/fzf"]
 	path = pack/plugins/start/fzf
 	url = https://github.com/junegunn/fzf.git
+[submodule "pack/plugins/start/neodev.nvim"]
+	path = pack/plugins/start/neodev.nvim
+	url = https://github.com/folke/neodev.nvim.git
