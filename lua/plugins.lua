@@ -22,6 +22,8 @@ if telescope then
             },
         }
     }
+
+    telescope.load_extension('fzf')
 end
 
 -- hflip.nvim
