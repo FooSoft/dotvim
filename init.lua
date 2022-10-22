@@ -195,3 +195,12 @@ vim.g.rustfmt_autosave = 1
 
 -- hflip.nvim
 vim.keymap.set('n', 'gfs', vim.cmd.HFlip)
+
+-- helpers
+vim.api.nvim_create_user_command(
+    'UnAlign',
+    function(ctx)
+        vim.cmd(ctx.line1 .. ',' .. ctx.line2 .. 's/\\(\\S\\+\\)\\s\\{2,\\}/\\1 /g')
+    end,
+    { range = '%' }
+)
