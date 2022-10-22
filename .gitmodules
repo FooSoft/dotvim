@@ -88,3 +88,6 @@
 [submodule "pack/plugins/opt/telescope-fzf-native.nvim"]
 	path = pack/plugins/start/telescope-fzf-native.nvim
 	url = https://github.com/nvim-telescope/telescope-fzf-native.nvim.git
+[submodule "pack/plugins/start/vim-rooter"]
+	path = pack/plugins/start/vim-rooter
+	url = https://github.com/airblade/vim-rooter.git
