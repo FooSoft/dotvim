@@ -82,7 +82,6 @@ if nvim_lspconfig then
     nvim_lspconfig.jedi_language_server.setup({ capabilities = capabilities })
     nvim_lspconfig.rust_analyzer.setup({ capabilities = capabilities })
     nvim_lspconfig.tsserver.setup({ capabilities = capabilities })
-    nvim_lspconfig.vimls.setup({ capabilities = capabilities })
     nvim_lspconfig.sumneko_lua.setup({
         settings = {
             Lua = {
