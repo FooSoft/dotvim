@@ -1,4 +1,6 @@
 -- fzf.vim
+vim.g['$FZF_DEFAULT_COMMAND'] = 'ag --hidden --ignore .git -f -g "" 2> /dev/null'
+
 vim.keymap.set('n', '<leader>fg', vim.cmd.GFiles)
 vim.keymap.set('n', '<leader>fh', vim.cmd.History)
 vim.keymap.set('n', '<leader>fb', vim.cmd.Buffers)
