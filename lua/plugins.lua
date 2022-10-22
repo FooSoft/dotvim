@@ -4,6 +4,22 @@ vim.keymap.set('n', '<leader>fh', vim.cmd.History)
 vim.keymap.set('n', '<leader>fb', vim.cmd.Buffers)
 vim.keymap.set('n', '<leader>fl', vim.cmd.Lines)
 
+vim.g.fzf_colors = {
+    ['bg']      = {'bg', 'Normal'},
+    ['bg+']     = {'bg', 'CursorLine', 'CursorColumn'},
+    ['border']  = {'fg', 'Ignore'},
+    ['fg']      = {'fg', 'Normal'},
+    ['fg+']     = {'fg', 'CursorLine', 'CursorColumn', 'Normal'},
+    ['header']  = {'fg', 'Comment'},
+    ['hl']      = {'fg', 'Comment'},
+    ['hl+']     = {'fg', 'Statement'},
+    ['info']    = {'fg', 'PreProc'},
+    ['marker']  = {'fg', 'Keyword'},
+    ['pointer'] = {'fg', 'Exception'},
+    ['prompt']  = {'fg', 'Conditional'},
+    ['spinner'] = {'fg', 'Label'},
+}
+
 -- hflip.nvim
 vim.keymap.set('n', 'gfs', vim.cmd.HFlip)
 
@@ -33,8 +49,8 @@ vim.g.go_null_module_warning = 0
 vim.g.go_version_warning = 0
 
 -- vim-interestingwords
-vim.g.interestingWordsGUIColors = { '#8ccbea', '#a4e57e', '#ffdb72', '#ff7272', '#ffb3ff', '#9999ff' }
-vim.g.interestingWordsTermColors = { '154', '121', '211', '137', '214', '222' }
+vim.g.interestingWordsGUIColors = {'#8ccbea', '#a4e57e', '#ffdb72', '#ff7272', '#ffb3ff', '#9999ff'}
+vim.g.interestingWordsTermColors = {'154', '121', '211', '137', '214', '222'}
 
 -- vim-polyglot
 vim.g.rustfmt_autosave = 1

@@ -5,21 +5,21 @@ if nvim_lspconfig then
 
     local cmp_nvim_lsp = require('cmp_nvim_lsp')
     if cmp_nvim_lsp then
-        capabilities = cmp_nvim_lsp.update_capabilities(capabilities, { snippetSupport = false })
+        capabilities = cmp_nvim_lsp.update_capabilities(capabilities, {snippetSupport = false})
     end
 
-    nvim_lspconfig.clangd.setup({ capabilities = capabilities })
-    nvim_lspconfig.gopls.setup({ capabilities = capabilities })
-    nvim_lspconfig.jedi_language_server.setup({ capabilities = capabilities })
-    nvim_lspconfig.rust_analyzer.setup({ capabilities = capabilities })
-    nvim_lspconfig.tsserver.setup({ capabilities = capabilities })
+    nvim_lspconfig.clangd.setup({capabilities = capabilities})
+    nvim_lspconfig.gopls.setup({capabilities = capabilities})
+    nvim_lspconfig.jedi_language_server.setup({capabilities = capabilities})
+    nvim_lspconfig.rust_analyzer.setup({capabilities = capabilities})
+    nvim_lspconfig.tsserver.setup({capabilities = capabilities})
     nvim_lspconfig.sumneko_lua.setup({
         settings = {
             Lua = {
-                diagnostics = { globals = { 'vim' } },
-                runtime = { version = 'LuaJIT' },
-                telemetry = { enable = false },
-                workspace = { library = vim.api.nvim_get_runtime_file('', true) },
+                diagnostics = {globals = { 'vim' }},
+                runtime = {version = 'LuaJIT'},
+                telemetry = {enable = false},
+                workspace = {library = vim.api.nvim_get_runtime_file('', true)},
             },
         },
     })
@@ -28,7 +28,7 @@ if nvim_lspconfig then
     vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition)
     vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action)
     vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
-    vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format({ async = true }) end)
+    vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format({async = true}) end)
     vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename)
     vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder)
@@ -57,8 +57,8 @@ if nvim_cmp then
             ['<tab>'] = nvim_cmp.mapping.confirm({ select = true }),
         },
         sources = {
-            { name = 'nvim_lsp' },
-            { name = 'vsnip' },
+            {name = 'nvim_lsp'},
+            {name = 'vsnip'},
         },
         snippet = {
             expand = function(args) vim.fn['vsnip#anonymous'](args.body) end,

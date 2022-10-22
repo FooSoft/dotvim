@@ -9,5 +9,5 @@ elseif vim.fn.has('win32') == 1 then
 end
 
 if font then
-    vim.cmd.Guifont({ args = { font }})
+    vim.cmd.Guifont({args = {font}})
 end

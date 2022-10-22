@@ -39,13 +39,13 @@ vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')
 
 -- clipboard keymaps
-vim.keymap.set({ 'n', 'v' }, '<leader>P', '"+P')
-vim.keymap.set({ 'n', 'v' }, '<leader>Y', '"+y$')
-vim.keymap.set({ 'n', 'v' }, '<leader>d', '"+d')
-vim.keymap.set({ 'n', 'v' }, '<leader>d', '"+dd')
-vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p')
-vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y')
-vim.keymap.set({ 'n', 'v' }, '<leader>yy', '"+yy')
+vim.keymap.set({'n', 'v'}, '<leader>P', '"+P')
+vim.keymap.set({'n', 'v'}, '<leader>Y', '"+y$')
+vim.keymap.set({'n', 'v'}, '<leader>d', '"+d')
+vim.keymap.set({'n', 'v'}, '<leader>d', '"+dd')
+vim.keymap.set({'n', 'v'}, '<leader>p', '"+p')
+vim.keymap.set({'n', 'v'}, '<leader>y', '"+y')
+vim.keymap.set({'n', 'v'}, '<leader>yy', '"+yy')
 
 -- split keymaps
 vim.keymap.set('n', '<a-=>', '<c-w><c-=>')
