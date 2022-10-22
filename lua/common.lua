@@ -6,14 +6,12 @@ vim.g.mapleader = ' '
 
 -- options
 vim.opt.autowrite = true
-vim.opt.backup = false
 vim.opt.completeopt = 'menuone,noselect'
 vim.opt.expandtab = true
 vim.opt.fileformats = 'unix,dos,mac'
 vim.opt.foldenable = false
 vim.opt.guicursor = 'n:blinkon0'
 vim.opt.ignorecase = true
-vim.opt.langremap = false
 vim.opt.linebreak = true
 vim.opt.modeline = false
 vim.opt.modelines = 0
