@@ -1,3 +1,9 @@
+-- neodev.nvim
+local neodev_nvim = require('neodev')
+if neodev_nvim then
+    neodev_nvim.setup({})
+end
+
 -- cmp-nvim-lsp, nvim-lspconfig
 local nvim_lspconfig = require('lspconfig')
 if nvim_lspconfig then
