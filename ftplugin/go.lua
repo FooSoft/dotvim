@@ -1,8 +1,9 @@
 vim.opt.expandtab = false
 
-vim.keymap.set('n', '<leader>b', '<cmd>plug>(go-build)')
-vim.keymap.set('n', '<leader>c', '<cmd>plug>(go-coverage)')
-vim.keymap.set('n', '<leader>r', '<cmd>plug>(go-run)')
-vim.keymap.set('n', '<leader>t', '<cmd>plug>(go-test)')
+vim.keymap.set('n', '<leader>b', vim.cmd.GoBuild)
+vim.keymap.set('n', '<leader>c', vim.cmd.GoCoverage)
+vim.keymap.set('n', '<leader>i', vim.cmd.GoInstall)
+vim.keymap.set('n', '<leader>r', vim.cmd.GoRun)
+vim.keymap.set('n', '<leader>t', vim.cmd.GoTest)
 
 vim.b.argwrap_tail_comma = 1
