@@ -18,6 +18,7 @@ vim.opt.modelines = 0
 vim.opt.number = true
 vim.opt.shiftround = true
 vim.opt.shiftwidth = 4
+vim.opt.showmode = false
 vim.opt.smartcase = true
 vim.opt.swapfile = false
 vim.opt.tabstop = 4
