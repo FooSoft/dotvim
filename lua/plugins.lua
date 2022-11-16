@@ -1,26 +1,28 @@
 -- fzf.vim
-vim.g['$FZF_DEFAULT_COMMAND'] = 'ag --hidden --ignore .git -f -g "" 2> /dev/null'
+if vim.fn.executable('fzf') then
+    vim.g['$FZF_DEFAULT_COMMAND'] = 'ag --hidden --ignore .git -f -g "" 2> /dev/null'
 
-vim.keymap.set('n', '<leader>fg', vim.cmd.GFiles)
-vim.keymap.set('n', '<leader>fh', vim.cmd.History)
-vim.keymap.set('n', '<leader>fb', vim.cmd.Buffers)
-vim.keymap.set('n', '<leader>fl', vim.cmd.Lines)
+    vim.keymap.set('n', '<leader>fg', vim.cmd.GFiles)
+    vim.keymap.set('n', '<leader>fh', vim.cmd.History)
+    vim.keymap.set('n', '<leader>fb', vim.cmd.Buffers)
+    vim.keymap.set('n', '<leader>fl', vim.cmd.Lines)
 
-vim.g.fzf_colors = {
-    ['bg']      = {'bg', 'Normal'},
-    ['bg+']     = {'bg', 'CursorLine', 'CursorColumn'},
-    ['border']  = {'fg', 'Ignore'},
-    ['fg']      = {'fg', 'Normal'},
-    ['fg+']     = {'fg', 'CursorLine', 'CursorColumn', 'Normal'},
-    ['header']  = {'fg', 'Comment'},
-    ['hl']      = {'fg', 'Comment'},
-    ['hl+']     = {'fg', 'Statement'},
-    ['info']    = {'fg', 'PreProc'},
-    ['marker']  = {'fg', 'Keyword'},
-    ['pointer'] = {'fg', 'Exception'},
-    ['prompt']  = {'fg', 'Conditional'},
-    ['spinner'] = {'fg', 'Label'},
-}
+    vim.g.fzf_colors = {
+        ['bg']      = {'bg', 'Normal'},
+        ['bg+']     = {'bg', 'CursorLine', 'CursorColumn'},
+        ['border']  = {'fg', 'Ignore'},
+        ['fg']      = {'fg', 'Normal'},
+        ['fg+']     = {'fg', 'CursorLine', 'CursorColumn', 'Normal'},
+        ['header']  = {'fg', 'Comment'},
+        ['hl']      = {'fg', 'Comment'},
+        ['hl+']     = {'fg', 'Statement'},
+        ['info']    = {'fg', 'PreProc'},
+        ['marker']  = {'fg', 'Keyword'},
+        ['pointer'] = {'fg', 'Exception'},
+        ['prompt']  = {'fg', 'Conditional'},
+        ['spinner'] = {'fg', 'Label'},
+    }
+end
 
 -- hflip.nvim
 vim.keymap.set('n', 'gfs', vim.cmd.HFlip)

@@ -8,21 +8,30 @@ local capabilities = cmp_nvim_lsp.default_capabilities({snippetSupport = false})
 
 -- nvim-lspconfig
 local nvim_lspconfig = require('lspconfig')
-nvim_lspconfig.clangd.setup({capabilities = capabilities})
-nvim_lspconfig.gopls.setup({capabilities = capabilities})
-nvim_lspconfig.jedi_language_server.setup({capabilities = capabilities})
-nvim_lspconfig.rust_analyzer.setup({capabilities = capabilities})
-nvim_lspconfig.tsserver.setup({capabilities = capabilities})
-nvim_lspconfig.sumneko_lua.setup({
-    settings = {
-        Lua = {
-            diagnostics = {globals = {'vim'}},
-            runtime = {version = 'LuaJIT'},
-            telemetry = {enable = false},
-            workspace = {library = vim.api.nvim_get_runtime_file('', true)},
+if vim.fn.executable('clangd') then
+    nvim_lspconfig.clangd.setup({capabilities = capabilities})
+end
+if vim.fn.executable('gopls') then
+    nvim_lspconfig.gopls.setup({capabilities = capabilities})
+end
+if vim.fn.executable('jedi-language-server') then
+    nvim_lspconfig.jedi_language_server.setup({capabilities = capabilities})
+end
+if vim.fn.executable('typescript-language-server') then
+    nvim_lspconfig.tsserver.setup({capabilities = capabilities})
+end
+if vim.fn.executable('lua-language-server') then
+    nvim_lspconfig.sumneko_lua.setup({
+        settings = {
+            Lua = {
+                diagnostics = {globals = {'vim'}},
+                runtime = {version = 'LuaJIT'},
+                telemetry = {enable = false},
+                workspace = {library = vim.api.nvim_get_runtime_file('', true)},
+            },
         },
-    },
-})
+    })
+end
 
 vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help)
 vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition)
