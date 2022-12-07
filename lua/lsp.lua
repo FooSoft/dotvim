@@ -66,6 +66,7 @@ nvim_cmp.setup({
     sources = {
         {name = 'nvim_lsp'},
         {name = 'vsnip'},
+        {name = "nvim_lsp_signature_help"},
     },
     snippet = {
         expand = function(args) vim.fn['vsnip#anonymous'](args.body) end,
