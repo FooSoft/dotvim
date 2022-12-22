@@ -1,5 +1,5 @@
 -- colors
-vim.cmd.colorscheme('solarized8')
+vim.cmd.colorscheme('nightfox')
 
 -- leader
 vim.g.mapleader = ' '

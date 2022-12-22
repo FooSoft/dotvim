@@ -6,36 +6,58 @@ if vim.fn.executable('fzf') then
     vim.keymap.set('n', '<leader>fh', vim.cmd.History)
     vim.keymap.set('n', '<leader>fb', vim.cmd.Buffers)
     vim.keymap.set('n', '<leader>fl', vim.cmd.Lines)
-
-    vim.g.fzf_colors = {
-        ['bg']      = {'bg', 'Normal'},
-        ['bg+']     = {'bg', 'CursorLine', 'CursorColumn'},
-        ['border']  = {'fg', 'Ignore'},
-        ['fg']      = {'fg', 'Normal'},
-        ['fg+']     = {'fg', 'CursorLine', 'CursorColumn', 'Normal'},
-        ['header']  = {'fg', 'Comment'},
-        ['hl']      = {'fg', 'Comment'},
-        ['hl+']     = {'fg', 'Statement'},
-        ['info']    = {'fg', 'PreProc'},
-        ['marker']  = {'fg', 'Keyword'},
-        ['pointer'] = {'fg', 'Exception'},
-        ['prompt']  = {'fg', 'Conditional'},
-        ['spinner'] = {'fg', 'Label'},
-    }
 end
 
 -- hflip.nvim
 vim.keymap.set('n', 'gfs', vim.cmd.HFlip)
 
--- vim-airline
-vim.g['airline#extensions#tabline#enabled'] = 1
-vim.g['airline_symbols_ascii'] = 1
+-- lualine.nvim
+require('lualine').setup {
+    options = {
+        always_divide_middle = true,
+        component_separators = {left = '', right = ''},
+        disabled_filetypes = {statusline = {}, winbar = {}},
+        globalstatus = false,
+        icons_enabled = false,
+        ignore_focus = {},
+        refresh = {statusline = 1000, tabline = 1000, winbar = 1000},
+        section_separators = {left = '', right = ''},
+        theme = 'auto',
+    },
+    sections = {
+        lualine_a = {'mode'},
+        lualine_b = {'branch', 'diff', 'diagnostics'},
+        lualine_c = {'filename'},
+        lualine_x = {'encoding', 'fileformat', 'filetype'},
+        lualine_y = {'progress'},
+        lualine_z = {'location'}
+    },
+    inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {'filename'},
+        lualine_x = {'location'},
+        lualine_y = {},
+        lualine_z = {}
+    },
+    tabline = {
+        lualine_a = {'buffers'},
+        lualine_b = {},
+        lualine_c = {},
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {}
+    },
+    winbar = {},
+    inactive_winbar = {},
+    extensions = {}
+}
 
 -- vim-argwrap
 vim.keymap.set('n', '<leader>a', vim.cmd.ArgWrap)
 
 -- vim-better-whitespace
-vim.api.nvim_set_hl(0, 'ExtraWhitespace', { bg = '#6c71c4' })
+vim.api.nvim_set_hl(0, 'ExtraWhitespace', {link = 'Search'})
 
 -- vim-dirvish
 vim.g.dirvish_mode = ':sort ,^.*[\\/],'

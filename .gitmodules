@@ -31,12 +31,6 @@
 [submodule ".vim/bundle/vim-interestingwords"]
 	path = pack/plugins/start/vim-interestingwords
 	url = https://github.com/vasconcelloslf/vim-interestingwords.git
-[submodule ".vim/bundle/vim-airline-themes"]
-	path = pack/plugins/start/vim-airline-themes
-	url = https://github.com/vim-airline/vim-airline-themes.git
-[submodule ".vim/bundle/vim-airline"]
-	path = pack/plugins/start/vim-airline
-	url = https://github.com/vim-airline/vim-airline.git
 [submodule ".vim/bundle/vim-dirvish"]
 	path = pack/plugins/start/vim-dirvish
 	url = https://github.com/justinmk/vim-dirvish.git
@@ -49,9 +43,6 @@
 [submodule ".vim/bundle/vim-angry"]
 	path = pack/plugins/start/vim-angry
 	url = https://github.com/b4winckler/vim-angry.git
-[submodule ".vim/bundle/vim-solarized8"]
-	path = pack/plugins/start/vim-solarized8
-	url = https://github.com/lifepillar/vim-solarized8.git
 [submodule ".vim/pack/plugins/start/vim-fugitive"]
 	path = pack/plugins/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
@@ -97,3 +88,9 @@
 [submodule "pack/plugins/start/cmp-nvim-lsp-signature-help"]
 	path = pack/plugins/start/cmp-nvim-lsp-signature-help
 	url = https://github.com/hrsh7th/cmp-nvim-lsp-signature-help.git
+[submodule "pack/plugins/start/nightfox.nvim"]
+	path = pack/plugins/start/nightfox.nvim
+	url = https://github.com/EdenEast/nightfox.nvim.git
+[submodule "pack/plugins/start/lualine.nvim"]
+	path = pack/plugins/start/lualine.nvim
+	url = https://github.com/nvim-lualine/lualine.nvim.git
