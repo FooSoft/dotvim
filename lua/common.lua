@@ -13,6 +13,7 @@ vim.opt.foldenable = false
 vim.opt.guicursor = 'n:blinkon0'
 vim.opt.ignorecase = true
 vim.opt.linebreak = true
+vim.opt.listchars = "tab:» ,eol:↲,space:·"
 vim.opt.modeline = false
 vim.opt.modelines = 0
 vim.opt.number = true
