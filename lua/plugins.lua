@@ -18,7 +18,7 @@ require('lualine').setup {
         component_separators = {left = '', right = ''},
         disabled_filetypes = {statusline = {}, winbar = {}},
         globalstatus = false,
-        icons_enabled = false,
+        icons_enabled = true,
         ignore_focus = {},
         refresh = {statusline = 1000, tabline = 1000, winbar = 1000},
         section_separators = {left = '', right = ''},
