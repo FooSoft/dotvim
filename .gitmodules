@@ -37,9 +37,6 @@
 [submodule ".vim/bundle/vim-signify"]
 	path = pack/plugins/start/vim-signify
 	url = https://github.com/mhinz/vim-signify.git
-[submodule ".vim/bundle/tcomment_vim"]
-	path = pack/plugins/start/tcomment_vim
-	url = https://github.com/tomtom/tcomment_vim
 [submodule ".vim/bundle/vim-angry"]
 	path = pack/plugins/start/vim-angry
 	url = https://github.com/b4winckler/vim-angry.git
@@ -94,3 +91,6 @@
 [submodule "pack/plugins/start/lualine.nvim"]
 	path = pack/plugins/start/lualine.nvim
 	url = https://github.com/nvim-lualine/lualine.nvim.git
+[submodule "pack/plugins/start/Comment.nvim"]
+	path = pack/plugins/start/Comment.nvim
+	url = https://github.com/numToStr/Comment.nvim.git

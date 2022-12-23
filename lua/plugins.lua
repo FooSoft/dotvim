@@ -1,3 +1,6 @@
+-- comment.nvim
+require('Comment').setup()
+
 -- fzf.vim
 if vim.fn.executable('fzf') then
     vim.g['$FZF_DEFAULT_COMMAND'] = 'ag --hidden --ignore .git -f -g "" 2> /dev/null'
