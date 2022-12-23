@@ -21,6 +21,7 @@ vim.opt.shiftround = true
 vim.opt.shiftwidth = 4
 vim.opt.showmode = false
 vim.opt.smartcase = true
+vim.opt.spell = false
 vim.opt.swapfile = false
 vim.opt.tabstop = 4
 vim.opt.termguicolors = true
