@@ -94,3 +94,6 @@
 [submodule "pack/plugins/start/Comment.nvim"]
 	path = pack/plugins/start/Comment.nvim
 	url = https://github.com/numToStr/Comment.nvim.git
+[submodule "pack/plugins/start/guid.nvim"]
+	path = pack/plugins/start/guid.nvim
+	url = https://github.com/FooSoft/guid.nvim.git

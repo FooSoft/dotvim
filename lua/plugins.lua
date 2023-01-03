@@ -11,6 +11,9 @@ if vim.fn.executable('fzf') then
     vim.keymap.set('n', '<leader>fl', vim.cmd.Lines)
 end
 
+-- guid.nvim
+require('guid').setup()
+
 -- hflip.nvim
 vim.keymap.set('n', 'gfs', vim.cmd.HFlip)
 
