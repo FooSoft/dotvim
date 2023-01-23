@@ -21,13 +21,27 @@ if vim.fn.executable('typescript-language-server') then
     nvim_lspconfig.tsserver.setup({capabilities = capabilities})
 end
 if vim.fn.executable('lua-language-server') then
+    local runtime_path = vim.split(package.path, ';')
+    table.insert(runtime_path, 'lua/?.lua')
+    table.insert(runtime_path, 'lua/?/init.lua')
+
     nvim_lspconfig.sumneko_lua.setup({
         settings = {
             Lua = {
-                diagnostics = {globals = {'vim'}},
-                runtime = {version = 'LuaJIT'},
-                telemetry = {enable = false},
-                workspace = {library = vim.api.nvim_get_runtime_file('', true)},
+                diagnostics = {
+                    globals = {'vim'},
+                },
+                runtime = {
+                    path = runtime_path,
+                    version = 'LuaJIT',
+                },
+                telemetry = {
+                    enable = false,
+                },
+                workspace = {
+                    checkThirdParty = false,
+                    library = vim.api.nvim_get_runtime_file('', true),
+                },
             },
         },
     })
