@@ -67,9 +67,6 @@
 [submodule "pack/plugins/start/plenary.nvim"]
 	path = pack/plugins/start/plenary.nvim
 	url = https://github.com/nvim-lua/plenary.nvim.git
-[submodule "pack/plugins/opt/hflip.nvim"]
-	path = pack/plugins/start/hflip.nvim
-	url = https://github.com/FooSoft/hflip.nvim.git
 [submodule "pack/plugins/start/vim-rooter"]
 	path = pack/plugins/start/vim-rooter
 	url = https://github.com/airblade/vim-rooter.git
@@ -97,3 +94,6 @@
 [submodule "pack/plugins/start/guid.nvim"]
 	path = pack/plugins/start/guid.nvim
 	url = https://github.com/FooSoft/guid.nvim.git
+[submodule "pack/plugins/start/revolver.nvim"]
+	path = pack/plugins/start/revolver.nvim
+	url = https://github.com/FooSoft/revolver.nvim.git
