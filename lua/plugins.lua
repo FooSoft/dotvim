@@ -14,9 +14,6 @@ end
 -- guid.nvim
 require('guid').setup()
 
--- hflip.nvim
-vim.keymap.set('n', 'gfs', vim.cmd.HFlip)
-
 -- lualine.nvim
 require('lualine').setup {
     options = {
@@ -58,6 +55,10 @@ require('lualine').setup {
     inactive_winbar = {},
     extensions = {}
 }
+
+-- revolver.nvim
+require('revolver').setup()
+vim.keymap.set('n', 'gfs', vim.cmd.Revolver)
 
 -- vim-argwrap
 vim.keymap.set('n', '<leader>a', vim.cmd.ArgWrap)
