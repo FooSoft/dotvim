@@ -57,7 +57,7 @@ require('lualine').setup {
 }
 
 -- revolver.nvim
-require('revolver').setup()
+require('revolver').setup({'.c', '.cpp', '.h', '.hpp', '.inl'})
 vim.keymap.set('n', 'gfs', vim.cmd.Revolver)
 
 -- vim-argwrap
