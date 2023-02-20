@@ -1,3 +1,7 @@
+-- argonaut.nvim
+require('argonaut').setup()
+vim.keymap.set('n', '<leader>a', vim.cmd.ArgonautReflow)
+
 -- comment.nvim
 require('Comment').setup()
 
@@ -59,9 +63,6 @@ require('lualine').setup {
 -- revolver.nvim
 require('revolver').setup({'.c', '.cpp', '.h', '.hpp', '.inl'})
 vim.keymap.set('n', 'gfs', vim.cmd.Revolver)
-
--- vim-argwrap
-vim.keymap.set('n', '<leader>a', vim.cmd.ArgWrap)
 
 -- vim-better-whitespace
 vim.api.nvim_set_hl(0, 'ExtraWhitespace', {link = 'Search'})
