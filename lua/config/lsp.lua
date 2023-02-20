@@ -30,6 +30,7 @@ if vim.fn.executable('lua-language-server') then
             Lua = {
                 diagnostics = {
                     globals = {'vim'},
+                    disable = {'param-type-mismatch', 'undefined-field'},
                 },
                 runtime = {
                     path = runtime_path,
