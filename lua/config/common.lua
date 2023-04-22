@@ -16,6 +16,7 @@ vim.opt.linebreak = true
 vim.opt.listchars = "tab:» ,eol:↲,space:·"
 vim.opt.modeline = false
 vim.opt.modelines = 0
+vim.opt.mousemodel = 'extend'
 vim.opt.number = true
 vim.opt.shiftround = true
 vim.opt.shiftwidth = 4
