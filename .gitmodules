@@ -28,9 +28,6 @@
 [submodule ".vim/bundle/vim-unimpaired"]
 	path = pack/plugins/start/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
-[submodule ".vim/bundle/vim-interestingwords"]
-	path = pack/plugins/start/vim-interestingwords
-	url = https://github.com/vasconcelloslf/vim-interestingwords.git
 [submodule ".vim/bundle/vim-dirvish"]
 	path = pack/plugins/start/vim-dirvish
 	url = https://github.com/justinmk/vim-dirvish.git
@@ -97,3 +94,6 @@
 [submodule "pack/plugins/start/revolver.nvim"]
 	path = pack/plugins/start/revolver.nvim
 	url = https://github.com/FooSoft/revolver.nvim.git
+[submodule "pack/plugins/start/vim-quickhl"]
+	path = pack/plugins/start/vim-quickhl
+	url = https://github.com/t9md/vim-quickhl.git
