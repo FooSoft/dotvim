@@ -12,7 +12,9 @@ if vim.fn.executable('fzf') then
 end
 
 -- guid.nvim
-require('guid').setup()
+require('guid').setup({
+    comma_space = true
+})
 
 -- lualine.nvim
 require('lualine').setup {
