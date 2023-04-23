@@ -5,3 +5,5 @@ vim.keymap.set('n', '<leader>c', vim.cmd.GoCoverage)
 vim.keymap.set('n', '<leader>i', vim.cmd.GoInstall)
 vim.keymap.set('n', '<leader>r', vim.cmd.GoRun)
 vim.keymap.set('n', '<leader>t', vim.cmd.GoTest)
+
+vim.b.argwrap_tail_comma = 1
