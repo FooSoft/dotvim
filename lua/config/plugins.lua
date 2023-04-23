@@ -87,7 +87,7 @@ vim.g.go_version_warning = 0
 vim.g.rustfmt_autosave = 1
 
 -- vim-quickhl
-vim.keymap.set('n', '<leader>k', '<Plug>(quickhl-manual-this)')
-vim.keymap.set('x', '<leader>k', '<Plug>(quickhl-manual-this)')
 vim.keymap.set('n', '<leader>K', '<Plug>(quickhl-manual-reset)')
+vim.keymap.set('n', '<leader>k', '<Plug>(quickhl-manual-this)')
 vim.keymap.set('x', '<leader>K', '<Plug>(quickhl-manual-reset)')
+vim.keymap.set('x', '<leader>k', '<Plug>(quickhl-manual-this)')
