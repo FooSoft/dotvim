@@ -16,7 +16,8 @@ vim.opt.linebreak = true
 vim.opt.listchars = 'tab:» ,eol:↲,space:·'
 vim.opt.modeline = false
 vim.opt.modelines = 0
-vim.opt.mouse = ''
+vim.opt.mouse = 'nv'
+vim.opt.mousemodel = 'extend'
 vim.opt.number = true
 vim.opt.shiftround = true
 vim.opt.shiftwidth = 4
@@ -42,12 +43,10 @@ vim.keymap.set('n', 'k', 'gk')
 
 -- clipboard keymaps
 vim.keymap.set({'n', 'v'}, '<leader>P', '"+P')
-vim.keymap.set({'n', 'v'}, '<leader>Y', '"+y$')
+vim.keymap.set({'n', 'v'}, '<leader>Y', '"+Y')
 vim.keymap.set({'n', 'v'}, '<leader>d', '"+d')
-vim.keymap.set({'n', 'v'}, '<leader>d', '"+dd')
 vim.keymap.set({'n', 'v'}, '<leader>p', '"+p')
 vim.keymap.set({'n', 'v'}, '<leader>y', '"+y')
-vim.keymap.set({'n', 'v'}, '<leader>yy', '"+yy')
 
 -- split keymaps
 vim.keymap.set('n', '<a-=>', '<c-w><c-=>')
