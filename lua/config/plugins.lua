@@ -5,17 +5,18 @@ require('Comment').setup()
 if vim.fn.executable('fzf') then
     vim.g['$FZF_DEFAULT_COMMAND'] = 'ag --hidden --ignore .git -f -g "" 2> /dev/null'
 
-    vim.keymap.set('n', '<leader>fg', vim.cmd.GFiles)
-    vim.keymap.set('n', '<leader>fh', vim.cmd.History)
-    vim.keymap.set('n', '<leader>fb', vim.cmd.Buffers)
-    vim.keymap.set('n', '<leader>fl', vim.cmd.Lines)
-
     vim.cmd([[
-        command! -bang -nargs=* Gg
+        command! -bang -nargs=* Fs
         \ call fzf#vim#grep(
         \   'git grep --line-number -- '.shellescape(<q-args>), 0,
         \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
     ]])
+
+    vim.keymap.set('n', '<leader>fg', vim.cmd.GFiles)
+    vim.keymap.set('n', '<leader>fs', vim.cmd.Fs)
+    vim.keymap.set('n', '<leader>fh', vim.cmd.History)
+    vim.keymap.set('n', '<leader>fb', vim.cmd.Buffers)
+    vim.keymap.set('n', '<leader>fl', vim.cmd.Lines)
 end
 
 -- guid.nvim
