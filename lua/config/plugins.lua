@@ -9,6 +9,13 @@ if vim.fn.executable('fzf') then
     vim.keymap.set('n', '<leader>fh', vim.cmd.History)
     vim.keymap.set('n', '<leader>fb', vim.cmd.Buffers)
     vim.keymap.set('n', '<leader>fl', vim.cmd.Lines)
+
+    vim.cmd([[
+        command! -bang -nargs=* Gg
+        \ call fzf#vim#grep(
+        \   'git grep --line-number -- '.shellescape(<q-args>), 0,
+        \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
+    ]])
 end
 
 -- guid.nvim
