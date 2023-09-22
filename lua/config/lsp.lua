@@ -48,7 +48,7 @@ if vim.fn.executable('lua-language-server') then
     })
 end
 
-vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help)
+vim.keymap.set('n', '<C-s>', vim.lsp.buf.signature_help)
 vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition)
 vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action)
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
