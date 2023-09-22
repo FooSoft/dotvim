@@ -13,22 +13,17 @@ local function git_streak()
     end
 
     local root_dir = call({'git', 'rev-parse', '--show-toplevel'})
-    if #root_dir == 0 then
-        return
-    end
-
     local author = call({'git', 'config', 'user.name'})
-    if #author == 0 then
-        return
-    end
 
     local hash = call{'git', 'log', '-n1', '--author="^((?!' .. author .. ').)*$"', '--perl-regexp', '--pretty=format:"%H"'}
     if #hash == 0 then
+        print('All commits are by current author')
         return
     end
 
     local names = call({'git', 'diff', '--name-only', hash})
     if #names == 0 then
+        print('No files changed since previous author')
         return
     end
 
