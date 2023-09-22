@@ -7,34 +7,33 @@ vim.api.nvim_create_user_command(
 
 -- GitStreak
 local function git_streak()
-    local root_dir = vim.fn.system(table.concat({'git', 'rev-parse', '--show-toplevel'}, ' '))
-    root_dir = string.gsub(root_dir, '%s+$', '')
+    local function call(args)
+        output = vim.fn.system(table.concat(args, ' '))
+        return string.gsub(output, '%s+$', '')
+    end
+
+    local root_dir = call({'git', 'rev-parse', '--show-toplevel'})
     if #root_dir == 0 then
         return
     end
 
-    local author = vim.fn.system(table.concat({'git', 'config', 'user.name'}, ' '))
-    author = string.gsub(author, '%s+$', '')
+    local author = call({'git', 'config', 'user.name'})
+    if #author == 0 then
+        return
+    end
 
-    local hash = vim.fn.system(table.concat({
-        'git',
-        'log',
-        '-n1',
-        string.format('--author="^((?!%s).)*$"', author),
-        '--perl-regexp',
-        '--pretty=format:"%H"'}, ' '))
+    local hash = call{'git', 'log', '-n1', '--author="^((?!' .. author .. ').)*$"', '--perl-regexp', '--pretty=format:"%H"'}
     if #hash == 0 then
         return
     end
 
-    local names = vim.fn.system(table.concat({'git', 'diff', '--name-only', hash}, ' '))
+    local names = call({'git', 'diff', '--name-only', hash})
     if #names == 0 then
         return
     end
 
     for name in string.gmatch(names, '[^\r\n]+') do
-        local path = string.format('%s/%s', root_dir, name)
-        vim.cmd(string.format('e %s', path))
+        vim.cmd(string.format('e %s/%s', root_dir, name))
     end
 end
 
