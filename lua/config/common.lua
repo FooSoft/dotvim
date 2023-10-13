@@ -4,6 +4,9 @@ vim.cmd.colorscheme('nightfox')
 -- leader
 vim.g.mapleader = ' '
 
+-- editorconfig
+vim.g.editorconfig = false
+
 -- options
 vim.opt.autowrite = true
 vim.opt.completeopt = 'menuone,noselect'
