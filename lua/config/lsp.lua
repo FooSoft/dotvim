@@ -8,19 +8,19 @@ local capabilities = cmp_nvim_lsp.default_capabilities({snippetSupport = false})
 
 -- nvim-lspconfig
 local nvim_lspconfig = require('lspconfig')
-if vim.fn.executable('clangd') then
+if vim.fn.executable('clangd') == 1 then
     nvim_lspconfig.clangd.setup({capabilities = capabilities})
 end
-if vim.fn.executable('gopls') then
+if vim.fn.executable('gopls') == 1 then
     nvim_lspconfig.gopls.setup({capabilities = capabilities})
 end
-if vim.fn.executable('jedi-language-server') then
+if vim.fn.executable('jedi-language-server') == 1 then
     nvim_lspconfig.jedi_language_server.setup({capabilities = capabilities})
 end
-if vim.fn.executable('typescript-language-server') then
+if vim.fn.executable('typescript-language-server') == 1 then
     nvim_lspconfig.tsserver.setup({capabilities = capabilities})
 end
-if vim.fn.executable('lua-language-server') then
+if vim.fn.executable('lua-language-server') == 1 then
     local runtime_path = vim.split(package.path, ';', {})
     table.insert(runtime_path, 'lua/?.lua')
     table.insert(runtime_path, 'lua/?/init.lua')
