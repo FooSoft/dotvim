@@ -9,7 +9,10 @@ local capabilities = cmp_nvim_lsp.default_capabilities({snippetSupport = false})
 -- nvim-lspconfig
 local nvim_lspconfig = require('lspconfig')
 if vim.fn.executable('clangd') == 1 then
-    nvim_lspconfig.clangd.setup({capabilities = capabilities})
+    nvim_lspconfig.clangd.setup({
+        capabilities = capabilities,
+        cmd = {'clangd', '--header-insertion=never'},
+    })
 end
 if vim.fn.executable('gopls') == 1 then
     nvim_lspconfig.gopls.setup({capabilities = capabilities})
