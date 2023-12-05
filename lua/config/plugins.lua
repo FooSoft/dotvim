@@ -3,8 +3,6 @@ require('Comment').setup()
 
 -- fzf.vim
 if vim.fn.executable('fzf') == 1 then
-    vim.g['$FZF_DEFAULT_COMMAND'] = 'ag --hidden --ignore .git -f -g "" 2> /dev/null'
-
     vim.cmd([[
         command! -bang -nargs=* Fs
         \ call fzf#vim#grep(
