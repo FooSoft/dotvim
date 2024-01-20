@@ -1,6 +1,8 @@
 -- argonaut.nvim
-vim.keymap.set('n', '<leader>o', vim.cmd.ArgonautReflow)
-vim.keymap.set('n', '<leader>r', vim.cmd.ArgonautReload)
+vim.keymap.set('n', '<leader>e', function()
+    vim.cmd.ArgonautReload()
+    vim.cmd.ArgonautReflow()
+end)
 
 -- comment.nvim
 require('Comment').setup()
