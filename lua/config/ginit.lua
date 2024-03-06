@@ -5,7 +5,7 @@ local font
 if vim.fn.has('unix') == 1 then
     font = 'Terminus:h12'
 elseif vim.fn.has('win32') == 1 then
-    font = 'Lucida Console:h8'
+    font = 'Cascadia Mono:h10'
 end
 
 if font then
