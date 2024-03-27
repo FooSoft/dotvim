@@ -97,3 +97,6 @@
 [submodule "pack/plugins/start/vim-quickhl"]
 	path = pack/plugins/start/vim-quickhl
 	url = https://github.com/t9md/vim-quickhl.git
+[submodule "pack/plugins/start/vim-jdaddy"]
+	path = pack/plugins/start/vim-jdaddy
+	url = https://github.com/tpope/vim-jdaddy.git
