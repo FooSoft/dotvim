@@ -5,6 +5,10 @@ end
 
 local function get_branch_parent()
     local author = invoke({'git', 'config', 'user.name'})
+    if #author == 0 then
+        print('User name is not set')
+        return
+    end
 
     local hash = invoke{
         'git',
@@ -22,6 +26,13 @@ local function get_branch_parent()
     end
 end
 
+local function edit_git_paths(names)
+    local root_dir = invoke({'git', 'rev-parse', '--show-toplevel'})
+    for name in string.gmatch(names, '[^\r\n]+') do
+        vim.cmd(string.format('e %s/%s', root_dir, name))
+    end
+end
+
 -- UnAlign
 vim.api.nvim_create_user_command(
     'UnAlign',
@@ -31,21 +42,22 @@ vim.api.nvim_create_user_command(
     {range = '%'}
 )
 
+-- Conflicts
+vim.api.nvim_create_user_command(
+    'Conflicts',
+    function(ctx)
+        edit_git_paths(invoke({'git', 'diff', '--name-only', '--diff-filter=U'}))
+    end,
+    {}
+)
+
 -- TopicEdit
 vim.api.nvim_create_user_command(
     'TopicEdit',
     function(ctx)
         local hash = get_branch_parent()
         if hash then
-            local names = invoke({'git', 'diff', '--name-only', hash})
-            if #names == 0 then
-                print('No files changed since previous author')
-            else
-                local root_dir = invoke({'git', 'rev-parse', '--show-toplevel'})
-                for name in string.gmatch(names, '[^\r\n]+') do
-                    vim.cmd(string.format('e %s/%s', root_dir, name))
-                end
-            end
+            edit_git_paths(invoke({'git', 'diff', '--name-only', hash}))
         end
     end,
     {}
