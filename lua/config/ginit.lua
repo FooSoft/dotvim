@@ -3,7 +3,7 @@ vim.cmd.GuiPopupmenu(0)
 
 local font
 if vim.fn.has('unix') == 1 then
-    font = 'Hack:h10'
+    font = 'CaskaydiaCove Nerd Font Mono'
 elseif vim.fn.has('win32') == 1 then
     font = 'Cascadia Mono:h10'
 end
