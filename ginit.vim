@@ -1,3 +1,3 @@
-lua << EOF
-require('config.ginit')
-EOF
+" lua << EOF
+" require('config.ginit')
+" EOF
