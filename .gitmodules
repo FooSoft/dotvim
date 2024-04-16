@@ -100,3 +100,6 @@
 [submodule "pack/plugins/start/vim-jdaddy"]
 	path = pack/plugins/start/vim-jdaddy
 	url = https://github.com/tpope/vim-jdaddy.git
+[submodule "pack/plugins/start/fzf-lua"]
+	path = pack/plugins/start/fzf-lua
+	url = https://github.com/ibhagwan/fzf-lua.git

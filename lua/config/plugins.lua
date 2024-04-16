@@ -1,22 +1,14 @@
 -- comment.nvim
 require('Comment').setup()
 
--- fzf.vim
+-- fzf-lua
 if vim.fn.executable('fzf') == 1 then
-    vim.cmd([[
-        command! -bang -nargs=* Fs
-        \ call fzf#vim#grep(
-        \   'git grep --line-number -- '.shellescape(<q-args>), 0,
-        \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
-    ]])
-
-    vim.keymap.set('n', '<leader>fg', vim.cmd.GFiles)
-    vim.keymap.set('n', '<leader>fs', vim.cmd.Fs)
-    vim.keymap.set('n', '<leader>fh', vim.cmd.History)
-    vim.keymap.set('n', '<leader>fb', vim.cmd.Buffers)
-    vim.keymap.set('n', '<leader>fl', vim.cmd.Lines)
-
-    vim.fn.setenv('BAT_THEME', 'Nord')
+    vim.keymap.set('n', '<leader>fb', require('fzf-lua').buffers)
+    vim.keymap.set('n', '<leader>fg', require('fzf-lua').git_files)
+    vim.keymap.set('n', '<leader>fh', require('fzf-lua').oldfiles)
+    vim.keymap.set('n', '<leader>fl', require('fzf-lua').lines)
+    vim.keymap.set('n', '<leader>fp', require('fzf-lua').grep)
+    vim.keymap.set('n', '<leader>fs', require('fzf-lua').live_grep_native)
 end
 
 -- guid.nvim
