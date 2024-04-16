@@ -15,6 +15,8 @@ if vim.fn.executable('fzf') == 1 then
     vim.keymap.set('n', '<leader>fh', vim.cmd.History)
     vim.keymap.set('n', '<leader>fb', vim.cmd.Buffers)
     vim.keymap.set('n', '<leader>fl', vim.cmd.Lines)
+
+    vim.fn.setenv('BAT_THEME', 'Nord')
 end
 
 -- guid.nvim
