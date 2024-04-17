@@ -3,12 +3,23 @@ require('Comment').setup()
 
 -- fzf-lua
 if vim.fn.executable('fzf') == 1 then
-    vim.keymap.set('n', '<leader>fb', require('fzf-lua').buffers)
-    vim.keymap.set('n', '<leader>fg', require('fzf-lua').git_files)
-    vim.keymap.set('n', '<leader>fh', require('fzf-lua').oldfiles)
-    vim.keymap.set('n', '<leader>fl', require('fzf-lua').lines)
-    vim.keymap.set('n', '<leader>fp', require('fzf-lua').grep)
-    vim.keymap.set('n', '<leader>fs', require('fzf-lua').live_grep_native)
+    local fzf_lua = require('fzf-lua')
+    fzf_lua.setup({
+        winopts = {
+            preview = {
+                winopts = {
+                    cursorline = false,
+                },
+            },
+        },
+    })
+
+    vim.keymap.set('n', '<leader>fb', fzf_lua.buffers)
+    vim.keymap.set('n', '<leader>fg', fzf_lua.git_files)
+    vim.keymap.set('n', '<leader>fh', fzf_lua.oldfiles)
+    vim.keymap.set('n', '<leader>fl', fzf_lua.lines)
+    vim.keymap.set('n', '<leader>fp', fzf_lua.grep)
+    vim.keymap.set('n', '<leader>fs', fzf_lua.live_grep_native)
 end
 
 -- guid.nvim
