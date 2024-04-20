@@ -67,12 +67,6 @@
 [submodule "pack/plugins/start/vim-rooter"]
 	path = pack/plugins/start/vim-rooter
 	url = https://github.com/airblade/vim-rooter.git
-[submodule "pack/plugins/start/fzf.vim"]
-	path = pack/plugins/start/fzf.vim
-	url = https://github.com/junegunn/fzf.vim.git
-[submodule "pack/plugins/start/fzf"]
-	path = pack/plugins/start/fzf
-	url = https://github.com/junegunn/fzf.git
 [submodule "pack/plugins/start/neodev.nvim"]
 	path = pack/plugins/start/neodev.nvim
 	url = https://github.com/folke/neodev.nvim.git
@@ -97,6 +91,12 @@
 [submodule "pack/plugins/start/vim-quickhl"]
 	path = pack/plugins/start/vim-quickhl
 	url = https://github.com/t9md/vim-quickhl.git
+[submodule "pack/plugins/start/vim-jdaddy"]
+	path = pack/plugins/start/vim-jdaddy
+	url = https://github.com/tpope/vim-jdaddy.git
+[submodule "pack/plugins/start/fzf-lua"]
+	path = pack/plugins/start/fzf-lua
+	url = https://github.com/ibhagwan/fzf-lua.git
 [submodule "pack/plugins/start/argonaut.nvim"]
 	path = pack/plugins/start/argonaut.nvim
 	url = https://git.foosoft.net/alex/argonaut.nvim.git

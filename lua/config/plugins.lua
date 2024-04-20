@@ -7,20 +7,25 @@ end)
 -- comment.nvim
 require('Comment').setup()
 
--- fzf.vim
+-- fzf-lua
 if vim.fn.executable('fzf') == 1 then
-    vim.cmd([[
-        command! -bang -nargs=* Fs
-        \ call fzf#vim#grep(
-        \   'git grep --line-number -- '.shellescape(<q-args>), 0,
-        \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
-    ]])
+    local fzf_lua = require('fzf-lua')
+    fzf_lua.setup({
+        winopts = {
+            preview = {
+                winopts = {
+                    cursorline = false,
+                },
+            },
+        },
+    })
 
-    vim.keymap.set('n', '<leader>fg', vim.cmd.GFiles)
-    vim.keymap.set('n', '<leader>fs', vim.cmd.Fs)
-    vim.keymap.set('n', '<leader>fh', vim.cmd.History)
-    vim.keymap.set('n', '<leader>fb', vim.cmd.Buffers)
-    vim.keymap.set('n', '<leader>fl', vim.cmd.Lines)
+    vim.keymap.set('n', '<leader>fb', fzf_lua.buffers)
+    vim.keymap.set('n', '<leader>fg', fzf_lua.git_files)
+    vim.keymap.set('n', '<leader>fh', fzf_lua.oldfiles)
+    vim.keymap.set('n', '<leader>fl', fzf_lua.lines)
+    vim.keymap.set('n', '<leader>fp', fzf_lua.grep)
+    vim.keymap.set('n', '<leader>fs', fzf_lua.live_grep_native)
 end
 
 -- guid.nvim

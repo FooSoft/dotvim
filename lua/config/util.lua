@@ -1,10 +1,34 @@
+-- UnAlign
+vim.api.nvim_create_user_command(
+    'UnAlign',
+    function(ctx)
+        vim.cmd(ctx.line1 .. ',' .. ctx.line2 .. 's/\\(\\S\\+\\)\\s\\{2,\\}/\\1 /g')
+    end,
+    {range = '%'}
+)
+
 local function invoke(args)
-    output = vim.fn.system(table.concat(args, ' '))
+    local output = vim.fn.system(table.concat(args, ' '))
     return string.gsub(output, '%s+$', '')
 end
 
-local function get_branch_parent()
+local function git_parent_branch(parent_branch)
+    for _, branch in ipairs({'master', 'main'}) do
+        local output = invoke({'git', 'rev-parse', '--verify', branch})
+        if not string.find(output, 'fatal') then
+            parent_branch = branch
+        end
+    end
+
+    if parent_branch ~= '' then
+        return parent_branch
+    end
+
     local author = invoke({'git', 'config', 'user.name'})
+    if #author == 0 then
+        print('User name is not set')
+        return
+    end
 
     local hash = invoke{
         'git',
@@ -22,43 +46,42 @@ local function get_branch_parent()
     end
 end
 
--- UnAlign
-vim.api.nvim_create_user_command(
-    'UnAlign',
-    function(ctx)
-        vim.cmd(ctx.line1 .. ',' .. ctx.line2 .. 's/\\(\\S\\+\\)\\s\\{2,\\}/\\1 /g')
-    end,
-    {range = '%'}
-)
+local function git_edit_paths(names)
+    local root_dir = invoke({'git', 'rev-parse', '--show-toplevel'})
+    for name in string.gmatch(names, '[^\r\n]+') do
+        vim.cmd(string.format('e %s/%s', root_dir, name))
+    end
+end
 
--- TopicEdit
+-- GitConflicts
 vim.api.nvim_create_user_command(
-    'TopicEdit',
-    function(ctx)
-        local hash = get_branch_parent()
-        if hash then
-            local names = invoke({'git', 'diff', '--name-only', hash})
-            if #names == 0 then
-                print('No files changed since previous author')
-            else
-                local root_dir = invoke({'git', 'rev-parse', '--show-toplevel'})
-                for name in string.gmatch(names, '[^\r\n]+') do
-                    vim.cmd(string.format('e %s/%s', root_dir, name))
-                end
-            end
-        end
+    'GitConflicts',
+    function()
+        git_edit_paths(invoke({'git', 'diff', '--name-only', '--diff-filter=U'}))
     end,
     {}
 )
 
--- TopicDiff
+-- GitTopicEdit
 vim.api.nvim_create_user_command(
-    'TopicDiff',
+    'GitTopicEdit',
     function(ctx)
-        local hash = get_branch_parent()
+        local hash = git_parent_branch(ctx.args)
+        if hash then
+            git_edit_paths(invoke({'git', 'diff', '--name-only', hash}))
+        end
+    end,
+    {nargs = '?'}
+)
+
+-- GitTopicDiff
+vim.api.nvim_create_user_command(
+    'GitTopicDiff',
+    function(ctx)
+        local hash = git_parent_branch(ctx.args)
         if hash then
             invoke({'git', 'difftool', '-d', hash})
         end
     end,
-    {}
+    {nargs = '?'}
 )
