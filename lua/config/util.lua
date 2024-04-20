@@ -1,9 +1,22 @@
+-- UnAlign
+vim.api.nvim_create_user_command(
+    'UnAlign',
+    function(ctx)
+        vim.cmd(ctx.line1 .. ',' .. ctx.line2 .. 's/\\(\\S\\+\\)\\s\\{2,\\}/\\1 /g')
+    end,
+    {range = '%'}
+)
+
 local function invoke(args)
-    output = vim.fn.system(table.concat(args, ' '))
+    local output = vim.fn.system(table.concat(args, ' '))
     return string.gsub(output, '%s+$', '')
 end
 
-local function get_branch_parent()
+local function git_branch_parent(branch)
+    if branch ~= '' then
+        return branch
+    end
+
     local author = invoke({'git', 'config', 'user.name'})
     if #author == 0 then
         print('User name is not set')
@@ -26,51 +39,42 @@ local function get_branch_parent()
     end
 end
 
-local function edit_git_paths(names)
+local function git_edit_paths(names)
     local root_dir = invoke({'git', 'rev-parse', '--show-toplevel'})
     for name in string.gmatch(names, '[^\r\n]+') do
         vim.cmd(string.format('e %s/%s', root_dir, name))
     end
 end
 
--- UnAlign
+-- GitConflicts
 vim.api.nvim_create_user_command(
-    'UnAlign',
-    function(ctx)
-        vim.cmd(ctx.line1 .. ',' .. ctx.line2 .. 's/\\(\\S\\+\\)\\s\\{2,\\}/\\1 /g')
-    end,
-    {range = '%'}
-)
-
--- Conflicts
-vim.api.nvim_create_user_command(
-    'Conflicts',
-    function(ctx)
-        edit_git_paths(invoke({'git', 'diff', '--name-only', '--diff-filter=U'}))
+    'GitConflicts',
+    function()
+        git_edit_paths(invoke({'git', 'diff', '--name-only', '--diff-filter=U'}))
     end,
     {}
 )
 
--- TopicEdit
+-- GitTopicEdit
 vim.api.nvim_create_user_command(
-    'TopicEdit',
+    'GitTopicEdit',
     function(ctx)
-        local hash = get_branch_parent()
+        local hash = git_branch_parent(ctx.args)
         if hash then
-            edit_git_paths(invoke({'git', 'diff', '--name-only', hash}))
+            git_edit_paths(invoke({'git', 'diff', '--name-only', hash}))
         end
     end,
-    {}
+    {nargs = '?'}
 )
 
--- TopicDiff
+-- GitTopicDiff
 vim.api.nvim_create_user_command(
-    'TopicDiff',
+    'GitTopicDiff',
     function(ctx)
-        local hash = get_branch_parent()
+        local hash = git_branch_parent(ctx.args)
         if hash then
             invoke({'git', 'difftool', '-d', hash})
         end
     end,
-    {}
+    {nargs = '?'}
 )
