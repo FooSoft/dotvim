@@ -12,9 +12,16 @@ local function invoke(args)
     return string.gsub(output, '%s+$', '')
 end
 
-local function git_branch_parent(branch)
-    if branch ~= '' then
-        return branch
+local function git_parent_branch(parent_branch)
+    for _, branch in ipairs({'master', 'main'}) do
+        local output = invoke({'git', 'rev-parse', '--verify', branch})
+        if not string.find(output, 'fatal') then
+            parent_branch = branch
+        end
+    end
+
+    if parent_branch ~= '' then
+        return parent_branch
     end
 
     local author = invoke({'git', 'config', 'user.name'})
@@ -59,7 +66,7 @@ vim.api.nvim_create_user_command(
 vim.api.nvim_create_user_command(
     'GitTopicEdit',
     function(ctx)
-        local hash = git_branch_parent(ctx.args)
+        local hash = git_parent_branch(ctx.args)
         if hash then
             git_edit_paths(invoke({'git', 'diff', '--name-only', hash}))
         end
@@ -71,7 +78,7 @@ vim.api.nvim_create_user_command(
 vim.api.nvim_create_user_command(
     'GitTopicDiff',
     function(ctx)
-        local hash = git_branch_parent(ctx.args)
+        local hash = git_parent_branch(ctx.args)
         if hash then
             invoke({'git', 'difftool', '-d', hash})
         end
