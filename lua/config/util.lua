@@ -13,13 +13,6 @@ local function invoke(args)
 end
 
 local function git_parent_branch(parent_branch)
-    for _, branch in ipairs({'master', 'main'}) do
-        local output = invoke({'git', 'rev-parse', '--verify', branch})
-        if not string.find(output, 'fatal') then
-            parent_branch = branch
-        end
-    end
-
     if parent_branch ~= '' then
         return parent_branch
     end
