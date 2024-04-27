@@ -1,6 +1,3 @@
-[submodule ".vim/bundle/vim-argwrap"]
-	path = pack/plugins/start/vim-argwrap
-	url = https://git.foosoft.net/alex/vim-argwrap.git
 [submodule ".vim/bundle/vim-sort-motion"]
 	path = pack/plugins/start/vim-sort-motion
 	url = https://github.com/christoomey/vim-sort-motion.git
@@ -97,3 +94,6 @@
 [submodule "pack/plugins/start/fzf-lua"]
 	path = pack/plugins/start/fzf-lua
 	url = https://github.com/ibhagwan/fzf-lua.git
+[submodule "pack/plugins/start/argonaut.nvim"]
+	path = pack/plugins/start/argonaut.nvim
+	url = https://git.foosoft.net/alex/argonaut.nvim.git
