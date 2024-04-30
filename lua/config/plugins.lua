@@ -1,17 +1,12 @@
 -- argonaut.nvim
 vim.keymap.set('n', '<leader>a', function()
-    -- vim.cmd.ArgonautReload()
+    vim.cmd.ArgonautReload()
+    require('argonaut').setup({
+        c = {brace_last_wrap = false},
+        cpp = {brace_last_wrap = false},
+    })
     vim.cmd.ArgonautReflow()
 end)
-
-require('argonaut').setup({
-    c = {
-        brace_last_wrap = false,
-    },
-    cpp = {
-        brace_last_wrap = false,
-    },
-})
 
 -- comment.nvim
 require('Comment').setup()
