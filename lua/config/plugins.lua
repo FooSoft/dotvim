@@ -118,6 +118,7 @@ vim.g.go_version_warning = 0
 
 -- vim-polyglot
 vim.g.rustfmt_autosave = 1
+vim.g.polyglot_disabled = {'autoindent'}
 
 -- vim-quickhl
 vim.keymap.set('n', '<leader>K', '<Plug>(quickhl-manual-reset)')
