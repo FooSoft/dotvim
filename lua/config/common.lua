@@ -8,7 +8,9 @@ vim.g.mapleader = ' '
 vim.g.editorconfig = false
 
 -- options
+vim.opt.autoread = true
 vim.opt.autowrite = true
+vim.opt.clipboard = 'unnamedplus'
 vim.opt.completeopt = 'menuone,noselect'
 vim.opt.expandtab = true
 vim.opt.fileformats = 'unix,dos,mac'
@@ -30,7 +32,6 @@ vim.opt.spell = false
 vim.opt.swapfile = false
 vim.opt.tabstop = 4
 vim.opt.termguicolors = true
-vim.opt.clipboard = 'unnamedplus'
 vim.opt.updatetime = 300
 vim.opt.wrap = false
 vim.opt.writebackup = false
