@@ -13,6 +13,11 @@ vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
     command = 'set filetype=cpp'
 })
 
+vim.api.nvim_create_autocmd({'BufRead', 'BufNewFile'}, {
+    pattern = {'sources', 'sources.inc', 'dirs'},
+    command = 'set filetype=make'
+})
+
 vim.api.nvim_create_autocmd({'FocusGained', 'BufEnter', 'CursorHold'}, {
     pattern = '*',
     command = 'checktime'
