@@ -28,9 +28,6 @@
 [submodule ".vim/bundle/vim-dirvish"]
 	path = pack/plugins/start/vim-dirvish
 	url = https://github.com/justinmk/vim-dirvish.git
-[submodule ".vim/bundle/vim-signify"]
-	path = pack/plugins/start/vim-signify
-	url = https://github.com/mhinz/vim-signify.git
 [submodule ".vim/bundle/vim-angry"]
 	path = pack/plugins/start/vim-angry
 	url = https://github.com/b4winckler/vim-angry.git
@@ -97,3 +94,6 @@
 [submodule "pack/plugins/start/argonaut.nvim"]
 	path = pack/plugins/start/argonaut.nvim
 	url = https://git.foosoft.net/alex/argonaut.nvim.git
+[submodule "pack/plugins/start/gitsigns.nvim"]
+	path = pack/plugins/start/gitsigns.nvim
+	url = https://github.com/lewis6991/gitsigns.nvim.git
