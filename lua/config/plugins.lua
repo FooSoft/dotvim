@@ -167,6 +167,6 @@ vim.g.polyglot_disabled = {'autoindent', 'sensible'}
 
 -- vim-quickhl
 vim.keymap.set('n', '<leader>K', '<Plug>(quickhl-manual-reset)')
-vim.keymap.set('n', '<leader>k', '<Plug>(quickhl-manual-this)')
+vim.keymap.set('n', '<leader>k', '<Plug>(quickhl-manual-this-whole-word)')
 vim.keymap.set('x', '<leader>K', '<Plug>(quickhl-manual-reset)')
-vim.keymap.set('x', '<leader>k', '<Plug>(quickhl-manual-this)')
+vim.keymap.set('x', '<leader>k', '<Plug>(quickhl-manual-this-whole-word)')
