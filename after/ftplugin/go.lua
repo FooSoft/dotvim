@@ -1,4 +1,4 @@
-vim.opt.expandtab = false
+vim.opt_local.expandtab = false
 
 vim.keymap.set('n', '<leader>b', vim.cmd.GoBuild)
 vim.keymap.set('n', '<leader>c', vim.cmd.GoCoverage)

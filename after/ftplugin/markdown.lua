@@ -1,3 +1,3 @@
-vim.opt.colorcolumn = {120}
-vim.opt.spell = true
-vim.opt.textwidth = 120
+vim.opt_local.colorcolumn = {120}
+vim.opt_local.spell = true
+vim.opt_local.textwidth = 120
