@@ -38,11 +38,12 @@ vim.opt.writebackup = false
 
 -- common keymaps
 vim.keymap.set('i', '<c-c>', '<esc>')
-vim.keymap.set('n', '<bs>', '<cmd>bp|bd #<cr>')
+vim.keymap.set('n', '<bs>', '<cmd>bp|bd#<cr>')
 vim.keymap.set('n', '<c-c><c-c>', '<cmd>nohlsearch<cr>')
 vim.keymap.set('n', '<leader><leader>', '<cmd>b#<cr>')
 vim.keymap.set('n', '<leader>w', '<cmd>w<cr>')
 vim.keymap.set('n', '<leader>x', '<cmd>x<cr>')
+vim.keymap.set('n', '<c-bs>', '<cmd>BuffDeleteAllButCurrent<cr>')
 vim.keymap.set('n', 'Y', 'y$')
 vim.keymap.set('n', 'j', 'gj')
 vim.keymap.set('n', 'k', 'gk')

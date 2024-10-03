@@ -7,6 +7,21 @@ vim.api.nvim_create_user_command(
     {range = '%'}
 )
 
+-- BuffDeleteAllButCurrent
+vim.api.nvim_create_user_command(
+    'BuffDeleteAllButCurrent',
+    function()
+        local bufs = vim.api.nvim_list_bufs()
+        local current_buf = vim.api.nvim_get_current_buf()
+        for _, i in ipairs(bufs) do
+            if i ~= current_buf then
+                vim.api.nvim_buf_delete(i, {})
+            end
+        end
+    end,
+    {}
+)
+
 local function invoke(args)
     local output = vim.fn.system(table.concat(args, ' '))
     return string.gsub(output, '%s+$', '')
@@ -45,15 +60,6 @@ local function git_edit_paths(names)
         vim.cmd(string.format('e %s/%s', root_dir, name))
     end
 end
-
--- GitConflicts
-vim.api.nvim_create_user_command(
-    'GitConflicts',
-    function()
-        git_edit_paths(invoke({'git', 'diff', '--name-only', '--diff-filter=U'}))
-    end,
-    {}
-)
 
 -- GitTopicEdit
 vim.api.nvim_create_user_command(
