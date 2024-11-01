@@ -12,7 +12,7 @@ if vim.g.neovide then
     if vim.fn.has('win32') == 1 then
         vim.o.guifont = 'Cascadia Mono:h14'
     elseif vim.fn.has('unix') == 1 then
-        vim.o.guifont = 'Monospace:h14'
+        vim.o.guifont = 'Monospace:h12'
     end
 else
     if vim.fn.has(':GuiPopupmenu') then
