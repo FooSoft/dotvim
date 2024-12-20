@@ -106,7 +106,7 @@ require('lualine').setup {
         globalstatus = false,
         icons_enabled = false,
         ignore_focus = {},
-        refresh = {statusline = 1000, tabline = 1000, winbar = 1000},
+        refresh = {statusline = 100, tabline = 100, winbar = 100},
         section_separators = {left = '', right = ''},
         theme = 'auto',
     },
