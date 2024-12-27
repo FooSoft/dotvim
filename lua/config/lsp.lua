@@ -1,3 +1,6 @@
+-- lua-language-server
+vim.env.PATH = vim.env.PATH .. ':' .. vim.fn.stdpath('config') .. '/lls/bin'
+
 -- neodev.nvim
 local neodev_nvim = require('neodev')
 neodev_nvim.setup({})
