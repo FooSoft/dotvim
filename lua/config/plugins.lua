@@ -8,6 +8,9 @@ vim.keymap.set('n', '<leader>a', function()
     vim.cmd.ArgonautReflow()
 end)
 
+-- bmessages.nvim
+require('bmessages').setup({})
+
 -- comment.nvim
 require('Comment').setup()
 
