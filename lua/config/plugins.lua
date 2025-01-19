@@ -4,6 +4,7 @@ vim.keymap.set('n', '<leader>a', function()
     require('argonaut').setup({
         c = {brace_last_wrap = false},
         cpp = {brace_last_wrap = false},
+        default = {auto_reload = true},
         lua = {comma_last = true},
     })
     vim.cmd.ArgonautReflow()
