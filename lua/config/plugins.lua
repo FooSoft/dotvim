@@ -2,10 +2,12 @@
 vim.keymap.set('n', '<leader>a', function()
     vim.cmd.ArgonautReload()
     require('argonaut').setup({
-        c = {brace_last_wrap = false},
-        cpp = {brace_last_wrap = false},
-        default = {auto_reload = true},
-        lua = {comma_last = true},
+        auto_reload = true,
+        by_filetype = {
+            c = {brace_last_wrap = false},
+            cpp = {brace_last_wrap = false},
+            lua = {comma_last = true},
+        },
     })
     vim.cmd.ArgonautReflow()
 end)
