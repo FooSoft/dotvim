@@ -1,16 +1,31 @@
 -- argonaut.nvim
-vim.keymap.set('n', '<leader>a', function()
+local function argonaut_boilerplate()
     vim.cmd.ArgonautReload()
     require('argonaut').setup({
-        auto_reload = true,
         by_filetype = {
             c = {brace_last_wrap = false},
             cpp = {brace_last_wrap = false},
-            lua = {comma_last = true},
         },
     })
-    vim.cmd.ArgonautReflow()
-end)
+end
+
+vim.keymap.set(
+    'n',
+    '<leader>a',
+    function()
+        argonaut_boilerplate()
+        vim.cmd.ArgonautToggle()
+    end
+)
+
+vim.keymap.set(
+    'n',
+    '<leader>o',
+    function()
+        argonaut_boilerplate()
+        vim.cmd.ArgonautReflow()
+    end
+)
 
 -- bmessages.nvim
 require('bmessages').setup({})
