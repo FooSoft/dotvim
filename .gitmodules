@@ -28,9 +28,6 @@
 [submodule ".vim/bundle/vim-dirvish"]
 	path = pack/plugins/start/vim-dirvish
 	url = https://github.com/justinmk/vim-dirvish.git
-[submodule ".vim/bundle/vim-angry"]
-	path = pack/plugins/start/vim-angry
-	url = https://github.com/b4winckler/vim-angry.git
 [submodule ".vim/pack/plugins/start/vim-fugitive"]
 	path = pack/plugins/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git

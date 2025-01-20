@@ -1,6 +1,8 @@
 -- argonaut.nvim
-local function argonaut_boilerplate()
-    vim.cmd.ArgonautReload()
+local function argonaut_boilerplate(reload)
+    if reload then
+        vim.cmd.ArgonautReload()
+    end
     require('argonaut').setup({
         by_filetype = {
             c = {brace_last_wrap = false},
@@ -13,7 +15,7 @@ vim.keymap.set(
     'n',
     '<leader>a',
     function()
-        argonaut_boilerplate()
+        argonaut_boilerplate(true) -- for development
         vim.cmd.ArgonautToggle()
     end
 )
@@ -22,10 +24,12 @@ vim.keymap.set(
     'n',
     '<leader>o',
     function()
-        argonaut_boilerplate()
+        argonaut_boilerplate(true) -- for development
         vim.cmd.ArgonautReflow()
     end
 )
+
+argonaut_boilerplate(false)
 
 -- bmessages.nvim
 require('bmessages').setup({})
