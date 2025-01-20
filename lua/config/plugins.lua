@@ -1,5 +1,5 @@
 -- argonaut.nvim
-local function argonaut_boilerplate(reload)
+local function argonaut_setup(reload)
     if reload then
         vim.cmd.ArgonautReload()
     end
@@ -15,7 +15,7 @@ vim.keymap.set(
     'n',
     '<leader>a',
     function()
-        argonaut_boilerplate(true) -- for development
+        argonaut_setup(true) -- for development
         vim.cmd.ArgonautToggle()
     end
 )
@@ -24,15 +24,24 @@ vim.keymap.set(
     'n',
     '<leader>o',
     function()
-        argonaut_boilerplate(true) -- for development
+        argonaut_setup(true) -- for development
         vim.cmd.ArgonautReflow()
     end
 )
 
-argonaut_boilerplate(false)
+argonaut_setup(false)
 
 -- bmessages.nvim
-require('bmessages').setup({})
+require('bmessages').setup({
+    split_direction = 'botright'
+})
+
+vim.api.nvim_set_keymap(
+    'n',
+    '<leader>bm',
+    ':Bmessages<CR>',
+    {noremap = true, silent = true}
+)
 
 -- comment.nvim
 require('Comment').setup()
