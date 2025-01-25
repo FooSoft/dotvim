@@ -97,3 +97,6 @@
 [submodule "pack/plugins/start/bmessages.nvim"]
 	path = pack/plugins/start/bmessages.nvim
 	url = https://github.com/ariel-frischer/bmessages.nvim.git
+[submodule "pack/plugins/start/vim-angry"]
+	path = pack/plugins/start/vim-angry
+	url = https://github.com/b4winckler/vim-angry.git
