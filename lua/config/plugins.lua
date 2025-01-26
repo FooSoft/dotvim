@@ -4,7 +4,7 @@ local function argonaut_setup(reload)
         vim.cmd.ArgonautReload()
     end
     require('argonaut').setup({
-        object_char = 't',
+        object_char = 'a',
         by_filetype = {
             c = {brace_last_wrap = false},
             cpp = {brace_last_wrap = false},
