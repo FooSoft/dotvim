@@ -4,7 +4,6 @@ local function argonaut_setup(reload)
         vim.cmd.ArgonautReload()
     end
     require('argonaut').setup({
-        object_char = 'a',
         by_filetype = {
             c = {brace_last_wrap = false},
             cpp = {brace_last_wrap = false},
@@ -12,23 +11,13 @@ local function argonaut_setup(reload)
     })
 end
 
-vim.keymap.set(
-    'n',
-    '<leader>a',
-    function()
-        argonaut_setup(true) -- for development
-        vim.cmd.ArgonautToggle()
-    end
-)
+vim.keymap.set('x', 'ia', ':<C-u>ArgonautInnerObject<cr>', {noremap = true, silent = true})
+vim.keymap.set('x', 'aa', ':<C-u>ArgonautOuterObject<cr>', {noremap = true, silent = true})
+vim.keymap.set('o', 'ia', ':<C-u>ArgonautInnerObject<cr>', {noremap = true, silent = true})
+vim.keymap.set('o', 'aa', ':<C-u>ArgonautOuterObject<cr>', {noremap = true, silent = true})
 
-vim.keymap.set(
-    'n',
-    '<leader>o',
-    function()
-        argonaut_setup(true) -- for development
-        vim.cmd.ArgonautReflow()
-    end
-)
+vim.keymap.set('n', '<leader>a', function() argonaut_setup(true) vim.cmd.ArgonautToggle() end)
+vim.keymap.set('n', '<leader>o', function() argonaut_setup(true) vim.cmd.ArgonautReflow() end)
 
 argonaut_setup(false)
 
@@ -37,7 +26,7 @@ require('bmessages').setup({
     split_direction = 'botright'
 })
 
-vim.api.nvim_set_keymap(
+vim.keymap.set(
     'n',
     '<leader>bm',
     ':Bmessages<CR>',
