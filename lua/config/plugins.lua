@@ -11,10 +11,10 @@ local function argonaut_setup(reload)
     })
 end
 
-vim.keymap.set('x', 'ia', ':<C-u>ArgonautInnerObject<cr>', {noremap = true, silent = true})
-vim.keymap.set('x', 'aa', ':<C-u>ArgonautOuterObject<cr>', {noremap = true, silent = true})
-vim.keymap.set('o', 'ia', ':<C-u>ArgonautInnerObject<cr>', {noremap = true, silent = true})
-vim.keymap.set('o', 'aa', ':<C-u>ArgonautOuterObject<cr>', {noremap = true, silent = true})
+vim.keymap.set({'x', 'o'}, 'ia', ':<C-u>ArgonautObject inner<cr>', {noremap = true, silent = true})
+vim.keymap.set({'x', 'o'}, 'aa', ':<C-u>ArgonautObject outer<cr>', {noremap = true, silent = true})
+vim.keymap.set({'x', 'o', 'n'}, '<leader>n', ':<C-u>ArgonautObject next<cr>', {noremap = true, silent = true})
+vim.keymap.set({'x', 'o', 'n'}, '<leader>p', ':<C-u>ArgonautObject previous<cr>', {noremap = true, silent = true})
 
 vim.keymap.set('n', '<leader>a', function() argonaut_setup(true) vim.cmd.ArgonautToggle() end)
 vim.keymap.set('n', '<leader>o', function() argonaut_setup(true) vim.cmd.ArgonautReflow() end)
