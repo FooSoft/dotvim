@@ -119,6 +119,8 @@ require('guid').setup({
     comma_space = true
 })
 
+vim.keymap.set({'x', 'o'}, 'ag', ':<c-u>GuidObject<cr>', {noremap = true, silent = true})
+
 -- lualine.nvim
 require('lualine').setup {
     options = {
