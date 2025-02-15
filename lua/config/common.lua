@@ -9,7 +9,6 @@ vim.g.editorconfig = false
 
 -- options
 vim.opt.autoread = true
-vim.opt.autowrite = true
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.completeopt = 'menuone,noselect'
 vim.opt.expandtab = true
