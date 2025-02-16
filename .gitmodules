@@ -75,10 +75,10 @@
 	url = https://github.com/numToStr/Comment.nvim.git
 [submodule "pack/plugins/start/guid.nvim"]
 	path = pack/plugins/start/guid.nvim
-	url = https://codeberg.org/foosoft/guid.nvim.git
+	url = https://git.sr.ht/~foosoft/guid.nvim.git
 [submodule "pack/plugins/start/revolver.nvim"]
 	path = pack/plugins/start/revolver.nvim
-	url = https://codeberg.org/foosoft/revolver.nvim.git
+	url = https://git.sr.ht/~foosoft/revolver.nvim.git
 [submodule "pack/plugins/start/vim-quickhl"]
 	path = pack/plugins/start/vim-quickhl
 	url = https://github.com/t9md/vim-quickhl.git
@@ -90,7 +90,7 @@
 	url = https://github.com/ibhagwan/fzf-lua.git
 [submodule "pack/plugins/start/argonaut.nvim"]
 	path = pack/plugins/start/argonaut.nvim
-	url = https://codeberg.org/foosoft/argonaut.nvim.git
+	url = https://git.sr.ht/~foosoft/argonaut.nvim.git
 [submodule "pack/plugins/start/gitsigns.nvim"]
 	path = pack/plugins/start/gitsigns.nvim
 	url = https://github.com/lewis6991/gitsigns.nvim.git
