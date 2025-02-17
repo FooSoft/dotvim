@@ -165,7 +165,7 @@ require('lualine').setup {
 
 -- revolver.nvim
 require('revolver').setup({'.c', '.cpp', '.h', '.hpp', '.inl'})
-vim.keymap.set('n', 'gfs', vim.cmd.Revolver)
+vim.keymap.set('n', 'gfs', vim.cmd.Revolve)
 
 -- vim-better-whitespace
 vim.api.nvim_set_hl(0, 'ExtraWhitespace', {link = 'Search'})
