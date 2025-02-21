@@ -22,10 +22,3 @@ vim.api.nvim_create_autocmd({'FocusGained', 'BufEnter', 'CursorHold'}, {
     pattern = '*',
     command = 'checktime'
 })
-
-vim.api.nvim_create_autocmd({'FileType'}, {
-    pattern = '*',
-    callback = function()
-        vim.opt_local.formatoptions:remove({'c', 'r', 'o'})
-    end
-})
