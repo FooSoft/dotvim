@@ -58,9 +58,6 @@
 [submodule "pack/plugins/start/vim-rooter"]
 	path = pack/plugins/start/vim-rooter
 	url = https://github.com/airblade/vim-rooter.git
-[submodule "pack/plugins/start/neodev.nvim"]
-	path = pack/plugins/start/neodev.nvim
-	url = https://github.com/folke/neodev.nvim.git
 [submodule "pack/plugins/start/cmp-nvim-lsp-signature-help"]
 	path = pack/plugins/start/cmp-nvim-lsp-signature-help
 	url = https://github.com/hrsh7th/cmp-nvim-lsp-signature-help.git
@@ -97,3 +94,6 @@
 [submodule "pack/plugins/start/bmessages.nvim"]
 	path = pack/plugins/start/bmessages.nvim
 	url = https://github.com/ariel-frischer/bmessages.nvim.git
+[submodule "pack/plugins/start/lazydev.nvim"]
+	path = pack/plugins/start/lazydev.nvim
+	url = https://github.com/folke/lazydev.nvim.git

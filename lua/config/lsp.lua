@@ -1,10 +1,6 @@
 -- lua-language-server
 vim.env.PATH = vim.env.PATH .. ':' .. vim.fn.stdpath('config') .. '/lls/bin'
 
--- neodev.nvim
-local neodev_nvim = require('neodev')
-neodev_nvim.setup({})
-
 -- cmp-nvim-lsp
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
 local capabilities = cmp_nvim_lsp.default_capabilities({snippetSupport = false})
