@@ -12,6 +12,7 @@ vim.opt.autoread = true
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.completeopt = 'menuone,noselect'
 vim.opt.expandtab = true
+vim.opt.fileformats = 'unix,dos,mac'
 vim.opt.foldenable = false
 vim.opt.guicursor = 'n:blinkon0'
 vim.opt.ignorecase = true
@@ -33,12 +34,6 @@ vim.opt.termguicolors = true
 vim.opt.updatetime = 300
 vim.opt.wrap = false
 vim.opt.writebackup = false
-
-if vim.fn.has('win32') == 1 then
-    vim.opt.fileformats = {'dos'}
-else
-    vim.opt.fileformats = {'unix', 'dos', 'mac'}
-end
 
 -- common keymaps
 vim.keymap.set('i', '<c-c>', '<esc>')
