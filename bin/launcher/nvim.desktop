@@ -1,0 +1,7 @@
+[Desktop Entry]
+Exec=/usr/local/bin/nvim %F
+Icon=nvim
+Name=Neovim
+StartupNotify=false
+Terminal=true
+Type=Application
