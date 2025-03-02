@@ -6,8 +6,8 @@ INSTALL_PATH="$INSTALL_DIR/nvim"
 if [ ! -f $INSTALL_PATH ]; then
     mkdir -p $INSTALL_DIR
     pushd $INSTALL_DIR
-    sudo wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-    sudo mv nvim.appimage nvim
+    sudo wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.appimage
+    sudo mv *.appimage nvim
     sudo chmod 755 nvim
     popd
 fi
