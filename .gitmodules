@@ -1,34 +1,34 @@
-[submodule ".vim/bundle/vim-sort-motion"]
+[submodule "pack/vim-sort-motion"]
 	path = pack/plugins/start/vim-sort-motion
 	url = https://github.com/christoomey/vim-sort-motion.git
-[submodule ".vim/bundle/vim-go"]
+[submodule "pack/vim-go"]
 	path = pack/plugins/start/vim-go
 	url = https://github.com/fatih/vim-go.git
-[submodule ".vim/bundle/vim-easy-align"]
+[submodule "pack/vim-easy-align"]
 	path = pack/plugins/start/vim-easy-align
 	url = https://github.com/junegunn/vim-easy-align.git
-[submodule ".vim/bundle/vim-indent-object"]
+[submodule "pack/vim-indent-object"]
 	path = pack/plugins/start/vim-indent-object
 	url = https://github.com/michaeljsmith/vim-indent-object.git
-[submodule ".vim/bundle/vim-better-whitespace"]
+[submodule "pack/vim-better-whitespace"]
 	path = pack/plugins/start/vim-better-whitespace
 	url = https://github.com/ntpeters/vim-better-whitespace.git
-[submodule ".vim/bundle/vim-abolish"]
+[submodule "pack/vim-abolish"]
 	path = pack/plugins/start/vim-abolish
 	url = https://github.com/tpope/vim-abolish.git
-[submodule ".vim/bundle/vim-repeat"]
+[submodule "pack/vim-repeat"]
 	path = pack/plugins/start/vim-repeat
 	url = https://github.com/tpope/vim-repeat
-[submodule ".vim/bundle/vim-surround"]
+[submodule "pack/vim-surround"]
 	path = pack/plugins/start/vim-surround
 	url = https://github.com/tpope/vim-surround
-[submodule ".vim/bundle/vim-unimpaired"]
+[submodule "pack/vim-unimpaired"]
 	path = pack/plugins/start/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
-[submodule ".vim/bundle/vim-dirvish"]
+[submodule "pack/vim-dirvish"]
 	path = pack/plugins/start/vim-dirvish
 	url = https://github.com/justinmk/vim-dirvish.git
-[submodule ".vim/pack/plugins/start/vim-fugitive"]
+[submodule "pack/plugins/start/vim-fugitive"]
 	path = pack/plugins/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule "pack/plugins/start/vim-polyglot"]
