@@ -36,6 +36,12 @@ vim.keymap.set(
 -- comment.nvim
 require('Comment').setup()
 
+-- f5.nvim
+require('f5').setup({
+    reload_files = true,
+    reload_modules = true,
+})
+
 -- fzf-lua
 if vim.fn.executable('fzf') == 1 then
     local fzf_lua = require('fzf-lua')
