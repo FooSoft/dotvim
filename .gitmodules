@@ -97,3 +97,6 @@
 [submodule "pack/plugins/start/lazydev.nvim"]
 	path = pack/plugins/start/lazydev.nvim
 	url = https://github.com/folke/lazydev.nvim.git
+[submodule "pack/plugins/start/f5.nvim"]
+	path = pack/plugins/start/f5.nvim
+	url = https://git.sr.ht/~foosoft/f5.nvim
