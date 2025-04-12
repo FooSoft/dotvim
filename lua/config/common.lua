@@ -4,8 +4,9 @@ vim.cmd.colorscheme('nightfox')
 -- leader
 vim.g.mapleader = ' '
 
--- editorconfig
+-- misc settings
 vim.g.editorconfig = false
+vim.g.c_no_if0 = 1
 
 -- options
 vim.opt.autoread = true
