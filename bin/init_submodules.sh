@@ -1,3 +1,5 @@
 #!/bin/bash -e
 
-git -C .. submodule update --init --recursive
+cd $(git rev-parse --show-toplevel)
+
+git submodule update --init --recursive

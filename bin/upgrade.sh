@@ -1,3 +1,5 @@
 #!/bin/bash -e
 
-git -C .. submodule update --remote --merge
+cd $(git rev-parse --show-toplevel)
+
+git submodule update --remote --merge
