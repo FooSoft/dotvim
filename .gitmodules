@@ -16,6 +16,9 @@
 [submodule "pack/vim-abolish"]
 	path = pack/plugins/start/vim-abolish
 	url = https://github.com/tpope/vim-abolish.git
+[submodule "pack/vim-repeat"]
+    path = pack/plugins/start/vim-repeat
+    url = https://github.com/tpope/vim-repeat
 [submodule "pack/vim-surround"]
 	path = pack/plugins/start/vim-surround
 	url = https://github.com/tpope/vim-surround
