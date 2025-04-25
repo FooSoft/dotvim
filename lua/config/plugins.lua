@@ -161,16 +161,15 @@ require('lualine').setup {
     extensions = {}
 }
 
--- oil.nvim
-require('oil').setup()
-vim.keymap.set('n', '-', vim.cmd.Oil)
-
 -- revolver.nvim
 require('revolver').setup({'.c', '.cpp', '.h', '.hpp', '.inl'})
 vim.keymap.set('n', 'gfs', vim.cmd.Revolve)
 
 -- vim-better-whitespace
 vim.api.nvim_set_hl(0, 'ExtraWhitespace', {link = 'Search'})
+
+-- vim-dirvish
+vim.g.dirvish_mode = ':sort ,^.*[\\/],'
 
 -- vim-easy-align
 vim.g.easy_align_ignore_groups = {}
