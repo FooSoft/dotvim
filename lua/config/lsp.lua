@@ -1,5 +1,29 @@
+if not vim.lsp.enable then
+    return
+end
+
 -- lua-language-server
 vim.env.PATH = vim.env.PATH .. ':' .. vim.fn.stdpath('config') .. '/lls/bin'
+
+vim.api.nvim_create_autocmd('LspAttach', {
+    callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+
+		-- enable completion side effects
+		if client:supports_method("textDocument/completion") then
+            vim.lsp.completion.enable(true, client.id, args.buf, {autotrigger=true})
+		end
+
+		-- -- enable inlay hints
+		-- if client:supports_method("textDocument/inlayHint") then
+		-- 	vim.lsp.inlay_hint.enable(true, { bufnr=args.buf })
+		-- end
+    end,
+})
+
+-- vim.lsp.config.clangd.cmd = { "clangd", "--background-index", "--header-insertion=never" }
+
+vim.lsp.enable('gopls')
 
 -- -- cmp-nvim-lsp
 -- local cmp_nvim_lsp = require('cmp_nvim_lsp')
