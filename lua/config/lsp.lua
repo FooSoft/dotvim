@@ -2,64 +2,63 @@ if not vim.lsp.enable then
     return
 end
 
--- vim.opt.completeopt = {'menu', 'menuone', 'noselect', 'noinsert'}
-
--- lua-language-server
-vim.env.PATH = vim.env.PATH .. ':' .. vim.fn.stdpath('config') .. '/lls/bin'
-
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
+		if client:supports_method('textDocument/completion') then
+            vim.lsp.completion.enable(true, client.id, args.buf, {autotrigger=true})
+		end
 
-		-- enable completion side effects
-		-- if client:supports_method('textDocument/completion') then
-  --           vim.lsp.completion.enable(true, client.id, args.buf, {autotrigger=true})
-		-- end
-
-		-- -- enable inlay hints
-		-- if client:supports_method("textDocument/inlayHint") then
-		-- 	vim.lsp.inlay_hint.enable(true, { bufnr=args.buf })
-		-- end
+        local opts = { buffer = args.buf }
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
     end,
 })
 
+vim.lsp.config('*', {
+    root_markers = { '.git' },
+    capabilities = {
+        textDocument = {
+            completion = {
+                completionItem = {
+                    snippetSupport = false,
+                },
+            },
+        },
+    },
+})
 
-local function tab_complete()
-  if vim.fn.pumvisible() == 1 then
-    -- navigate to next item in completion menu
-    return '<C-y>'
-  end
-
-  -- local c = vim.fn.col('.') - 1
-  -- local is_whitespace = c == 0 or vim.fn.getline('.'):sub(c, c):match('%s')
-  --
-  -- if is_whitespace then
-  --   -- insert tab
-  --   return '<Tab>'
-  -- end
-  --
-  -- local lsp_completion = vim.bo.omnifunc == 'v:lua.vim.lsp.omnifunc'
-  --
-  -- if lsp_completion then
-  --   -- trigger lsp code completion
-  --   return '<C-x><C-o>'
-  -- end
-  --
-  -- -- suggest words in current buffer
-  -- return '<C-x><C-n>'
-end
-
-vim.keymap.set('i', '<Tab>', tab_complete, {expr = true})
+vim.lsp.config('clangd', {
+    cmd = {'clangd', '--background-index', '--header-insertion=never'},
+    filetypes = {'cpp', 'c'},
+    root_markers = {'compile_commands.json'},
+})
 
 vim.lsp.config('gopls', {
     cmd = {'gopls'},
     filetypes = {'go'},
-    root_markers = {'.git', 'go.mod'},
+    root_markers = {'go.mod'},
 })
 
--- vim.lsp.config.clangd.cmd = { "clangd", "--background-index", "--header-insertion=never" }
+vim.lsp.config('jedi-language-server', {
+    cmd = {'jedi-language-server'},
+    filetypes = {'python'},
+})
 
-vim.lsp.enable('gopls')
+vim.env.PATH = vim.env.PATH .. ':' .. vim.fn.stdpath('config') .. '/lls/bin'
+vim.lsp.config('lua-language-server', {
+    cmd = {'lua-language-server'},
+    filetypes = {'lua'},
+    root_markers = {'.luarc.json', '.luarc.jsonc'},
+})
+
+vim.lsp.enable({
+    'clangd',
+    'gopls',
+    'jedi-language-server',
+    'lua-language-server',
+})
 
 -- vim.opt.omnifunc = 'v:lua.vim.lsp.omnifunc'
 -- vim.opt.shortmess:append('c')
