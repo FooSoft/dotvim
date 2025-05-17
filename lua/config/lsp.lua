@@ -2,6 +2,8 @@ if not vim.lsp.enable then
     return
 end
 
+vim.opt.completeopt = {'menu', 'menuone', 'noselect', 'noinsert'}
+
 -- lua-language-server
 vim.env.PATH = vim.env.PATH .. ':' .. vim.fn.stdpath('config') .. '/lls/bin'
 
@@ -21,9 +23,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
+vim.lsp.config('gopls', {
+    cmd = {'gopls'},
+    filetypes = {'go'},
+    root_markers = {'.git', 'go.mod'},
+})
+
 -- vim.lsp.config.clangd.cmd = { "clangd", "--background-index", "--header-insertion=never" }
 
 vim.lsp.enable('gopls')
+
+vim.opt.omnifunc = 'v:lua.vim.lsp.omnifunc'
+vim.opt.shortmess:append('c')
 
 -- -- cmp-nvim-lsp
 -- local cmp_nvim_lsp = require('cmp_nvim_lsp')
