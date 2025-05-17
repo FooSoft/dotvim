@@ -2,7 +2,7 @@ if not vim.lsp.enable then
     return
 end
 
-vim.opt.completeopt = {'menu', 'menuone', 'noselect', 'noinsert'}
+-- vim.opt.completeopt = {'menu', 'menuone', 'noselect', 'noinsert'}
 
 -- lua-language-server
 vim.env.PATH = vim.env.PATH .. ':' .. vim.fn.stdpath('config') .. '/lls/bin'
@@ -12,9 +12,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
         local client = vim.lsp.get_client_by_id(args.data.client_id)
 
 		-- enable completion side effects
-		if client:supports_method("textDocument/completion") then
-            vim.lsp.completion.enable(true, client.id, args.buf, {autotrigger=true})
-		end
+		-- if client:supports_method('textDocument/completion') then
+  --           vim.lsp.completion.enable(true, client.id, args.buf, {autotrigger=true})
+		-- end
 
 		-- -- enable inlay hints
 		-- if client:supports_method("textDocument/inlayHint") then
@@ -22,6 +22,34 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		-- end
     end,
 })
+
+
+local function tab_complete()
+  if vim.fn.pumvisible() == 1 then
+    -- navigate to next item in completion menu
+    return '<C-y>'
+  end
+
+  -- local c = vim.fn.col('.') - 1
+  -- local is_whitespace = c == 0 or vim.fn.getline('.'):sub(c, c):match('%s')
+  --
+  -- if is_whitespace then
+  --   -- insert tab
+  --   return '<Tab>'
+  -- end
+  --
+  -- local lsp_completion = vim.bo.omnifunc == 'v:lua.vim.lsp.omnifunc'
+  --
+  -- if lsp_completion then
+  --   -- trigger lsp code completion
+  --   return '<C-x><C-o>'
+  -- end
+  --
+  -- -- suggest words in current buffer
+  -- return '<C-x><C-n>'
+end
+
+vim.keymap.set('i', '<Tab>', tab_complete, {expr = true})
 
 vim.lsp.config('gopls', {
     cmd = {'gopls'},
@@ -33,8 +61,8 @@ vim.lsp.config('gopls', {
 
 vim.lsp.enable('gopls')
 
-vim.opt.omnifunc = 'v:lua.vim.lsp.omnifunc'
-vim.opt.shortmess:append('c')
+-- vim.opt.omnifunc = 'v:lua.vim.lsp.omnifunc'
+-- vim.opt.shortmess:append('c')
 
 -- -- cmp-nvim-lsp
 -- local cmp_nvim_lsp = require('cmp_nvim_lsp')
