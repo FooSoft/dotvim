@@ -119,6 +119,11 @@ require('guid').setup({
 
 vim.keymap.set({'x', 'o'}, 'ag', ':<c-u>GuidObject<cr>', {noremap = true, silent = true})
 
+-- lsp_signature.nvim
+require('lsp_signature').setup({
+    hint_enable = false,
+})
+
 -- lualine.nvim
 require('lualine').setup {
     options = {

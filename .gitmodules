@@ -82,3 +82,6 @@
 [submodule "pack/plugins/start/f5.nvim"]
 	path = pack/plugins/start/f5.nvim
 	url = https://git.sr.ht/~foosoft/f5.nvim
+[submodule "pack/plugins/start/lsp_signature.nvim"]
+	path = pack/plugins/start/lsp_signature.nvim
+	url = https://github.com/ray-x/lsp_signature.nvim.git
