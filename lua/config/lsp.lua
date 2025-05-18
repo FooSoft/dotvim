@@ -6,7 +6,11 @@ vim.env.PATH = vim.env.PATH .. ':' .. vim.fn.stdpath('config') .. '/lls/bin'
 
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)
-        local opts = { buffer = args.buf }
+        local opts = {
+            buffer = args.buf,
+            noremap = true,
+        }
+
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
         vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
@@ -19,6 +23,26 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end
     end,
 })
+
+vim.keymap.set('i', '<tab>', function()
+        if vim.fn.pumvisible() == 1 then
+            return '<c-y>'
+        else
+            return '<tab>'
+        end
+    end,
+    {expr = true, noremap = true}
+)
+
+vim.keymap.set('i', '<cr>', function()
+        if vim.fn.pumvisible() == 1 then
+            return '<c-e><cr>'
+        else
+            return '<cr>'
+        end
+    end,
+    {expr = true, noremap = true}
+)
 
 vim.lsp.config('*', {
     root_markers = {'.git'},

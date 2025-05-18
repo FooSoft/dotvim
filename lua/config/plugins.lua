@@ -30,6 +30,7 @@ require('Comment').setup()
 
 -- f5.nvim
 require('f5').setup({
+    enabled = false,
     reload_files = true,
     reload_modules = true,
 })
