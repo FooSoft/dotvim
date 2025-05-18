@@ -15,7 +15,6 @@ vim.opt.completeopt = {'menu', 'menuone', 'noinsert'}
 vim.opt.expandtab = true
 vim.opt.fileformats = {'unix', 'dos', 'mac'}
 vim.opt.foldenable = false
-vim.opt.guicursor = 'n:blinkon0'
 vim.opt.ignorecase = true
 vim.opt.linebreak = true
 vim.opt.listchars = {tab = '» ', eol = '↲', space = '·'}
