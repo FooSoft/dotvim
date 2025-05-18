@@ -26,6 +26,7 @@ vim.opt.mousemodel = 'extend'
 vim.opt.number = true
 vim.opt.shiftround = true
 vim.opt.shiftwidth = 4
+vim.opt.shortmess:append('c')
 vim.opt.showmode = false
 vim.opt.smartcase = true
 vim.opt.spell = false
