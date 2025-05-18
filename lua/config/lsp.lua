@@ -2,8 +2,6 @@ if not vim.lsp.enable then
     return
 end
 
-vim.env.PATH = vim.env.PATH .. ':' .. vim.fn.stdpath('config') .. '/lls/bin'
-
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)
         local opts = {
@@ -57,66 +55,68 @@ vim.lsp.config('*', {
     },
 })
 
-if vim.fn.executable('clangd') == 1 then
-    vim.lsp.config('clangd', {
-        cmd = {'clangd', '--background-index', '--header-insertion=never'},
-        filetypes = {'cpp', 'c'},
-        root_markers = {'compile_commands.json'},
-    })
-
-    vim.lsp.enable('clangd')
+local function config_lsp(config)
+    local program_name = config.cmd[1]
+    if vim.fn.executable(program_name) == 1 then
+        vim.lsp.config(program_name, config)
+        vim.lsp.enable(program_name)
+    end
 end
 
-if vim.fn.executable('gopls') == 1 then
-    vim.lsp.config('gopls', {
-        cmd = {'gopls'},
-        filetypes = {'go'},
-        root_markers = {'go.mod'},
-    })
+-- c/c++
 
-    vim.lsp.enable('gopls')
-end
+config_lsp({
+    cmd = {'clangd', '--background-index', '--header-insertion=never'},
+    filetypes = {'cpp', 'c'},
+    root_markers = {'compile_commands.json'},
+})
 
-if vim.fn.executable('jedi-language-server') == 1 then
-    vim.lsp.config('jedi-language-server', {
-        cmd = {'jedi-language-server'},
-        filetypes = {'python'},
-    })
+-- go
 
-    vim.lsp.enable('jedi-language-server')
-end
+config_lsp({
+    cmd = {'gopls'},
+    filetypes = {'go'},
+    root_markers = {'go.mod'},
+})
 
-if vim.fn.executable('lua-language-server') == 1 then
-    local runtime_path = vim.split(package.path, ';', {})
-    table.insert(runtime_path, 'lua/?.lua')
-    table.insert(runtime_path, 'lua/?/init.lua')
+-- python
 
-    vim.lsp.config('lua-language-server', {
-        cmd = {'lua-language-server'},
-        filetypes = {'lua'},
-        root_markers = {'.luarc.json', '.luarc.jsonc'},
-        settings = {
-            Lua = {
-                diagnostics = {
-                    globals = {'vim'},
-                    disable = {'param-type-mismatch', 'undefined-field'},
-                },
-                runtime = {
-                    path = runtime_path,
-                    version = 'LuaJIT',
-                },
-                telemetry = {
-                    enable = false,
-                },
-                workspace = {
-                    checkThirdParty = false,
-                    library = {
-                        vim.env.VIMRUNTIME,
-                    },
+config_lsp({
+    cmd = {'jedi-language-server'},
+    filetypes = {'python'},
+})
+
+-- lua
+
+vim.env.PATH = vim.env.PATH .. ':' .. vim.fn.stdpath('config') .. '/lls/bin'
+
+local runtime_path = vim.split(package.path, ';', {})
+table.insert(runtime_path, 'lua/?.lua')
+table.insert(runtime_path, 'lua/?/init.lua')
+
+config_lsp({
+    cmd = {'lua-language-server'},
+    filetypes = {'lua'},
+    root_markers = {'.luarc.json', '.luarc.jsonc'},
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = {'vim'},
+                disable = {'param-type-mismatch', 'undefined-field'},
+            },
+            runtime = {
+                path = runtime_path,
+                version = 'LuaJIT',
+            },
+            telemetry = {
+                enable = false,
+            },
+            workspace = {
+                checkThirdParty = false,
+                library = {
+                    vim.env.VIMRUNTIME,
                 },
             },
         },
-    })
-
-    vim.lsp.enable('lua-language-server')
-end
+    },
+})
