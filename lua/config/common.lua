@@ -11,7 +11,7 @@ vim.g.c_no_if0 = 1
 -- options
 vim.opt.autoread = true
 vim.opt.clipboard = 'unnamedplus'
-vim.opt.completeopt = 'menuone,noselect'
+vim.opt.completeopt = 'menu,menuone,noinsert'
 vim.opt.expandtab = true
 vim.opt.fileformats = 'unix,dos,mac'
 vim.opt.foldenable = false
@@ -26,6 +26,7 @@ vim.opt.mousemodel = 'extend'
 vim.opt.number = true
 vim.opt.shiftround = true
 vim.opt.shiftwidth = 4
+vim.opt.shortmess:append('c')
 vim.opt.showmode = false
 vim.opt.smartcase = true
 vim.opt.spell = false
