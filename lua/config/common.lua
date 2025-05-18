@@ -62,3 +62,24 @@ vim.keymap.set('n', '<c-l>', '<c-w>l')
 
 -- terminal keymaps
 vim.keymap.set('t', '<esc>', '<c-\\><c-n>')
+
+-- autoreload files
+vim.api.nvim_create_autocmd({'FocusGained', 'BufEnter', 'CursorHold'}, {
+    pattern = '*',
+    command = 'checktime'
+})
+
+-- filetypes
+vim.filetype.add({
+    extension = {
+        gohtml = 'html',
+        kbom = 'xml',
+        man = 'xml',
+        w = 'cpp',
+    },
+    filename = {
+        ['dirs'] = 'make',
+        ['sources'] = 'make',
+        ['sources.inc'] = 'make',
+    },
+})

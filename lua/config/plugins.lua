@@ -188,10 +188,6 @@ vim.g.go_metalinter_enabled = {}
 vim.g.go_null_module_warning = 0
 vim.g.go_version_warning = 0
 
--- vim-polyglot
-vim.g.rustfmt_autosave = 1
-vim.g.polyglot_disabled = {'autoindent', 'sensible'}
-
 -- vim-quickhl
 vim.keymap.set('n', '<leader>K', '<Plug>(quickhl-manual-reset)')
 vim.keymap.set('n', '<leader>k', '<Plug>(quickhl-manual-this-whole-word)')
