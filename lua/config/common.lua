@@ -1,3 +1,5 @@
+local util = require('config.util')
+
 -- colors
 vim.cmd.colorscheme('nightfox')
 
@@ -37,30 +39,30 @@ vim.opt.wrap = false
 vim.opt.writebackup = false
 
 -- common keymaps
-vim.keymap.set('i', '<c-c>', '<esc>')
-vim.keymap.set('n', '<bs>', '<cmd>bp|bd#<cr>')
-vim.keymap.set('n', '<c-c><c-c>', '<cmd>nohlsearch<cr>')
-vim.keymap.set('n', '<leader><leader>', '<cmd>b#<cr>')
-vim.keymap.set('n', '<leader>w', '<cmd>w<cr>')
-vim.keymap.set('n', '<leader>x', '<cmd>x<cr>')
-vim.keymap.set('n', '<c-bs>', '<cmd>BuffDeleteAllButCurrent<cr>')
-vim.keymap.set('n', 'Y', 'y$')
-vim.keymap.set('n', 'j', 'gj')
-vim.keymap.set('n', 'k', 'gk')
+util.keymap('i', '<c-c>', '<esc>')
+util.keymap('n', '<bs>', '<cmd>bp|bd#<cr>')
+util.keymap('n', '<c-c><c-c>', '<cmd>nohlsearch<cr>')
+util.keymap('n', '<leader><leader>', '<cmd>b#<cr>')
+util.keymap('n', '<leader>w', '<cmd>w<cr>')
+util.keymap('n', '<leader>x', '<cmd>x<cr>')
+util.keymap('n', '<c-bs>', '<cmd>BuffDeleteAllButCurrent<cr>')
+util.keymap('n', 'Y', 'y$')
+util.keymap('n', 'j', 'gj')
+util.keymap('n', 'k', 'gk')
 
 -- split keymaps
-vim.keymap.set('n', '<a-=>', '<c-w><c-=>')
-vim.keymap.set('n', '<a-h>', '<c-w><')
-vim.keymap.set('n', '<a-j>', '<c-w>+')
-vim.keymap.set('n', '<a-k>', '<c-w>-')
-vim.keymap.set('n', '<a-l>', '<c-w>>')
-vim.keymap.set('n', '<c-h>', '<c-w>h')
-vim.keymap.set('n', '<c-j>', '<c-w>j')
-vim.keymap.set('n', '<c-k>', '<c-w>k')
-vim.keymap.set('n', '<c-l>', '<c-w>l')
+util.keymap('n', '<a-=>', '<c-w><c-=>')
+util.keymap('n', '<a-h>', '<c-w><')
+util.keymap('n', '<a-j>', '<c-w>+')
+util.keymap('n', '<a-k>', '<c-w>-')
+util.keymap('n', '<a-l>', '<c-w>>')
+util.keymap('n', '<c-h>', '<c-w>h')
+util.keymap('n', '<c-j>', '<c-w>j')
+util.keymap('n', '<c-k>', '<c-w>k')
+util.keymap('n', '<c-l>', '<c-w>l')
 
 -- terminal keymaps
-vim.keymap.set('t', '<esc>', '<c-\\><c-n>')
+util.keymap('t', '<esc>', '<c-\\><c-n>')
 
 -- autoreload files
 vim.api.nvim_create_autocmd({'FocusGained', 'BufEnter', 'CursorHold'}, {

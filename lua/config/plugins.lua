@@ -1,3 +1,5 @@
+local util = require('config.util')
+
 -- argonaut.nvim
 require('argonaut').setup({
     by_filetype = {
@@ -6,24 +8,16 @@ require('argonaut').setup({
     },
 })
 
-vim.keymap.set({'x', 'o'}, 'ia', ':<C-u>ArgonautObject inner<cr>', {noremap = true, silent = true})
-vim.keymap.set({'x', 'o'}, 'aa', ':<C-u>ArgonautObject outer<cr>', {noremap = true, silent = true})
-vim.keymap.set({'x', 'o', 'n'}, '<leader>n', ':<C-u>ArgonautObject next<cr>', {noremap = true, silent = true})
-vim.keymap.set({'x', 'o', 'n'}, '<leader>p', ':<C-u>ArgonautObject previous<cr>', {noremap = true, silent = true})
-vim.keymap.set('n', '<leader>a', ':<C-u>ArgonautToggle<cr>', {noremap = true, silent = true})
-vim.keymap.set('n', '<leader>o', ':<C-u>ArgonautReflow<cr>', {noremap = true, silent = true})
+util.keymap({'x', 'o'}, 'ia', ':<C-u>ArgonautObject inner<cr>')
+util.keymap({'x', 'o'}, 'aa', ':<C-u>ArgonautObject outer<cr>')
+util.keymap({'x', 'o', 'n'}, '<leader>n', ':<C-u>ArgonautObject next<cr>')
+util.keymap({'x', 'o', 'n'}, '<leader>p', ':<C-u>ArgonautObject previous<cr>')
+util.keymap('n', '<leader>a', ':<C-u>ArgonautToggle<cr>')
+util.keymap('n', '<leader>o', ':<C-u>ArgonautReflow<cr>')
 
 -- bmessages.nvim
-require('bmessages').setup({
-    split_direction = 'botright'
-})
-
-vim.keymap.set(
-    'n',
-    '<leader>bm',
-    ':Bmessages<CR>',
-    {noremap = true, silent = true}
-)
+require('bmessages').setup({split_direction = 'botright'})
+util.keymap('n', '<leader>bm', ':Bmessages<CR>')
 
 -- comment.nvim
 require('Comment').setup()
@@ -63,67 +57,54 @@ if vim.fn.executable('fzf') == 1 then
         fzf_lua.grep(grep_opts)
     end
 
-    vim.keymap.set('n', '<leader>fb', fzf_lua.buffers)
-    vim.keymap.set('n', '<leader>fg', fzf_lua.git_files)
-    vim.keymap.set('n', '<leader>fh', fzf_lua.oldfiles)
-    vim.keymap.set('n', '<leader>fl', fzf_lua.lines)
-    vim.keymap.set('n', '<leader>fp', grep)
-    vim.keymap.set('n', '<leader>fs', live_grep)
+    util.keymap('n', '<leader>fb', fzf_lua.buffers)
+    util.keymap('n', '<leader>fg', fzf_lua.git_files)
+    util.keymap('n', '<leader>fh', fzf_lua.oldfiles)
+    util.keymap('n', '<leader>fl', fzf_lua.lines)
+    util.keymap('n', '<leader>fp', grep)
+    util.keymap('n', '<leader>fs', live_grep)
 end
 
 -- gitsigns.nvim
 require('gitsigns').setup({
     on_attach = function(bufnr)
         local gitsigns = require('gitsigns')
+        local keymap_opts = {buffer = bufnr}
 
-        local function map(mode, l, r, opts)
-            opts = opts or {}
-            opts.buffer = bufnr
-            vim.keymap.set(mode, l, r, opts)
-        end
+        util.keymap('n', ']c', function()
+                if vim.wo.diff then
+                    vim.cmd.normal({']c', bang = true})
+                else
+                    gitsigns.nav_hunk('next')
+                end
+            end,
+            keymap_opts
+        )
 
-        map('n', ']c', function()
-            if vim.wo.diff then
-                vim.cmd.normal({']c', bang = true})
-            else
-                gitsigns.nav_hunk('next')
-            end
-        end)
+        util.keymap('n', '[c', function()
+                if vim.wo.diff then
+                    vim.cmd.normal({'[c', bang = true})
+                else
+                    gitsigns.nav_hunk('prev')
+                end
+            end,
+            keymap_opts
+        )
 
-        map('n', '[c', function()
-            if vim.wo.diff then
-                vim.cmd.normal({'[c', bang = true})
-            else
-                gitsigns.nav_hunk('prev')
-            end
-        end)
-
-        map('n', '<leader>hs', gitsigns.stage_hunk)
-        map('n', '<leader>hr', gitsigns.reset_hunk)
-        map('v', '<leader>hs', function() gitsigns.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
-        map('v', '<leader>hr', function() gitsigns.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
-        map('n', '<leader>hS', gitsigns.stage_buffer)
-        map('n', '<leader>hR', gitsigns.reset_buffer)
-        map('n', '<leader>hp', gitsigns.preview_hunk)
-        map('n', '<leader>hb', function() gitsigns.blame_line{full=true} end)
-        map('n', '<leader>tb', gitsigns.toggle_current_line_blame)
-        map('n', '<leader>hd', gitsigns.diffthis)
-        map('n', '<leader>hD', function() gitsigns.diffthis('~') end)
-        map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+        util.keymap('n', '<leader>hs', gitsigns.stage_hunk)
+        util.keymap('n', '<leader>hr', gitsigns.reset_hunk)
+        util.keymap('n', '<leader>hS', gitsigns.stage_buffer)
+        util.keymap('n', '<leader>hR', gitsigns.reset_buffer)
+        util.keymap('n', '<leader>hp', gitsigns.preview_hunk)
     end
 })
 
 -- guid.nvim
-require('guid').setup({
-    comma_space = true
-})
-
-vim.keymap.set({'x', 'o'}, 'ag', ':<c-u>GuidObject<cr>', {noremap = true, silent = true})
+require('guid').setup({comma_space = true})
+util.keymap({'x', 'o'}, 'ag', ':<c-u>GuidObject<cr>')
 
 -- lsp_signature.nvim
-require('lsp_signature').setup({
-    hint_enable = false,
-})
+require('lsp_signature').setup({hint_enable = false})
 
 -- lualine.nvim
 require('lualine').setup {
@@ -169,7 +150,7 @@ require('lualine').setup {
 
 -- revolver.nvim
 require('revolver').setup({'.c', '.cpp', '.h', '.hpp', '.inl'})
-vim.keymap.set('n', 'gfs', vim.cmd.Revolve)
+util.keymap('n', 'gfs', vim.cmd.Revolve)
 
 -- vim-better-whitespace
 vim.api.nvim_set_hl(0, 'ExtraWhitespace', {link = 'Search'})
@@ -179,8 +160,8 @@ vim.g.dirvish_mode = ':sort ,^.*[\\/],'
 
 -- vim-easy-align
 vim.g.easy_align_ignore_groups = {}
-vim.keymap.set('n', 'ga', '<plug>(EasyAlign)')
-vim.keymap.set('v', '<cr>', '<plug>(EasyAlign)')
+util.keymap('n', 'ga', '<plug>(EasyAlign)')
+util.keymap('v', '<cr>', '<plug>(EasyAlign)')
 
 -- vim-go
 vim.g.go_diagnostics_enabled = 0
@@ -190,7 +171,7 @@ vim.g.go_null_module_warning = 0
 vim.g.go_version_warning = 0
 
 -- vim-quickhl
-vim.keymap.set('n', '<leader>K', '<Plug>(quickhl-manual-reset)')
-vim.keymap.set('n', '<leader>k', '<Plug>(quickhl-manual-this-whole-word)')
-vim.keymap.set('x', '<leader>K', '<Plug>(quickhl-manual-reset)')
-vim.keymap.set('x', '<leader>k', '<Plug>(quickhl-manual-this-whole-word)')
+util.keymap('n', '<leader>K', '<Plug>(quickhl-manual-reset)')
+util.keymap('n', '<leader>k', '<Plug>(quickhl-manual-this-whole-word)')
+util.keymap('x', '<leader>K', '<Plug>(quickhl-manual-reset)')
+util.keymap('x', '<leader>k', '<Plug>(quickhl-manual-this-whole-word)')

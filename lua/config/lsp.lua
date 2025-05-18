@@ -1,17 +1,15 @@
+local util = require('config.util')
+
 if not vim.lsp.enable then
     return
 end
 
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)
-        local opts = {
-            buffer = args.buf,
-            noremap = true,
-        }
-
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+        local keymap_opts = {buffer = args.buf}
+        util.keymap('n', 'gd', vim.lsp.buf.definition, keymap_opts)
+        util.keymap('n', 'K', vim.lsp.buf.hover, keymap_opts)
+        util.keymap('n', '<space>rn', vim.lsp.buf.rename, keymap_opts)
 
         local client = vim.lsp.get_client_by_id(args.data.client_id)
         if client then
@@ -22,24 +20,30 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
-vim.keymap.set('i', '<tab>', function()
+util.keymap('i', '<tab>', function()
         if vim.fn.pumvisible() == 1 then
             return '<c-y>'
         else
             return '<tab>'
         end
-    end,
-    {expr = true, noremap = true}
+    end, {
+        expr = true,
+        noremap = true,
+        silent = true
+    }
 )
 
-vim.keymap.set('i', '<cr>', function()
+util.keymap('i', '<cr>', function()
         if vim.fn.pumvisible() == 1 then
             return '<c-e><cr>'
         else
             return '<cr>'
         end
-    end,
-    {expr = true, noremap = true}
+    end, {
+        expr = true,
+        noremap = true,
+        silent = true
+    }
 )
 
 vim.lsp.config('*', {
