@@ -26,11 +26,8 @@ util.keymap('i', '<tab>', function()
         else
             return '<tab>'
         end
-    end, {
-        expr = true,
-        noremap = true,
-        silent = true
-    }
+    end,
+    {expr = true}
 )
 
 util.keymap('i', '<cr>', function()
@@ -39,11 +36,8 @@ util.keymap('i', '<cr>', function()
         else
             return '<cr>'
         end
-    end, {
-        expr = true,
-        noremap = true,
-        silent = true
-    }
+    end,
+    {expr = true}
 )
 
 vim.lsp.config('*', {
@@ -72,7 +66,13 @@ end
 config_lsp({
     cmd = {'clangd', '--background-index', '--header-insertion=never'},
     filetypes = {'cpp', 'c'},
-    root_markers = {'compile_commands.json'},
+    root_markers = {
+        '.clang-format',
+        '.clang-tidy',
+        '.clangd',
+        'compile_commands.json',
+        'compile_flags.txt',
+    },
 })
 
 -- go
@@ -88,6 +88,13 @@ config_lsp({
 config_lsp({
     cmd = {'jedi-language-server'},
     filetypes = {'python'},
+    root_markers = {
+        'Pipfile',
+        'pyproject.toml',
+        'requirements.txt',
+        'setup.cfg',
+        'setup.py',
+    },
 })
 
 -- lua
@@ -101,7 +108,15 @@ table.insert(runtime_path, 'lua/?/init.lua')
 config_lsp({
     cmd = {'lua-language-server'},
     filetypes = {'lua'},
-    root_markers = {'.luarc.json', '.luarc.jsonc'},
+    root_markers = {
+        '.luacheckrc',
+        '.luarc.json',
+        '.luarc.jsonc',
+        '.stylua.toml',
+        'selene.toml',
+        'selene.yml',
+        'stylua.toml',
+    },
     settings = {
         Lua = {
             diagnostics = {
