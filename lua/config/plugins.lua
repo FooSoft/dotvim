@@ -68,6 +68,11 @@ end
 -- gitsigns.nvim
 require('gitsigns').setup({
     on_attach = function(bufnr)
+        local filetype = vim.bo[bufnr].filetype
+        if filetype == 'dirvish' or filetype == 'netrw' then
+            return false
+        end
+
         local gitsigns = require('gitsigns')
         local keymap_opts = {buffer = bufnr}
 
