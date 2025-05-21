@@ -34,9 +34,6 @@
 [submodule "pack/plugins/start/suda.vim"]
 	path = pack/plugins/start/suda.vim
 	url = https://github.com/lambdalisue/suda.vim.git
-[submodule "pack/plugins/start/vim-rooter"]
-	path = pack/plugins/start/vim-rooter
-	url = https://github.com/airblade/vim-rooter.git
 [submodule "pack/plugins/start/nightfox.nvim"]
 	path = pack/plugins/start/nightfox.nvim
 	url = https://github.com/EdenEast/nightfox.nvim.git

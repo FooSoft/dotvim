@@ -42,27 +42,24 @@ if vim.fn.executable('fzf') == 1 then
         },
     })
 
-    local grep_opts = nil
-    if vim.fn.has('win32') == 1 then
-        grep_opts = {
-            cmd = 'git grep --line-number --column --color=always'
-        }
+    local git_opts = function()
+        return {cwd = util.sensible_dir()}
     end
 
-    local live_grep = function()
-        fzf_lua.live_grep(grep_opts)
-    end
-
-    local grep = function()
-        fzf_lua.grep(grep_opts)
+    local grep_opts = function()
+        local opts = git_opts()
+        if vim.fn.has('win32') == 1 then
+            opts.cmd = 'git grep --line-number --column --color=always'
+        end
+        return opts
     end
 
     util.keymap('n', '<leader>fb', fzf_lua.buffers)
-    util.keymap('n', '<leader>fg', fzf_lua.git_files)
+    util.keymap('n', '<leader>fg', function() fzf_lua.git_files(git_opts()) end)
     util.keymap('n', '<leader>fh', fzf_lua.oldfiles)
     util.keymap('n', '<leader>fl', fzf_lua.lines)
-    util.keymap('n', '<leader>fp', grep)
-    util.keymap('n', '<leader>fs', live_grep)
+    util.keymap('n', '<leader>fp', function() fzf_lua.grep(grep_opts()) end)
+    util.keymap('n', '<leader>fs', function() fzf_lua.live_grep(grep_opts()) end)
 end
 
 -- gitsigns.nvim
