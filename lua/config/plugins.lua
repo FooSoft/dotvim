@@ -106,7 +106,11 @@ require('guid').setup({comma_space = true})
 util.keymap({'x', 'o'}, 'ag', ':<c-u>GuidObject<cr>')
 
 -- lsp_signature.nvim
-require('lsp_signature').setup({hint_enable = false})
+require('lsp_signature').setup({
+    floating_window = false,
+    hint_enable = true,
+    hint_prefix = '',
+})
 
 -- lualine.nvim
 require('lualine').setup {
