@@ -59,6 +59,11 @@ local function sensible_dir()
     return git_root() or buffer_dir()
 end
 
+local function make()
+    vim.o.makeprg = 'make -C ' .. sensible_dir()
+    vim.cmd.lmake()
+end
+
 -- GitUnlock
 vim.api.nvim_create_user_command('GitUnlock', git_delete_lock, {})
 
@@ -69,6 +74,7 @@ vim.api.nvim_create_user_command('UnAlign', unalign, {range = '%'})
 vim.api.nvim_create_user_command('BuffDeleteAllButCurrent', buff_delete_all_but_current, {})
 
 return {
-    sensible_dir = sensible_dir,
     keymap = keymap,
+    make = make,
+    sensible_dir = sensible_dir,
 }

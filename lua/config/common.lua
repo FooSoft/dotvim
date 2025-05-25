@@ -64,6 +64,9 @@ util.keymap('n', '<c-l>', '<c-w>l')
 -- terminal keymaps
 util.keymap('t', '<esc>', '<c-\\><c-n>')
 
+-- make
+util.keymap('n', '<leader>m', util.make)
+
 -- autoreload files
 vim.api.nvim_create_autocmd({'FocusGained', 'BufEnter', 'CursorHold'}, {
     pattern = '*',
