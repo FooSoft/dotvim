@@ -2,10 +2,15 @@ local util = require('config.util')
 
 -- argonaut.nvim
 require('argonaut').setup({
+    brace_pad = { ['{ '] = true },
     by_filetype = {
-        c = { brace_last_wrap = false },
-        cpp = { brace_last_wrap = false },
-    },
+        c = {
+            brace_last_wrap = false
+        },
+        cpp = {
+            brace_last_wrap = false
+        }
+    }
 })
 
 util.keymap({ 'x', 'o' }, 'ia', ':<C-u>ArgonautObject inner<cr>')
