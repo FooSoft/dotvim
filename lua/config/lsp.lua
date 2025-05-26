@@ -17,6 +17,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
                 vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
             end
         end
+
+        vim.api.nvim_create_autocmd('BufWritePre', {
+            buffer = args.buf,
+            callback = function() vim.lsp.buf.format() end
+        })
     end,
 })
 
