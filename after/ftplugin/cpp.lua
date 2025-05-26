@@ -4,6 +4,6 @@ if vim.fn.has('win32') == 1 then
 else
     vim.api.nvim_create_autocmd('BufWritePre', {
         buffer = 0,
-        callback = function(args) vim.lsp.buf.format() end
+        callback = function() vim.lsp.buf.format() end
     })
 end

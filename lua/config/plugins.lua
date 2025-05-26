@@ -3,20 +3,20 @@ local util = require('config.util')
 -- argonaut.nvim
 require('argonaut').setup({
     by_filetype = {
-        c = {brace_last_wrap = false},
-        cpp = {brace_last_wrap = false},
+        c = { brace_last_wrap = false },
+        cpp = { brace_last_wrap = false },
     },
 })
 
-util.keymap({'x', 'o'}, 'ia', ':<C-u>ArgonautObject inner<cr>')
-util.keymap({'x', 'o'}, 'aa', ':<C-u>ArgonautObject outer<cr>')
-util.keymap({'x', 'o', 'n'}, '<leader>n', ':<C-u>ArgonautObject next<cr>')
-util.keymap({'x', 'o', 'n'}, '<leader>p', ':<C-u>ArgonautObject previous<cr>')
+util.keymap({ 'x', 'o' }, 'ia', ':<C-u>ArgonautObject inner<cr>')
+util.keymap({ 'x', 'o' }, 'aa', ':<C-u>ArgonautObject outer<cr>')
+util.keymap({ 'x', 'o', 'n' }, '<leader>n', ':<C-u>ArgonautObject next<cr>')
+util.keymap({ 'x', 'o', 'n' }, '<leader>p', ':<C-u>ArgonautObject previous<cr>')
 util.keymap('n', '<leader>a', ':<C-u>ArgonautToggle<cr>')
 util.keymap('n', '<leader>o', ':<C-u>ArgonautReflow<cr>')
 
 -- bmessages.nvim
-require('bmessages').setup({split_direction = 'botright'})
+require('bmessages').setup({ split_direction = 'botright' })
 util.keymap('n', '<leader>bm', ':Bmessages<CR>')
 
 -- comment.nvim
@@ -35,15 +35,13 @@ if vim.fn.executable('fzf') == 1 then
     fzf_lua.setup({
         winopts = {
             preview = {
-                winopts = {
-                    cursorline = false,
-                },
-            },
-        },
+                winopts = { cursorline = false }
+            }
+        }
     })
 
     local git_opts = function()
-        return {cwd = util.sensible_dir()}
+        return { cwd = util.sensible_dir() }
     end
 
     local grep_opts = function()
@@ -71,11 +69,11 @@ require('gitsigns').setup({
         end
 
         local gitsigns = require('gitsigns')
-        local keymap_opts = {buffer = bufnr}
+        local keymap_opts = { buffer = bufnr }
 
         util.keymap('n', ']c', function()
                 if vim.wo.diff then
-                    vim.cmd.normal({']c', bang = true})
+                    vim.cmd.normal({ ']c', bang = true })
                 else
                     gitsigns.nav_hunk('next')
                 end
@@ -85,7 +83,7 @@ require('gitsigns').setup({
 
         util.keymap('n', '[c', function()
                 if vim.wo.diff then
-                    vim.cmd.normal({'[c', bang = true})
+                    vim.cmd.normal({ '[c', bang = true })
                 else
                     gitsigns.nav_hunk('prev')
                 end
@@ -102,43 +100,43 @@ require('gitsigns').setup({
 })
 
 -- guid.nvim
-require('guid').setup({comma_space = true})
-util.keymap({'x', 'o'}, 'ag', ':<c-u>GuidObject<cr>')
+require('guid').setup({ comma_space = true })
+util.keymap({ 'x', 'o' }, 'ag', ':<c-u>GuidObject<cr>')
 
 -- lsp_signature.nvim
-require('lsp_signature').setup({hint_enable = false})
+require('lsp_signature').setup({ hint_enable = false })
 
 -- lualine.nvim
 require('lualine').setup {
     options = {
         always_divide_middle = true,
-        component_separators = {left = '', right = ''},
-        disabled_filetypes = {statusline = {}, winbar = {}},
+        component_separators = { left = '', right = '' },
+        disabled_filetypes = { statusline = {}, winbar = {} },
         globalstatus = false,
         icons_enabled = false,
         ignore_focus = {},
-        refresh = {statusline = 100, tabline = 100, winbar = 100},
-        section_separators = {left = '', right = ''},
+        refresh = { statusline = 100, tabline = 100, winbar = 100 },
+        section_separators = { left = '', right = '' },
         theme = 'auto',
     },
     sections = {
-        lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff', 'diagnostics'},
-        lualine_c = {'filename'},
-        lualine_x = {'encoding', 'fileformat', 'filetype'},
-        lualine_y = {'progress'},
-        lualine_z = {'location'}
+        lualine_a = { 'mode' },
+        lualine_b = { 'branch', 'diff', 'diagnostics' },
+        lualine_c = { 'filename' },
+        lualine_x = { 'encoding', 'fileformat', 'filetype' },
+        lualine_y = { 'progress' },
+        lualine_z = { 'location' }
     },
     inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = {'filename'},
-        lualine_x = {'location'},
+        lualine_c = { 'filename' },
+        lualine_x = { 'location' },
         lualine_y = {},
         lualine_z = {}
     },
     tabline = {
-        lualine_a = {'buffers'},
+        lualine_a = { 'buffers' },
         lualine_b = {},
         lualine_c = {},
         lualine_x = {},
@@ -151,11 +149,11 @@ require('lualine').setup {
 }
 
 -- revolver.nvim
-require('revolver').setup({'.c', '.cpp', '.h', '.hpp', '.inl'})
+require('revolver').setup({ '.c', '.cpp', '.h', '.hpp', '.inl' })
 util.keymap('n', 'gfs', vim.cmd.Revolve)
 
 -- vim-better-whitespace
-vim.api.nvim_set_hl(0, 'ExtraWhitespace', {link = 'Search'})
+vim.api.nvim_set_hl(0, 'ExtraWhitespace', { link = 'Search' })
 
 -- vim-dirvish
 vim.g.dirvish_mode = ':sort ,^.*[\\/],'

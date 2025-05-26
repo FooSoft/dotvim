@@ -6,7 +6,7 @@ end
 
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)
-        local keymap_opts = {buffer = args.buf}
+        local keymap_opts = { buffer = args.buf }
         util.keymap('n', 'gd', vim.lsp.buf.definition, keymap_opts)
         util.keymap('n', 'K', vim.lsp.buf.hover, keymap_opts)
         util.keymap('n', '<space>rn', vim.lsp.buf.rename, keymap_opts)
@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         local client = vim.lsp.get_client_by_id(args.data.client_id)
         if client then
             if client:supports_method('textDocument/completion') then
-                vim.lsp.completion.enable(true, client.id, args.buf, {autotrigger=true})
+                vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
             end
         end
     end,
@@ -27,7 +27,7 @@ util.keymap('i', '<tab>', function()
             return '<tab>'
         end
     end,
-    {expr = true}
+    { expr = true }
 )
 
 util.keymap('i', '<cr>', function()
@@ -37,11 +37,11 @@ util.keymap('i', '<cr>', function()
             return '<cr>'
         end
     end,
-    {expr = true}
+    { expr = true }
 )
 
 vim.lsp.config('*', {
-    root_markers = {'.git'},
+    root_markers = { '.git' },
     capabilities = {
         textDocument = {
             completion = {
@@ -64,8 +64,8 @@ end
 -- c/c++
 
 config_lsp({
-    cmd = {'clangd', '--background-index', '--header-insertion=never'},
-    filetypes = {'cpp', 'c'},
+    cmd = { 'clangd', '--background-index', '--header-insertion=never' },
+    filetypes = { 'cpp', 'c' },
     root_markers = {
         '.clang-format',
         '.clang-tidy',
@@ -78,16 +78,16 @@ config_lsp({
 -- go
 
 config_lsp({
-    cmd = {'gopls'},
-    filetypes = {'go'},
-    root_markers = {'go.mod'},
+    cmd = { 'gopls' },
+    filetypes = { 'go' },
+    root_markers = { 'go.mod' },
 })
 
 -- python
 
 config_lsp({
-    cmd = {'jedi-language-server'},
-    filetypes = {'python'},
+    cmd = { 'jedi-language-server' },
+    filetypes = { 'python' },
     root_markers = {
         'Pipfile',
         'pyproject.toml',
@@ -106,8 +106,8 @@ table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 
 config_lsp({
-    cmd = {'lua-language-server'},
-    filetypes = {'lua'},
+    cmd = { 'lua-language-server' },
+    filetypes = { 'lua' },
     root_markers = {
         '.luacheckrc',
         '.luarc.json',
@@ -120,8 +120,8 @@ config_lsp({
     settings = {
         Lua = {
             diagnostics = {
-                globals = {'vim'},
-                disable = {'param-type-mismatch', 'undefined-field'},
+                globals = { 'vim' },
+                disable = { 'param-type-mismatch', 'undefined-field' },
             },
             runtime = {
                 path = runtime_path,

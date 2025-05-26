@@ -25,7 +25,10 @@ else
 
     if vim.fn.has(':GuiFont') == 1 then
         if vim.fn.has('win32') == 1 then
-            vim.cmd.GuiFont({args = {'Cascadia Mono:h10'}, bang = true})
+            vim.cmd.GuiFont({
+                args = { 'Cascadia Mono:h10' },
+                bang = true
+            })
         elseif vim.fn.has('unix') == 1 then
             vim.o.guifont = 'Monospace:h10'
         end

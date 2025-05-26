@@ -17,7 +17,7 @@ local function keymap(mode, lhs, rhs, opts)
 end
 
 local function invoke(args)
-    local result = vim.system(args, {text = true}):wait()
+    local result = vim.system(args, { text = true }):wait()
     if result.code == 0 then
         return result.stdout:gsub('%s+$', '')
     end
@@ -29,7 +29,7 @@ end
 
 local function git_root()
     if vim.fn.executable('git') == 1 then
-        return invoke({'git', '-C', buffer_dir(), 'rev-parse', '--show-toplevel'})
+        return invoke({ 'git', '-C', buffer_dir(), 'rev-parse', '--show-toplevel' })
     end
 end
 
@@ -68,7 +68,7 @@ end
 vim.api.nvim_create_user_command('GitUnlock', git_delete_lock, {})
 
 -- UnAlign
-vim.api.nvim_create_user_command('UnAlign', unalign, {range = '%'})
+vim.api.nvim_create_user_command('UnAlign', unalign, { range = '%' })
 
 -- BuffDeleteAllButCurrent
 vim.api.nvim_create_user_command('BuffDeleteAllButCurrent', buff_delete_all_but_current, {})

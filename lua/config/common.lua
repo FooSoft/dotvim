@@ -13,13 +13,13 @@ vim.g.c_no_if0 = 1
 -- options
 vim.opt.autoread = true
 vim.opt.clipboard = 'unnamedplus'
-vim.opt.completeopt = {'menu', 'menuone', 'noinsert'}
+vim.opt.completeopt = { 'menu', 'menuone', 'noinsert' }
 vim.opt.expandtab = true
-vim.opt.fileformats = {'unix', 'dos', 'mac'}
+vim.opt.fileformats = { 'unix', 'dos', 'mac' }
 vim.opt.foldenable = false
 vim.opt.ignorecase = true
 vim.opt.linebreak = true
-vim.opt.listchars = {tab = '» ', eol = '↲', space = '·'}
+vim.opt.listchars = { tab = '» ', eol = '↲', space = '·' }
 vim.opt.modeline = false
 vim.opt.modelines = 0
 vim.opt.mouse = 'nv'
@@ -68,7 +68,7 @@ util.keymap('t', '<esc>', '<c-\\><c-n>')
 util.keymap('n', '<leader>m', util.make)
 
 -- autoreload files
-vim.api.nvim_create_autocmd({'FocusGained', 'BufEnter', 'CursorHold'}, {
+vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold' }, {
     pattern = '*',
     command = 'checktime'
 })
