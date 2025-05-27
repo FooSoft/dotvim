@@ -68,8 +68,13 @@ end
 
 -- c/c++
 
+local clangd_cmd = { 'clangd', '--background-index' }
+if vim.fn.has('win32') == 1 then
+    table.insert(clangd_cmd, '--header-insertion=never')
+end
+
 config_lsp({
-    cmd = { 'clangd', '--background-index', '--header-insertion=never' },
+    cmd = clangd_cmd,
     filetypes = { 'cpp', 'c' },
     root_markers = {
         '.clang-format',
