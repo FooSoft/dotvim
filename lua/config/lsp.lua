@@ -18,7 +18,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
             end
         end
 
-        if not vim.fn.has('win32') == 0 then
+        if vim.fn.has('win32') == 0 then
             vim.api.nvim_create_autocmd('BufWritePre', {
                 buffer = args.buf,
                 callback = function() vim.lsp.buf.format() end
