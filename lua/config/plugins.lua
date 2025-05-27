@@ -2,7 +2,7 @@ local util = require('config.util')
 
 -- argonaut.nvim
 require('argonaut').setup({
-    brace_pad = { ['{ '] = true },
+    brace_pad = { ['{'] = true },
     by_filetype = {
         c = {
             brace_last_wrap = false
