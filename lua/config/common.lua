@@ -13,7 +13,7 @@ vim.g.c_no_if0 = 1
 -- options
 vim.opt.autoread = true
 vim.opt.clipboard = 'unnamedplus'
-vim.opt.completeopt = { 'menu', 'menuone', 'noinsert' }
+vim.opt.completeopt = { 'fuzzy', 'menu', 'menuone', 'noinsert' }
 vim.opt.expandtab = true
 vim.opt.fileformats = { 'unix', 'dos', 'mac' }
 vim.opt.foldenable = false
