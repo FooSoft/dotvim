@@ -4,14 +4,36 @@ if not vim.lsp.enable then
     return
 end
 
-vim.diagnostic.config()
+vim.diagnostic.config({
+    virtual_text = {}
+})
 
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)
-        local keymap_opts = { buffer = args.buf }
-        util.keymap('n', 'gd', vim.lsp.buf.definition, keymap_opts)
-        util.keymap('n', 'K', vim.lsp.buf.hover, keymap_opts)
-        util.keymap('n', '<space>rn', vim.lsp.buf.rename, keymap_opts)
+        util.keymap('n', 'gd', vim.lsp.buf.definition, { buffer = args.buf })
+        util.keymap('n', 'K', vim.lsp.buf.hover, { buffer = args.buf })
+        util.keymap('n', '<space>rn', vim.lsp.buf.rename, { buffer = args.buf })
+        util.keymap('i', '<c-space>', '<c-x><c-o>', { buffer = args.buf })
+
+        util.keymap('i', '<tab>', function()
+                if vim.fn.pumvisible() == 1 then
+                    return '<c-y>'
+                else
+                    return '<tab>'
+                end
+            end,
+            { buffer = args.buf, expr = true }
+        )
+
+        util.keymap('i', '<cr>', function()
+                if vim.fn.pumvisible() == 1 then
+                    return '<c-e><cr>'
+                else
+                    return '<cr>'
+                end
+            end,
+            { buffer = args.buf, expr = true }
+        )
 
         local client = vim.lsp.get_client_by_id(args.data.client_id)
         if client then
@@ -28,26 +50,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end
     end,
 })
-
-util.keymap('i', '<tab>', function()
-        if vim.fn.pumvisible() == 1 then
-            return '<c-y>'
-        else
-            return '<tab>'
-        end
-    end,
-    { expr = true }
-)
-
-util.keymap('i', '<cr>', function()
-        if vim.fn.pumvisible() == 1 then
-            return '<c-e><cr>'
-        else
-            return '<cr>'
-        end
-    end,
-    { expr = true }
-)
 
 vim.lsp.config('*', {
     root_markers = { '.git' },
