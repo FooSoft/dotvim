@@ -4,6 +4,8 @@ if not vim.lsp.enable then
     return
 end
 
+vim.diagnostic.config()
+
 vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(args)
         local keymap_opts = { buffer = args.buf }
