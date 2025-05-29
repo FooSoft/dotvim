@@ -64,11 +64,6 @@ local function make()
     vim.cmd.lmake()
 end
 
-local function browse()
-    local key = vim.api.nvim_replace_termcodes('/<c-x><c-f>', true, true, true)
-    vim.api.nvim_feedkeys(key, 'i', false)
-end
-
 -- GitUnlock
 vim.api.nvim_create_user_command('GitUnlock', git_delete_lock, {})
 
@@ -79,7 +74,6 @@ vim.api.nvim_create_user_command('UnAlign', unalign, { range = '%' })
 vim.api.nvim_create_user_command('BuffDeleteAllButCurrent', buff_delete_all_but_current, {})
 
 return {
-    browse = browse,
     keymap = keymap,
     make = make,
     sensible_dir = sensible_dir,

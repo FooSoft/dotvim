@@ -68,7 +68,7 @@ util.keymap('t', '<esc>', '<c-\\><c-n>')
 util.keymap('n', '<leader>m', util.make)
 
 -- path completion
-util.keymap('i', '<c-/>', util.browse)
+util.keymap('i', '<c-/>', '/<c-x><c-f>')
 
 -- autoreload files
 vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold' }, {
