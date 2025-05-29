@@ -23,14 +23,16 @@ local function invoke(args)
     end
 end
 
+local function buffer_path()
+    return vim.fn.expand('%:p')
+end
+
 local function buffer_dir()
     return vim.fn.expand('%:p:h')
 end
 
 local function git_root()
-    if vim.fn.executable('git') == 1 then
-        return invoke({ 'git', '-C', buffer_dir(), 'rev-parse', '--show-toplevel' })
-    end
+    return vim.fs.root(0, '.git')
 end
 
 local function git_delete_lock()
@@ -82,6 +84,8 @@ vim.api.nvim_create_user_command('UnAlign', unalign, { range = '%' })
 vim.api.nvim_create_user_command('BuffDeleteAllButCurrent', buff_delete_all_but_current, {})
 
 return {
+    buffer_dir = buffer_dir,
+    buffer_path = buffer_path,
     is_linux = is_linux,
     is_windows = is_windows,
     keymap = keymap,
