@@ -1,4 +1,6 @@
-if vim.fn.has('win32') == 1 then
+local util = require('config.util')
+
+if util.is_windows() then
     vim.bo.fileformat = 'dos'
     vim.diagnostic.enable(false)
 end

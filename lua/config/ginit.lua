@@ -1,3 +1,5 @@
+local util = require('config.util')
+
 if vim.g.neovide then
     vim.g.neovide_floating_blur_amount_x = 0.0
     vim.g.neovide_floating_blur_amount_y = 0.0
@@ -9,9 +11,9 @@ if vim.g.neovide then
     vim.g.neovide_scroll_animation_far_lines = 0
     vim.g.neovide_scroll_animation_length = 0.0
 
-    if vim.fn.has('win32') == 1 then
+    if util.is_windows() then
         vim.o.guifont = 'Cascadia Mono:h14'
-    elseif vim.fn.has('unix') == 1 then
+    elseif util.is_linux() then
         vim.o.guifont = 'Monospace:h12'
     end
 else
@@ -24,12 +26,12 @@ else
     end
 
     if vim.fn.has(':GuiFont') == 1 then
-        if vim.fn.has('win32') == 1 then
+        if util.is_windows() then
             vim.cmd.GuiFont({
                 args = { 'Cascadia Mono:h10' },
                 bang = true
             })
-        elseif vim.fn.has('unix') == 1 then
+        elseif util.is_linux() then
             vim.o.guifont = 'Monospace:h10'
         end
     end

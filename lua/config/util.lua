@@ -64,6 +64,14 @@ local function make()
     vim.cmd.lmake()
 end
 
+local function is_windows()
+    return vim.fn.has('win32') == 1
+end
+
+local function is_linux()
+    return vim.fn.has('unix') == 1
+end
+
 -- GitUnlock
 vim.api.nvim_create_user_command('GitUnlock', git_delete_lock, {})
 
@@ -74,6 +82,8 @@ vim.api.nvim_create_user_command('UnAlign', unalign, { range = '%' })
 vim.api.nvim_create_user_command('BuffDeleteAllButCurrent', buff_delete_all_but_current, {})
 
 return {
+    is_linux = is_linux,
+    is_windows = is_windows,
     keymap = keymap,
     make = make,
     sensible_dir = sensible_dir,

@@ -51,7 +51,7 @@ if vim.fn.executable('fzf') == 1 then
 
     local grep_opts = function()
         local opts = git_opts()
-        if vim.fn.has('win32') == 1 then
+        if util.is_windows() then
             opts.cmd = 'git grep --line-number --column --color=always'
         end
         return opts

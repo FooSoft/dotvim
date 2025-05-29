@@ -42,7 +42,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
             end
         end
 
-        if vim.fn.has('win32') == 0 then
+        if util.is_linux() then
             vim.api.nvim_create_autocmd('BufWritePre', {
                 buffer = args.buf,
                 callback = function() vim.lsp.buf.format() end
@@ -75,7 +75,7 @@ end
 -- c/c++
 
 local clangd_cmd = { 'clangd', '--background-index' }
-if vim.fn.has('win32') == 1 then
+if util.is_windows() then
     table.insert(clangd_cmd, '--header-insertion=never')
 end
 
