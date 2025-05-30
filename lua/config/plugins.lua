@@ -46,7 +46,7 @@ if vim.fn.executable('fzf') == 1 then
     })
 
     local git_opts = function()
-        return { cwd = util.sensible_dir() }
+        return { cwd = util.sensible_root() }
     end
 
     local grep_opts = function()
@@ -57,12 +57,28 @@ if vim.fn.executable('fzf') == 1 then
         return opts
     end
 
+    local find_git_relative = function()
+        fzf_lua.complete_path({
+            cwd = util.sensible_root(),
+            actions = {
+                ['ctrl-r'] = function(selected)
+                    local target_path = vim.fs.joinpath(util.sensible_root(), selected[1])
+                    local source_dir = util.buffer_dir()
+                    local relpath = util.relpath(source_dir, target_path)
+                    vim.api.nvim_feedkeys('i' .. relpath, 'n', false)
+                end
+            },
+        })
+    end
+
     util.keymap('n', '<leader>fb', fzf_lua.buffers)
     util.keymap('n', '<leader>fg', function() fzf_lua.git_files(git_opts()) end)
     util.keymap('n', '<leader>fh', fzf_lua.oldfiles)
     util.keymap('n', '<leader>fl', fzf_lua.lines)
     util.keymap('n', '<leader>fp', function() fzf_lua.grep(grep_opts()) end)
     util.keymap('n', '<leader>fs', function() fzf_lua.live_grep(grep_opts()) end)
+
+    util.keymap('i', '<c-f>', find_git_relative)
 end
 
 -- gitsigns.nvim
