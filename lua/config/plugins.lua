@@ -61,8 +61,8 @@ if vim.fn.executable('fzf') == 1 then
         fzf_lua.complete_path({
             cwd = util.sensible_root(),
             actions = {
-                ['ctrl-r'] = function(selected)
-                    local target_path = vim.fs.joinpath(util.sensible_root(), selected[1])
+                ['ctrl-r'] = function(selected, opts)
+                    local target_path = vim.fs.joinpath(opts.cwd, selected[1])
                     local source_dir = util.buffer_dir()
                     local relpath = util.relpath(source_dir, target_path)
                     vim.api.nvim_feedkeys('i' .. relpath, 'n', false)
