@@ -68,56 +68,58 @@ local function is_linux()
 end
 
 local function split_path(path)
-    local path_parts = {}
-    for path_part in path:gmatch('[^/\\]+') do
-        table.insert(path_parts, path_part)
+    local parts = {}
+    for part in path:gmatch('[^/\\]+') do
+        table.insert(parts, part)
     end
 
-    return path_parts
+    return parts
+end
+
+local function slice_table(values, start, stop)
+    local results = {}
+    for i = start, stop or #values do
+        table.insert(results, values[i])
+    end
+
+    return results
 end
 
 local function find_common_root(path_1, path_2)
     local path_1_parts = split_path(path_1)
     local path_2_parts = split_path(path_2)
 
-    local root_dir = nil
-    local root_dir_part_count = 0
+    local root_parts = {}
     for i, part in ipairs(path_1_parts) do
         if part == path_2_parts[i] then
-            root_dir_part_count = root_dir_part_count + 1
-            if root_dir then
-                root_dir = vim.fs.joinpath(root_dir, part)
-            else
-                root_dir = part
-            end
+            table.insert(root_parts, part)
         else
             break
         end
     end
 
-    if root_dir then
+    if #root_parts > 0 then
         return {
-            rmn_1 = #path_1_parts - root_dir_part_count,
-            rmn_2 = #path_2_parts - root_dir_part_count,
-            dir = root_dir,
+            dir = root_parts,
+            tail_1 = slice_table(path_1_parts, #root_parts + 1),
+            tail_2 = slice_table(path_2_parts, #root_parts + 1),
         }
     end
 end
 
 local function relpath(source_dir, target_path)
-    local common_root = find_common_root(source_dir, target_path)
-    if not common_root then
+    local root = find_common_root(source_dir, target_path)
+    if not root then
         return target_path
     end
 
     local result_path = '.'
-    for _ = 1, common_root.rmn_1 do
+    for _ = 1, #root.tail_1 do
         result_path = vim.fs.joinpath(result_path, '..')
     end
 
-    local target_parts = split_path(target_path)
-    for i = #target_parts - common_root.rmn_2 + 1, #target_parts do
-        result_path = vim.fs.joinpath(result_path, target_parts[i])
+    for _, part in ipairs(root.tail_2) do
+        result_path = vim.fs.joinpath(result_path, part)
     end
 
     return vim.fs.normalize(result_path)
