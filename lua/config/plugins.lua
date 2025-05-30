@@ -62,8 +62,13 @@ if vim.fn.executable('fzf') == 1 then
             cwd = util.sensible_root(),
             actions = {
                 ['ctrl-r'] = function(selected, opts)
-                    local target_path = vim.fs.joinpath(opts.cwd, selected[1])
                     local source_dir = util.buffer_dir()
+
+                    local target_path = selected[1]
+                    if not util.is_abspath(target_path) then
+                        target_path = vim.fs.joinpath(opts.cwd, target_path)
+                    end
+
                     local relpath = util.relpath(source_dir, target_path)
                     vim.api.nvim_feedkeys('i' .. relpath, 'n', false)
                 end

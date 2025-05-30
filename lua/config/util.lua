@@ -125,6 +125,14 @@ local function relpath(source_dir, target_path)
     return vim.fs.normalize(result_path)
 end
 
+local function is_abspath(path)
+    if is_windows() then
+        return path:sub(2, 2) == ':'
+    else
+        return path:sub(1, 1) == '/'
+    end
+end
+
 -- GitUnlock
 vim.api.nvim_create_user_command('GitUnlock', git_delete_lock, {})
 
@@ -137,6 +145,7 @@ vim.api.nvim_create_user_command('BuffDeleteAllButCurrent', buff_delete_all_but_
 return {
     buffer_dir = buffer_dir,
     buffer_path = buffer_path,
+    is_abspath = is_abspath,
     is_linux = is_linux,
     is_windows = is_windows,
     keymap = keymap,
