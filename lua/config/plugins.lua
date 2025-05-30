@@ -58,7 +58,7 @@ if vim.fn.executable('fzf') == 1 then
     end
 
     local find_git_relative = function()
-        fzf_lua.complete_path({
+        fzf_lua.files({
             cwd = util.sensible_root(),
             actions = {
                 ['ctrl-r'] = function(selected, opts)
