@@ -58,13 +58,13 @@ if vim.fn.executable('fzf') == 1 then
     end
 
     local find_git_relative = function()
-        fzf_lua.files({
+        fzf_lua.git_files({
             cwd = util.sensible_root(),
             actions = {
                 ['ctrl-r'] = function(selected, opts)
                     local source_dir = util.buffer_dir()
 
-                    local target_path = selected[1]
+                    local target_path = fzf_lua.path.entry_to_file(selected[1]).path
                     if not util.is_abspath(target_path) then
                         target_path = vim.fs.joinpath(opts.cwd, target_path)
                     end
