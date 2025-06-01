@@ -117,10 +117,6 @@ config_lsp({
 
 vim.env.PATH = vim.env.PATH .. ':' .. vim.fn.stdpath('config') .. '/lls/bin'
 
-local runtime_path = vim.split(package.path, ';', {})
-table.insert(runtime_path, 'lua/?.lua')
-table.insert(runtime_path, 'lua/?/init.lua')
-
 config_lsp({
     cmd = { 'lua-language-server' },
     filetypes = { 'lua' },
@@ -135,12 +131,8 @@ config_lsp({
     },
     settings = {
         Lua = {
-            diagnostics = {
-                globals = { 'vim' },
-                disable = { 'param-type-mismatch', 'undefined-field' },
-            },
             runtime = {
-                path = runtime_path,
+                path = { 'lua/?.lua', 'lua/?/init.lua' },
                 version = 'LuaJIT',
             },
             telemetry = {
@@ -148,9 +140,7 @@ config_lsp({
             },
             workspace = {
                 checkThirdParty = false,
-                library = {
-                    vim.env.VIMRUNTIME,
-                },
+                library = vim.api.nvim_get_runtime_file('', true),
             },
         },
     },

@@ -54,6 +54,7 @@ if vim.fn.executable('fzf') == 1 then
         if util.is_windows() then
             opts.cmd = 'git grep --line-number --column --color=always'
         end
+
         return opts
     end
 
@@ -89,13 +90,12 @@ end
 -- gitsigns.nvim
 require('gitsigns').setup({
     on_attach = function(bufnr)
+        local gitsigns = require('gitsigns')
+
         local filetype = vim.bo[bufnr].filetype
         if filetype == 'dirvish' or filetype == 'netrw' then
             return false
         end
-
-        local gitsigns = require('gitsigns')
-        local keymap_opts = { buffer = bufnr }
 
         util.keymap('n', ']c', function()
                 if vim.wo.diff then
@@ -104,7 +104,7 @@ require('gitsigns').setup({
                     gitsigns.nav_hunk('next')
                 end
             end,
-            keymap_opts
+            { buffer = bufnr }
         )
 
         util.keymap('n', '[c', function()
@@ -114,7 +114,7 @@ require('gitsigns').setup({
                     gitsigns.nav_hunk('prev')
                 end
             end,
-            keymap_opts
+            { buffer = bufnr }
         )
 
         util.keymap('n', '<leader>hs', gitsigns.stage_hunk)
