@@ -61,9 +61,6 @@
 [submodule "pack/plugins/start/gitsigns.nvim"]
 	path = pack/plugins/start/gitsigns.nvim
 	url = https://github.com/lewis6991/gitsigns.nvim.git
-[submodule "pack/plugins/start/bmessages.nvim"]
-	path = pack/plugins/start/bmessages.nvim
-	url = https://github.com/ariel-frischer/bmessages.nvim.git
 [submodule "pack/plugins/start/f5.nvim"]
 	path = pack/plugins/start/f5.nvim
 	url = https://git.sr.ht/~foosoft/f5.nvim

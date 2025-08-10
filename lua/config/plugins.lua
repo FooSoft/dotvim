@@ -20,10 +20,6 @@ util.keymap({ 'x', 'o', 'n' }, '<leader>p', ':<C-u>ArgonautObject previous<cr>')
 util.keymap('n', '<leader>a', ':<C-u>ArgonautToggle<cr>')
 util.keymap('n', '<leader>o', ':<C-u>ArgonautReflow<cr>')
 
--- bmessages.nvim
-require('bmessages').setup({ split_direction = 'botright' })
-util.keymap('n', '<leader>bm', ':Bmessages<CR>')
-
 -- comment.nvim
 require('Comment').setup()
 
