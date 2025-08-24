@@ -7,9 +7,6 @@
 [submodule "pack/vim-easy-align"]
 	path = pack/plugins/start/vim-easy-align
 	url = https://github.com/junegunn/vim-easy-align.git
-[submodule "pack/vim-indent-object"]
-	path = pack/plugins/start/vim-indent-object
-	url = https://github.com/michaeljsmith/vim-indent-object.git
 [submodule "pack/vim-better-whitespace"]
 	path = pack/plugins/start/vim-better-whitespace
 	url = https://github.com/ntpeters/vim-better-whitespace.git
@@ -67,3 +64,6 @@
 [submodule "pack/plugins/start/lsp_signature.nvim"]
 	path = pack/plugins/start/lsp_signature.nvim
 	url = https://github.com/ray-x/lsp_signature.nvim.git
+[submodule "pack/plugins/start/nvim-various-textobjs"]
+	path = pack/plugins/start/nvim-various-textobjs
+	url = https://github.com/chrisgrieser/nvim-various-textobjs.git

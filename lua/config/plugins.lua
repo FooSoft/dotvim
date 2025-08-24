@@ -170,6 +170,13 @@ require('lualine').setup {
     extensions = {}
 }
 
+-- nvim-various-textobjs
+require("various-textobjs").setup({
+    keymaps = {
+        useDefaults = true
+    }
+})
+
 -- revolver.nvim
 require('revolver').setup({ '.c', '.cpp', '.h', '.hpp', '.inl' })
 util.keymap('n', 'gfs', vim.cmd.Revolve)
