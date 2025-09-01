@@ -24,30 +24,20 @@ util.keymap('n', '<leader>o', ':<C-u>ArgonautReflow<cr>')
 require('Comment').setup()
 
 -- copilotchat.nvim
-local cchat_disable = { insert = '', normal = '' }
 require('CopilotChat').setup({
     mappings = {
-        clear_stickies = cchat_disable,
-        close = cchat_disable,
-        jump_to_diff = cchat_disable,
-        quickfix_answers = cchat_disable,
-        quickfix_diffs = cchat_disable,
-        reset = cchat_disable,
-        show_diff = cchat_disable,
-        show_help = cchat_disable,
-        show_info = cchat_disable,
+        jump_to_diff = { insert = '', normal = '' },
+        reset = { insert = '', normal = '' },
         submit_prompt = { insert = '<cr>' },
-        toggle_sticky = cchat_disable,
-        yank_diff = cchat_disable,
     },
 })
 
-util.keymap('n', '<leader>ccr', vim.cmd.CopilotChatReset)
-util.keymap('n', '<leader>cct', vim.cmd.CopilotChatToggle)
-util.keymap('v', '<leader>ccd', vim.cmd.CopilotChatDocs)
-util.keymap('v', '<leader>cce', vim.cmd.CopilotChatExplain)
-util.keymap('v', '<leader>cco', vim.cmd.CopilotChatOptimize)
-util.keymap('v', '<leader>ccv', vim.cmd.CopilotChatReview)
+util.keymap('n', '<leader>pR', vim.cmd.CopilotChatReset)
+util.keymap('n', '<leader>pt', vim.cmd.CopilotChatToggle)
+util.keymap('v', '<leader>pd', vim.cmd.CopilotChatDocs)
+util.keymap('v', '<leader>pe', vim.cmd.CopilotChatExplain)
+util.keymap('v', '<leader>po', vim.cmd.CopilotChatOptimize)
+util.keymap('v', '<leader>pr', vim.cmd.CopilotChatReview)
 
 -- f5.nvim
 require('f5').setup({
