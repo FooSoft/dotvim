@@ -32,21 +32,22 @@ require('CopilotChat').setup({
         jump_to_diff = cchat_disable,
         quickfix_answers = cchat_disable,
         quickfix_diffs = cchat_disable,
-        reset = cchat_disable,
+        reset = { normal = '<c-c><c-c>' },
         show_diff = cchat_disable,
         show_help = cchat_disable,
         show_info = cchat_disable,
+        submit_prompt = { insert = '<cr>' },
         toggle_sticky = cchat_disable,
         yank_diff = cchat_disable,
     },
 })
 
-util.keymap('n', '<leader>ct', vim.cmd.CopilotChatToggle)
-util.keymap('n', '<leader>cx', vim.cmd.CopilotChatReset)
-util.keymap('v', '<leader>ce', vim.cmd.CopilotChatExplain)
-util.keymap('v', '<leader>cf', vim.cmd.CopilotChatFix)
-util.keymap('v', '<leader>co', vim.cmd.CopilotChatOptimize)
-util.keymap('v', '<leader>cr', vim.cmd.CopilotChatReview)
+util.keymap('n', '<leader>p', vim.cmd.CopilotChatToggle)
+util.keymap('n', '<leader>pr', vim.cmd.CopilotChatReset)
+util.keymap('v', '<leader>pd', vim.cmd.CopilotChatDocs)
+util.keymap('v', '<leader>po', vim.cmd.CopilotChatOptimize)
+util.keymap('v', '<leader>pv', vim.cmd.CopilotChatReview)
+util.keymap('v', '<leader>px', vim.cmd.CopilotChatExplain)
 
 -- f5.nvim
 require('f5').setup({
