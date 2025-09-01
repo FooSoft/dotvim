@@ -1,29 +1,3 @@
-local function keymap(mode, lhs, rhs, opts)
-    local default_opts = {
-        silent = true,
-        noremap = true,
-    }
-
-    vim.keymap.set(
-        mode,
-        lhs,
-        rhs,
-        vim.tbl_deep_extend(
-            'force',
-            default_opts,
-            opts or {}
-        )
-    )
-end
-
-local function buffer_path()
-    return vim.fn.expand('%:p')
-end
-
-local function buffer_dir()
-    return vim.fn.expand('%:p:h')
-end
-
 local function git_root()
     return vim.fs.root(0, '.git')
 end
@@ -48,23 +22,6 @@ local function buff_delete_all_but_current()
             vim.api.nvim_buf_delete(i, {})
         end
     end
-end
-
-local function sensible_root()
-    return git_root() or buffer_dir()
-end
-
-local function make()
-    vim.o.makeprg = 'make -C ' .. sensible_root()
-    vim.cmd.lmake()
-end
-
-local function is_windows()
-    return vim.fn.has('win32') == 1
-end
-
-local function is_linux()
-    return vim.fn.has('unix') == 1
 end
 
 local function split_path(path)
@@ -107,7 +64,60 @@ local function find_common_root(path_1, path_2)
     end
 end
 
-local function relpath(source_dir, target_path)
+-- GitUnlock
+vim.api.nvim_create_user_command('GitUnlock', git_delete_lock, {})
+
+-- UnAlign
+vim.api.nvim_create_user_command('UnAlign', unalign, { range = '%' })
+
+-- BuffDeleteAllButCurrent
+vim.api.nvim_create_user_command('BuffDeleteAllButCurrent', buff_delete_all_but_current, {})
+
+local M = {}
+
+function M.buffer_dir()
+    return vim.fn.expand('%:p:h')
+end
+
+function M.buffer_path()
+    return vim.fn.expand('%:p')
+end
+
+function M.is_abspath(path)
+    if M.is_windows() then
+        return path:sub(2, 2) == ':'
+    else
+        return path:sub(1, 1) == '/'
+    end
+end
+
+function M.is_linux()
+    return vim.fn.has('unix') == 1
+end
+
+function M.is_windows()
+    return vim.fn.has('win32') == 1
+end
+
+function M.keymap(mode, lhs, rhs, opts)
+    local default_opts = {
+        silent = true,
+        noremap = true,
+    }
+
+    vim.keymap.set(
+        mode,
+        lhs,
+        rhs,
+        vim.tbl_deep_extend(
+            'force',
+            default_opts,
+            opts or {}
+        )
+    )
+end
+
+function M.relpath(source_dir, target_path)
     local root = find_common_root(source_dir, target_path)
     if not root then
         return target_path
@@ -125,31 +135,4 @@ local function relpath(source_dir, target_path)
     return vim.fs.normalize(result_path)
 end
 
-local function is_abspath(path)
-    if is_windows() then
-        return path:sub(2, 2) == ':'
-    else
-        return path:sub(1, 1) == '/'
-    end
-end
-
--- GitUnlock
-vim.api.nvim_create_user_command('GitUnlock', git_delete_lock, {})
-
--- UnAlign
-vim.api.nvim_create_user_command('UnAlign', unalign, { range = '%' })
-
--- BuffDeleteAllButCurrent
-vim.api.nvim_create_user_command('BuffDeleteAllButCurrent', buff_delete_all_but_current, {})
-
-return {
-    buffer_dir = buffer_dir,
-    buffer_path = buffer_path,
-    is_abspath = is_abspath,
-    is_linux = is_linux,
-    is_windows = is_windows,
-    keymap = keymap,
-    make = make,
-    relpath = relpath,
-    sensible_root = sensible_root,
-}
+return M

@@ -73,3 +73,6 @@
 [submodule "pack/plugins/start/plenary.nvim"]
 	path = pack/plugins/start/plenary.nvim
 	url = https://github.com/nvim-lua/plenary.nvim.git
+[submodule "pack/plugins/start/vim-rooter"]
+	path = pack/plugins/start/vim-rooter
+	url = https://github.com/airblade/vim-rooter.git
