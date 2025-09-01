@@ -67,3 +67,9 @@
 [submodule "pack/plugins/start/nvim-various-textobjs"]
 	path = pack/plugins/start/nvim-various-textobjs
 	url = https://github.com/chrisgrieser/nvim-various-textobjs.git
+[submodule "pack/plugins/start/CopilotChat.nvim"]
+	path = pack/plugins/start/CopilotChat.nvim
+	url = https://github.com/CopilotC-Nvim/CopilotChat.nvim.git
+[submodule "pack/plugins/start/plenary.nvim"]
+	path = pack/plugins/start/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim.git

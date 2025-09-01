@@ -23,6 +23,31 @@ util.keymap('n', '<leader>o', ':<C-u>ArgonautReflow<cr>')
 -- comment.nvim
 require('Comment').setup()
 
+-- copilotchat.nvim
+local cchat_disable = { insert = '', normal = '' }
+require('CopilotChat').setup({
+    mappings = {
+        clear_stickies = cchat_disable,
+        close = cchat_disable,
+        jump_to_diff = cchat_disable,
+        quickfix_answers = cchat_disable,
+        quickfix_diffs = cchat_disable,
+        reset = cchat_disable,
+        show_diff = cchat_disable,
+        show_help = cchat_disable,
+        show_info = cchat_disable,
+        toggle_sticky = cchat_disable,
+        yank_diff = cchat_disable,
+    },
+})
+
+util.keymap('n', '<leader>ct', vim.cmd.CopilotChatToggle)
+util.keymap('n', '<leader>cx', vim.cmd.CopilotChatReset)
+util.keymap('v', '<leader>ce', vim.cmd.CopilotChatExplain)
+util.keymap('v', '<leader>cf', vim.cmd.CopilotChatFix)
+util.keymap('v', '<leader>co', vim.cmd.CopilotChatOptimize)
+util.keymap('v', '<leader>cr', vim.cmd.CopilotChatReview)
+
 -- f5.nvim
 require('f5').setup({
     enabled = false,
@@ -33,6 +58,7 @@ require('f5').setup({
 -- fzf-lua
 if vim.fn.executable('fzf') == 1 then
     local fzf_lua = require('fzf-lua')
+    fzf_lua.register_ui_select()
     fzf_lua.setup({
         winopts = {
             preview = {
