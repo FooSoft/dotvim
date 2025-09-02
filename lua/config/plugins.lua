@@ -26,10 +26,11 @@ require('Comment').setup()
 -- copilotchat.nvim
 require('CopilotChat').setup({
     mappings = {
-        jump_to_diff = { insert = '', normal = '' },
-        reset = { insert = '', normal = '' },
-        submit_prompt = { insert = '<cr>' },
+        jump_to_diff = { insert = '', normal = '' }, ---@diagnostic disable-line
+        reset = { insert = '', normal = '' }, ---@diagnostic disable-line
+        submit_prompt = { insert = '<cr>' } ---@diagnostic disable-line
     },
+
 })
 
 util.keymap('n', '<leader>pR', vim.cmd.CopilotChatReset)
@@ -105,7 +106,7 @@ require('gitsigns').setup({
                 if vim.wo.diff then
                     vim.cmd.normal({ ']c', bang = true })
                 else
-                    gitsigns.nav_hunk('next')
+                    gitsigns.nav_hunk('next') ---@diagnostic disable-line
                 end
             end,
             { buffer = bufnr }
@@ -115,7 +116,7 @@ require('gitsigns').setup({
                 if vim.wo.diff then
                     vim.cmd.normal({ '[c', bang = true })
                 else
-                    gitsigns.nav_hunk('prev')
+                    gitsigns.nav_hunk('prev') ---@diagnostic disable-line
                 end
             end,
             { buffer = bufnr }

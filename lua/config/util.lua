@@ -1,3 +1,5 @@
+local M = {}
+
 local function git_root()
     return vim.fs.root(0, '.git')
 end
@@ -72,8 +74,6 @@ vim.api.nvim_create_user_command('UnAlign', unalign, { range = '%' })
 
 -- BuffDeleteAllButCurrent
 vim.api.nvim_create_user_command('BuffDeleteAllButCurrent', buff_delete_all_but_current, {})
-
-local M = {}
 
 function M.buffer_dir()
     return vim.fn.expand('%:p:h')
