@@ -30,7 +30,6 @@ require('CopilotChat').setup({
         reset = { insert = '', normal = '' }, ---@diagnostic disable-line
         submit_prompt = { insert = '<cr>' } ---@diagnostic disable-line
     },
-
 })
 
 util.keymap('n', '<leader>pR', vim.cmd.CopilotChatReset)
@@ -130,6 +129,7 @@ require('gitsigns').setup({
         util.keymap('n', '<leader>hp', gitsigns.preview_hunk)
     end
 })
+
 
 -- guid.nvim
 require('guid').setup({ comma_space = true })
