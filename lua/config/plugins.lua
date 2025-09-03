@@ -34,6 +34,7 @@ require('CopilotChat').setup({
 })
 
 util.keymap('n', '<leader>pR', vim.cmd.CopilotChatReset)
+util.keymap('n', '<leader>pc', vim.cmd.CopilotChatCommit)
 util.keymap('n', '<leader>pt', vim.cmd.CopilotChatToggle)
 util.keymap('v', '<leader>pd', vim.cmd.CopilotChatDocs)
 util.keymap('v', '<leader>pe', vim.cmd.CopilotChatExplain)
