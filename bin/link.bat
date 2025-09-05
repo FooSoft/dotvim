@@ -1,3 +1,3 @@
 @echo off
 
-mklink /J "%LOCALAPPDATA%\nvim" "..\%CD%"
+mklink /J "%LOCALAPPDATA%\nvim" "%CD%\.."
