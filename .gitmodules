@@ -2,7 +2,7 @@
 	path = pack/plugins/start/vim-sort-motion
 	url = https://github.com/christoomey/vim-sort-motion.git
 [submodule "pack/vim-go"]
-	path = pack/plugins/start/vim-go
+	path = pack/plugins/opt/vim-go
 	url = https://github.com/fatih/vim-go.git
 [submodule "pack/vim-easy-align"]
 	path = pack/plugins/start/vim-easy-align
@@ -26,7 +26,7 @@
 	path = pack/plugins/start/vim-dirvish
 	url = https://github.com/justinmk/vim-dirvish.git
 [submodule "pack/plugins/start/suda.vim"]
-	path = pack/plugins/start/suda.vim
+	path = pack/plugins/opt/suda.vim
 	url = https://github.com/lambdalisue/suda.vim.git
 [submodule "pack/plugins/start/nightfox.nvim"]
 	path = pack/plugins/start/nightfox.nvim
@@ -50,7 +50,7 @@
 	path = pack/plugins/start/vim-jdaddy
 	url = https://github.com/tpope/vim-jdaddy.git
 [submodule "pack/plugins/start/fzf-lua"]
-	path = pack/plugins/start/fzf-lua
+	path = pack/plugins/opt/fzf-lua
 	url = https://github.com/ibhagwan/fzf-lua.git
 [submodule "pack/plugins/start/argonaut.nvim"]
 	path = pack/plugins/start/argonaut.nvim

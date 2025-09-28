@@ -99,6 +99,10 @@ function M.is_windows()
     return vim.fn.has('win32') == 1
 end
 
+function M.has_executable(name)
+    return vim.fn.executable(name) == 1
+end
+
 function M.keymap(mode, lhs, rhs, opts)
     local default_opts = {
         silent = true,

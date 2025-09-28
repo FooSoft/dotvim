@@ -48,7 +48,8 @@ require('f5').setup({
 })
 
 -- fzf-lua
-if vim.fn.executable('fzf') == 1 then
+if util.has_executable('fzf') then
+    vim.cmd.packadd('fzf-lua')
     local fzf_lua = require('fzf-lua')
     fzf_lua.register_ui_select()
     fzf_lua.setup({
@@ -181,7 +182,7 @@ require('lualine').setup {
 }
 
 -- nvim-various-textobjs
-require("various-textobjs").setup({
+require('various-textobjs').setup({
     keymaps = {
         useDefaults = true
     }
@@ -190,6 +191,11 @@ require("various-textobjs").setup({
 -- revolver.nvim
 require('revolver').setup({ '.c', '.cpp', '.h', '.hpp', '.inl' })
 util.keymap('n', 'gfs', vim.cmd.Revolve)
+
+-- suda.vim
+if util.is_linux() then
+    vim.cmd.packadd('suda.vim')
+end
 
 -- vim-better-whitespace
 vim.api.nvim_set_hl(0, 'ExtraWhitespace', { link = 'Search' })
@@ -203,11 +209,13 @@ util.keymap('n', 'ga', '<plug>(EasyAlign)')
 util.keymap('v', '<cr>', '<plug>(EasyAlign)')
 
 -- vim-go
-vim.g.go_diagnostics_enabled = 0
-vim.g.go_imports_autosave = 1
-vim.g.go_metalinter_enabled = {}
-vim.g.go_null_module_warning = 0
-vim.g.go_version_warning = 0
+if util.has_executable('go') then
+    vim.g.go_diagnostics_enabled = 0
+    vim.g.go_imports_autosave = 1
+    vim.g.go_metalinter_enabled = {}
+    vim.g.go_null_module_warning = 0
+    vim.g.go_version_warning = 0
+end
 
 -- vim-quickhl
 util.keymap('n', '<leader>K', '<Plug>(quickhl-manual-reset)')

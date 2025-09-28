@@ -66,7 +66,7 @@ vim.lsp.config('*', {
 
 local function config_lsp(config)
     local program_name = config.cmd[1]
-    if vim.fn.executable(program_name) == 1 then
+    if util.has_executable(program_name) then
         vim.lsp.config(program_name, config)
         vim.lsp.enable(program_name)
     end
