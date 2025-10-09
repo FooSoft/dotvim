@@ -79,6 +79,10 @@ function M.buffer_dir()
     return vim.fn.expand('%:p:h')
 end
 
+function M.buffer_name()
+    return vim.fn.expand('%:t')
+end
+
 function M.buffer_path()
     return vim.fn.expand('%:p')
 end

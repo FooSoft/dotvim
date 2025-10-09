@@ -1,5 +1,8 @@
 local util = require('config.util')
 
-if util.is_windows() then
-    vim.bo.expandtab = true
+for i, v in ipairs({'sources', 'sources.inc', 'dirs'}) do
+    if v == util.buffer_name() then
+        vim.bo.expandtab = true
+        break
+    end
 end
