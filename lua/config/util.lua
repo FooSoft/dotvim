@@ -1,10 +1,8 @@
-local M = {}
-
 local function git_root()
     return vim.fs.root(0, '.git')
 end
 
-local function git_delete_lock()
+local function get_unlock()
     local root = git_root()
     if root then
         local lock_path = root .. '/.git/index.lock'
@@ -12,7 +10,7 @@ local function git_delete_lock()
     end
 end
 
-local function unalign(ctx)
+local function unalign_text(ctx)
     vim.cmd(ctx.line1 .. ',' .. ctx.line2 .. 's/\\(\\S\\+\\)\\s\\{2,\\}/\\1 /g')
 end
 
@@ -67,13 +65,27 @@ local function find_common_root(path_1, path_2)
 end
 
 -- GitUnlock
-vim.api.nvim_create_user_command('GitUnlock', git_delete_lock, {})
+vim.api.nvim_create_user_command(
+    'GitUnlock',
+    get_unlock,
+    {}
+)
 
 -- UnAlign
-vim.api.nvim_create_user_command('UnAlign', unalign, { range = '%' })
+vim.api.nvim_create_user_command(
+    'UnAlign',
+    unalign_text,
+    { range = '%' }
+)
 
 -- BuffDeleteAllButCurrent
-vim.api.nvim_create_user_command('BuffDeleteAllButCurrent', buff_delete_all_but_current, {})
+vim.api.nvim_create_user_command(
+    'BuffDeleteAllButCurrent',
+    buff_delete_all_but_current,
+    {}
+)
+
+local M = {}
 
 function M.buffer_dir()
     return vim.fn.expand('%:p:h')
