@@ -131,7 +131,6 @@ require('gitsigns').setup({
     end
 })
 
-
 -- guid.nvim
 require('guid').setup({ comma_space = true })
 util.keymap({ 'x', 'o' }, 'ag', ':<c-u>GuidObject<cr>')
@@ -180,13 +179,6 @@ require('lualine').setup {
     inactive_winbar = {},
     extensions = {}
 }
-
--- nvim-various-textobjs
-require('various-textobjs').setup({
-    keymaps = {
-        useDefaults = true
-    }
-})
 
 -- revolver.nvim
 require('revolver').setup({ '.c', '.cpp', '.h', '.hpp', '.inl' })

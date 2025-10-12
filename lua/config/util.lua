@@ -64,6 +64,34 @@ local function find_common_root(path_1, path_2)
     end
 end
 
+local function comment_object()
+    local cursor = vim.api.nvim_win_get_cursor(0)
+    local current_row = cursor[1]
+
+    local current_row_text = vim.api.nvim_get_current_line()
+    local comment_start = current_row_text:find('--', 1, true) or current_row_text:find('//', 1, true)
+    if comment_start then
+        vim.api.nvim_win_set_cursor(0, { current_row, comment_start - 1 })
+        vim.cmd('normal! v$')
+        return
+    end
+
+    local block_row_start = vim.fn.search('/\\*', 'bW')
+    if block_row_start > 0 then
+        local block_col_start = vim.fn.col('.')
+        local block_row_end = vim.fn.search('\\*/', 'W')
+        if block_row_end > 0 then
+            local block_col_end = vim.fn.col('.')
+            vim.api.nvim_win_set_cursor(0, { block_row_start, block_col_start - 1 })
+            vim.cmd('normal! v')
+            vim.api.nvim_win_set_cursor(0, { block_row_end, block_col_end })
+            return
+        end
+    end
+
+    vim.api.nvim_win_set_cursor(0, cursor)
+end
+
 -- GitUnlock
 vim.api.nvim_create_user_command(
     'GitUnlock',
@@ -82,6 +110,13 @@ vim.api.nvim_create_user_command(
 vim.api.nvim_create_user_command(
     'BuffDeleteAllButCurrent',
     buff_delete_all_but_current,
+    {}
+)
+
+-- CommentObject
+vim.api.nvim_create_user_command(
+    'CommentObject',
+    comment_object,
     {}
 )
 
