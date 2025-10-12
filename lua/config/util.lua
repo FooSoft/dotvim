@@ -1,3 +1,5 @@
+-- locals
+
 local function git_root()
     return vim.fs.root(0, '.git')
 end
@@ -65,15 +67,17 @@ local function find_common_root(path_1, path_2)
 end
 
 local function comment_object()
-    local cursor = vim.api.nvim_win_get_cursor(0)
-    local current_row = cursor[1]
-
+    local current_cursor = vim.api.nvim_win_get_cursor(0)
     local current_row_text = vim.api.nvim_get_current_line()
-    local comment_start = current_row_text:find('--', 1, true) or current_row_text:find('//', 1, true)
-    if comment_start then
-        vim.api.nvim_win_set_cursor(0, { current_row, comment_start - 1 })
-        vim.cmd('normal! v$')
-        return
+    local current_row = current_cursor[1]
+
+    for _, v in ipairs({ '--', '//', '#' }) do
+        local single_col_start = current_row_text:find(v, 1, true)
+        if single_col_start then
+            vim.api.nvim_win_set_cursor(0, { current_row, single_col_start - 1 })
+            vim.cmd('normal! v$')
+            return
+        end
     end
 
     local block_row_start = vim.fn.search('/\\*', 'bW')
@@ -89,36 +93,17 @@ local function comment_object()
         end
     end
 
-    vim.api.nvim_win_set_cursor(0, cursor)
+    vim.api.nvim_win_set_cursor(0, current_cursor)
 end
 
--- GitUnlock
-vim.api.nvim_create_user_command(
-    'GitUnlock',
-    get_unlock,
-    {}
-)
+-- commands
 
--- UnAlign
-vim.api.nvim_create_user_command(
-    'UnAlign',
-    unalign_text,
-    { range = '%' }
-)
+vim.api.nvim_create_user_command('BuffDeleteAllButCurrent', buff_delete_all_but_current, {})
+vim.api.nvim_create_user_command('CommentObject', comment_object, {})
+vim.api.nvim_create_user_command('GitUnlock', get_unlock, {})
+vim.api.nvim_create_user_command('UnAlign', unalign_text, { range = '%' })
 
--- BuffDeleteAllButCurrent
-vim.api.nvim_create_user_command(
-    'BuffDeleteAllButCurrent',
-    buff_delete_all_but_current,
-    {}
-)
-
--- CommentObject
-vim.api.nvim_create_user_command(
-    'CommentObject',
-    comment_object,
-    {}
-)
+-- exports
 
 local M = {}
 
