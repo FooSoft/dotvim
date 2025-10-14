@@ -50,9 +50,11 @@ require('f5').setup({
 -- fzf-lua
 if util.has_executable('fzf') then
     vim.cmd.packadd('fzf-lua')
+
     local fzf_lua = require('fzf-lua')
     fzf_lua.register_ui_select()
     fzf_lua.setup({
+        fzf_colors = true,
         winopts = {
             preview = {
                 winopts = { cursorline = false }
@@ -183,6 +185,13 @@ require('lualine').setup {
 -- revolver.nvim
 require('revolver').setup({ '.c', '.cpp', '.h', '.hpp', '.inl' })
 util.keymap('n', 'gfs', vim.cmd.Revolve)
+
+-- tokyonight.nvim
+require('tokyonight').setup({ ---@diagnostic disable-line
+    style = 'storm',
+    styles = { keywords = { italic = false } }
+})
+vim.cmd.colorscheme('tokyonight')
 
 -- suda.vim
 if util.is_linux() then

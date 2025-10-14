@@ -28,9 +28,6 @@
 [submodule "pack/plugins/start/suda.vim"]
 	path = pack/plugins/opt/suda.vim
 	url = https://github.com/lambdalisue/suda.vim.git
-[submodule "pack/plugins/start/nightfox.nvim"]
-	path = pack/plugins/start/nightfox.nvim
-	url = https://github.com/EdenEast/nightfox.nvim.git
 [submodule "pack/plugins/start/lualine.nvim"]
 	path = pack/plugins/start/lualine.nvim
 	url = https://github.com/nvim-lualine/lualine.nvim.git
@@ -79,3 +76,6 @@
 [submodule "pack/plugins/start/vim-indent-object"]
 	path = pack/plugins/start/vim-indent-object
 	url = https://github.com/michaeljsmith/vim-indent-object.git
+[submodule "pack/plugins/start/tokyonight.nvim"]
+	path = pack/plugins/start/tokyonight.nvim
+	url = https://github.com/folke/tokyonight.nvim.git

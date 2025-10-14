@@ -1,8 +1,5 @@
 local util = require('config.util')
 
--- set the colorscheme to 'nightfox'
-vim.cmd.colorscheme('nightfox')
-
 -- set the <space> key as the leader key for custom mappings
 vim.g.mapleader = ' '
 
