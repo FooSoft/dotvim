@@ -36,10 +36,10 @@ require('CopilotChat').setup({
 })
 
 util.keymap('n', '<leader>pc', vim.cmd.CopilotChatCommit)
-util.keymap('v', '<leader>pd', vim.cmd.CopilotChatDocs)
-util.keymap('v', '<leader>pe', vim.cmd.CopilotChatExplain)
-util.keymap('v', '<leader>po', vim.cmd.CopilotChatOptimize)
-util.keymap('v', '<leader>pr', vim.cmd.CopilotChatReview)
+util.keymap({ 'n', 'v' }, '<leader>pd', vim.cmd.CopilotChatDocs)
+util.keymap({ 'n', 'v' }, '<leader>pe', vim.cmd.CopilotChatExplain)
+util.keymap({ 'n', 'v' }, '<leader>po', vim.cmd.CopilotChatOptimize)
+util.keymap({ 'n', 'v' }, '<leader>pr', vim.cmd.CopilotChatReview)
 util.keymap({ 'n', 'v' }, '<leader>pt', vim.cmd.CopilotChatToggle)
 
 -- f5.nvim
