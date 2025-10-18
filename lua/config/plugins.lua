@@ -28,17 +28,19 @@ require('CopilotChat').setup({
     mappings = {
         jump_to_diff = { insert = '', normal = '' }, ---@diagnostic disable-line
         reset = { insert = '', normal = '' }, ---@diagnostic disable-line
-        submit_prompt = { insert = '<cr>' } ---@diagnostic disable-line
     },
+    resources = {
+        'buffer',
+        'selection',
+    }
 })
 
-util.keymap('n', '<leader>pR', vim.cmd.CopilotChatReset)
 util.keymap('n', '<leader>pc', vim.cmd.CopilotChatCommit)
-util.keymap('n', '<leader>pt', vim.cmd.CopilotChatToggle)
 util.keymap('v', '<leader>pd', vim.cmd.CopilotChatDocs)
 util.keymap('v', '<leader>pe', vim.cmd.CopilotChatExplain)
 util.keymap('v', '<leader>po', vim.cmd.CopilotChatOptimize)
 util.keymap('v', '<leader>pr', vim.cmd.CopilotChatReview)
+util.keymap({ 'n', 'v' }, '<leader>pt', vim.cmd.CopilotChatToggle)
 
 -- f5.nvim
 require('f5').setup({
