@@ -1,7 +1,10 @@
 [Desktop Entry]
-Exec=/usr/local/bin/nvim %F
-Icon=nvim
 Name=Neovim
-StartupNotify=false
+Comment=Edit text files with Neovim
+Exec=/usr/local/bin/nvim %F
+TryExec=/usr/local/bin/nvim
+Icon=nvim
 Terminal=true
 Type=Application
+Categories=Utility;TextEditor;ConsoleOnly;
+MimeType=text/plain;
