@@ -85,9 +85,6 @@ vim.opt.wrap = false
 -- don't keep a backup while overwriting a file
 vim.opt.writebackup = false
 
--- additional error formats
-vim.opt.errorformat:prepend([[%*[^>]>%f(%l)\ :\ %t%*[^:]:\ %m]])
-
 -- common keymaps
 util.keymap('i', '<c-c>', '<esc>')
 util.keymap('n', '<bs>', '<cmd>bp|bd#<cr>')

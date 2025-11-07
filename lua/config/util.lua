@@ -191,10 +191,13 @@ function M.update_makeprg()
             return
         end
 
-        winmake_dir = find_root('sources') or find_root('dirs')
-        if winmake_dir then
-            vim.bo.makeprg = 'cmd /c build.cmd -c /dir ' .. winmake_dir
-            return
+        if vim.loop.os_getenv('_NTROOT') then
+            winmake_dir = find_root('sources') or find_root('dirs')
+            if winmake_dir then
+                vim.opt.errorformat=[[%f(%l)\ :\ %t%*[^:]:\ %m]]
+                vim.bo.makeprg = 'cmd /c build.cmd -c /dir ' .. winmake_dir
+                return
+            end
         end
     end
 
