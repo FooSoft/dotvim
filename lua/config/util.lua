@@ -187,7 +187,7 @@ function M.update_makeprg()
     if M.is_windows() then
         gi_build_dir = find_root('build.cmd')
         if gi_build_dir then
-            vim.bo.makeprg = 'cmd /c ' .. vim.fs.joinpath(gi_build_dir, 'build.cmd')
+            vim.bo.makeprg = vim.fs.joinpath(gi_build_dir, 'build.cmd')
             return
         end
 
@@ -195,7 +195,7 @@ function M.update_makeprg()
             winmake_dir = find_root('sources') or find_root('dirs')
             if winmake_dir then
                 vim.opt.errorformat=[[%f(%l)\ :\ %t%*[^:]:\ %m]]
-                vim.bo.makeprg = 'cmd /c build.cmd -c /dir ' .. winmake_dir
+                vim.bo.makeprg = 'build.cmd -c /dir ' .. winmake_dir
                 return
             end
         end

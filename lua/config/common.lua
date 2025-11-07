@@ -114,7 +114,8 @@ util.keymap('t', '<esc>', '<c-\\><c-n>')
 
 -- make
 util.keymap('n', '<leader>m', util.make)
-vim.keymap.set('n', '<leader>q', util.toggle_quickfix)
+util.keymap('n', '<leader>q', util.toggle_quickfix)
+util.keymap('n', 'qq', '<cmd>cc<cr>')
 
 -- path completion
 util.keymap('i', '<c-/>', '/<c-x><c-f>')
