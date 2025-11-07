@@ -175,10 +175,14 @@ function M.relpath(source_dir, target_path)
     return vim.fs.normalize(result_path)
 end
 
+function M.file_exists(path)
+    return vim.fn.filereadable(path) == 1
+end
+
 function M.update_makeprg()
-    local build_path = 'src\\GameInput\\build.cmd'
-    if vim.fn.filereadable(build_path) then
-        vim.bo.makeprg = 'cmd /c ' .. build_path .. ' --noconfigure --noinstall'
+    local gi_build = 'src\\GameInput\\build.cmd'
+    if M.file_exists(gi_build) then
+        vim.bo.makeprg = 'cmd /c ' .. gi_build .. ' --noconfigure --noinstall'
     end
 end
 
@@ -190,7 +194,9 @@ function M.toggle_quickfix()
             return
         end
     end
+
     vim.cmd.copen()
+    vim.cmd.wincmd('p')
 end
 
 return M
