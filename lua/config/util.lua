@@ -179,6 +179,17 @@ function M.file_exists(path)
     return vim.fn.filereadable(path) == 1
 end
 
+function M.make()
+    vim.cmd.make()
+
+    if not M.is_quickfix_visible() then
+        local qf_list = vim.fn.getqflist({ size = 0 })
+        if qf_list.size > 0 then
+            M.toggle_quickfix()
+        end
+    end
+end
+
 function M.update_makeprg()
     local gi_build = 'src\\GameInput\\build.cmd'
     if M.file_exists(gi_build) then
@@ -186,7 +197,7 @@ function M.update_makeprg()
     end
 end
 
-function M.is_quickfix_open()
+function M.is_quickfix_visible()
     for _, win in ipairs(vim.api.nvim_list_wins()) do
         local buf = vim.api.nvim_win_get_buf(win)
         if vim.api.nvim_get_option_value('buftype', { buf = buf }) == 'quickfix' then
@@ -198,7 +209,7 @@ function M.is_quickfix_open()
 end
 
 function M.toggle_quickfix()
-    if M.is_quickfix_open() then
+    if M.is_quickfix_visible() then
         vim.cmd.cclose()
     else
         vim.cmd.copen()

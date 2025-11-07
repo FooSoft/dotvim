@@ -113,7 +113,7 @@ util.keymap({ 'n', 'v' }, '<c-l>', '<c-w>l')
 util.keymap('t', '<esc>', '<c-\\><c-n>')
 
 -- make
-util.keymap('n', '<leader>m', '<cmd>make | cwindow<cr>')
+util.keymap('n', '<leader>m', util.make)
 vim.keymap.set('n', '<leader>q', util.toggle_quickfix)
 
 -- path completion
