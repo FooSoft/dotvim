@@ -182,21 +182,28 @@ end
 function M.update_makeprg()
     local gi_build = 'src\\GameInput\\build.cmd'
     if M.file_exists(gi_build) then
-        vim.bo.makeprg = 'cmd /c ' .. gi_build .. ' --noconfigure --noinstall'
+        vim.bo.makeprg = 'cmd /c ' .. gi_build .. ' --noconfigure'
     end
 end
 
-function M.toggle_quickfix()
+function M.is_quickfix_open()
     for _, win in ipairs(vim.api.nvim_list_wins()) do
         local buf = vim.api.nvim_win_get_buf(win)
-        if vim.api.nvim_buf_get_option(buf, 'buftype') == 'quickfix' then
-            vim.cmd.cclose()
-            return
+        if vim.api.nvim_get_option_value('buftype', { buf = buf }) == 'quickfix' then
+            return true
         end
     end
 
-    vim.cmd.copen()
-    vim.cmd.wincmd('p')
+    return false
+end
+
+function M.toggle_quickfix()
+    if M.is_quickfix_open() then
+        vim.cmd.cclose()
+    else
+        vim.cmd.copen()
+        vim.cmd.wincmd('p')
+    end
 end
 
 return M
