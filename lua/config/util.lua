@@ -180,30 +180,40 @@ function M.file_exists(path)
 end
 
 function M.update_makeprg()
-    local has_file_in_dir = function(name)
-        return M.file_exists(vim.fs.joinpath(M.buffer_dir(), name))
+    local find_root = function(name)
+        return vim.fs.root(0, name)
     end
 
-    local gi_build = 'src\\GameInput\\build.cmd'
-    if M.file_exists(gi_build) then
-        vim.bo.makeprg = 'cmd /c ' .. gi_build .. ' --noconfigure'
-    elseif has_file_in_dir('sources') or has_file_in_dir('dirs') then
-        vim.bo.makeprg = 'cmd /c build.cmd -c /dir ' .. M.buffer_dir()
-    else
-        vim.bo.makeprg = 'make'
+    if M.is_windows() then
+        gi_build_dir = find_root('build.cmd')
+        if gi_build_dir then
+            vim.bo.makeprg = 'cmd /c ' .. vim.fs.joinpath(gi_build_dir, 'build.cmd')
+            return
+        end
+
+        winmake_dir = find_root('sources') or find_root('dirs')
+        if winmake_dir then
+            vim.bo.makeprg = 'cmd /c build.cmd -c /dir ' .. winmake_dir
+            return
+        end
     end
+
+    vim.bo.makeprg = 'make'
 end
 
 function M.make()
     M.update_makeprg()
     vim.cmd.make()
 
-    if not M.is_quickfix_visible() then
-        local qf_list = vim.fn.getqflist({ size = 0 })
-        if qf_list.size > 0 then
-            M.toggle_quickfix()
+    for _, item in ipairs(vim.fn.getqflist()) do
+        if item.type:lower() == 'e' and not M.is_quickfix_visible() then
+            vim.cmd.copen()
+            vim.cmd.wincmd('p')
+            return
         end
     end
+
+    vim.cmd.cclose()
 end
 
 function M.is_quickfix_visible()

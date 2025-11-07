@@ -89,6 +89,9 @@ config_lsp({
         'compile_commands.json',
         'compile_flags.txt',
     },
+    handlers = {
+        ['textDocument/publishDiagnostics'] = function() end,
+    },
 })
 
 -- go
