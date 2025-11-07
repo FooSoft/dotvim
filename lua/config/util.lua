@@ -179,7 +179,23 @@ function M.file_exists(path)
     return vim.fn.filereadable(path) == 1
 end
 
+function M.update_makeprg()
+    local has_file_in_dir = function(name)
+        return M.file_exists(vim.fs.joinpath(M.buffer_dir(), name))
+    end
+
+    local gi_build = 'src\\GameInput\\build.cmd'
+    if M.file_exists(gi_build) then
+        vim.bo.makeprg = 'cmd /c ' .. gi_build .. ' --noconfigure'
+    elseif has_file_in_dir('sources') or has_file_in_dir('dirs') then
+        vim.bo.makeprg = 'cmd /c build.cmd -c /dir ' .. M.buffer_dir()
+    else
+        vim.bo.makeprg = 'make'
+    end
+end
+
 function M.make()
+    M.update_makeprg()
     vim.cmd.make()
 
     if not M.is_quickfix_visible() then
@@ -187,13 +203,6 @@ function M.make()
         if qf_list.size > 0 then
             M.toggle_quickfix()
         end
-    end
-end
-
-function M.update_makeprg()
-    local gi_build = 'src\\GameInput\\build.cmd'
-    if M.file_exists(gi_build) then
-        vim.bo.makeprg = 'cmd /c ' .. gi_build .. ' --noconfigure'
     end
 end
 
