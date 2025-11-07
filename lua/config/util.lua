@@ -203,17 +203,7 @@ end
 
 function M.make()
     M.update_makeprg()
-    vim.cmd.make()
-
-    for _, item in ipairs(vim.fn.getqflist()) do
-        if item.type:lower() == 'e' and not M.is_quickfix_visible() then
-            vim.cmd.copen()
-            vim.cmd.wincmd('p')
-            return
-        end
-    end
-
-    vim.cmd.cclose()
+    vim.cmd.Make()
 end
 
 function M.is_quickfix_visible()
