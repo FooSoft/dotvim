@@ -93,7 +93,7 @@ util.keymap('n', '<leader><leader>', '<cmd>b#<cr>')
 util.keymap('n', '<leader>w', '<cmd>w<cr>')
 util.keymap('n', '<leader>x', '<cmd>x<cr>')
 util.keymap('n', '<c-bs>', '<cmd>BuffDeleteAllButCurrent<cr>')
-util.keymap({ 'x', 'o' }, 'ac', ':<c-u>CommentObject<cr>')
+util.keymap({ 'x', 'o' }, 'ac', '<cmd><c-u>CommentObject<cr>')
 util.keymap('n', 'Y', 'y$')
 util.keymap('n', 'j', 'gj')
 util.keymap('n', 'k', 'gk')
@@ -113,7 +113,8 @@ util.keymap({ 'n', 'v' }, '<c-l>', '<c-w>l')
 util.keymap('t', '<esc>', '<c-\\><c-n>')
 
 -- make
-util.keymap('n', '<leader>m', vim.cmd.make)
+util.keymap('n', '<leader>m', '<cmd>make | cwindow<cr>')
+vim.keymap.set('n', '<leader>q', util.toggle_quickfix)
 
 -- path completion
 util.keymap('i', '<c-/>', '/<c-x><c-f>')
