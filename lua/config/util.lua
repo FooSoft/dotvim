@@ -184,6 +184,11 @@ function M.update_makeprg()
         return vim.fs.root(0, name)
     end
 
+    if vim.api.nvim_get_option_value('filetype', { buf = 0 }) == 'go' then
+        vim.bo.makeprg = 'cd ' .. M.buffer_dir() .. ' && go build'
+        return
+    end
+
     if M.is_windows() then
         local gi_build_dir = find_root('build.cmd')
         if gi_build_dir then
