@@ -96,13 +96,6 @@ local function comment_object()
     vim.api.nvim_win_set_cursor(0, current_cursor)
 end
 
--- commands
-
-vim.api.nvim_create_user_command('BuffDeleteAllButCurrent', buff_delete_all_but_current, {})
-vim.api.nvim_create_user_command('CommentObject', comment_object, {})
-vim.api.nvim_create_user_command('GitUnlock', get_unlock, {})
-vim.api.nvim_create_user_command('UnAlign', unalign_text, { range = '%' })
-
 -- exports
 
 local M = {}
@@ -179,7 +172,7 @@ function M.file_exists(path)
     return vim.fn.filereadable(path) == 1
 end
 
-function M.update_makeprg()
+function M.update_makeprg(fast)
     local find_root = function(name)
         return vim.fs.root(0, name)
     end
@@ -193,6 +186,9 @@ function M.update_makeprg()
         local gi_build_dir = find_root('build.cmd')
         if gi_build_dir then
             vim.bo.makeprg = vim.fs.joinpath(gi_build_dir, 'build.cmd'):gsub('/', '\\')
+            if fast then
+                vim.bo.makeprg = vim.bo.makeprg .. ' --noconfigure --noinstall'
+            end
             return
         end
 
@@ -209,10 +205,10 @@ function M.update_makeprg()
     vim.bo.makeprg = 'make'
 end
 
-function M.make()
-    M.update_makeprg()
+function M.make(fast)
+    M.update_makeprg(fast)
     vim.cmd.make()
-    vim.cmd.cwindow()
+    vim.cmd('botright cwindow')
 end
 
 function M.is_quickfix_visible()
@@ -234,5 +230,13 @@ function M.toggle_quickfix()
         vim.cmd.wincmd('p')
     end
 end
+
+-- commands
+
+vim.api.nvim_create_user_command('BuffDeleteAllButCurrent', buff_delete_all_but_current, {})
+vim.api.nvim_create_user_command('CommentObject', comment_object, {})
+vim.api.nvim_create_user_command('GitUnlock', get_unlock, {})
+vim.api.nvim_create_user_command('Make', function(opts) M.make(not opts.bang) end, { bang = true })
+vim.api.nvim_create_user_command('UnAlign', unalign_text, { range = '%' })
 
 return M
