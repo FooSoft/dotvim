@@ -192,7 +192,7 @@ function M.update_makeprg()
     if M.is_windows() then
         local gi_build_dir = find_root('build.cmd')
         if gi_build_dir then
-            vim.bo.makeprg = vim.fs.joinpath(gi_build_dir, 'build.cmd')
+            vim.bo.makeprg = vim.fs.joinpath(gi_build_dir, 'build.cmd'):gsub('/', '\\')
             return
         end
 
@@ -211,7 +211,8 @@ end
 
 function M.make()
     M.update_makeprg()
-    vim.cmd.Make()
+    vim.cmd.make()
+    vim.cmd.cwindow()
 end
 
 function M.is_quickfix_visible()
