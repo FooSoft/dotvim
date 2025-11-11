@@ -82,3 +82,6 @@
 [submodule "pack/plugins/start/vim-dispatch"]
 	path = pack/plugins/start/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch.git
+[submodule "pack/plugins/start/toggleterm.nvim"]
+	path = pack/plugins/start/toggleterm.nvim
+	url = https://github.com/akinsho/toggleterm.nvim.git

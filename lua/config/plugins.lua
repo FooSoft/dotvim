@@ -188,6 +188,11 @@ require('lualine').setup {
 require('revolver').setup({ '.c', '.cpp', '.h', '.hpp', '.inl' })
 util.keymap('n', 'gfs', vim.cmd.Revolve)
 
+-- toggleterm.nvim
+require('toggleterm').setup({
+    open_mapping = [[<c-\>]]
+})
+
 -- tokyonight.nvim
 require('tokyonight').setup({ ---@diagnostic disable-line
     style = 'storm',
