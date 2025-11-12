@@ -36,6 +36,9 @@ vim.opt.linebreak = true
 -- display characters for tabs, end-of-line, and spaces
 vim.opt.listchars = { tab = '» ', eol = '↲', space = '·' }
 
+-- add angle brackets as matchpairs for % motion
+vim.opt.matchpairs:append('<:>')
+
 -- disable modeline for security
 vim.opt.modeline = false
 vim.opt.modelines = 0
