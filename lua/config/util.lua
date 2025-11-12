@@ -125,7 +125,7 @@ end
 
 local function make(opts)
     update_makeprg(not opts.bang)
-    vim.cmd('make | botright cwindow')
+    vim.cmd('make | botright cwindow | silent! cc')
 end
 
 -- commands
