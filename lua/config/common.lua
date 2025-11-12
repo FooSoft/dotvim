@@ -87,16 +87,17 @@ vim.opt.writebackup = false
 
 -- common keymaps
 util.keymap('i', '<c-c>', '<esc>')
-util.keymap('n', '<bs>', '<cmd>bp|bd#<cr>')
 util.keymap('n', '<c-c><c-c>', '<cmd>nohlsearch<cr>')
-util.keymap('n', '<leader><leader>', '<cmd>b#<cr>')
 util.keymap('n', '<leader>w', '<cmd>w<cr>')
 util.keymap('n', '<leader>x', '<cmd>x<cr>')
-util.keymap('n', '<c-bs>', '<cmd>BuffDeleteAllButCurrent<cr>')
-util.keymap({ 'x', 'o' }, 'ac', '<cmd><c-u>CommentObject<cr>')
 util.keymap('n', 'Y', 'y$')
 util.keymap('n', 'j', 'gj')
 util.keymap('n', 'k', 'gk')
+
+-- buffer keymaps
+util.keymap('n', '<bs>', '<cmd>bp|bd#<cr>')
+util.keymap('n', '<c-bs>', '<cmd>BuffOnly<cr>')
+util.keymap('n', '<leader><leader>', '<cmd>b#<cr>')
 
 -- split keymaps
 util.keymap({ 'n', 'v' }, '<a-=>', '<c-w><c-=>')
@@ -112,9 +113,9 @@ util.keymap({ 'n', 'v' }, '<c-l>', '<c-w>l')
 -- terminal keymaps
 util.keymap('t', '<esc>', '<c-\\><c-n>')
 
--- make
+-- make and quickfix
 util.keymap('n', '<leader>m', '<cmd>Make<cr>')
-util.keymap('n', '<leader>q', util.toggle_quickfix)
+util.keymap('n', '<leader>q', '<cmd>ToggleQuickfix<cr>')
 util.keymap('n', 'qq', '<cmd>cc<cr>')
 
 -- path completion
