@@ -114,7 +114,7 @@ util.keymap({ 'n', 'v' }, '<c-l>', '<c-w>l')
 util.keymap('t', '<esc>', '<c-\\><c-n>')
 
 -- make and quickfix
-util.keymap('n', '<leader>m', '<cmd>Make<cr>')
+util.keymap('n', '<leader>m', '<cmd>Make<cr><cr>')
 util.keymap('n', '<leader>q', '<cmd>ToggleQuickfix<cr>')
 util.keymap('n', 'qq', '<cmd>cc<cr>')
 
