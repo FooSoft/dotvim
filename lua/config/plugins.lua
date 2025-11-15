@@ -136,7 +136,10 @@ require('gitsigns').setup({
 })
 
 -- guid.nvim
-require('guid').setup({ comma_space = true })
+require('guid').setup({
+    comma_space = true,
+    styles = { h = '0x????????,0x????,0x????,0x??,0x??,0x??,0x??,0x??,0x??,0x??,0x??' },
+})
 util.keymap({ 'x', 'o' }, 'ag', ':<c-u>GuidObject<cr>')
 
 -- lsp_signature.nvim
