@@ -42,10 +42,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
             end
         end
 
-        vim.api.nvim_create_autocmd('BufWritePre', {
-            buffer = args.buf,
-            callback = function() vim.lsp.buf.format() end
-        })
+        if util.is_linux() then
+            vim.api.nvim_create_autocmd('BufWritePre', {
+                buffer = args.buf,
+                callback = function() vim.lsp.buf.format() end
+            })
+        end
     end,
 })
 
