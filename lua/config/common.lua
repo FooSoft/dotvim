@@ -119,7 +119,7 @@ util.keymap('t', '<esc>', '<c-\\><c-n>')
 -- make and quickfix
 util.keymap('n', '<leader>m', '<cmd>Make<cr><cr>')
 util.keymap('n', '<leader>q', '<cmd>ToggleQuickfix<cr>')
-util.keymap('n', 'qq', '<cmd>cc<cr>')
+util.keymap('n', '<leader>e', '<cmd>cc<cr>')
 
 -- path completion
 util.keymap('i', '<c-/>', '/<c-x><c-f>')
