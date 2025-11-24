@@ -19,6 +19,10 @@ local function unalign_text(ctx)
     vim.cmd.nohlsearch()
 end
 
+local function clear_history_and_exit()
+    vim.cmd([[set vi+='0 | wv! | q!]])
+end
+
 local function buff_only()
     local bufs = vim.api.nvim_list_bufs()
     local current_buf = vim.api.nvim_get_current_buf()
@@ -101,7 +105,7 @@ local function update_makeprg(fast)
         if gi_build_dir then
             vim.bo.makeprg = vim.fs.joinpath(gi_build_dir, 'build.cmd'):gsub('/', '\\')
             if fast then
-                vim.bo.makeprg = vim.bo.makeprg .. ' --noconfigure --noinstall'
+                vim.bo.makeprg = vim.bo.makeprg .. ' --noconfigure --noinstall --noarm64'
             end
             return
         end
@@ -135,6 +139,7 @@ vim.api.nvim_create_user_command('GitUnlock', git_unlock, {})
 vim.api.nvim_create_user_command('Make', make, { bang = true })
 vim.api.nvim_create_user_command('ToggleQuickfix', toggle_quickfix, {})
 vim.api.nvim_create_user_command('UnAlign', unalign_text, { range = '%' })
+vim.api.nvim_create_user_command('ClearHistoryAndExit', clear_history_and_exit, {})
 
 -- exports
 
