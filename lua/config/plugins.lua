@@ -198,7 +198,7 @@ require('toggleterm').setup({
 
 -- tokyonight.nvim
 require('tokyonight').setup({ ---@diagnostic disable-line
-    style = 'storm',
+    style = 'moon',
     styles = { keywords = { italic = false } }
 })
 vim.cmd.colorscheme('tokyonight')
