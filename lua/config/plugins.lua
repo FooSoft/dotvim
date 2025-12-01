@@ -222,13 +222,8 @@ util.keymap('v', '<cr>', '<plug>(EasyAlign)')
 -- vim-go
 if util.has_executable('go') then
     vim.cmd.packadd('vim-go')
-
-    vim.g.go_diagnostics_enabled = 0
     vim.g.go_imports_autosave = 1
-    vim.g.go_metalinter_enabled = {}
-    vim.g.go_null_module_warning = 0
-    vim.g.go_quickfix_auto_open = 0
-    vim.g.go_version_warning = 0
+    vim.g.go_diagnostics_enabled = 0
 end
 
 -- vim-quickhl
