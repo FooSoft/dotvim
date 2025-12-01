@@ -23,35 +23,25 @@ local function clear_history_and_exit()
     vim.cmd([[set vi+='0 | wv! | q!]])
 end
 
-local function buff_only()
-    local bufs = vim.api.nvim_list_bufs()
-    local current_buf = vim.api.nvim_get_current_buf()
-    for _, i in ipairs(bufs) do
-        if i ~= current_buf then
-            vim.api.nvim_buf_delete(i, {})
-        end
+local split_path = function(path)
+    local parts = {}
+    for part in path:gmatch('[^/\\]+') do
+        table.insert(parts, part)
     end
+
+    return parts
+end
+
+local slice_table = function(values, start, stop)
+    local results = {}
+    for i = start, stop or #values do
+        table.insert(results, values[i])
+    end
+
+    return results
 end
 
 local function find_common_root(path_1, path_2)
-    local split_path = function(path)
-        local parts = {}
-        for part in path:gmatch('[^/\\]+') do
-            table.insert(parts, part)
-        end
-
-        return parts
-    end
-
-    local slice_table = function(values, start, stop)
-        local results = {}
-        for i = start, stop or #values do
-            table.insert(results, values[i])
-        end
-
-        return results
-    end
-
     local path_1_parts = split_path(path_1)
     local path_2_parts = split_path(path_2)
 
@@ -134,7 +124,6 @@ end
 
 -- commands
 
-vim.api.nvim_create_user_command('BuffOnly', buff_only, {})
 vim.api.nvim_create_user_command('GitUnlock', git_unlock, {})
 vim.api.nvim_create_user_command('Make', make, { bang = true })
 vim.api.nvim_create_user_command('ToggleQuickfix', toggle_quickfix, {})

@@ -99,7 +99,6 @@ util.keymap('n', 'k', 'gk')
 
 -- buffer keymaps
 util.keymap('n', '<bs>', '<cmd>bp|bd#<cr>')
-util.keymap('n', '<c-bs>', '<cmd>BuffOnly<cr>')
 util.keymap('n', '<leader><leader>', '<cmd>b#<cr>')
 
 -- split keymaps
@@ -120,9 +119,6 @@ util.keymap('t', '<esc>', '<c-\\><c-n>')
 util.keymap('n', '<leader>m', '<cmd>Make<cr><cr>')
 util.keymap('n', '<leader>q', '<cmd>ToggleQuickfix<cr>')
 util.keymap('n', '<leader>e', '<cmd>cc<cr>')
-
--- path completion
-util.keymap('i', '<c-/>', '/<c-x><c-f>')
 
 -- autoreload files
 vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold' }, {
