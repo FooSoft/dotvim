@@ -18,6 +18,8 @@ vim.opt.clipboard = 'unnamedplus'
 -- completion options: fuzzy matching, show menu, select even with one match, don't insert by default
 vim.opt.completeopt = { 'fuzzy', 'menu', 'menuone', 'noinsert' }
 
+vim.opt.conceallevel = 0
+
 -- use spaces instead of tabs
 vim.opt.expandtab = true
 
@@ -96,10 +98,6 @@ util.keymap('n', '<leader>x', '<cmd>x<cr>')
 util.keymap('n', 'Y', 'y$')
 util.keymap('n', 'j', 'gj')
 util.keymap('n', 'k', 'gk')
-
--- buffer keymaps
-util.keymap('n', '<bs>', '<cmd>bp|bd#<cr>')
-util.keymap('n', '<leader><leader>', '<cmd>b#<cr>')
 
 -- split keymaps
 util.keymap({ 'n', 'v' }, '<a-=>', '<c-w><c-=>')
