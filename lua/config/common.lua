@@ -18,6 +18,7 @@ vim.opt.clipboard = 'unnamedplus'
 -- completion options: fuzzy matching, show menu, select even with one match, don't insert by default
 vim.opt.completeopt = { 'fuzzy', 'menu', 'menuone', 'noinsert' }
 
+-- disable conceal (no hidden text in markdown, etc)
 vim.opt.conceallevel = 0
 
 -- use spaces instead of tabs
