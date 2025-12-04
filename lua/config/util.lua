@@ -93,7 +93,7 @@ local function update_makeprg(fast)
     if M.is_windows() then
         local gi_build_dir = find_root('build.cmd')
         if gi_build_dir then
-            vim.bo.makeprg = vim.fs.joinpath(gi_build_dir, 'build.cmd --noarm64'):gsub('/', '\\')
+            vim.bo.makeprg = vim.fs.joinpath(gi_build_dir, 'build.cmd --noarm64 --noarm64ec'):gsub('/', '\\')
             if fast then
                 vim.bo.makeprg = vim.bo.makeprg .. ' --noconfigure --noinstall'
             end
