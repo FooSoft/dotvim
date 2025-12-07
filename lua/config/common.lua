@@ -101,8 +101,7 @@ util.keymap('n', 'j', 'gj')
 util.keymap('n', 'k', 'gk')
 
 --- buffer keymaps
-util.keymap('n', '<leader><bs>', '<cmd>bp|bd#<cr>')
-util.keymap('n', '<leader><leader>', '<cmd>b#<cr>')
+util.keymap('n', '<leader><bs>', '<cmd>bd<cr>')
 
 -- split keymaps
 util.keymap({ 'n', 'v' }, '<a-=>', '<c-w><c-=>')

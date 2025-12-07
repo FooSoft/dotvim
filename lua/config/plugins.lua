@@ -40,7 +40,7 @@ util.keymap({ 'n', 'v' }, '<leader>pd', vim.cmd.CopilotChatDocs)
 util.keymap({ 'n', 'v' }, '<leader>pe', vim.cmd.CopilotChatExplain)
 util.keymap({ 'n', 'v' }, '<leader>po', vim.cmd.CopilotChatOptimize)
 util.keymap({ 'n', 'v' }, '<leader>pr', vim.cmd.CopilotChatReview)
-util.keymap({ 'n', 'v' }, '<leader>pt', vim.cmd.CopilotChatToggle)
+util.keymap({ 'n', 'v' }, '<c-p>', vim.cmd.CopilotChatToggle)
 
 -- f5.nvim
 require('f5').setup({
@@ -59,7 +59,7 @@ if util.has_executable('fzf') then
         fzf_colors = true,
         winopts = {
             preview = {
-                winopts = { cursorline = false }
+                winopts = { cursorline = false } ---@diagnostic disable-line
             }
         }
     })
