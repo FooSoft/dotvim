@@ -25,25 +25,26 @@ require('Comment').setup()
 
 -- copilotchat.nvim
 require('CopilotChat').setup({
+    highlight_headers = false,
+    insert_at_end = true,
     mappings = {
         jump_to_diff = { insert = '', normal = '' }, ---@diagnostic disable-line
         reset = { insert = '', normal = '' }, ---@diagnostic disable-line
     },
     resources = {
         'buffer',
-        'selection',
+        'selection'
     },
+    separator = '',
+    show_folds = false,
+    show_help = false,
     window = {
         layout = 'horizontal',
-        height = 0.25,
+        height = 0.25
     },
 })
 
-util.keymap({ 'n', 'v' }, '<leader>pd', vim.cmd.CopilotChatDocs)
-util.keymap({ 'n', 'v' }, '<leader>pe', vim.cmd.CopilotChatExplain)
-util.keymap({ 'n', 'v' }, '<leader>po', vim.cmd.CopilotChatOptimize)
-util.keymap({ 'n', 'v' }, '<leader>pr', vim.cmd.CopilotChatReview)
-util.keymap({ 'n', 'v' }, '<leader>pp', vim.cmd.CopilotChatToggle)
+util.keymap({ 'n', 'v' }, '<leader>p', vim.cmd.CopilotChatToggle)
 
 -- f5.nvim
 require('f5').setup({
