@@ -35,7 +35,7 @@ require('CopilotChat').setup({
         'buffer',
         'selection'
     },
-    separator = '',
+    separator = '---',
     show_folds = false,
     show_help = false,
     window = {
