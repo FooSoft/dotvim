@@ -39,8 +39,8 @@ require('CopilotChat').setup({
     show_folds = false,
     show_help = false,
     window = {
-        layout = 'horizontal',
-        height = 0.25
+        layout = 'vertical',
+        width = 0.40
     },
 })
 
