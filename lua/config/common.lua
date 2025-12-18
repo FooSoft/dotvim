@@ -24,6 +24,9 @@ vim.opt.conceallevel = 0
 -- use spaces instead of tabs
 vim.opt.expandtab = true
 
+-- custom errorformat for quickfix
+vim.opt.errorformat:append({'%s(%o) : %t%*[^:]: %m'})
+
 -- recognize these file formats
 vim.opt.fileformats = { 'unix', 'dos', 'mac' }
 
