@@ -149,48 +149,6 @@ util.keymap({ 'x', 'o' }, 'ag', ':<c-u>GuidObject<cr>')
 -- lsp_signature.nvim
 require('lsp_signature').setup({ hint_enable = false })
 
--- lualine.nvim
-require('lualine').setup {
-    options = {
-        always_divide_middle = true,
-        component_separators = { left = '', right = '' },
-        disabled_filetypes = { statusline = {}, winbar = {} },
-        globalstatus = false,
-        icons_enabled = false,
-        ignore_focus = {},
-        refresh = { statusline = 100, tabline = 100, winbar = 100 },
-        section_separators = { left = '', right = '' },
-        theme = 'auto',
-    },
-    sections = {
-        lualine_a = { 'mode' },
-        lualine_b = { 'branch', 'diff', 'diagnostics' },
-        lualine_c = { 'filename' },
-        lualine_x = { 'encoding', 'fileformat', 'filetype' },
-        lualine_y = { 'progress' },
-        lualine_z = { 'location' }
-    },
-    inactive_sections = {
-        lualine_a = {},
-        lualine_b = {},
-        lualine_c = { 'filename' },
-        lualine_x = { 'location' },
-        lualine_y = {},
-        lualine_z = {}
-    },
-    tabline = {
-        lualine_a = { 'buffers' },
-        lualine_b = {},
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {}
-    },
-    winbar = {},
-    inactive_winbar = {},
-    extensions = {}
-}
-
 -- revolver.nvim
 require('revolver').setup({ '.c', '.cpp', '.h', '.hpp', '.inl' })
 util.keymap('n', 'gfs', vim.cmd.Revolve)
@@ -199,13 +157,6 @@ util.keymap('n', 'gfs', vim.cmd.Revolve)
 require('toggleterm').setup({
     open_mapping = [[<c-\>]]
 })
-
--- tokyonight.nvim
-require('tokyonight').setup({ ---@diagnostic disable-line
-    style = 'moon',
-    styles = { keywords = { italic = false } }
-})
-vim.cmd.colorscheme('tokyonight')
 
 -- suda.vim
 if util.is_linux() then
