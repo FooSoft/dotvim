@@ -25,7 +25,7 @@ vim.opt.conceallevel = 0
 vim.opt.expandtab = true
 
 -- custom errorformat for quickfix
-vim.opt.errorformat:append({'%s(%o) : %t%*[^:]: %m'})
+vim.opt.errorformat:append({ '%s(%o) : %t%*[^:]: %m' })
 
 -- recognize these file formats
 vim.opt.fileformats = { 'unix', 'dos', 'mac' }

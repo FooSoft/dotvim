@@ -149,6 +149,10 @@ util.keymap({ 'x', 'o' }, 'ag', ':<c-u>GuidObject<cr>')
 -- lsp_signature.nvim
 require('lsp_signature').setup({ hint_enable = false })
 
+-- nvim.git
+require('catppuccin').setup({ show_end_of_buffer = true })
+vim.cmd.colorscheme('catppuccin')
+
 -- revolver.nvim
 require('revolver').setup({ '.c', '.cpp', '.h', '.hpp', '.inl' })
 util.keymap('n', 'gfs', vim.cmd.Revolve)
