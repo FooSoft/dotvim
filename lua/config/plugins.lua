@@ -21,7 +21,7 @@ util.keymap('n', '<leader>a', ':<C-u>ArgonautToggle<cr>')
 util.keymap('n', '<leader>o', ':<C-u>ArgonautReflow<cr>')
 
 -- catppuccin.nvim
-require('catppuccin').setup({ show_end_of_buffer = true })
+require('catppuccin').setup({ flavour = 'macchiato', show_end_of_buffer = true })
 vim.cmd.colorscheme('catppuccin')
 
 -- comment.nvim
