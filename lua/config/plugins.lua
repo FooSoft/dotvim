@@ -4,12 +4,8 @@ local util = require('config.util')
 require('argonaut').setup({
     brace_pad = { ['{'] = true },
     by_filetype = {
-        c = {
-            brace_last_wrap = false
-        },
-        cpp = {
-            brace_last_wrap = false
-        }
+        c = { brace_last_wrap = false },
+        cpp = { brace_last_wrap = false }
     }
 })
 
@@ -21,7 +17,11 @@ util.keymap('n', '<leader>a', ':<C-u>ArgonautToggle<cr>')
 util.keymap('n', '<leader>o', ':<C-u>ArgonautReflow<cr>')
 
 -- catppuccin.nvim
-require('catppuccin').setup({ flavour = 'macchiato', show_end_of_buffer = true })
+require('catppuccin').setup({
+    flavour = 'macchiato',
+    show_end_of_buffer = true
+})
+
 vim.cmd.colorscheme('catppuccin')
 
 -- comment.nvim
@@ -30,22 +30,13 @@ require('Comment').setup()
 -- copilotchat.nvim
 require('CopilotChat').setup({
     highlight_headers = false,
-    insert_at_end = true,
     mappings = {
         jump_to_diff = { insert = '', normal = '' }, ---@diagnostic disable-line
         reset = { insert = '', normal = '' }, ---@diagnostic disable-line
     },
-    resources = {
-        'buffer',
-        'selection'
-    },
-    separator = '---',
     show_folds = false,
     show_help = false,
-    window = {
-        layout = 'vertical',
-        width = 0.40
-    },
+    window = { width = 0.40 },
 })
 
 util.keymap({ 'n', 'v' }, '<leader>p', vim.cmd.CopilotChatToggle)
@@ -67,9 +58,7 @@ if util.has_executable('fzf') then
         fzf_colors = true,
         winopts = {
             backdrop = 100,
-            preview = {
-                winopts = { cursorline = false } ---@diagnostic disable-line
-            }
+            preview = { winopts = { cursorline = false } } ---@diagnostic disable-line
         }
     })
 
@@ -149,13 +138,21 @@ require('guid').setup({
     comma_space = true,
     styles = { h = '0x????????,0x????,0x????,0x??,0x??,0x??,0x??,0x??,0x??,0x??,0x??' },
 })
+
 util.keymap({ 'x', 'o' }, 'ag', ':<c-u>GuidObject<cr>')
 
 -- lsp_signature.nvim
 require('lsp_signature').setup({ hint_enable = false })
 
 -- revolver.nvim
-require('revolver').setup({ '.c', '.cpp', '.h', '.hpp', '.inl' })
+require('revolver').setup({
+    '.c',
+    '.cpp',
+    '.h',
+    '.hpp',
+    '.inl'
+})
+
 util.keymap('n', 'gfs', vim.cmd.Revolve)
 
 -- toggleterm.nvim

@@ -103,9 +103,6 @@ util.keymap('n', 'Y', 'y$')
 util.keymap('n', 'j', 'gj')
 util.keymap('n', 'k', 'gk')
 
---- buffer keymaps
-util.keymap('n', '<bs>', '<cmd>bd<cr>')
-
 -- split keymaps
 util.keymap({ 'n', 'v' }, '<a-=>', '<c-w><c-=>')
 util.keymap({ 'n', 'v' }, '<a-h>', '<c-w><')
