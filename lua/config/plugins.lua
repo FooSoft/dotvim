@@ -156,9 +156,7 @@ require('revolver').setup({
 util.keymap('n', 'gfs', vim.cmd.Revolve)
 
 -- toggleterm.nvim
-require('toggleterm').setup({
-    open_mapping = [[<c-\>]]
-})
+require('toggleterm').setup({ open_mapping = [[<c-\>]] })
 
 -- suda.vim
 if util.is_linux() then
