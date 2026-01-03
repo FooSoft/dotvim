@@ -66,6 +66,7 @@ if util.has_executable('fzf') then
     fzf_lua.setup({
         fzf_colors = true,
         winopts = {
+            backdrop = 100,
             preview = {
                 winopts = { cursorline = false } ---@diagnostic disable-line
             }
