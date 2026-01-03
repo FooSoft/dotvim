@@ -20,6 +20,10 @@ util.keymap({ 'x', 'o', 'n' }, '<leader>p', ':<C-u>ArgonautObject previous<cr>')
 util.keymap('n', '<leader>a', ':<C-u>ArgonautToggle<cr>')
 util.keymap('n', '<leader>o', ':<C-u>ArgonautReflow<cr>')
 
+-- catppuccin.nvim
+require('catppuccin').setup({ show_end_of_buffer = true })
+vim.cmd.colorscheme('catppuccin')
+
 -- comment.nvim
 require('Comment').setup()
 
@@ -148,10 +152,6 @@ util.keymap({ 'x', 'o' }, 'ag', ':<c-u>GuidObject<cr>')
 
 -- lsp_signature.nvim
 require('lsp_signature').setup({ hint_enable = false })
-
--- nvim.git
-require('catppuccin').setup({ show_end_of_buffer = true })
-vim.cmd.colorscheme('catppuccin')
 
 -- revolver.nvim
 require('revolver').setup({ '.c', '.cpp', '.h', '.hpp', '.inl' })

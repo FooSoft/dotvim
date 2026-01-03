@@ -74,5 +74,5 @@
 	path = pack/plugins/start/toggleterm.nvim
 	url = https://github.com/akinsho/toggleterm.nvim.git
 [submodule "pack/plugins/start/nvim"]
-	path = pack/plugins/start/nvim
+	path = pack/plugins/start/catppuccin.nvim
 	url = https://github.com/catppuccin/nvim.git
