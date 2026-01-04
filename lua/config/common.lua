@@ -67,9 +67,6 @@ vim.opt.shiftwidth = 4
 -- don't show completion messages
 vim.opt.shortmess:append('c')
 
--- don't show mode (handled by statusline)
-vim.opt.showmode = false
-
 -- override 'ignorecase' if search pattern contains uppercase
 vim.opt.smartcase = true
 
