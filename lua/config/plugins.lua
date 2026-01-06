@@ -19,7 +19,8 @@ util.keymap('n', '<leader>o', ':<C-u>ArgonautReflow<cr>')
 -- catppuccin.nvim
 require('catppuccin').setup({
     flavour = 'macchiato',
-    show_end_of_buffer = true
+    show_end_of_buffer = true,
+    styles = { conditionals = {} },
 })
 
 vim.cmd.colorscheme('catppuccin')
