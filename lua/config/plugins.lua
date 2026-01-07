@@ -20,7 +20,7 @@ util.keymap('n', '<leader>o', ':<C-u>ArgonautReflow<cr>')
 require('catppuccin').setup({
     flavour = 'macchiato',
     show_end_of_buffer = true,
-    styles = { conditionals = {} },
+    styles = { conditionals = {}, miscs = {} },
 })
 
 vim.cmd.colorscheme('catppuccin')
