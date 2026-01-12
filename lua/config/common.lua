@@ -6,9 +6,6 @@ vim.g.mapleader = ' '
 -- disable editorconfig integration
 vim.g.editorconfig = false
 
--- disable preprocessing of code inside #if 0 blocks for c files
-vim.g.c_no_if0 = 1
-
 -- automatically reread files changed outside of neovim
 vim.opt.autoread = true
 
@@ -23,9 +20,6 @@ vim.opt.conceallevel = 0
 
 -- use spaces instead of tabs
 vim.opt.expandtab = true
-
--- custom errorformat for quickfix
-vim.opt.errorformat:append({ '%s(%o) : %t%*[^:]: %m' })
 
 -- recognize these file formats
 vim.opt.fileformats = { 'unix', 'dos', 'mac' }
@@ -63,9 +57,6 @@ vim.opt.shiftround = true
 
 -- number of spaces to use for each step of (auto)indent
 vim.opt.shiftwidth = 4
-
--- don't show completion messages
-vim.opt.shortmess:append('c')
 
 -- override 'ignorecase' if search pattern contains uppercase
 vim.opt.smartcase = true
