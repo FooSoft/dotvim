@@ -25,9 +25,6 @@ require('catppuccin').setup({
 
 vim.cmd.colorscheme('catppuccin')
 
--- comment.nvim
-require('Comment').setup()
-
 -- copilotchat.nvim
 require('CopilotChat').setup({
     highlight_headers = false,

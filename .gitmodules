@@ -28,9 +28,6 @@
 [submodule "pack/plugins/start/suda.vim"]
 	path = pack/plugins/opt/suda.vim
 	url = https://github.com/lambdalisue/suda.vim.git
-[submodule "pack/plugins/start/Comment.nvim"]
-	path = pack/plugins/start/Comment.nvim
-	url = https://github.com/numToStr/Comment.nvim.git
 [submodule "pack/plugins/start/guid.nvim"]
 	path = pack/plugins/start/guid.nvim
 	url = https://git.sr.ht/~foosoft/guid.nvim
@@ -76,3 +73,6 @@
 [submodule "pack/plugins/start/catppuccin"]
 	path = pack/plugins/start/catppuccin.nvim
 	url = https://github.com/catppuccin/nvim.git
+[submodule "pack/plugins/start/vim-commentary"]
+	path = pack/plugins/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
