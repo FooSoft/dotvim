@@ -4,3 +4,5 @@ if util.is_windows() then
     vim.bo.fileformat = 'dos'
     vim.diagnostic.enable(false)
 end
+
+vim.cmd('highlight! link @comment NONE')
