@@ -124,7 +124,7 @@ end
 
 local function agency()
     if M.has_executable('agency') then
-        vim.cmd.TermExec({ args = { 'cmd="agency copilot --yolo" direction="vertical" size=60' }})
+        vim.cmd.TermExec({ args = { 'cmd="agency copilot --yolo" direction="float"' }})
     end
 end
 
