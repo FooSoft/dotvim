@@ -25,20 +25,6 @@ require('catppuccin').setup({
 
 vim.cmd.colorscheme('catppuccin')
 
--- copilotchat.nvim
-require('CopilotChat').setup({
-    highlight_headers = false,
-    mappings = {
-        jump_to_diff = { insert = '', normal = '' }, ---@diagnostic disable-line
-        reset = { insert = '', normal = '' }, ---@diagnostic disable-line
-    },
-    show_folds = false,
-    show_help = false,
-    window = { width = 0.40 },
-})
-
-util.keymap({ 'n', 'v' }, '<leader>p', vim.cmd.CopilotChatToggle)
-
 -- f5.nvim
 require('f5').setup({
     enabled = false,

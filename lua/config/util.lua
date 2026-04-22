@@ -122,6 +122,12 @@ local function make(opts)
     vim.cmd('wa | make | botright cwindow | silent! cc')
 end
 
+local function agency()
+    if M.has_executable('agency') then
+        vim.cmd.TermExec({ args = { 'cmd="agency copilot --yolo" direction="vertical" size=60' }})
+    end
+end
+
 -- commands
 
 vim.api.nvim_create_user_command('GitUnlock', git_unlock, {})
@@ -129,6 +135,7 @@ vim.api.nvim_create_user_command('Make', make, { bang = true })
 vim.api.nvim_create_user_command('ToggleQuickfix', toggle_quickfix, {})
 vim.api.nvim_create_user_command('UnAlign', unalign_text, { range = '%' })
 vim.api.nvim_create_user_command('ClearHistoryAndExit', clear_history_and_exit, {})
+vim.api.nvim_create_user_command('Agency', agency, {})
 
 -- exports
 
