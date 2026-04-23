@@ -117,9 +117,9 @@ local function update_makeprg(fast)
     vim.bo.makeprg = nil
 end
 
-local function make(opts)
+local function update_and_make(opts)
     update_makeprg(not opts.bang)
-    vim.cmd('wa | make | botright cwindow | silent! cc')
+    vim.cmd.Make()
 end
 
 local function agency()
@@ -131,7 +131,7 @@ end
 -- commands
 
 vim.api.nvim_create_user_command('GitUnlock', git_unlock, {})
-vim.api.nvim_create_user_command('Make', make, { bang = true })
+vim.api.nvim_create_user_command('UpdateAndMake', update_and_make, { bang = true })
 vim.api.nvim_create_user_command('ToggleQuickfix', toggle_quickfix, {})
 vim.api.nvim_create_user_command('UnAlign', unalign_text, { range = '%' })
 vim.api.nvim_create_user_command('ClearHistoryAndExit', clear_history_and_exit, {})
