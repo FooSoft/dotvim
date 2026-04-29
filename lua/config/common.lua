@@ -104,6 +104,10 @@ util.keymap({ 'n', 'v' }, '<c-l>', '<c-w>l')
 
 -- terminal keymaps
 util.keymap('t', '<esc>', '<c-\\><c-n>')
+util.keymap('t', '<c-r>', function()
+    local reg = vim.fn.nr2char(vim.fn.getchar())
+    return '<c-\\><c-n>"' .. reg .. 'pi'
+end, { expr = true })
 
 -- make and quickfix
 util.keymap('n', '<leader>m', '<cmd>UpdateAndMake<cr>')
