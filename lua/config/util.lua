@@ -124,7 +124,19 @@ end
 
 local function agency()
     if M.has_executable('agency') then
-        vim.cmd.TermExec({ args = { 'cmd="agency copilot --yolo" direction="float"' }})
+        -- pin agency to toggleterm id 1 so the <c-/> work terminal (id 2) stays separate
+        vim.cmd.TermExec({ args = { 'cmd="agency copilot --yolo" direction="float"' }, count = 1 })
+    end
+end
+
+-- toggle the agency terminal (id 1): start it if it isn't running yet (the
+-- TermClose autocmd drops the terminal when the agency process exits), otherwise
+-- just show/hide it
+function M.toggle_agency()
+    if require('toggleterm.terminal').get(1) then
+        vim.cmd('1ToggleTerm direction=float')
+    else
+        agency()
     end
 end
 

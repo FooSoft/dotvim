@@ -139,8 +139,19 @@ require('revolver').setup({
 
 util.keymap('n', 'gfs', vim.cmd.Revolve)
 
--- toggleterm.nvim
-require('toggleterm').setup({ open_mapping = [[<c-\>]] })
+-- toggleterm.nvim: bind each hotkey to a fixed terminal id so it always toggles
+-- exactly that terminal. The default "smart" open_mapping restores the last-used
+-- terminal view, which let the <c-/> work terminal hijack the <c-\> Agency key.
+require('toggleterm').setup({})
+
+-- Agency lives on terminal id 1 (start it / toggle it), scratch work terminal on id 2.
+-- <c-_> is the byte many terminals send for <c-/>; map both for portability.
+util.keymap({ 'n', 't' }, '<c-\\>', util.toggle_agency,
+    { desc = 'Start/toggle Agency terminal' })
+for _, lhs in ipairs({ '<c-/>', '<c-_>' }) do
+    util.keymap({ 'n', 't' }, lhs, '<cmd>2ToggleTerm direction=float<cr>',
+        { desc = 'Toggle work terminal' })
+end
 
 -- suda.vim
 if util.is_linux() then
