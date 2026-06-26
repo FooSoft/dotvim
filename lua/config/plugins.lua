@@ -146,11 +146,9 @@ require('toggleterm').setup({})
 
 -- Agency lives on terminal id 1 (start it / toggle it), scratch work terminal on id 2.
 -- <c-_> is the byte many terminals send for <c-/>; map both for portability.
-util.keymap({ 'n', 't' }, '<c-\\>', util.toggle_agency,
-    { desc = 'Start/toggle Agency terminal' })
+util.keymap({ 'n', 't' }, '<c-\\>', util.toggle_agency)
 for _, lhs in ipairs({ '<c-/>', '<c-_>' }) do
-    util.keymap({ 'n', 't' }, lhs, '<cmd>2ToggleTerm direction=float<cr>',
-        { desc = 'Toggle work terminal' })
+    util.keymap({ 'n', 't' }, lhs, '<cmd>2ToggleTerm direction=float<cr>')
 end
 
 -- suda.vim

@@ -147,7 +147,6 @@ vim.api.nvim_create_user_command('UpdateAndMake', update_and_make, { bang = true
 vim.api.nvim_create_user_command('ToggleQuickfix', toggle_quickfix, {})
 vim.api.nvim_create_user_command('UnAlign', unalign_text, { range = '%' })
 vim.api.nvim_create_user_command('ClearHistoryAndExit', clear_history_and_exit, {})
-vim.api.nvim_create_user_command('Agency', agency, {})
 
 -- exports
 
