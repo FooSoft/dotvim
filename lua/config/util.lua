@@ -122,21 +122,25 @@ local function update_and_make(opts)
     vim.cmd.Make()
 end
 
-local function agency()
-    if M.has_executable('agency') then
-        -- pin agency to toggleterm id 1 so the <c-/> work terminal (id 2) stays separate
+local function copilot()
+    -- prefer the gif-copilot.cmd wrapper; fall back to launching copilot via agency
+    if M.has_executable('gif-copilot.cmd') then
+        -- pin copilot to toggleterm id 1 so the <c-/> work terminal (id 2) stays separate
+        vim.cmd.TermExec({ args = { 'cmd="gif-copilot.cmd --yolo" direction="float"' }, count = 1 })
+    elseif M.has_executable('agency') then
+        -- pin copilot to toggleterm id 1 so the <c-/> work terminal (id 2) stays separate
         vim.cmd.TermExec({ args = { 'cmd="agency copilot --yolo" direction="float"' }, count = 1 })
     end
 end
 
--- toggle the agency terminal (id 1): start it if it isn't running yet (the
--- TermClose autocmd drops the terminal when the agency process exits), otherwise
+-- toggle the copilot terminal (id 1): start it if it isn't running yet (the
+-- TermClose autocmd drops the terminal when the copilot process exits), otherwise
 -- just show/hide it
-function M.toggle_agency()
+function M.toggle_copilot()
     if require('toggleterm.terminal').get(1) then
         vim.cmd('1ToggleTerm direction=float')
     else
-        agency()
+        copilot()
     end
 end
 
