@@ -8,11 +8,14 @@ vim.diagnostic.config({
     virtual_text = {}
 })
 
+local lsp_attach_group = vim.api.nvim_create_augroup('lsp_attach', { clear = true })
+
 vim.api.nvim_create_autocmd('LspAttach', {
+    group = lsp_attach_group,
     callback = function(args)
         util.keymap('n', 'gd', vim.lsp.buf.definition, { buffer = args.buf })
         util.keymap('n', 'K', vim.lsp.buf.hover, { buffer = args.buf })
-        util.keymap('n', '<space>rn', vim.lsp.buf.rename, { buffer = args.buf })
+        util.keymap('n', '<leader>rn', vim.lsp.buf.rename, { buffer = args.buf })
         util.keymap('i', '<c-space>', '<c-x><c-o>', { buffer = args.buf })
 
         util.keymap('i', '<tab>', function()
@@ -42,10 +45,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
             end
         end
 
-        if util.is_linux() then
+        if util.is_linux() and client and client:supports_method('textDocument/formatting') then
             vim.api.nvim_create_autocmd('BufWritePre', {
+                group = vim.api.nvim_create_augroup('lsp_format_' .. args.buf, { clear = true }),
                 buffer = args.buf,
-                callback = function() vim.lsp.buf.format() end
+                callback = function()
+                    vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
+                end,
+                desc = 'Format with the attached language server',
             })
         end
     end,

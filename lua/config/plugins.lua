@@ -110,11 +110,12 @@ require('gitsigns').setup({
             { buffer = bufnr }
         )
 
-        util.keymap('n', '<leader>hs', gitsigns.stage_hunk)
-        util.keymap('n', '<leader>hr', gitsigns.reset_hunk)
-        util.keymap('n', '<leader>hS', gitsigns.stage_buffer)
-        util.keymap('n', '<leader>hR', gitsigns.reset_buffer)
-        util.keymap('n', '<leader>hp', gitsigns.preview_hunk)
+        local opts = { buffer = bufnr }
+        util.keymap('n', '<leader>hs', gitsigns.stage_hunk, opts)
+        util.keymap('n', '<leader>hr', gitsigns.reset_hunk, opts)
+        util.keymap('n', '<leader>hS', gitsigns.stage_buffer, opts)
+        util.keymap('n', '<leader>hR', gitsigns.reset_buffer, opts)
+        util.keymap('n', '<leader>hp', gitsigns.preview_hunk, opts)
     end
 })
 
