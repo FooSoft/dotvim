@@ -1,3 +1,4 @@
+*.log
 .netrwhist
 lls
 spell

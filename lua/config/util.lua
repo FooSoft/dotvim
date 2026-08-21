@@ -125,7 +125,7 @@ end
 local function llm_terminal()
     local command
     if M.is_linux() and M.has_executable('codex') then
-        command = 'codex'
+        command = 'codex -c tui.animations=false'
     elseif M.is_windows() then
         if M.has_executable('gif-copilot.cmd') then
             command = 'gif-copilot.cmd'
@@ -135,7 +135,11 @@ local function llm_terminal()
     end
 
     if command then
-        vim.cmd.TermExec({ args = { 'cmd="' .. command .. '" direction="float"' }, count = 1 })
+        require('toggleterm.terminal').Terminal:new({
+            cmd = command,
+            count = 1,
+            direction = 'float',
+        }):toggle()
     else
         vim.notify('LLM executable not found in PATH', vim.log.levels.ERROR)
     end
