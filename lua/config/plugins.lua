@@ -70,6 +70,7 @@ if util.has_executable('fzf') then
     end
 
     util.keymap('n', '<leader>fb', fzf_lua.buffers)
+    util.keymap('n', '<leader>fd', function() fzf_lua.git_diff() end)
     util.keymap('n', '<leader>fg', function() fzf_lua.git_files() end)
     util.keymap('n', '<leader>fh', fzf_lua.oldfiles)
     util.keymap('n', '<leader>fl', fzf_lua.lines)
@@ -144,7 +145,7 @@ util.keymap('n', 'gfs', vim.cmd.Revolve)
 -- terminal view, which let the <c-/> work terminal hijack the <c-\> Copilot key.
 require('toggleterm').setup({})
 
--- Copilot lives on terminal id 1 (start it / toggle it), scratch work terminal on id 2.
+-- LLM lives on terminal id 1 (start it / toggle it), scratch work terminal on id 2.
 -- <c-_> is the byte many terminals send for <c-/>; map both for portability.
 util.keymap({ 'n', 't' }, '<c-\\>', util.toggle_copilot)
 for _, lhs in ipairs({ '<c-/>', '<c-_>' }) do

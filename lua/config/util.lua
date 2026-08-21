@@ -122,25 +122,30 @@ local function update_and_make(opts)
     vim.cmd.Make()
 end
 
-local function copilot()
-    -- prefer the gif-copilot.cmd wrapper; fall back to launching copilot via agency
-    if M.has_executable('gif-copilot.cmd') then
-        -- pin copilot to toggleterm id 1 so the <c-/> work terminal (id 2) stays separate
-        vim.cmd.TermExec({ args = { 'cmd="gif-copilot.cmd" direction="float"' }, count = 1 })
-    elseif M.has_executable('agency') then
-        -- pin copilot to toggleterm id 1 so the <c-/> work terminal (id 2) stays separate
-        vim.cmd.TermExec({ args = { 'cmd="agency copilot --yolo" direction="float"' }, count = 1 })
+local function llm_terminal()
+    local command
+    if M.is_linux() and M.has_executable('codex') then
+        command = 'codex'
+    elseif M.is_windows() then
+        if M.has_executable('gif-copilot.cmd') then
+            command = 'gif-copilot.cmd'
+        elseif M.has_executable('agency') then
+            command = 'agency copilot --yolo'
+        end
+    end
+
+    if command then
+        vim.cmd.TermExec({ args = { 'cmd="' .. command .. '" direction="float"' }, count = 1 })
+    else
+        vim.notify('LLM executable not found in PATH', vim.log.levels.ERROR)
     end
 end
 
--- toggle the copilot terminal (id 1): start it if it isn't running yet (the
--- TermClose autocmd drops the terminal when the copilot process exits), otherwise
--- just show/hide it
 function M.toggle_copilot()
     if require('toggleterm.terminal').get(1) then
         vim.cmd('1ToggleTerm direction=float')
     else
-        copilot()
+        llm_terminal()
     end
 end
 
