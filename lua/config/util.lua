@@ -126,7 +126,7 @@ local function copilot()
     -- prefer the gif-copilot.cmd wrapper; fall back to launching copilot via agency
     if M.has_executable('gif-copilot.cmd') then
         -- pin copilot to toggleterm id 1 so the <c-/> work terminal (id 2) stays separate
-        vim.cmd.TermExec({ args = { 'cmd="gif-copilot.cmd" direction="float"' }, count = 1 })
+        vim.cmd.TermExec({ args = { 'cmd="gif-copilot.cmd --noagents" direction="float"' }, count = 1 })
     elseif M.has_executable('agency') then
         -- pin copilot to toggleterm id 1 so the <c-/> work terminal (id 2) stays separate
         vim.cmd.TermExec({ args = { 'cmd="agency copilot --yolo" direction="float"' }, count = 1 })
