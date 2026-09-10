@@ -128,7 +128,7 @@ local function llm_terminal()
         command = 'codex -c tui.animations=false'
     elseif M.is_windows() then
         if M.has_executable('gif-copilot.cmd') then
-            command = 'gif-copilot.cmd'
+            command = 'gif-copilot.cmd --noagents'
         elseif M.has_executable('agency') then
             command = 'agency copilot --yolo'
         end
