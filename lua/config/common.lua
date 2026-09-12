@@ -141,8 +141,8 @@ vim.api.nvim_create_autocmd('VimLeavePre', {
     group = vim.api.nvim_create_augroup('delete_shada_temp', { clear = true }),
     callback = function()
         local status = 0
-        for _, f in ipairs(vim.fn.globpath(vim.fn.stdpath('data') .. '/shada', '*tmp*', false, true)) do
-            if vim.tbl_isempty(vim.fn.readfile(f)) then
+        for _, f in ipairs(vim.fn.globpath(vim.fn.stdpath('state') .. '/shada', '*.tmp.*', false, true)) do
+            if vim.fn.getfsize(f) == 0 then
                 status = status + vim.fn.delete(f)
             end
         end

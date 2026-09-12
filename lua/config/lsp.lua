@@ -50,6 +50,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
                 group = vim.api.nvim_create_augroup('lsp_format_' .. args.buf, { clear = true }),
                 buffer = args.buf,
                 callback = function()
+                    -- vim-go handles formatting and import organization together.
+                    if vim.bo[args.buf].filetype == 'go' and vim.g.go_loaded_install == 1 then
+                        return
+                    end
+                    if not vim.lsp.buf_is_attached(args.buf, client.id) then
+                        return
+                    end
                     vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
                 end,
                 desc = 'Format with the attached language server',
@@ -74,6 +81,8 @@ vim.lsp.config('*', {
 local function config_lsp(config)
     local program_name = config.cmd[1]
     if util.has_executable(program_name) then
+        -- Per-server lists replace the wildcard list; retain the Git fallback.
+        table.insert(config.root_markers, '.git')
         vim.lsp.config(program_name, config)
         vim.lsp.enable(program_name)
     end
@@ -106,7 +115,7 @@ config_lsp({
 config_lsp({
     cmd = { 'gopls' },
     filetypes = { 'go' },
-    root_markers = { 'go.mod' },
+    root_markers = { 'go.work', 'go.mod' },
 })
 
 -- python
@@ -125,7 +134,8 @@ config_lsp({
 
 -- lua
 
-vim.env.PATH = vim.env.PATH .. ':' .. vim.fn.stdpath('config') .. '/lls/bin'
+local path_separator = util.is_windows() and ';' or ':'
+vim.env.PATH = (vim.env.PATH or '') .. path_separator .. vim.fn.stdpath('config') .. '/lls/bin'
 
 config_lsp({
     cmd = { 'lua-language-server' },

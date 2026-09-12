@@ -2,15 +2,16 @@ local M = {}
 
 -- locals
 
-local function git_root()
-    return vim.fs.root(0, '.git')
-end
-
 local function git_unlock()
-    local root = git_root()
-    if root then
-        local lock_path = root .. '/.git/index.lock'
-        vim.fn.delete(lock_path)
+    local result = vim.system({ 'git', '-C', M.buffer_dir(), 'rev-parse', '--path-format=absolute',
+        '--git-path', 'index.lock' }, { text = true }):wait()
+    if result.code ~= 0 then
+        vim.notify(vim.trim(result.stderr), vim.log.levels.ERROR)
+        return
+    end
+    local lock_path = vim.trim(result.stdout)
+    if vim.fn.filereadable(lock_path) == 1 and vim.fn.delete(lock_path) ~= 0 then
+        vim.notify('Could not delete ' .. lock_path, vim.log.levels.ERROR)
     end
 end
 
@@ -25,7 +26,7 @@ end
 
 local split_path = function(path)
     local parts = {}
-    for part in path:gmatch('[^/\\]+') do
+    for part in path:gmatch('[^/]+') do
         table.insert(parts, part)
     end
 
@@ -42,19 +43,40 @@ local slice_table = function(values, start, stop)
 end
 
 local function find_common_root(path_1, path_2)
+    local windows = M.is_windows()
+    path_1 = vim.fs.normalize(path_1, { win = windows })
+    path_2 = vim.fs.normalize(path_2, { win = windows })
+    local function anchor(path)
+        if windows then
+            return path:match('^//[^/]+/[^/]+') or path:match('^%a:') or path:match('^/')
+        end
+        return path:match('^/')
+    end
+    local function equal(a, b)
+        if windows and a and b then
+            return a:lower() == b:lower()
+        end
+        return a == b
+    end
+    local anchor_1, anchor_2 = anchor(path_1), anchor(path_2)
+    if not equal(anchor_1, anchor_2) then
+        return
+    end
+    path_1 = path_1:sub(#(anchor_1 or '') + 1)
+    path_2 = path_2:sub(#(anchor_2 or '') + 1)
     local path_1_parts = split_path(path_1)
     local path_2_parts = split_path(path_2)
 
     local root_parts = {}
     for i, part in ipairs(path_1_parts) do
-        if part == path_2_parts[i] then
+        if equal(part, path_2_parts[i]) then
             table.insert(root_parts, part)
         else
             break
         end
     end
 
-    if #root_parts > 0 then
+    if anchor_1 or #root_parts > 0 then
         return {
             dir = root_parts,
             tail_1 = slice_table(path_1_parts, #root_parts + 1),
@@ -64,16 +86,7 @@ local function find_common_root(path_1, path_2)
 end
 
 local function toggle_quickfix()
-    local visible = false
-    for _, win in ipairs(vim.api.nvim_list_wins()) do
-        local buf = vim.api.nvim_win_get_buf(win)
-        if vim.api.nvim_get_option_value('buftype', { buf = buf }) == 'quickfix' then
-            visible = true
-            break
-        end
-    end
-
-    if visible then
+    if vim.fn.getqflist({ winid = 0 }).winid ~= 0 then
         vim.cmd('cclose')
     else
         vim.cmd('botright copen | wincmd p')
@@ -86,25 +99,26 @@ local function update_makeprg(fast)
     end
 
     if vim.api.nvim_get_option_value('filetype', { buf = 0 }) == 'go' then
-        vim.bo.makeprg = 'cd ' .. M.buffer_dir() .. ' && go build'
+        vim.bo.makeprg = 'cd ' .. vim.fn.shellescape(M.buffer_dir()) .. ' && go build'
         return
     end
 
     if M.is_windows() then
         local gi_build_dir = find_root('build.cmd')
         if gi_build_dir then
-            vim.bo.makeprg = vim.fs.joinpath(gi_build_dir, 'build.cmd --noarm64 --noarm64ec --nox86'):gsub('/', '\\')
+            local build_cmd = vim.fs.joinpath(gi_build_dir, 'build.cmd'):gsub('/', '\\')
+            vim.bo.makeprg = vim.fn.shellescape(build_cmd) .. ' --noarm64 --noarm64ec --nox86'
             if fast then
                 vim.bo.makeprg = vim.bo.makeprg .. ' --noconfigure --noinstall'
             end
             return
         end
 
-        if vim.loop.os_getenv('_NTROOT') then
+        if vim.env._NTROOT then
             local winmake_dir = find_root('sources') or find_root('dirs')
             if winmake_dir then
                 vim.bo.errorformat = [[%f(%l)\ :\ %t%*[^:]:\ %m]]
-                vim.bo.makeprg = 'build.cmd -c /dir ' .. winmake_dir
+                vim.bo.makeprg = 'build.cmd -c /dir ' .. vim.fn.shellescape(winmake_dir)
                 if fast then
                     vim.bo.makeprg = vim.bo.makeprg .. ' -p'
                 end
@@ -177,7 +191,7 @@ end
 
 function M.is_abspath(path)
     if M.is_windows() then
-        return path:sub(2, 2) == ':'
+        return path:match('^%a:[/\\]') ~= nil or path:match('^[/\\]') ~= nil
     else
         return path:sub(1, 1) == '/'
     end

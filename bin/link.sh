@@ -1,9 +1,10 @@
 #!/bin/bash -e
 
-pushd $(git rev-parse --show-toplevel)
+pushd "$(git rev-parse --show-toplevel)"
 
-if [ ! -d ~/.config/nvim ]; then
-    ln -s $PWD ~/.config/nvim
+mkdir -p ~/.config
+if [ ! -e ~/.config/nvim ] && [ ! -L ~/.config/nvim ]; then
+    ln -s "$PWD" ~/.config/nvim
 fi
 
 popd

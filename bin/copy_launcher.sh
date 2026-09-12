@@ -1,13 +1,13 @@
 #!/bin/bash -e
 
-pushd $(git rev-parse --show-toplevel)
+pushd "$(git rev-parse --show-toplevel)"
 
 APP_DIR=~/.local/share/applications
-mkdir -p $APP_DIR
-cp ./bin/launcher/nvim.desktop $APP_DIR
+mkdir -p "$APP_DIR"
+cp ./bin/launcher/nvim.desktop "$APP_DIR"
 
 ICON_DIR=~/.local/share/icons
-mkdir -p $ICON_DIR
-cp ./bin/launcher/nvim.png $ICON_DIR
+mkdir -p "$ICON_DIR"
+cp ./bin/launcher/nvim.png "$ICON_DIR"
 
 popd

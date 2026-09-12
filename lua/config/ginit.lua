@@ -17,15 +17,15 @@ if vim.g.neovide then
         vim.o.guifont = 'Monospace:h12'
     end
 else
-    if vim.fn.has(':GuiPopupmenu') then
+    if vim.fn.exists(':GuiPopupmenu') == 2 then
         vim.cmd.GuiPopupmenu(0)
     end
 
-    if vim.fn.has(':GuiTabline') then
+    if vim.fn.exists(':GuiTabline') == 2 then
         vim.cmd.GuiTabline(0)
     end
 
-    if vim.fn.has(':GuiFont') == 1 then
+    if vim.fn.exists(':GuiFont') == 2 then
         if util.is_windows() then
             vim.cmd.GuiFont({
                 args = { 'Cascadia Mono:h10' },

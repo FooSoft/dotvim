@@ -47,18 +47,22 @@ if util.has_executable('fzf') then
     })
 
     local find_git_relative = function()
+        local source_buf = vim.api.nvim_get_current_buf()
+        local source_dir = util.buffer_dir()
+        local source_pos = vim.api.nvim_win_get_cursor(0)
         fzf_lua.git_files({
             actions = {
                 ['ctrl-r'] = function(selected, opts)
-                    local source_dir = util.buffer_dir()
-
-                    local target_path = fzf_lua.path.entry_to_file(selected[1]).path
-                    if not util.is_abspath(target_path) then
-                        target_path = vim.fs.joinpath(opts.cwd, target_path)
+                    if not selected[1] or vim.api.nvim_get_current_buf() ~= source_buf then
+                        return
                     end
-
+                    local target_path = fzf_lua.path.entry_to_file(selected[1], opts).path
                     local relpath = util.relpath(source_dir, target_path)
-                    vim.api.nvim_feedkeys('i' .. relpath, 'n', false)
+                    local row, col = source_pos[1] - 1, source_pos[2]
+                    vim.api.nvim_buf_set_text(source_buf, row, col, row, col, { relpath })
+                    col = col + #relpath
+                    vim.api.nvim_win_set_cursor(0, { row + 1, col })
+                    vim.cmd.startinsert({ bang = col == #vim.api.nvim_get_current_line() })
                 end
             },
         })
@@ -171,9 +175,14 @@ util.keymap('v', '<cr>', '<plug>(EasyAlign)')
 
 -- vim-go
 if util.has_executable('go') then
-    vim.cmd.packadd('vim-go')
     vim.g.go_imports_autosave = 1
     vim.g.go_diagnostics_enabled = 0
+    if vim.lsp.enable and util.has_executable('gopls') then
+        vim.g.go_code_completion_enabled = 0
+        vim.g.go_def_mapping_enabled = 0
+        vim.g.go_doc_keywordprg_enabled = 0
+    end
+    vim.cmd.packadd('vim-go')
 end
 
 -- vim-quickhl
