@@ -1,4 +1,5 @@
-#!/bin/bash -e
+#!/bin/bash
+set -euo pipefail
 
 INSTALL_DIR="/usr/local/bin"
 INSTALL_PATH="$INSTALL_DIR/nvim"
@@ -9,5 +10,5 @@ wget -O "$DOWNLOAD_PATH" https://github.com/neovim/neovim/releases/download/stab
 sudo install -D -m 755 "$DOWNLOAD_PATH" "$INSTALL_PATH"
 
 if command -v update-alternatives > /dev/null; then
-    sudo update-alternatives --install /usr/bin/editor editor "$INSTALL_PATH" 110
+    bash "$(dirname -- "${BASH_SOURCE[0]}")/update_editor.sh"
 fi

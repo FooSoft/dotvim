@@ -1,7 +1,6 @@
-#!/bin/bash -e
+#!/bin/bash
+set -euo pipefail
 
-pushd "$(git rev-parse --show-toplevel)"
+cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.."
 
 git submodule update --init --recursive
-
-popd
