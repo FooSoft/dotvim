@@ -153,6 +153,7 @@ local function llm_terminal()
             cmd = command,
             count = 1,
             direction = 'float',
+            auto_scroll = false,
         }):toggle()
     else
         vim.notify('LLM executable not found in PATH', vim.log.levels.ERROR)
