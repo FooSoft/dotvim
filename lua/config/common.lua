@@ -104,10 +104,15 @@ util.keymap({ 'n', 'v' }, '<c-l>', '<c-w>l')
 
 -- terminal keymaps
 util.keymap('t', '<esc>', '<c-\\><c-n>')
+-- Waiting for a register in an expression mapping locks fzf's resize callbacks.
 util.keymap('t', '<c-r>', function()
-    local reg = vim.fn.nr2char(vim.fn.getchar())
-    return '<c-\\><c-n>"' .. reg .. 'pi'
-end, { expr = true })
+    local reg = vim.fn.getcharstr()
+    if not reg:match('^[a-zA-Z0-9"*+%#:/%.=_%-]$') then
+        return
+    end
+    local keys = vim.api.nvim_replace_termcodes('<c-\\><c-n>"' .. reg .. 'pi', true, false, true)
+    vim.api.nvim_feedkeys(keys, 'ni', false)
+end)
 
 -- make and quickfix
 util.keymap('n', '<leader>m', '<cmd>UpdateAndMake<cr>')
