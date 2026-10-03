@@ -13,7 +13,7 @@ if vim.g.neovide then
 
     if util.is_windows() then
         vim.o.guifont = 'Cascadia Mono:h14'
-    elseif util.is_linux() then
+    elseif util.is_unix() then
         vim.o.guifont = 'Monospace:h12'
     end
 else
@@ -31,7 +31,7 @@ else
                 args = { 'Cascadia Mono:h10' },
                 bang = true
             })
-        elseif util.is_linux() then
+        elseif util.is_unix() then
             vim.o.guifont = 'Monospace:h10'
         end
     end

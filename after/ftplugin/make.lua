@@ -1,8 +1,3 @@
-local util = require('config.util')
-
-for i, v in ipairs({'sources', 'sources.inc', 'dirs'}) do
-    if v == util.buffer_name() then
-        vim.bo.expandtab = true
-        break
-    end
+if vim.tbl_contains({ 'sources', 'sources.inc', 'dirs' }, vim.fn.expand('%:t')) then
+    vim.bo.expandtab = true
 end

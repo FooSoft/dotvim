@@ -2,5 +2,8 @@ local util = require('config.util')
 
 if util.is_windows() then
     vim.bo.fileformat = 'dos'
-    vim.diagnostic.enable(false, { bufnr = 0 })
+    if vim.diagnostic.is_enabled({ bufnr = 0 }) then
+        vim.diagnostic.enable(false, { bufnr = 0 })
+        util.undo_ftplugin('lua vim.diagnostic.enable(true, { bufnr = 0 })')
+    end
 end

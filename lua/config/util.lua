@@ -16,73 +16,12 @@ local function git_unlock()
 end
 
 local function unalign_text(ctx)
-    vim.cmd(ctx.line1 .. ',' .. ctx.line2 .. 's/\\(\\S\\+\\)\\s\\{2,\\}/\\1 /g')
+    vim.cmd(ctx.line1 .. ',' .. ctx.line2 .. 's/\\(\\S\\+\\)\\s\\{2,\\}/\\1 /ge')
     vim.cmd.nohlsearch()
 end
 
 local function clear_history_and_exit()
     vim.cmd([[set vi+='0 | wv! | q!]])
-end
-
-local split_path = function(path)
-    local parts = {}
-    for part in path:gmatch('[^/]+') do
-        table.insert(parts, part)
-    end
-
-    return parts
-end
-
-local slice_table = function(values, start, stop)
-    local results = {}
-    for i = start, stop or #values do
-        table.insert(results, values[i])
-    end
-
-    return results
-end
-
-local function find_common_root(path_1, path_2)
-    local windows = M.is_windows()
-    path_1 = vim.fs.normalize(path_1, { win = windows })
-    path_2 = vim.fs.normalize(path_2, { win = windows })
-    local function anchor(path)
-        if windows then
-            return path:match('^//[^/]+/[^/]+') or path:match('^%a:') or path:match('^/')
-        end
-        return path:match('^/')
-    end
-    local function equal(a, b)
-        if windows and a and b then
-            return a:lower() == b:lower()
-        end
-        return a == b
-    end
-    local anchor_1, anchor_2 = anchor(path_1), anchor(path_2)
-    if not equal(anchor_1, anchor_2) then
-        return
-    end
-    path_1 = path_1:sub(#(anchor_1 or '') + 1)
-    path_2 = path_2:sub(#(anchor_2 or '') + 1)
-    local path_1_parts = split_path(path_1)
-    local path_2_parts = split_path(path_2)
-
-    local root_parts = {}
-    for i, part in ipairs(path_1_parts) do
-        if equal(part, path_2_parts[i]) then
-            table.insert(root_parts, part)
-        else
-            break
-        end
-    end
-
-    if anchor_1 or #root_parts > 0 then
-        return {
-            dir = root_parts,
-            tail_1 = slice_table(path_1_parts, #root_parts + 1),
-            tail_2 = slice_table(path_2_parts, #root_parts + 1),
-        }
-    end
 end
 
 local function toggle_quickfix()
@@ -94,17 +33,13 @@ local function toggle_quickfix()
 end
 
 local function update_makeprg(fast)
-    local find_root = function(name)
-        return vim.fs.root(0, name)
-    end
-
-    if vim.api.nvim_get_option_value('filetype', { buf = 0 }) == 'go' then
+    if vim.bo.filetype == 'go' then
         vim.bo.makeprg = 'cd ' .. vim.fn.shellescape(M.buffer_dir()) .. ' && go build'
         return
     end
 
     if M.is_windows() then
-        local gi_build_dir = find_root('build.cmd')
+        local gi_build_dir = vim.fs.root(0, 'build.cmd')
         if gi_build_dir then
             local build_cmd = vim.fs.joinpath(gi_build_dir, 'build.cmd'):gsub('/', '\\')
             vim.bo.makeprg = vim.fn.shellescape(build_cmd) .. ' --noarm64 --noarm64ec --nox86'
@@ -115,7 +50,7 @@ local function update_makeprg(fast)
         end
 
         if vim.env._NTROOT then
-            local winmake_dir = find_root('sources') or find_root('dirs')
+            local winmake_dir = vim.fs.root(0, { 'sources', 'dirs' })
             if winmake_dir then
                 vim.bo.errorformat = [[%f(%l)\ :\ %t%*[^:]:\ %m]]
                 vim.bo.makeprg = 'build.cmd -c /dir ' .. vim.fn.shellescape(winmake_dir)
@@ -126,19 +61,17 @@ local function update_makeprg(fast)
             end
         end
     end
-
-    vim.bo.errorformat = nil
-    vim.bo.makeprg = nil
 end
 
 local function update_and_make(opts)
+    vim.cmd.update()
     update_makeprg(not opts.bang)
     vim.cmd.Make()
 end
 
 local function llm_terminal()
     local command
-    if M.is_linux() and M.has_executable('codex') then
+    if M.is_unix() and M.has_executable('codex') then
         command = 'codex -c tui.animations=false'
     elseif M.is_windows() then
         if M.has_executable('gif-copilot.cmd') then
@@ -182,23 +115,7 @@ function M.buffer_dir()
     return vim.fn.expand('%:p:h')
 end
 
-function M.buffer_name()
-    return vim.fn.expand('%:t')
-end
-
-function M.buffer_path()
-    return vim.fn.expand('%:p')
-end
-
-function M.is_abspath(path)
-    if M.is_windows() then
-        return path:match('^%a:[/\\]') ~= nil or path:match('^[/\\]') ~= nil
-    else
-        return path:sub(1, 1) == '/'
-    end
-end
-
-function M.is_linux()
+function M.is_unix()
     return vim.fn.has('unix') == 1
 end
 
@@ -211,43 +128,45 @@ function M.has_executable(name)
 end
 
 function M.keymap(mode, lhs, rhs, opts)
-    local default_opts = {
-        silent = true,
-        noremap = true,
-    }
+    vim.keymap.set(mode, lhs, rhs, vim.tbl_extend('force', { silent = true }, opts or {}))
+end
 
-    vim.keymap.set(
-        mode,
-        lhs,
-        rhs,
-        vim.tbl_deep_extend(
-            'force',
-            default_opts,
-            opts or {}
-        )
-    )
+function M.undo_ftplugin(command)
+    local undo = vim.b.undo_ftplugin
+    -- Existing undo commands may end with an :autocmd, which consumes trailing bars.
+    vim.b.undo_ftplugin = 'execute ' .. vim.fn.string(command) .. (undo and (' | ' .. undo) or '')
 end
 
 function M.relpath(source_dir, target_path)
-    local root = find_common_root(source_dir, target_path)
-    if not root then
+    local windows = M.is_windows()
+    local function split(path)
+        path = vim.fs.normalize(path, { win = windows, expand_env = false })
+        local anchor = windows and (path:match('^//[^/]+/[^/]+') or path:match('^%a:'))
+            or path:match('^/') or ''
+        local parts = vim.split(path:sub(#anchor + 1), '/', { trimempty = true })
+        return anchor, parts
+    end
+    local function equal(a, b)
+        return windows and a:lower() == b:lower() or a == b
+    end
+    local source_anchor, source = split(source_dir)
+    local target_anchor, target = split(target_path)
+    if not equal(source_anchor, target_anchor) then
         return target_path
     end
 
-    local result_path = '.'
-    for _ = 1, #root.tail_1 do
-        result_path = vim.fs.joinpath(result_path, '..')
+    local common = 0
+    while common < math.min(#source, #target) and equal(source[common + 1], target[common + 1]) do
+        common = common + 1
     end
-
-    for _, part in ipairs(root.tail_2) do
-        result_path = vim.fs.joinpath(result_path, part)
+    local parts = {}
+    for _ = common + 1, #source do
+        parts[#parts + 1] = '..'
     end
-
-    return vim.fs.normalize(result_path)
-end
-
-function M.file_exists(path)
-    return vim.fn.filereadable(path) == 1
+    for i = common + 1, #target do
+        parts[#parts + 1] = target[i]
+    end
+    return #parts > 0 and table.concat(parts, '/') or '.'
 end
 
 return M

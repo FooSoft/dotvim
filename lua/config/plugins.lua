@@ -21,6 +21,10 @@ require('catppuccin').setup({
     flavour = 'macchiato',
     show_end_of_buffer = true,
     styles = { conditionals = {}, miscs = {} },
+    custom_highlights = {
+        ['@comment.cpp'] = { link = 'Normal' },
+        ExtraWhitespace = { link = 'Search' },
+    },
 })
 
 vim.cmd.colorscheme('catppuccin')
@@ -135,14 +139,6 @@ util.keymap({ 'x', 'o' }, 'ag', ':<c-u>GuidObject<cr>')
 require('lsp_signature').setup({ hint_enable = false })
 
 -- revolver.nvim
-require('revolver').setup({
-    '.c',
-    '.cpp',
-    '.h',
-    '.hpp',
-    '.inl'
-})
-
 util.keymap('n', 'gfs', vim.cmd.Revolve)
 
 -- toggleterm.nvim: bind each hotkey to a fixed terminal id so it always toggles
@@ -158,12 +154,9 @@ for _, lhs in ipairs({ '<c-/>', '<c-_>' }) do
 end
 
 -- suda.vim
-if util.is_linux() then
+if util.is_unix() then
     vim.cmd.packadd('suda.vim')
 end
-
--- vim-better-whitespace
-vim.api.nvim_set_hl(0, 'ExtraWhitespace', { link = 'Search' })
 
 -- vim-dirvish
 vim.g.dirvish_mode = ':sort ,^.*[\\/],'
@@ -186,7 +179,5 @@ if util.has_executable('go') then
 end
 
 -- vim-quickhl
-util.keymap('n', '<leader>K', '<Plug>(quickhl-manual-reset)')
-util.keymap('n', '<leader>k', '<Plug>(quickhl-manual-this-whole-word)')
-util.keymap('x', '<leader>K', '<Plug>(quickhl-manual-reset)')
-util.keymap('x', '<leader>k', '<Plug>(quickhl-manual-this-whole-word)')
+util.keymap({ 'n', 'x' }, '<leader>K', '<Plug>(quickhl-manual-reset)')
+util.keymap({ 'n', 'x' }, '<leader>k', '<Plug>(quickhl-manual-this-whole-word)')
