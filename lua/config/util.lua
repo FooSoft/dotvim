@@ -1,4 +1,13 @@
 local M = {}
+local ftplugin_undos = vim._config_ftplugin_undos or {}
+vim._config_ftplugin_undos = ftplugin_undos
+
+vim.api.nvim_create_autocmd('BufWipeout', {
+    group = vim.api.nvim_create_augroup('config_ftplugin_undo', { clear = true }),
+    callback = function(args)
+        ftplugin_undos[args.buf] = nil
+    end,
+})
 
 -- locals
 
@@ -104,11 +113,11 @@ end
 
 -- commands
 
-vim.api.nvim_create_user_command('GitUnlock', git_unlock, {})
-vim.api.nvim_create_user_command('UpdateAndMake', update_and_make, { bang = true })
-vim.api.nvim_create_user_command('ToggleQuickfix', toggle_quickfix, {})
-vim.api.nvim_create_user_command('UnAlign', unalign_text, { range = '%' })
-vim.api.nvim_create_user_command('ClearHistoryAndExit', clear_history_and_exit, {})
+vim.api.nvim_create_user_command('GitUnlock', git_unlock, { force = true })
+vim.api.nvim_create_user_command('UpdateAndMake', update_and_make, { bang = true, force = true })
+vim.api.nvim_create_user_command('ToggleQuickfix', toggle_quickfix, { force = true })
+vim.api.nvim_create_user_command('UnAlign', unalign_text, { range = '%', force = true })
+vim.api.nvim_create_user_command('ClearHistoryAndExit', clear_history_and_exit, { force = true })
 
 -- exports
 
@@ -132,10 +141,25 @@ function M.keymap(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, vim.tbl_extend('force', { silent = true }, opts or {}))
 end
 
-function M.undo_ftplugin(command)
-    local undo = vim.b.undo_ftplugin
-    -- Existing undo commands may end with an :autocmd, which consumes trailing bars.
-    vim.b.undo_ftplugin = 'execute ' .. vim.fn.string(command) .. (undo and (' | ' .. undo) or '')
+function M.undo_ftplugin(callback)
+    local bufnr = vim.api.nvim_get_current_buf()
+    if not ftplugin_undos[bufnr] then
+        ftplugin_undos[bufnr] = {}
+        local undo = vim.b.undo_ftplugin
+        -- :execute keeps the Lua command separate from existing Vimscript cleanup.
+        local run = "lua require('config.util').run_ftplugin_undo()"
+        vim.b.undo_ftplugin = 'execute ' .. vim.fn.string(run) .. (undo and (' | ' .. undo) or '')
+    end
+    table.insert(ftplugin_undos[bufnr], callback)
+end
+
+function M.run_ftplugin_undo()
+    local bufnr = vim.api.nvim_get_current_buf()
+    local callbacks = ftplugin_undos[bufnr] or {}
+    ftplugin_undos[bufnr] = nil
+    for i = #callbacks, 1, -1 do
+        callbacks[i]()
+    end
 end
 
 function M.relpath(source_dir, target_path)
