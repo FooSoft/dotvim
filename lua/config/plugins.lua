@@ -22,7 +22,6 @@ require('catppuccin').setup({
     show_end_of_buffer = true,
     styles = { conditionals = {}, miscs = {} },
     custom_highlights = {
-        ['@comment.cpp'] = { link = 'Normal' },
         ExtraWhitespace = { link = 'Search' },
     },
 })
