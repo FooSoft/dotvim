@@ -37,8 +37,6 @@ require('f5').setup({
 
 -- fzf-lua
 if util.has_executable('fzf') then
-    vim.cmd.packadd('fzf-lua')
-
     local fzf_lua = require('fzf-lua')
     fzf_lua.register_ui_select()
     fzf_lua.setup({
@@ -152,11 +150,6 @@ for _, lhs in ipairs({ '<c-/>', '<c-_>' }) do
     util.keymap({ 'n', 't' }, lhs, '<cmd>2ToggleTerm direction=float<cr>')
 end
 
--- suda.vim
-if util.is_unix() then
-    vim.cmd.packadd('suda.vim')
-end
-
 -- vim-dirvish
 vim.g.dirvish_mode = ':sort ,^.*[\\/],'
 
@@ -164,18 +157,6 @@ vim.g.dirvish_mode = ':sort ,^.*[\\/],'
 vim.g.easy_align_ignore_groups = {}
 util.keymap('n', 'ga', '<plug>(EasyAlign)')
 util.keymap('v', '<cr>', '<plug>(EasyAlign)')
-
--- vim-go
-if util.has_executable('go') then
-    vim.g.go_imports_autosave = 1
-    vim.g.go_diagnostics_enabled = 0
-    if vim.lsp.enable and util.has_executable('gopls') then
-        vim.g.go_code_completion_enabled = 0
-        vim.g.go_def_mapping_enabled = 0
-        vim.g.go_doc_keywordprg_enabled = 0
-    end
-    vim.cmd.packadd('vim-go')
-end
 
 -- vim-quickhl
 util.keymap({ 'n', 'x' }, '<leader>K', '<Plug>(quickhl-manual-reset)')

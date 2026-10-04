@@ -1,0 +1,104 @@
+{
+  "plugins": {
+    "argonaut.nvim": {
+      "rev": "b4d6b72e6030b590bd2f415e4097cab63804844c",
+      "src": "https://git.sr.ht/~foosoft/argonaut.nvim"
+    },
+    "catppuccin.nvim": {
+      "rev": "edefef779ab08ce1a4a404713e3012b0d202bd35",
+      "src": "https://github.com/catppuccin/nvim.git"
+    },
+    "f5.nvim": {
+      "rev": "2dc5ad5ff439462919c33923ad6865a745cbd4e8",
+      "src": "https://git.sr.ht/~foosoft/f5.nvim"
+    },
+    "fzf-lua": {
+      "rev": "bba13a0d260ca5e049683344ba70791c9ad8ece6",
+      "src": "https://github.com/ibhagwan/fzf-lua.git"
+    },
+    "gitsigns.nvim": {
+      "rev": "070a5d7b985546cc57e1fc61e5bc507fecac6045",
+      "src": "https://github.com/lewis6991/gitsigns.nvim.git"
+    },
+    "guid.nvim": {
+      "rev": "183d0f710f5c708df780590a3887c126f57b14e4",
+      "src": "https://git.sr.ht/~foosoft/guid.nvim"
+    },
+    "lsp_signature.nvim": {
+      "rev": "1997451c4c9956a1380d8bea4b0e33ebdf07976e",
+      "src": "https://github.com/ray-x/lsp_signature.nvim.git"
+    },
+    "revolver.nvim": {
+      "rev": "5f2663e27ae9f77e5438b44859db4e76d929a56f",
+      "src": "https://git.sr.ht/~foosoft/revolver.nvim"
+    },
+    "suda.vim": {
+      "rev": "c492741b4679b3cdd4d9e34138209784e061d916",
+      "src": "https://github.com/lambdalisue/suda.vim.git"
+    },
+    "toggleterm.nvim": {
+      "rev": "9a88eae817ef395952e08650b3283726786fb5fb",
+      "src": "https://github.com/akinsho/toggleterm.nvim.git"
+    },
+    "vim-abolish": {
+      "rev": "dcbfe065297d31823561ba787f51056c147aa682",
+      "src": "https://github.com/tpope/vim-abolish.git"
+    },
+    "vim-better-whitespace": {
+      "rev": "de99b55a6fe8c96a69f9376f16b1d5d627a56e81",
+      "src": "https://github.com/ntpeters/vim-better-whitespace.git"
+    },
+    "vim-commentary": {
+      "rev": "64a654ef4a20db1727938338310209b6a63f60c9",
+      "src": "https://github.com/tpope/vim-commentary.git"
+    },
+    "vim-dirvish": {
+      "rev": "4cbf39ce024c57f700c4d5502cc172ea91d69360",
+      "src": "https://github.com/justinmk/vim-dirvish.git"
+    },
+    "vim-dispatch": {
+      "rev": "a2ff28abdb2d89725192db5b8562977d392a4d3f",
+      "src": "https://github.com/tpope/vim-dispatch.git"
+    },
+    "vim-easy-align": {
+      "rev": "9815a55dbcd817784458df7a18acacc6f82b1241",
+      "src": "https://github.com/junegunn/vim-easy-align.git"
+    },
+    "vim-go": {
+      "rev": "47694979496d4bf2e90ce75d95f1dec3f41cbefb",
+      "src": "https://github.com/fatih/vim-go.git"
+    },
+    "vim-indent-object": {
+      "rev": "8ab36d5ec2a3a60468437a95e142ce994df598c6",
+      "src": "https://github.com/michaeljsmith/vim-indent-object.git"
+    },
+    "vim-jdaddy": {
+      "rev": "23b67752cb869dd9c8f3109173b69aa96a1f3acf",
+      "src": "https://github.com/tpope/vim-jdaddy.git"
+    },
+    "vim-quickhl": {
+      "rev": "be1f44169c3fdee3beab629e83380515da03835e",
+      "src": "https://github.com/t9md/vim-quickhl.git"
+    },
+    "vim-repeat": {
+      "rev": "65846025c15494983dafe5e3b46c8f88ab2e9635",
+      "src": "https://github.com/tpope/vim-repeat"
+    },
+    "vim-rooter": {
+      "rev": "51402fb77c4d6ae94994e37dc7ca13bec8f4afcc",
+      "src": "https://github.com/airblade/vim-rooter.git"
+    },
+    "vim-sort-motion": {
+      "rev": "c8782be8f7da414c6442b3ba4b6abb0345d392d9",
+      "src": "https://github.com/christoomey/vim-sort-motion.git"
+    },
+    "vim-surround": {
+      "rev": "3d188ed2113431cf8dac77be61b842acb64433d9",
+      "src": "https://github.com/tpope/vim-surround"
+    },
+    "vim-unimpaired": {
+      "rev": "db65482581a28e4ccf355be297f1864a4e66985c",
+      "src": "https://github.com/tpope/vim-unimpaired.git"
+    }
+  }
+}
