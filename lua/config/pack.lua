@@ -64,3 +64,21 @@ vim.api.nvim_create_user_command(
     function() vim.pack.update() end,
     { desc = 'Review updates for all managed plugins', force = true }
 )
+
+vim.api.nvim_create_user_command('PackDelete', function(opts)
+    vim.pack.del({ opts.args })
+end, {
+    desc = 'Delete a managed plugin',
+    nargs = 1,
+    complete = function(prefix)
+        local names = {}
+        for _, plugin in ipairs(vim.pack.get(nil, { info = false })) do
+            if vim.startswith(plugin.spec.name, prefix) then
+                table.insert(names, plugin.spec.name)
+            end
+        end
+        table.sort(names)
+        return names
+    end,
+    force = true,
+})
