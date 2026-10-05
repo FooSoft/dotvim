@@ -43,8 +43,8 @@ end
 
 local function update_makeprg(fast)
     if vim.bo.filetype == 'go' then
-        vim.bo.makeprg = 'cd ' .. vim.fn.shellescape(M.buffer_dir()) .. ' && go build'
-        return
+        vim.bo.makeprg = 'go build'
+        return M.buffer_dir()
     end
 
     if M.is_windows() then
@@ -74,8 +74,13 @@ end
 
 local function update_and_make(opts)
     vim.cmd.update()
-    update_makeprg(not opts.bang)
-    vim.cmd.Make()
+    local build_dir = update_makeprg(not opts.bang)
+    if build_dir then
+        -- Dispatch uses this directory for both execution and quickfix paths.
+        vim.cmd.Dispatch({ args = { vim.fn['dispatch#dir_opt'](build_dir) .. '--' } })
+    else
+        vim.cmd.Make()
+    end
 end
 
 local function llm_terminal()

@@ -79,8 +79,11 @@ vim.opt.updatetime = 300
 -- don't wrap lines by default
 vim.opt.wrap = false
 
--- don't keep a backup while overwriting a file
-vim.opt.writebackup = false
+-- keep a temporary backup until a write succeeds
+vim.opt.writebackup = true
+
+-- preserve undo history across editing sessions
+vim.opt.undofile = true
 
 -- common keymaps
 util.keymap('i', '<c-c>', '<esc>')

@@ -83,11 +83,14 @@ config_lsp('clangd', {
     cmd = clangd_cmd,
     filetypes = { 'cpp', 'c' },
     root_markers = {
-        '.clang-format',
-        '.clang-tidy',
-        '.clangd',
-        'compile_commands.json',
-        'compile_flags.txt',
+        -- These markers have equal priority: use the nearest matching directory.
+        {
+            '.clang-format',
+            '.clang-tidy',
+            '.clangd',
+            'compile_commands.json',
+            'compile_flags.txt',
+        },
     },
     handlers = {
         ['textDocument/publishDiagnostics'] = function() end,
