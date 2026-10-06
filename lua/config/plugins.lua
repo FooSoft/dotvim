@@ -30,7 +30,17 @@ vim.cmd.colorscheme('catppuccin')
 
 require('diffview').setup({
     enhanced_diff_hl = true,
-    use_icons = true,
+    use_icons = false,
+    signs = {
+        fold_closed = '›',
+        fold_open = '↓',
+        done = '✓',
+        selected_file = '•',
+        unselected_file = '·',
+        selected_dir = '•',
+        partially_selected_dir = '±',
+        unselected_dir = '·',
+    },
     view = {
         default = { layout = 'diff2_horizontal' },
         merge_tool = { layout = 'diff3_horizontal' },
@@ -40,12 +50,11 @@ require('diffview').setup({
         win_config = { position = 'left', width = 35 },
     },
     hooks = {},
-    keymaps = {
-        view = { { 'n', 'q', '<cmd>DiffviewClose<cr>', { desc = 'Close Diffview' } } },
-        file_panel = { { 'n', 'q', '<cmd>DiffviewClose<cr>', { desc = 'Close Diffview' } } },
-        file_history_panel = { { 'n', 'q', '<cmd>DiffviewClose<cr>', { desc = 'Close Diffview' } } },
-    },
+    keymaps = {},
 })
+
+util.keymap('n', '<leader>dq', '<cmd>DiffviewClose<cr>', { desc = 'Close Diffview' })
+util.keymap('n', '<leader>dd', ':DiffviewOpen ', { silent = false, desc = 'Open Diffview with arguments' })
 
 -- f5.nvim
 require('f5').setup({
