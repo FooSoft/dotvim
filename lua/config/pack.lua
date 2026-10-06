@@ -8,6 +8,7 @@ local base_plugins = {
     'https://github.com/airblade/vim-rooter.git',
     'https://github.com/akinsho/toggleterm.nvim.git',
     'https://github.com/christoomey/vim-sort-motion.git',
+    'https://github.com/dlyongemallo/diffview-plus.nvim',
     'https://github.com/junegunn/vim-easy-align.git',
     'https://github.com/justinmk/vim-dirvish.git',
     'https://github.com/lewis6991/gitsigns.nvim.git',

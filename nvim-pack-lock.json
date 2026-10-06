@@ -8,6 +8,10 @@
       "rev": "edefef779ab08ce1a4a404713e3012b0d202bd35",
       "src": "https://github.com/catppuccin/nvim.git"
     },
+    "diffview-plus.nvim": {
+      "rev": "875d16dd8c8aa86f1a5c3b5cef49e1133980ae94",
+      "src": "https://github.com/dlyongemallo/diffview-plus.nvim"
+    },
     "f5.nvim": {
       "rev": "2dc5ad5ff439462919c33923ad6865a745cbd4e8",
       "src": "https://git.sr.ht/~foosoft/f5.nvim"

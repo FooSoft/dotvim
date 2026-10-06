@@ -28,6 +28,25 @@ require('catppuccin').setup({
 
 vim.cmd.colorscheme('catppuccin')
 
+require('diffview').setup({
+    enhanced_diff_hl = true,
+    use_icons = true,
+    view = {
+        default = { layout = 'diff2_horizontal' },
+        merge_tool = { layout = 'diff3_horizontal' },
+    },
+    file_panel = {
+        listing_style = 'tree',
+        win_config = { position = 'left', width = 35 },
+    },
+    hooks = {},
+    keymaps = {
+        view = { { 'n', 'q', '<cmd>DiffviewClose<cr>', { desc = 'Close Diffview' } } },
+        file_panel = { { 'n', 'q', '<cmd>DiffviewClose<cr>', { desc = 'Close Diffview' } } },
+        file_history_panel = { { 'n', 'q', '<cmd>DiffviewClose<cr>', { desc = 'Close Diffview' } } },
+    },
+})
+
 -- f5.nvim
 require('f5').setup({
     enabled = false,
