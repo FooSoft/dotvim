@@ -4,6 +4,9 @@ if not vim.lsp.enable then
     return
 end
 
+-- Neovim logs every server's stderr at ERROR level, so chatty servers grow lsp.log without bound.
+vim.lsp.log.set_level('OFF')
+
 vim.diagnostic.config({
     virtual_text = true,
 })
@@ -74,7 +77,7 @@ end
 
 -- c/c++
 
-local clangd_cmd = { 'clangd', '--background-index' }
+local clangd_cmd = { 'clangd', '--background-index', '--log=error' }
 if util.is_windows() then
     table.insert(clangd_cmd, '--header-insertion=never')
 end
