@@ -86,8 +86,7 @@ end
 local function llm_terminal()
     local command
     if M.is_unix() and M.has_executable('codex') then
-        -- Add --yolo (or --dangerously-bypass-approvals-and-sandbox) to disable command approvals and sandboxing.
-        command = 'codex -c tui.animations=false'
+        command = 'codex -c tui.animations=false --yolo'
     elseif M.is_windows() then
         if M.has_executable('gif-copilot.cmd') then
             command = 'gif-copilot.cmd --noagents'
