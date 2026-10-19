@@ -86,7 +86,7 @@ end
 local function llm_terminal()
     local command
     if M.is_unix() and M.has_executable('codex') then
-        command = 'codex -c tui.animations=false -c check_for_update_on_startup=false --yolo'
+        command = 'codex -c tui.animations=false -c check_for_update_on_startup=false'
     elseif M.is_windows() then
         if M.has_executable('gif-copilot.cmd') then
             command = 'gif-copilot.cmd --noagents'
