@@ -52,6 +52,13 @@ vim.opt.mousemodel = 'extend'
 -- show absolute line numbers
 vim.opt.number = true
 
+-- show a 12-hour clock on the right of the global statusline
+vim.opt.laststatus = 3
+vim.opt.statusline = '%f %m%=%{strftime("%I:%M %p")} '
+vim.fn.timer_start(1000, function()
+    vim.cmd.redrawstatus()
+end, { repeat_count = -1 })
+
 -- round indent to nearest multiple of shiftwidth
 vim.opt.shiftround = true
 
