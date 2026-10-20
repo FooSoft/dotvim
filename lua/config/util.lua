@@ -88,7 +88,7 @@ local function llm_terminal()
     if M.has_executable('agency') then
         command = 'agency copilot  --model claude-opus-5.5 --effort high --yolo'
     elseif M.has_executable('codex') then
-        command = 'codex -c tui.animations=false -c check_for_update_on_startup=false'
+        command = 'codex -c tui.animations=false -c tui.show_tooltips=false -c check_for_update_on_startup=false'
     end
 
     if command then
