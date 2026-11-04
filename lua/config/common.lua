@@ -1,95 +1,51 @@
 local util = require('config.util')
 
--- set the <space> key as the leader key for custom mappings
+-- General behavior
 vim.g.mapleader = ' '
-
--- disable editorconfig integration
 vim.g.editorconfig = false
-
--- automatically reread files changed outside of neovim
-vim.opt.autoread = true
-
--- use system clipboard for all operations
 vim.opt.clipboard = 'unnamedplus'
+vim.opt.mouse = 'nv'
+vim.opt.mousemodel = 'extend'
+vim.opt.updatetime = 300
 
--- completion options: fuzzy matching, show menu, select even with one match, don't insert by default
-vim.opt.completeopt = { 'fuzzy', 'menu', 'menuone', 'noinsert' }
-
--- disable conceal (no hidden text in markdown, etc)
-vim.opt.conceallevel = 0
-
--- use spaces instead of tabs
+-- Indentation
 vim.opt.expandtab = true
+vim.opt.shiftround = true
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
 
--- recognize these file formats
-vim.opt.fileformats = { 'unix', 'dos', 'mac' }
-
--- disable code folding by default
-vim.opt.foldenable = false
-
--- ignore case in search patterns
+-- Search and completion
 vim.opt.ignorecase = true
-
--- wrap long lines at convenient points
-vim.opt.linebreak = true
-
--- display characters for tabs, end-of-line, and spaces
-vim.opt.listchars = { tab = '» ', eol = '↲', space = '·' }
-
--- add angle brackets as matchpairs for % motion
+vim.opt.smartcase = true
+vim.opt.spell = false
+-- Show fuzzy matches without inserting a completion until it is accepted.
+vim.opt.completeopt = { 'fuzzy', 'menu', 'menuone', 'noinsert' }
 vim.opt.matchpairs:append('<:>')
 
--- disable modeline for security
-vim.opt.modeline = false
-vim.opt.modelines = 0
-
--- enable mouse in normal and visual modes
-vim.opt.mouse = 'nv'
-
--- mouse model: extend selection with mouse
-vim.opt.mousemodel = 'extend'
-
--- show absolute line numbers
+-- Display
+vim.opt.conceallevel = 0
+vim.opt.foldenable = false
+vim.opt.linebreak = true
+vim.opt.listchars = { tab = '» ', eol = '↲', space = '·' }
 vim.opt.number = true
+vim.opt.termguicolors = true
+vim.opt.wrap = false
 
--- show a 12-hour clock on the right of the global statusline
+-- Refresh the global statusline so its clock advances while idle.
 vim.opt.laststatus = 3
 vim.opt.statusline = '%f %m%=%{strftime("%I:%M %p")} '
 vim.fn.timer_start(1000, function()
     vim.cmd.redrawstatus()
 end, { repeat_count = -1 })
 
--- round indent to nearest multiple of shiftwidth
-vim.opt.shiftround = true
-
--- number of spaces to use for each step of (auto)indent
-vim.opt.shiftwidth = 4
-
--- override 'ignorecase' if search pattern contains uppercase
-vim.opt.smartcase = true
-
--- disable spell checking by default
-vim.opt.spell = false
-
--- don't use swap files
+-- File handling
+vim.opt.autoread = true
+vim.opt.fileformats = { 'unix', 'dos', 'mac' }
+-- Ignore embedded modelines for security.
+vim.opt.modeline = false
+vim.opt.modelines = 0
 vim.opt.swapfile = false
-
--- number of spaces that a <tab> in the file counts for
-vim.opt.tabstop = 4
-
--- enable true color support
-vim.opt.termguicolors = true
-
--- faster update time for cursorhold events
-vim.opt.updatetime = 300
-
--- don't wrap lines by default
-vim.opt.wrap = false
-
--- keep a temporary backup until a write succeeds
-vim.opt.writebackup = true
-
--- preserve undo history across editing sessions
+vim.opt.writebackup = true -- Keep a temporary backup until a write succeeds.
 vim.opt.undofile = true
 
 -- common keymaps

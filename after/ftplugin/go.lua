@@ -1,9 +1,7 @@
 local util = require('config.util')
 
 vim.bo.expandtab = false
-util.undo_ftplugin(function()
-    vim.opt_local.expandtab = vim.opt_global.expandtab:get()
-end)
+util.undo_ftplugin('setlocal expandtab<')
 
 if vim.fn.exists(':GoBuild') ~= 2 then
     return

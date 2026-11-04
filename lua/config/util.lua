@@ -9,118 +9,6 @@ vim.api.nvim_create_autocmd('BufWipeout', {
     end,
 })
 
--- locals
-
-local function git_unlock()
-    local result = vim.system({ 'git', '-C', M.buffer_dir(), 'rev-parse', '--path-format=absolute',
-        '--git-path', 'index.lock' }, { text = true }):wait()
-    if result.code ~= 0 then
-        vim.notify(vim.trim(result.stderr), vim.log.levels.ERROR)
-        return
-    end
-    local lock_path = vim.trim(result.stdout)
-    if vim.fn.filereadable(lock_path) == 1 and vim.fn.delete(lock_path) ~= 0 then
-        vim.notify('Could not delete ' .. lock_path, vim.log.levels.ERROR)
-    end
-end
-
-local function unalign_text(ctx)
-    vim.cmd(ctx.line1 .. ',' .. ctx.line2 .. 's/\\(\\S\\+\\)\\s\\{2,\\}/\\1 /ge')
-    vim.cmd.nohlsearch()
-end
-
-local function clear_history_and_exit()
-    vim.cmd([[set vi+='0 | wv! | q!]])
-end
-
-local function toggle_quickfix()
-    if vim.fn.getqflist({ winid = 0 }).winid ~= 0 then
-        vim.cmd('cclose')
-    else
-        vim.cmd('botright copen | wincmd p')
-    end
-end
-
-local function update_makeprg(fast)
-    if vim.bo.filetype == 'go' then
-        vim.bo.makeprg = 'go build'
-        return M.buffer_dir()
-    end
-
-    if M.is_windows() then
-        local gi_build_dir = vim.fs.root(0, 'build.cmd')
-        if gi_build_dir then
-            local build_cmd = vim.fs.joinpath(gi_build_dir, 'build.cmd'):gsub('/', '\\')
-            vim.bo.makeprg = vim.fn.shellescape(build_cmd) .. ' --noarm64 --noarm64ec --nox86'
-            if fast then
-                vim.bo.makeprg = vim.bo.makeprg .. ' --noconfigure --noinstall'
-            end
-            return
-        end
-
-        if vim.env._NTROOT then
-            local winmake_dir = vim.fs.root(0, { 'sources', 'dirs' })
-            if winmake_dir then
-                vim.bo.errorformat = [[%f(%l)\ :\ %t%*[^:]:\ %m]]
-                vim.bo.makeprg = 'build.cmd -c /dir ' .. vim.fn.shellescape(winmake_dir)
-                if fast then
-                    vim.bo.makeprg = vim.bo.makeprg .. ' -p'
-                end
-                return
-            end
-        end
-    end
-end
-
-local function update_and_make(opts)
-    vim.cmd.update()
-    local build_dir = update_makeprg(not opts.bang)
-    if build_dir then
-        -- Dispatch uses this directory for both execution and quickfix paths.
-        vim.cmd.Dispatch({ args = { vim.fn['dispatch#dir_opt'](build_dir) .. '--' } })
-    else
-        vim.cmd.Make()
-    end
-end
-
-local function llm_terminal()
-    local command
-    if M.has_executable('agency') then
-        command = 'agency copilot  --model claude-opus-5.5 --effort high --yolo'
-    elseif M.has_executable('codex') then
-        command = 'codex -c tui.animations=false -c tui.show_tooltips=false -c check_for_update_on_startup=false'
-    end
-
-    if command then
-        require('toggleterm.terminal').Terminal:new({
-            cmd = command,
-            count = 1,
-            direction = 'float',
-            auto_scroll = false,
-        }):toggle()
-    else
-        vim.notify('LLM executable not found in PATH', vim.log.levels.ERROR)
-    end
-end
-
-function M.toggle_copilot()
-    if require('toggleterm.terminal').get(1) then
-        vim.cmd('1ToggleTerm direction=float')
-    else
-        llm_terminal()
-    end
-end
-
--- commands
-
-vim.api.nvim_create_user_command('GitUnlock', git_unlock, { force = true })
-vim.api.nvim_create_user_command('UpdateAndMake', update_and_make, { bang = true, force = true })
-vim.api.nvim_create_user_command('ToggleQuickfix', toggle_quickfix, { force = true })
-vim.api.nvim_create_user_command('UnAlign', unalign_text, { range = '%', force = true })
-vim.api.nvim_create_user_command('ClearHistoryAndExit', clear_history_and_exit, { force = true })
-
--- exports
-
 function M.buffer_dir()
     return vim.fn.expand('%:p:h')
 end
@@ -141,16 +29,23 @@ function M.keymap(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, vim.tbl_extend('force', { silent = true }, opts or {}))
 end
 
-function M.undo_ftplugin(callback)
+---@param undo string|function Vimscript cleanup command or Lua callback.
+function M.undo_ftplugin(undo)
+    if type(undo) == 'string' then
+        local existing = vim.b.undo_ftplugin
+        vim.b.undo_ftplugin = undo .. (existing and (' | ' .. existing) or '')
+        return
+    end
+
     local bufnr = vim.api.nvim_get_current_buf()
     if not ftplugin_undos[bufnr] then
         ftplugin_undos[bufnr] = {}
-        local undo = vim.b.undo_ftplugin
+        local existing = vim.b.undo_ftplugin
         -- :execute keeps the Lua command separate from existing Vimscript cleanup.
         local run = "lua require('config.util').run_ftplugin_undo()"
-        vim.b.undo_ftplugin = 'execute ' .. vim.fn.string(run) .. (undo and (' | ' .. undo) or '')
+        vim.b.undo_ftplugin = 'execute ' .. vim.fn.string(run) .. (existing and (' | ' .. existing) or '')
     end
-    table.insert(ftplugin_undos[bufnr], callback)
+    table.insert(ftplugin_undos[bufnr], undo)
 end
 
 function M.run_ftplugin_undo()

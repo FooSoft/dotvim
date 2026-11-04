@@ -1,6 +1,6 @@
 local util = require('config.util')
 
-local base_plugins = {
+local plugins = {
     'https://git.sr.ht/~foosoft/argonaut.nvim',
     'https://git.sr.ht/~foosoft/f5.nvim',
     'https://git.sr.ht/~foosoft/guid.nvim',
@@ -26,23 +26,12 @@ local base_plugins = {
     { src = 'https://github.com/catppuccin/nvim.git', name = 'catppuccin.nvim' },
 }
 
-vim.pack.add(
-    base_plugins,
-    { confirm = false, load = true }
-)
-
 if util.has_executable('fzf') then
-    vim.pack.add(
-        { 'https://github.com/ibhagwan/fzf-lua.git' },
-        { confirm = false, load = true }
-    )
+    table.insert(plugins, 'https://github.com/ibhagwan/fzf-lua.git')
 end
 
 if util.is_unix() then
-    vim.pack.add(
-        { 'https://github.com/lambdalisue/suda.vim.git' },
-        { confirm = false, load = true }
-    )
+    table.insert(plugins, 'https://github.com/lambdalisue/suda.vim.git')
 end
 
 if util.has_executable('go') then
@@ -54,11 +43,10 @@ if util.has_executable('go') then
         vim.g.go_doc_keywordprg_enabled = 0
     end
 
-    vim.pack.add(
-        { 'https://github.com/fatih/vim-go.git' },
-        { confirm = false, load = true }
-    )
+    table.insert(plugins, 'https://github.com/fatih/vim-go.git')
 end
+
+vim.pack.add(plugins, { confirm = false, load = true })
 
 vim.api.nvim_create_user_command(
     'PackUpdate',
