@@ -4,7 +4,7 @@ local util = require('config.util')
 vim.g.mapleader = ' '
 vim.g.editorconfig = false
 vim.opt.clipboard = 'unnamedplus'
-vim.opt.mouse = 'nv'
+vim.opt.mouse = ''
 vim.opt.mousemodel = 'extend'
 vim.opt.updatetime = 300
 
