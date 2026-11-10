@@ -28,10 +28,6 @@
       "rev": "183d0f710f5c708df780590a3887c126f57b14e4",
       "src": "https://git.sr.ht/~foosoft/guid.nvim"
     },
-    "lsp_signature.nvim": {
-      "rev": "1997451c4c9956a1380d8bea4b0e33ebdf07976e",
-      "src": "https://github.com/ray-x/lsp_signature.nvim.git"
-    },
     "revolver.nvim": {
       "rev": "5f2663e27ae9f77e5438b44859db4e76d929a56f",
       "src": "https://git.sr.ht/~foosoft/revolver.nvim"

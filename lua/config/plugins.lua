@@ -152,9 +152,6 @@ require('guid').setup({
 
 util.keymap({ 'x', 'o' }, 'ag', ':<c-u>GuidObject<cr>')
 
--- lsp_signature.nvim
-require('lsp_signature').setup({ hint_enable = false })
-
 -- revolver.nvim
 util.keymap('n', 'gfs', vim.cmd.Revolve)
 

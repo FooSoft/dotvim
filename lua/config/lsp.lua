@@ -37,6 +37,20 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
+vim.api.nvim_create_autocmd('CursorHoldI', {
+    group = vim.api.nvim_create_augroup('signature_help', { clear = true }),
+    callback = function(args)
+        local clients = vim.lsp.get_clients({
+            bufnr = args.buf,
+            method = 'textDocument/signatureHelp',
+        })
+        if #clients > 0 then
+            vim.lsp.buf.signature_help({ focusable = false })
+        end
+    end,
+    desc = 'Show signature help when typing pauses',
+})
+
 if util.is_unix() then
     vim.api.nvim_create_autocmd('BufWritePre', {
         group = vim.api.nvim_create_augroup('lsp_format', { clear = true }),
