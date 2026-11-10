@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         util.keymap('n', 'gd', vim.lsp.buf.definition, { buffer = args.buf })
         util.keymap('n', 'K', vim.lsp.buf.hover, { buffer = args.buf })
         util.keymap('n', '<leader>rn', vim.lsp.buf.rename, { buffer = args.buf })
-        util.keymap('i', '<c-space>', vim.lsp.completion.get, { buffer = args.buf })
+        util.keymap('i', '<c-space>', '<c-x><c-o>', { buffer = args.buf })
 
         util.keymap('i', '<tab>', function()
             return vim.fn.pumvisible() == 1 and '<c-y>' or '<tab>'
@@ -31,6 +31,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         local client = vim.lsp.get_client_by_id(args.data.client_id)
         if client and client:supports_method('textDocument/completion') then
+            vim.bo[args.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
             vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
         end
     end,
