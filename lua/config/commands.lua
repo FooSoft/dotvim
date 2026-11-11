@@ -59,6 +59,12 @@ local function update_makeprg(fast)
             end
         end
     end
+
+    if vim.fn.filereadable('CMakeLists.txt') == 1 then
+        vim.bo.makeprg = 'cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug' ..
+            ' && cmake --build build --config Debug --parallel'
+        return vim.fn.getcwd()
+    end
 end
 
 local function update_and_make(opts)
