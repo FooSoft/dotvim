@@ -64,10 +64,6 @@
       "rev": "9815a55dbcd817784458df7a18acacc6f82b1241",
       "src": "https://github.com/junegunn/vim-easy-align.git"
     },
-    "vim-go": {
-      "rev": "47694979496d4bf2e90ce75d95f1dec3f41cbefb",
-      "src": "https://github.com/fatih/vim-go.git"
-    },
     "vim-indent-object": {
       "rev": "8ab36d5ec2a3a60468437a95e142ce994df598c6",
       "src": "https://github.com/michaeljsmith/vim-indent-object.git"

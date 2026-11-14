@@ -33,18 +33,6 @@ if util.is_unix() then
     table.insert(plugins, 'https://github.com/lambdalisue/suda.vim.git')
 end
 
-if util.has_executable('go') then
-    vim.g.go_imports_autosave = 1
-    vim.g.go_diagnostics_enabled = 0
-    if vim.lsp.enable and util.has_executable('gopls') then
-        vim.g.go_code_completion_enabled = 0
-        vim.g.go_def_mapping_enabled = 0
-        vim.g.go_doc_keywordprg_enabled = 0
-    end
-
-    table.insert(plugins, 'https://github.com/fatih/vim-go.git')
-end
-
 vim.pack.add(plugins, { confirm = false, load = true })
 
 vim.api.nvim_create_user_command(
