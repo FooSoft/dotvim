@@ -9,7 +9,7 @@
       "src": "https://github.com/catppuccin/nvim.git"
     },
     "diffview-plus.nvim": {
-      "rev": "875d16dd8c8aa86f1a5c3b5cef49e1133980ae94",
+      "rev": "fae72d6c981075dce2e0f946f002382ce0cb44e1",
       "src": "https://github.com/dlyongemallo/diffview-plus.nvim"
     },
     "f5.nvim": {
@@ -17,11 +17,11 @@
       "src": "https://git.sr.ht/~foosoft/f5.nvim"
     },
     "fzf-lua": {
-      "rev": "bba13a0d260ca5e049683344ba70791c9ad8ece6",
+      "rev": "ded1c96d3d9d74634287d722431c26690968a4bf",
       "src": "https://github.com/ibhagwan/fzf-lua.git"
     },
     "gitsigns.nvim": {
-      "rev": "070a5d7b985546cc57e1fc61e5bc507fecac6045",
+      "rev": "dc7698f932792a764d3db95fedee26c38e728355",
       "src": "https://github.com/lewis6991/gitsigns.nvim.git"
     },
     "guid.nvim": {

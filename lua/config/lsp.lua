@@ -19,6 +19,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         util.keymap('n', 'gd', vim.lsp.buf.definition, { buffer = args.buf })
         util.keymap('n', 'K', vim.lsp.buf.hover, { buffer = args.buf })
         util.keymap('n', '<leader>rn', vim.lsp.buf.rename, { buffer = args.buf })
+        util.keymap({ 'n', 'x' }, '<leader>ca', vim.lsp.buf.code_action, { buffer = args.buf })
         util.keymap('i', '<c-space>', '<c-x><c-o>', { buffer = args.buf })
 
         util.keymap('i', '<tab>', function()
@@ -50,91 +51,6 @@ vim.api.nvim_create_autocmd('CursorHoldI', {
     end,
     desc = 'Show signature help when typing pauses',
 })
-
-local clangd_diagnostics = {}
-
-if not util.is_windows() then
-    vim.api.nvim_create_autocmd('BufWritePre', {
-        group = vim.api.nvim_create_augroup('clangd_includes', { clear = true }),
-        callback = function(args)
-            for _, client in ipairs(vim.lsp.get_clients({ bufnr = args.buf, name = 'clangd' })) do
-                local uri = vim.uri_from_bufnr(args.buf)
-                local function current_diagnostics()
-                    local result = (clangd_diagnostics[client.id] or {})[uri]
-                    if result and result.version == vim.lsp.util.buf_versions[args.buf] then
-                        return result.diagnostics
-                    end
-                end
-                if not current_diagnostics() then
-                    -- Flush pending changes and wait for clangd to analyze this buffer version.
-                    local response = client:request_sync('textDocument/documentSymbol', {
-                        textDocument = { uri = uri },
-                    }, 1000, args.buf)
-                    if not response or response.err
-                        or not vim.wait(1000, function() return current_diagnostics() ~= nil end, 10) then
-                        return
-                    end
-                end
-
-                local diagnostics = {}
-                for _, diagnostic in ipairs(current_diagnostics() or {}) do
-                    if diagnostic.code == 'unused-includes' or diagnostic.code == 'missing-includes' then
-                        diagnostics[#diagnostics + 1] = diagnostic
-                    end
-                end
-                if #diagnostics == 0 then
-                    return
-                end
-
-                local response = client:request_sync('textDocument/codeAction', {
-                    textDocument = { uri = uri },
-                    range = diagnostics[1].range,
-                    context = { diagnostics = diagnostics, only = { 'quickfix' } },
-                }, 1000, args.buf)
-                if not response or response.err then
-                    return
-                end
-
-                local fix
-                for _, action in ipairs(response.result or {}) do
-                    if not action.disabled and action.edit then
-                        if action.title == 'fix all includes' then
-                            fix = action
-                            break
-                        elseif action.title == 'remove all unused includes'
-                            or action.title == 'add all missing includes'
-                            or (#diagnostics == 1 and (action.title == 'remove #include directive'
-                                or action.title:match('^#include '))) then
-                            fix = action
-                        end
-                    end
-                end
-                if fix then
-                    -- clangd can put a deletion before insertions at the same position.
-                    -- Neovim applies equal-position edits in reverse order, so delete first.
-                    local edits = fix.edit.changes and fix.edit.changes[uri]
-                    if edits then
-                        local ordered = {}
-                        for _, edit in ipairs(edits) do
-                            if edit.newText ~= '' then
-                                ordered[#ordered + 1] = edit
-                            end
-                        end
-                        for _, edit in ipairs(edits) do
-                            if edit.newText == '' then
-                                ordered[#ordered + 1] = edit
-                            end
-                        end
-                        fix.edit.changes[uri] = ordered
-                    end
-                    -- Apply synchronously so include fixes reach disk before formatting and writing.
-                    vim.lsp.util.apply_workspace_edit(fix.edit, client.offset_encoding)
-                end
-            end
-        end,
-        desc = 'Add missing and remove unused includes with clangd before saving',
-    })
-end
 
 if util.is_unix() then
     vim.api.nvim_create_autocmd('BufWritePre', {
@@ -202,10 +118,6 @@ config_lsp('clangd', {
         ['textDocument/publishDiagnostics'] = function(err, result, ctx, config)
             if util.is_windows() then
                 return
-            end
-            if not err and result then
-                clangd_diagnostics[ctx.client_id] = clangd_diagnostics[ctx.client_id] or {}
-                clangd_diagnostics[ctx.client_id][result.uri] = result.version and result or nil
             end
             vim.lsp.diagnostic.on_publish_diagnostics(err, result, ctx, config)
         end,

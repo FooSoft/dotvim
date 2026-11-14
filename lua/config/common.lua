@@ -6,7 +6,7 @@ vim.g.editorconfig = false
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.mouse = ''
 vim.opt.mousemodel = 'extend'
-vim.opt.updatetime = 300
+vim.opt.updatetime = 500
 
 -- Indentation
 vim.opt.expandtab = true

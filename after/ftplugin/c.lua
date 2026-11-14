@@ -23,10 +23,12 @@ end
 vim.api.nvim_buf_create_user_command(0, 'ToggleParamComment', toggle_param_comment, {
     desc = 'Toggle an inline block comment around the parameter name under the cursor',
 })
+
 util.keymap('n', 'gcp', '<cmd>ToggleParamComment<cr>', {
     buffer = 0,
     desc = 'Toggle parameter-name comment',
 })
+
 util.undo_ftplugin(function()
     pcall(vim.keymap.del, 'n', 'gcp', { buffer = 0 })
     pcall(vim.api.nvim_buf_del_user_command, 0, 'ToggleParamComment')
