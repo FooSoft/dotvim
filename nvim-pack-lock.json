@@ -4,6 +4,10 @@
       "rev": "b4d6b72e6030b590bd2f415e4097cab63804844c",
       "src": "https://git.sr.ht/~foosoft/argonaut.nvim"
     },
+    "boomer.nvim": {
+      "rev": "e7a1d873bc89227efac995566d035e1aeef6bb7f",
+      "src": "https://git.sr.ht/~foosoft/boomer.nvim"
+    },
     "catppuccin.nvim": {
       "rev": "edefef779ab08ce1a4a404713e3012b0d202bd35",
       "src": "https://github.com/catppuccin/nvim.git"

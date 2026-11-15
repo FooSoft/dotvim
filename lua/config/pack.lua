@@ -2,6 +2,7 @@ local util = require('config.util')
 
 local plugins = {
     'https://git.sr.ht/~foosoft/argonaut.nvim',
+    'https://git.sr.ht/~foosoft/boomer.nvim',
     'https://git.sr.ht/~foosoft/f5.nvim',
     'https://git.sr.ht/~foosoft/guid.nvim',
     'https://git.sr.ht/~foosoft/revolver.nvim',
