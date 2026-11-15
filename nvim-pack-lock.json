@@ -48,10 +48,6 @@
       "rev": "de99b55a6fe8c96a69f9376f16b1d5d627a56e81",
       "src": "https://github.com/ntpeters/vim-better-whitespace.git"
     },
-    "vim-commentary": {
-      "rev": "64a654ef4a20db1727938338310209b6a63f60c9",
-      "src": "https://github.com/tpope/vim-commentary.git"
-    },
     "vim-dirvish": {
       "rev": "4cbf39ce024c57f700c4d5502cc172ea91d69360",
       "src": "https://github.com/justinmk/vim-dirvish.git"

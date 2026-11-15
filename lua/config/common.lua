@@ -5,7 +5,6 @@ vim.g.mapleader = ' '
 vim.g.editorconfig = false
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.mouse = ''
-vim.opt.mousemodel = 'extend'
 vim.opt.updatetime = 500
 
 -- Indentation
@@ -17,13 +16,12 @@ vim.opt.tabstop = 4
 -- Search and completion
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.spell = false
+
 -- Show fuzzy matches without inserting a completion until it is accepted.
 vim.opt.completeopt = { 'fuzzy', 'menu', 'menuone', 'noinsert' }
 vim.opt.matchpairs:append('<:>')
 
 -- Display
-vim.opt.conceallevel = 0
 vim.opt.foldenable = false
 vim.opt.linebreak = true
 vim.opt.listchars = { tab = '» ', eol = '↲', space = '·' }
@@ -39,13 +37,11 @@ vim.fn.timer_start(1000, function()
 end, { repeat_count = -1 })
 
 -- File handling
-vim.opt.autoread = true
 vim.opt.fileformats = { 'unix', 'dos', 'mac' }
+
 -- Ignore embedded modelines for security.
 vim.opt.modeline = false
-vim.opt.modelines = 0
 vim.opt.swapfile = false
-vim.opt.writebackup = true -- Keep a temporary backup until a write succeeds.
 vim.opt.undofile = true
 
 -- common keymaps
@@ -53,7 +49,6 @@ util.keymap('i', '<c-c>', '<esc>')
 util.keymap('n', '<c-c><c-c>', '<cmd>nohlsearch<cr>')
 util.keymap('n', '<leader>w', '<cmd>w<cr>')
 util.keymap('n', '<leader>x', '<cmd>x<cr>')
-util.keymap('n', 'Y', 'y$')
 util.keymap('n', 'j', 'gj')
 util.keymap('n', 'k', 'gk')
 

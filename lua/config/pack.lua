@@ -17,7 +17,6 @@ local plugins = {
     'https://github.com/ntpeters/vim-better-whitespace.git',
     'https://github.com/t9md/vim-quickhl.git',
     'https://github.com/tpope/vim-abolish.git',
-    'https://github.com/tpope/vim-commentary.git',
     'https://github.com/tpope/vim-dispatch.git',
     'https://github.com/tpope/vim-jdaddy.git',
     'https://github.com/tpope/vim-repeat',

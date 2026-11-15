@@ -1,9 +1,5 @@
 local util = require('config.util')
 
-if not vim.lsp.enable then
-    return
-end
-
 -- Neovim logs every server's stderr at ERROR level, so chatty servers grow lsp.log without bound.
 vim.lsp.log.set_level('OFF')
 
@@ -17,9 +13,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     group = lsp_attach_group,
     callback = function(args)
         util.keymap('n', 'gd', vim.lsp.buf.definition, { buffer = args.buf })
-        util.keymap('n', 'K', vim.lsp.buf.hover, { buffer = args.buf })
-        util.keymap('n', '<leader>rn', vim.lsp.buf.rename, { buffer = args.buf })
-        util.keymap({ 'n', 'x' }, '<leader>ca', vim.lsp.buf.code_action, { buffer = args.buf })
         util.keymap('i', '<c-space>', '<c-x><c-o>', { buffer = args.buf })
 
         util.keymap('i', '<tab>', function()
@@ -32,7 +25,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         local client = vim.lsp.get_client_by_id(args.data.client_id)
         if client and client:supports_method('textDocument/completion') then
-            vim.bo[args.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
             vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
         end
     end,

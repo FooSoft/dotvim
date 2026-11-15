@@ -29,16 +29,4 @@ util.keymap('n', 'gcp', '<cmd>ToggleParamComment<cr>', {
     desc = 'Toggle parameter-name comment',
 })
 
-util.undo_ftplugin(function()
-    pcall(vim.keymap.del, 'n', 'gcp', { buffer = 0 })
-    pcall(vim.api.nvim_buf_del_user_command, 0, 'ToggleParamComment')
-end)
-
-if util.is_windows() then
-    if vim.diagnostic.is_enabled({ bufnr = 0 }) then
-        vim.diagnostic.enable(false, { bufnr = 0 })
-        util.undo_ftplugin(function()
-            vim.diagnostic.enable(true, { bufnr = 0 })
-        end)
-    end
-end
+util.undo_ftplugin('silent! execute "nunmap <buffer> gcp" | silent! delcommand -buffer ToggleParamComment')
