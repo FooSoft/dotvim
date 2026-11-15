@@ -1,4 +1,5 @@
 local util = require('config.util')
+local pack_local = require('config.pack_local')
 
 local plugins = {
     'https://git.sr.ht/~foosoft/argonaut.nvim',
@@ -33,7 +34,8 @@ if util.is_unix() then
     table.insert(plugins, 'https://github.com/lambdalisue/suda.vim.git')
 end
 
-vim.pack.add(plugins, { confirm = false, load = true })
+-- Local start packages expose Lua modules during init and load scripts at startup.
+vim.pack.add(pack_local.filter(plugins), { confirm = false, load = true })
 
 vim.api.nvim_create_user_command(
     'PackUpdate',
