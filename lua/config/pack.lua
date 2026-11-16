@@ -3,6 +3,7 @@ local pack_local = require('config.pack_local')
 
 local plugins = {
     'https://git.sr.ht/~foosoft/argonaut.nvim',
+    'https://git.sr.ht/~foosoft/boomer.nvim',
     'https://git.sr.ht/~foosoft/f5.nvim',
     'https://git.sr.ht/~foosoft/guid.nvim',
     'https://git.sr.ht/~foosoft/revolver.nvim',

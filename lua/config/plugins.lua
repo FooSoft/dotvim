@@ -16,6 +16,38 @@ util.keymap({ 'x', 'o', 'n' }, '<leader>p', ':<C-u>ArgonautObject previous<cr>')
 util.keymap('n', '<leader>a', ':<C-u>ArgonautToggle<cr>')
 util.keymap('n', '<leader>o', ':<C-u>ArgonautReflow<cr>')
 
+-- boomer.nvim
+require('boomer').setup({
+    agent = util.is_windows() and 'agency' or 'codex',
+    agents = {
+        agency = {
+            args = { 'copilot', '--acp', '--stdio', '--yolo' },
+            command = 'agency',
+            effort = 'high',
+            model = 'claude-opus-5.5',
+            protocol = 'acp',
+        },
+        copilot = {
+            args = { '--acp', '--stdio' },
+            command = 'copilot',
+            effort = 'high',
+            model = 'claude-opus-5.5',
+            protocol = 'acp',
+        },
+        codex = {
+            protocol = 'codex',
+            command = 'codex',
+            args = {}
+        },
+    },
+    window = {
+        float = { border = 'rounded' },
+        height = 0.85,
+        position = 'float',
+        width = 0.85,
+    },
+})
+
 -- catppuccin.nvim
 require('catppuccin').setup({
     flavour = 'macchiato',
