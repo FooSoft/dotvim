@@ -16,6 +16,15 @@ function M.has_executable(name)
     return vim.fn.executable(name) == 1
 end
 
+-- First available LLM agent executable in priority order, or nil.
+function M.agent()
+    for _, name in ipairs({ 'agency', 'copilot', 'codex' }) do
+        if M.has_executable(name) then
+            return name
+        end
+    end
+end
+
 function M.keymap(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, vim.tbl_extend('force', { silent = true }, opts or {}))
 end

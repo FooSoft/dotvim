@@ -1,11 +1,15 @@
 local util = require('config.util')
 
 -- Flip to use the CLI helper in a toggleterm float instead of boomer.nvim.
-local llm_use_boomer = true
+-- boomer.nvim is only set up when an agent executable is available.
+local llm_use_boomer = util.agent() ~= nil
 
 -- Hide the chat window while keeping its buffer and agent session alive.
 -- Returns true if a window was hidden.
 local function hide_boomer()
+    if not llm_use_boomer then
+        return false
+    end
     local status = require('boomer').status()
     if not status then
         return false
@@ -18,11 +22,12 @@ local function hide_boomer()
 end
 
 local function llm_command()
-    if util.has_executable('agency') then
+    local agent = util.agent()
+    if agent == 'agency' then
         return 'agency copilot  --model claude-opus-5.5 --effort high --yolo'
-    elseif util.has_executable('copilot') then
+    elseif agent == 'copilot' then
         return 'copilot --model claude-opus-5.5 --effort high'
-    elseif util.has_executable('codex') then
+    elseif agent == 'codex' then
         return 'codex -c tui.animations=false -c tui.show_tooltips=false -c check_for_update_on_startup=false'
     end
 end
