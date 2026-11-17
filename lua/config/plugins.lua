@@ -49,6 +49,23 @@ if agent then
             width = 0.85,
         },
     })
+
+    -- Hide the chat window if shown (keeping the session alive), else open it.
+    local function toggle_boomer()
+        vim.cmd.stopinsert()
+        local status = require('boomer').status()
+        local windows = status and vim.fn.win_findbuf(status.buf) or {}
+        for _, win in ipairs(windows) do
+            vim.api.nvim_win_close(win, true)
+        end
+        if #windows == 0 then
+            require('boomer').open()
+        end
+    end
+
+    for _, lhs in ipairs({ '<a-\\>', '<c-\\>' }) do
+        util.keymap({ 'n', 'i', 't' }, lhs, toggle_boomer, { desc = 'Toggle boomer chat' })
+    end
 end
 
 -- catppuccin.nvim
@@ -191,7 +208,12 @@ util.keymap({ 'x', 'o' }, 'ag', ':<c-u>GuidObject<cr>')
 util.keymap('n', 'gfs', vim.cmd.Revolve)
 
 -- toggleterm.nvim
-require('config.terminal')
+require('toggleterm').setup({})
+
+-- <c-_> is the byte many terminals send for <c-/>; map both for portability.
+for _, lhs in ipairs({ '<c-/>', '<c-_>' }) do
+    util.keymap({ 'n', 't' }, lhs, '<cmd>ToggleTerm direction=float<cr>')
+end
 
 -- vim-dirvish
 vim.g.dirvish_mode = ':sort ,^.*[\\/],'
