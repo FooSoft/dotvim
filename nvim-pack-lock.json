@@ -5,7 +5,7 @@
       "src": "https://git.sr.ht/~foosoft/argonaut.nvim"
     },
     "boomer.nvim": {
-      "rev": "e22778812c1ddf7caff76bec5fde5c1596cc6eed",
+      "rev": "f7e35963027a7d27d38befbe893be2d47a9f6cee",
       "src": "https://git.sr.ht/~foosoft/boomer.nvim"
     },
     "catppuccin.nvim": {
@@ -25,7 +25,7 @@
       "src": "https://github.com/ibhagwan/fzf-lua.git"
     },
     "gitsigns.nvim": {
-      "rev": "dc7698f932792a764d3db95fedee26c38e728355",
+      "rev": "c0862d382a35b7b45757d8d151a6a634c09bf3ce",
       "src": "https://github.com/lewis6991/gitsigns.nvim.git"
     },
     "guid.nvim": {
