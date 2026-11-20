@@ -30,7 +30,7 @@ if agent then
                 protocol = 'acp',
             },
             copilot = {
-                args = { '--acp', '--stdio' },
+                args = { '--acp', '--stdio', '--yolo' },
                 command = 'copilot',
                 effort = 'high',
                 model = 'claude-opus-5.5',
