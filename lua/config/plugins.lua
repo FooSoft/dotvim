@@ -105,12 +105,6 @@ require('diffview').setup({
 util.keymap('n', '<leader>dq', '<cmd>DiffviewClose<cr>', { desc = 'Close Diffview' })
 util.keymap('n', '<leader>dd', ':DiffviewOpen ', { silent = false, desc = 'Open Diffview with arguments' })
 
--- f5.nvim
-require('f5').setup({
-    enabled = false,
-    reload_files = true,
-})
-
 -- fzf-lua
 if util.has_executable('fzf') then
     local fzf_lua = require('fzf-lua')

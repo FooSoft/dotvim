@@ -2,11 +2,10 @@ local util = require('config.util')
 local pack_local = require('config.pack_local')
 
 local plugins = {
-    'https://git.sr.ht/~foosoft/argonaut.nvim',
-    'https://git.sr.ht/~foosoft/boomer.nvim',
-    'https://git.sr.ht/~foosoft/f5.nvim',
-    'https://git.sr.ht/~foosoft/guid.nvim',
-    'https://git.sr.ht/~foosoft/revolver.nvim',
+    'https://github.com/FooSoft/argonaut.nvim',
+    'https://github.com/FooSoft/boomer.nvim',
+    'https://github.com/FooSoft/guid.nvim',
+    'https://github.com/FooSoft/revolver.nvim',
     'https://github.com/airblade/vim-rooter.git',
     'https://github.com/akinsho/toggleterm.nvim.git',
     'https://github.com/christoomey/vim-sort-motion.git',
@@ -42,6 +41,19 @@ vim.api.nvim_create_user_command(
     function() vim.pack.update() end,
     { desc = 'Review updates for all managed plugins', force = true }
 )
+
+-- Removes installed plugins but keeps the lockfile, so they reinstall at the locked revisions on next start.
+vim.api.nvim_create_user_command('PackClear', function()
+    local plug_dir = vim.fs.joinpath(vim.fn.stdpath('data'), 'site', 'pack', 'core')
+    if vim.fn.confirm('Delete all installed plugins in ' .. plug_dir .. '?', '&Yes\n&No', 2) ~= 1 then
+        return
+    end
+    if vim.fn.delete(plug_dir, 'rf') ~= 0 then
+        vim.notify('Cannot delete ' .. plug_dir, vim.log.levels.ERROR)
+        return
+    end
+    vim.notify('Cleared installed plugins. Restart Neovim to reinstall them.')
+end, { desc = 'Delete all installed plugins so they reinstall on next start', force = true })
 
 vim.api.nvim_create_user_command('PackDelete', function(opts)
     vim.pack.del({ opts.args })

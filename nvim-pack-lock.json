@@ -2,11 +2,11 @@
   "plugins": {
     "argonaut.nvim": {
       "rev": "b4d6b72e6030b590bd2f415e4097cab63804844c",
-      "src": "https://git.sr.ht/~foosoft/argonaut.nvim"
+      "src": "https://github.com/FooSoft/argonaut.nvim"
     },
     "boomer.nvim": {
       "rev": "d08fdbd47a1bbcaaac56662e5ba090b6249093ac",
-      "src": "https://git.sr.ht/~foosoft/boomer.nvim"
+      "src": "https://github.com/FooSoft/boomer.nvim"
     },
     "catppuccin.nvim": {
       "rev": "edefef779ab08ce1a4a404713e3012b0d202bd35",
@@ -18,7 +18,7 @@
     },
     "f5.nvim": {
       "rev": "2dc5ad5ff439462919c33923ad6865a745cbd4e8",
-      "src": "https://git.sr.ht/~foosoft/f5.nvim"
+      "src": "https://git.yatskov.com/alex/f5.nvim"
     },
     "fzf-lua": {
       "rev": "a8312697c30b4d3b110fa3dc56e3699107aed9a0",
@@ -30,11 +30,11 @@
     },
     "guid.nvim": {
       "rev": "183d0f710f5c708df780590a3887c126f57b14e4",
-      "src": "https://git.sr.ht/~foosoft/guid.nvim"
+      "src": "https://github.com/FooSoft/guid.nvim"
     },
     "revolver.nvim": {
       "rev": "5f2663e27ae9f77e5438b44859db4e76d929a56f",
-      "src": "https://git.sr.ht/~foosoft/revolver.nvim"
+      "src": "https://github.com/FooSoft/revolver.nvim"
     },
     "suda.vim": {
       "rev": "c492741b4679b3cdd4d9e34138209784e061d916",
