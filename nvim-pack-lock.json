@@ -5,7 +5,7 @@
       "src": "https://github.com/FooSoft/argonaut.nvim"
     },
     "boomer.nvim": {
-      "rev": "b11b51e31365e9578f319818a50262d703ab27b0",
+      "rev": "9403af5e2c040516acfb6971f3f3e43565647638",
       "src": "https://github.com/FooSoft/boomer.nvim"
     },
     "catppuccin.nvim": {
